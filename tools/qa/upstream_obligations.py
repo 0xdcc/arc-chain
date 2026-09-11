@@ -49,6 +49,18 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
         "reason": "T07 strict readonly RPC allowlist, batch safety, and 3-failure circuit breaker",
         "expected_sha256": "9e9ea80c5964c594e152fce4f81b7e4d879807e58dbd52941871647c29ab07c5",
     },
+    "arc_readiness/balances.py": {
+        "reason": "T10 USDC dual interface balance reconciliation, gas netting, and eligibility scoping",
+        "expected_sha256": "e21754d1c7e6654fa6ac0f405a79028955d9e9034a79b0cbc7ea5171f81d679f",
+    },
+    "arc_readiness/eligibility.py": {
+        "reason": "T10 USDC dual interface balance reconciliation, gas netting, and eligibility scoping",
+        "expected_sha256": "3e58fa959d9200ec04e07e6d03b055e8bb49c8abe10b97ca62a1297d60adef6a",
+    },
+    "arc_readiness/fees.py": {
+        "reason": "T10 USDC dual interface balance reconciliation, gas netting, and eligibility scoping",
+        "expected_sha256": "206918c5c05cc6b75f4e8180a02be7e2511f23245cb0e3f3c66b91b7c3b9a91a",
+    },
 }
 
 # Known Robinhood chain ID and deployments that must NEVER enter Arc 5042 registry
