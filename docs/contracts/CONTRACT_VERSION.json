@@ -1,0 +1,34 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "contract_version": "1.0.0",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "chain_id": 5042,
+  "block_domain": "l1",
+  "exported_entities": [
+    "NetworkProfile",
+    "RawEnvelope",
+    "CoverageManifest",
+    "TickCoverage",
+    "CostEvidence",
+    "SimulationEvidenceBridge",
+    "MarketStructureEvent",
+    "OtcQuote",
+    "Amount",
+    "AssetRef",
+    "PoolKey",
+    "StateVersion",
+    "QuoteEvidence",
+    "OpportunityRecord"
+  ],
+  "file_digests": {
+    "__init__.py": "fa8f45b93677fa17805fa3b7c1aee0605320c4fa2b3629073a655bc284da4815",
+    "arc_extensions.py": "63be1796f42921acc93cd0049a7eba7ecc9195853cc0976412cf83991e02120d",
+    "eligibility.py": "444aaba57b86c22e3ec722d7688d8778a75d371772b12c1d8097474f8d4fe5ce",
+    "identity.py": "b126cab573f6de2f07b576ff9dcdbac4e794a678b77efbff9b6e4f6c5954a7f8",
+    "legacy_adapter.py": "0741f7e6dd45734c1fb91c570f833fba01855c91c5c768c28db569df904341a8",
+    "opportunity.py": "3965180fae21a85d51f36d071c6a2b09094af7396375b3f022bcbe439fa5ca75",
+    "quote.py": "556cb83a7ff417206b970fc34350accc25ad52674c8d7381e404e9815ccf4582",
+    "serialization.py": "b8d6970f7429fb50723a16fb3151a3ba3416f5099e2a3f1a5199e3e1359012cd",
+    "state.py": "be51bde7af779ed68f0afab6623e3b966a3e421cde4a08f3a83491ef709cf1af"
+  }
+}

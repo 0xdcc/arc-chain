@@ -1,5 +1,17 @@
 """Pure Python domain contracts for arbitrage identity, eligibility, state, quote, opportunity, serialization, and legacy adapter."""
 
+from .arc_extensions import (
+    BlockDomain,
+    CostEvidence,
+    CoverageManifest,
+    MarketStructureEvent,
+    NetworkProfile,
+    OtcQuote,
+    RawEnvelope,
+    SimulationEvidenceBridge,
+    SimulationStatus,
+    TickCoverage,
+)
 from .eligibility import (
     AssetEligibility,
     CapabilityStatus,
@@ -83,8 +95,18 @@ __version__ = "1.0.0"
 __all__ = [
     "ALLOWED_DATA_MODES",
     "ALLOWED_RECORD_TYPES",
+    "BlockDomain",
+    "CostEvidence",
+    "CoverageManifest",
+    "MarketStructureEvent",
+    "NetworkProfile",
+    "OtcQuote",
+    "RawEnvelope",
     "SCHEMA_ID",
     "SCHEMA_VERSION",
+    "SimulationEvidenceBridge",
+    "SimulationStatus",
+    "TickCoverage",
     "UINT256_MAX",
     "ActorScope",
     "AdaptationResult",
