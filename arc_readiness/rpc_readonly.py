@@ -36,6 +36,30 @@ FORBIDDEN_MUTATING_METHODS = frozenset(
 )
 
 
+def validate_rpc_method(method: str) -> None:
+    """Validate a single RPC method against read-only security guards."""
+    if not isinstance(method, str):
+        raise ArcValidationError(f"RPC method must be a string, got {type(method).__name__}")
+
+    if method in FORBIDDEN_MUTATING_METHODS or not method.startswith("eth_"):
+        raise ArcValidationError(
+            f"Prohibited mutating or non-EVM RPC method: {method}. Write operations strictly forbidden."
+        )
+
+    if method not in ALLOWED_READONLY_METHODS:
+        raise ArcValidationError(
+            f"Prohibited RPC method: {method}. Allowed methods are: {sorted(ALLOWED_READONLY_METHODS)}"
+        )
+
+
+def validate_batch_methods(methods: Sequence[str]) -> None:
+    """Validate a batch of RPC methods, failing-closed on any mutating or prohibited call."""
+    if not methods:
+        raise ArcValidationError("RPC batch cannot be empty")
+    for method in methods:
+        validate_rpc_method(method)
+
+
 class ReadOnlyRpcTransport:
     """Safe read-only JSON-RPC transport wrapper enforcing pre-flight method allowlists."""
 
@@ -49,18 +73,7 @@ class ReadOnlyRpcTransport:
 
     def request(self, method: str, params: Sequence[Any] | None = None) -> Any:
         """Execute a JSON-RPC request after strictly verifying it is a read-only method."""
-        if not isinstance(method, str):
-            raise ArcValidationError(f"RPC method must be a string, got {type(method).__name__}")
-
-        if method in FORBIDDEN_MUTATING_METHODS or not method.startswith("eth_"):
-            raise ArcValidationError(
-                f"Prohibited mutating or non-EVM RPC method: {method}. Write operations strictly forbidden."
-            )
-
-        if method not in ALLOWED_READONLY_METHODS:
-            raise ArcValidationError(
-                f"Prohibited RPC method: {method}. Allowed methods are: {sorted(ALLOWED_READONLY_METHODS)}"
-            )
+        validate_rpc_method(method)
 
         safe_params = tuple(params) if params is not None else ()
 

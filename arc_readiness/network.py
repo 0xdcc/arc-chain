@@ -2,29 +2,54 @@
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
 from arc_readiness.errors import ArcNetworkMismatchError, ArcValidationError
 from arc_readiness.models import (
-    ARC_TESTNET_CHAIN_ID,
     validate_non_negative_int,
     validate_positive_int,
 )
 
+if TYPE_CHECKING:
+    from arbitrage_contracts.arc_extensions import NetworkProfile
+
+ARC_MAINNET_CHAIN_ID: int = 5042
+ARC_TESTNET_CHAIN_ID: int = 5042002
+
 
 def validate_network_identity(
     observed_chain_id: int,
-    expected_chain_id: int = ARC_TESTNET_CHAIN_ID,
+    expected_chain_id: int = ARC_MAINNET_CHAIN_ID,
 ) -> None:
     """Verify observed chain ID matches the expected Arc network identity.
 
-    Fails-closed if connected to a legacy/wrong chain (e.g. historical 5040).
+    Fails-closed if connected to a wrong/unexpected chain.
+    Silent fallback between mainnet (5042) and testnet (5042002) is strictly forbidden.
     """
     obs = validate_positive_int(observed_chain_id, "observed_chain_id")
     exp = validate_positive_int(expected_chain_id, "expected_chain_id")
 
     if obs != exp:
         raise ArcNetworkMismatchError(
-            f"Chain ID mismatch: observed {obs}, expected {exp}. Rejecting network identity."
+            f"Chain ID mismatch: observed {obs}, expected {exp}. "
+            "Silent fallback between mainnet and testnet is strictly forbidden."
         )
+
+
+def validate_profile_alignment(
+    profile: NetworkProfile,
+    observed_chain_id: int,
+) -> None:
+    """Ensure a NetworkProfile strictly matches the observed on-chain ID."""
+    obs = validate_positive_int(observed_chain_id, "observed_chain_id")
+    if profile.chain_id != obs:
+        raise ArcNetworkMismatchError(
+            f"Profile chain_id {profile.chain_id} ({profile.name}) does not match observed chain {obs}."
+        )
+    if obs == ARC_MAINNET_CHAIN_ID and profile.is_testnet:
+        raise ArcValidationError("Mainnet chain 5042 cannot use a profile with is_testnet=True.")
+    if obs == ARC_TESTNET_CHAIN_ID and not profile.is_testnet:
+        raise ArcValidationError("Testnet chain 5042002 must use a profile with is_testnet=True.")
 
 
 def validate_block_timestamp_order(

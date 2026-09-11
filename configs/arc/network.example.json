@@ -1,0 +1,38 @@
+{
+  "_comment": "Arc Network Configuration Template (v3.1) - Offline & credential-free default",
+  "profiles": {
+    "mainnet": {
+      "chain_id": 5042,
+      "name": "arc-mainnet",
+      "block_domain": "l1",
+      "rpc_endpoints": [
+        "https://rpc.arc.io"
+      ],
+      "native_asset_domain": "arc-usdc-native",
+      "max_trade_usd": 500.0,
+      "is_testnet": false,
+      "network_mode": "offline"
+    },
+    "testnet": {
+      "chain_id": 5042002,
+      "name": "arc-testnet",
+      "block_domain": "l1",
+      "rpc_endpoints": [
+        "https://rpc.testnet.arc.io"
+      ],
+      "native_asset_domain": "arc-usdc-testnet",
+      "max_trade_usd": 500.0,
+      "is_testnet": true,
+      "network_mode": "offline"
+    }
+  },
+  "default_profile": "mainnet",
+  "circuit_breaker": {
+    "max_consecutive_failures": 3,
+    "timeout_seconds": 10.0
+  },
+  "proxy": {
+    "allow_implicit_env": false,
+    "explicit_proxy_url": null
+  }
+}
