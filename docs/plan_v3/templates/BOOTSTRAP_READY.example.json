@@ -1,0 +1,22 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "ready": false,
+  "project_instance_id": null,
+  "project_root": "/root/projects/crypto/arc-chain",
+  "coord_root": "/root/projects/crypto/arc-chain/.coord",
+  "plan_dir": "/root/projects/crypto/arc-chain/docs/plan_v3",
+  "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "arc_candidate_sha": null,
+  "contract_digest": null,
+  "plan_manifest_sha256": null,
+  "host_identity": null,
+  "old_writer_reconciliation": null,
+  "bootstrap_tasks_passed": [],
+  "runtime_authority": "M1",
+  "meaning": "coordination readiness only; not test/live/funds gate",
+  "selected_code_digest": null,
+  "local_git_head": null,
+  "local_data_overlay_ref": null,
+  "local_data_difference_classification": null,
+  "whole_repository_clean_required": false
+}

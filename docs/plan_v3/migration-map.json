@@ -1,0 +1,304 @@
+{
+  "from_plan": "v2 eight brains",
+  "to_plan": "ARC-4B-v3.1-20260911-13817f4",
+  "roles": {
+    "A0": "M1",
+    "A1": "M2",
+    "A2": "M2",
+    "A3": "M3",
+    "A4": "M3",
+    "A5": "M3",
+    "A6": "M1",
+    "A7": "M4"
+  },
+  "tasks": [
+    {
+      "old": "A0-01",
+      "new": "T01",
+      "owner": "M1",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A0-02",
+      "new": "T02",
+      "owner": "M1",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A0-03",
+      "new": "T03",
+      "owner": "M1",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A0-04",
+      "new": "T04",
+      "owner": "M1",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A0-05",
+      "new": "T05",
+      "owner": "M1",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A0-06",
+      "new": "T06",
+      "owner": "M1",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A1-01",
+      "new": "T07",
+      "owner": "M2",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A1-02",
+      "new": "T08",
+      "owner": "M2",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A1-03",
+      "new": "T09",
+      "owner": "M2",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A1-04",
+      "new": "T10",
+      "owner": "M2",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A1-05",
+      "new": "T11",
+      "owner": "M2",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A1-06",
+      "new": "T12",
+      "owner": "M2",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A2-01",
+      "new": "T13",
+      "owner": "M2",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A2-02",
+      "new": "T14",
+      "owner": "M2",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A2-03",
+      "new": "T15",
+      "owner": "M2",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A2-04",
+      "new": "T16",
+      "owner": "M2",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A2-05",
+      "new": "T17",
+      "owner": "M2",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A2-06",
+      "new": "T18",
+      "owner": "M2",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A3-01",
+      "new": "T19",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A3-02",
+      "new": "T20",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A3-03",
+      "new": "T21",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A3-04",
+      "new": "T22",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A3-05",
+      "new": "T23",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A3-06",
+      "new": "T24",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A4-01",
+      "new": "T25",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A4-02",
+      "new": "T26",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A4-03",
+      "new": "T27",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A4-04",
+      "new": "T28",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A4-05",
+      "new": "T29",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A4-06",
+      "new": "T30",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A5-01",
+      "new": "T31",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A5-02",
+      "new": "T32",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A5-03",
+      "new": "T33",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A5-04",
+      "new": "T34",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A5-05",
+      "new": "T35",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A5-06",
+      "new": "T36",
+      "owner": "M3",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A6-01",
+      "new": "T37",
+      "owner": "M1",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A6-02",
+      "new": "T38",
+      "owner": "M1",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A6-03",
+      "new": "T39",
+      "owner": "M1",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A6-04",
+      "new": "T40",
+      "owner": "M1",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A6-05",
+      "new": "T41",
+      "owner": "M1",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A6-06",
+      "new": "T42",
+      "owner": "M1",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A7-01",
+      "new": "T43",
+      "owner": "M4",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A7-02",
+      "new": "T44",
+      "owner": "M4",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A7-03",
+      "new": "T45",
+      "owner": "M4",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A7-04",
+      "new": "T46",
+      "owner": "M4",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A7-05",
+      "new": "T47",
+      "owner": "M4",
+      "inherit_status_automatically": false
+    },
+    {
+      "old": "A7-06",
+      "new": "T48",
+      "owner": "M4",
+      "inherit_status_automatically": false
+    }
+  ]
+}

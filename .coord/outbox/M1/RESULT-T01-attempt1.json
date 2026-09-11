@@ -1,0 +1,48 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T01",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M1-controller",
+  "status": "BOOTSTRAP_PREPARED",
+  "baseline_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "result_commit": null,
+  "contract_digest": null,
+  "changed_files": [
+    "docs/reuse/CODE_MANIFEST.json",
+    "docs/reuse/LOCAL_DATA_OVERLAY.json",
+    "docs/reuse/SOURCE_BASELINE.md",
+    "docs/reuse/SOURCE_LOCK.json",
+    "docs/reuse/LOCAL_FACTS.json"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "selected_code_digest": "1e06e54567abc368812f094110614a71976ca27841c2f664e016c330ab519e9c"
+  },
+  "test_runs": [
+    {
+      "command": "python3 audit_local_facts_and_lock",
+      "exit_code": 0,
+      "collected": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T01/attempt1/audit.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "OFFLINE_AUDIT_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Local pool catalog has 346+ pools which differs from upstream 13817f4 repo state; classified as DATA_ONLY_DIFFERENCE."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T01 verified source SHA 13817f4, isolated target arc-chain, classified local pool differences under rule 07.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": "1e06e54567abc368812f094110614a71976ca27841c2f664e016c330ab519e9c",
+  "catalog_snapshot_ref": "data/v3_pools_live_catalog.json, data/v4_pools_live_catalog.json",
+  "catalog_generation": "arc-v1-uninitialized"
+}

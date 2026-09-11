@@ -1,0 +1,52 @@
+{
+  "catalog_file_sha256": {
+    "market_catalog/__init__.py": "b78630ad2459ac5cfb649a800de48d6982feb3fdd7398967ae47bad6d52949b3",
+    "market_catalog/changes.py": "01b46955b22992949c232ca20fb1825a4fca4ce2fbee29a85e2cf31c07c63f8d",
+    "market_catalog/discovery.py": "9257ad6b66a06c3a5d758517cfc4b2a87b9c13e3ba7946a800d8f880fcdc16fb",
+    "market_catalog/export.py": "0011ae0c5023256c11a35fb825158e832c7242cb0aab1bbbbd0ccd1688e27e1d",
+    "market_catalog/inputs.py": "ff787cbdb6013bd62867de6d865bd9d75c871894085ed2e5abf86ab3eb130bc5",
+    "market_catalog/registry.py": "ee88f0ff02fcec3f51ab7c2c87458fb37d6837779ffad37bc5cabefdaacc07a6",
+    "market_catalog/verification.py": "8fd6321bd56dfe736c61283a0d944c5703d30ab3435b189875c4b5826190c436",
+    "tests/catalog/test_changes.py": "1393649bfa129161af0f6ec89b4abb94f7c70e24880b002262305342b4960225",
+    "tests/catalog/test_cli.py": "66febcd5ce285a58c1e4aaa14edfb249600938773a8f04694cdfbc03e8735391",
+    "tests/catalog/test_consumers.py": "ceb134c1c74d83be6e03a7494383a6d60971cb89a569bf0db4e5d42f9456c4f9",
+    "tests/catalog/test_discovery.py": "79c761748c5e0344cd255abc14735cbcb2d26ec7ae49a7d613fd4cf8da635e3e",
+    "tests/catalog/test_export.py": "07571b1f1e5a7de28f1976cca99d93e0aa6c39c20fd670fb207f9d7e52cdd1cb",
+    "tests/catalog/test_import_boundary.py": "4a42b21996e18031e83aaf362524a920db2b97e6873675619c217e75fbd15fd8",
+    "tests/catalog/test_inputs.py": "7bbaac44531d1b92d5b829fcc2530a4e86b49fa0fcd5627e20081ff5864a11c0",
+    "tests/catalog/test_registry.py": "1b364bbcd0dbb42a98f4b1f254e463ea8d86d6f79176a880fd1c15f24bf9b5a9",
+    "tests/catalog/test_verification.py": "c93a731bfb454c035f8e36153cc93e11d1a3820888e70e73f63aa5bb1d24a499"
+  },
+  "catalog_files": [
+    "market_catalog/__init__.py",
+    "market_catalog/changes.py",
+    "market_catalog/discovery.py",
+    "market_catalog/export.py",
+    "market_catalog/inputs.py",
+    "market_catalog/registry.py",
+    "market_catalog/verification.py",
+    "tests/catalog/test_changes.py",
+    "tests/catalog/test_cli.py",
+    "tests/catalog/test_consumers.py",
+    "tests/catalog/test_discovery.py",
+    "tests/catalog/test_export.py",
+    "tests/catalog/test_import_boundary.py",
+    "tests/catalog/test_inputs.py",
+    "tests/catalog/test_registry.py",
+    "tests/catalog/test_verification.py"
+  ],
+  "format": "w1-fixture-internal-v1",
+  "partitions": {
+    "synthetic_changes.jsonl": "665df52302373e4fbe5091c29ee62028fe8ce91322b1523d315ef17a4d43fb73",
+    "synthetic_invalid.jsonl": "54b4d579e064776fa5a641c7c0ab629fe928ab78fe665f01971e4de9aa8b084c",
+    "synthetic_quotes.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "synthetic_valid.jsonl": "0e94d855e55900ba51eab8c0ad9581b5083d8dc75e4c41474d47635ce32f7adb"
+  },
+  "review_manifest_text": "{\"decisions\":[{\"can_quote\":false,\"decimals_evidence_ref\":\"ev-main\",\"evidence_refs\":[\"ev-main\"],\"restrictions\":{\"blacklist\":\"verified_false\",\"pause\":\"verified_false\",\"rebase\":\"verified_false\",\"tax\":\"verified_false\",\"whitelist\":\"verified_false\"},\"reviewed_at_ms\":1100,\"reviewer_ref\":\"reviewer:synthetic-w1\",\"scope\":{\"block_from\":100,\"block_to\":110,\"chain_id\":4663,\"domain\":\"synthetic\",\"subject_kind\":\"public\",\"subject_ref\":null,\"valid_from_ms\":1000,\"valid_until_ms\":2000},\"status\":\"approved\",\"subject_key\":\"weth-a\"},{\"can_quote\":false,\"decimals_evidence_ref\":\"ev-main\",\"evidence_refs\":[\"ev-main\"],\"restrictions\":{\"blacklist\":\"verified_false\",\"pause\":\"verified_false\",\"rebase\":\"verified_false\",\"tax\":\"verified_false\",\"whitelist\":\"verified_false\"},\"reviewed_at_ms\":1100,\"reviewer_ref\":\"reviewer:synthetic-w1\",\"scope\":{\"block_from\":100,\"block_to\":110,\"chain_id\":4663,\"domain\":\"synthetic\",\"subject_kind\":\"public\",\"subject_ref\":null,\"valid_from_ms\":1000,\"valid_until_ms\":2000},\"status\":\"approved\",\"subject_key\":\"usdc\"},{\"can_quote\":true,\"decimals_evidence_ref\":null,\"evidence_refs\":[\"ev-main\"],\"restrictions\":{},\"reviewed_at_ms\":1100,\"reviewer_ref\":\"reviewer:synthetic-w1\",\"scope\":{\"block_from\":100,\"block_to\":110,\"chain_id\":4663,\"domain\":\"synthetic\",\"subject_kind\":\"public\",\"subject_ref\":null,\"valid_from_ms\":1000,\"valid_until_ms\":2000},\"status\":\"approved\",\"subject_key\":\"pool-a\"}],\"domain\":\"synthetic\",\"evidence\":[{\"block_ref\":\"100\",\"captured_at_ms\":1000,\"chain_id\":4663,\"evidence_id\":\"ev-main\",\"raw_sha256\":\"aaabdccca247ce89166043fb59d8d4b8c3515a893cb74edfffcb9dc307b19649\",\"raw_text\":\"SYNTHETIC ONLY: identities, decimals, restrictions and quote support at block 100\",\"source_locator\":\"fixture:synthetic\",\"source_type\":\"synthetic\"}],\"format\":\"w1-review-internal-v1\",\"records_sha256\":\"0e94d855e55900ba51eab8c0ad9581b5083d8dc75e4c41474d47635ce32f7adb\",\"reviewer_ref\":\"reviewer:synthetic-w1\",\"source_type\":\"synthetic\"}",
+  "review_trust": {
+    "domain": "synthetic",
+    "manifest_sha256": "9d91855e655005cae18ac9ed2a41b679816ef176e6cff6d9025344b9d79bacc0",
+    "reviewer_ref": "reviewer:synthetic-w1",
+    "source_type": "synthetic"
+  }
+}

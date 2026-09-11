@@ -1,0 +1,21 @@
+{
+  "format": "w4-reference-fixture-v2",
+  "revision": "v2.0.0",
+  "chain_id": 4663,
+  "parity_cases": [
+    {
+      "case_name": "exact_parity_match_two_hop",
+      "amount_in_atoms": 10000,
+      "local_delta_atoms": -50,
+      "reference_delta_atoms": -50,
+      "expected_status": "match"
+    },
+    {
+      "case_name": "delta_discrepancy_mismatch",
+      "amount_in_atoms": 10000,
+      "local_delta_atoms": -50,
+      "reference_delta_atoms": -60,
+      "expected_status": "mismatch"
+    }
+  ]
+}

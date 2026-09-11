@@ -1,0 +1,326 @@
+"""Unit and integration tests for RPC method risk-tier policy (RpcPolicy)."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any
+
+import pytest
+
+from backtest.data.rpc_client import RobinhoodRpc
+from core.rpc_policy import (
+    DEFAULT_MANIFEST_PATH,
+    InvalidConfirmationTokenError,
+    MethodDisabledError,
+    RpcMethodEntry,
+    RpcPolicy,
+    RpcTierDeniedError,
+    UnknownRpcMethodError,
+)
+
+
+def test_1_read_methods_allowed() -> None:
+    """1. eth_getLogs / eth_blockNumber / eth_getBlockByNumber（工程实际在用的三个）→ 放行."""
+    policy = RpcPolicy()
+    for method in ["eth_getLogs", "eth_blockNumber", "eth_getBlockByNumber"]:
+        entry = policy.evaluate(method)
+        assert isinstance(entry, RpcMethodEntry)
+        assert entry.method == method
+        assert entry.tier == "read"
+        assert entry.enabled is True
+        assert entry.requires_confirmation is False
+
+
+def test_2_broadcast_default_denied() -> None:
+    """2. eth_sendRawTransaction 默认 → RpcTierDeniedError."""
+    policy = RpcPolicy()
+    with pytest.raises(RpcTierDeniedError) as exc_info:
+        policy.evaluate("eth_sendRawTransaction")
+    assert "broadcast" in str(exc_info.value)
+
+
+def test_3_broadcast_without_token_denied() -> None:
+    """3. eth_sendRawTransaction + allow_broadcast=True 但无 token → RpcTierDeniedError."""
+    policy = RpcPolicy(allow_broadcast=True, confirmation_token=None)
+    with pytest.raises(RpcTierDeniedError) as exc_info:
+        policy.evaluate("eth_sendRawTransaction")
+    assert "confirmation token" in str(exc_info.value).lower()
+
+
+def test_4_broadcast_with_short_token_denied() -> None:
+    """4. eth_sendRawTransaction + allow_broadcast=True + 短 token（<8）→ InvalidConfirmationTokenError."""
+    short_tokens = ["1", "1234567", "abc"]
+    for token in short_tokens:
+        policy = RpcPolicy(allow_broadcast=True, confirmation_token=token)
+        with pytest.raises(InvalidConfirmationTokenError) as exc_info:
+            policy.evaluate("eth_sendRawTransaction")
+        assert "8 characters" in str(exc_info.value)
+        assert token not in str(exc_info.value)
+
+
+def test_5_broadcast_with_valid_token_allowed() -> None:
+    """5. eth_sendRawTransaction + allow_broadcast=True + 合法 token → 放行."""
+    valid_tokens = ["12345678", "secure_token_xyz", "confirm-broadcast-op"]
+    for token in valid_tokens:
+        policy = RpcPolicy(allow_broadcast=True, confirmation_token=token)
+        entry = policy.evaluate("eth_sendRawTransaction")
+        assert entry.tier == "broadcast"
+        assert entry.method == "eth_sendRawTransaction"
+
+        # 同样覆盖 eth_sendTransaction
+        tx_entry = policy.evaluate("eth_sendTransaction")
+        assert tx_entry.tier == "broadcast"
+
+
+def test_6_local_sensitive_tier_toggle() -> None:
+    """6. eth_sign 默认 → RpcTierDeniedError；allow_sensitive=True → 放行."""
+    default_policy = RpcPolicy()
+    for method in ["eth_sign", "eth_accounts", "eth_signTransaction"]:
+        with pytest.raises(RpcTierDeniedError) as exc_info:
+            default_policy.evaluate(method)
+        assert "local-sensitive" in str(exc_info.value)
+
+    sensitive_policy = RpcPolicy(allow_sensitive=True)
+    for method in ["eth_sign", "eth_accounts", "eth_signTransaction"]:
+        entry = sensitive_policy.evaluate(method)
+        assert entry.tier == "local-sensitive"
+        assert entry.method == method
+
+
+def test_7_operator_tier_permanently_denied() -> None:
+    """7. engine_newPayloadV1 无论什么开关 → RpcTierDeniedError（至少测 2 组开关组合）."""
+    switch_combos = [
+        # 默认只读
+        RpcPolicy(allow_sensitive=False, allow_broadcast=False, confirmation_token=None),
+        # 仅开启 sensitive
+        RpcPolicy(allow_sensitive=True, allow_broadcast=False, confirmation_token=None),
+        # 开启 broadcast 且带合法 token
+        RpcPolicy(
+            allow_sensitive=False, allow_broadcast=True, confirmation_token="valid_token_12345"
+        ),
+        # 全部开启
+        RpcPolicy(
+            allow_sensitive=True, allow_broadcast=True, confirmation_token="valid_token_12345"
+        ),
+    ]
+
+    for policy in switch_combos:
+        with pytest.raises(RpcTierDeniedError) as exc_info:
+            policy.evaluate("engine_newPayloadV1")
+        assert "operator" in str(exc_info.value)
+
+
+def test_8_unknown_rpc_method_error() -> None:
+    """8. 未登记方法（如 eth_foobar123）→ UnknownRpcMethodError."""
+    policy = RpcPolicy()
+    unregistered_methods = [
+        "eth_foobar123",
+        "eth_hackWallet",
+        "custom_method",
+        "web3_clientVersion",
+    ]
+    for method in unregistered_methods:
+        with pytest.raises(UnknownRpcMethodError) as exc_info:
+            policy.evaluate(method)
+        assert method in str(exc_info.value)
+
+
+def test_9_method_disabled_error() -> None:
+    """9. debug_getRawBlock（enabled=False）→ MethodDisabledError."""
+    policy = RpcPolicy()
+    disabled_methods = [
+        "debug_getBadBlocks",
+        "debug_getRawBlock",
+        "debug_getRawHeader",
+        "debug_getRawReceipts",
+        "debug_getRawTransaction",
+    ]
+    for method in disabled_methods:
+        with pytest.raises(MethodDisabledError) as exc_info:
+            policy.evaluate(method)
+        assert "disabled" in str(exc_info.value).lower()
+        assert method in str(exc_info.value)
+
+
+def test_10_robinhood_rpc_integration_denial(monkeypatch: pytest.MonkeyPatch) -> None:
+    """10. RobinhoodRpc 集成：policy 拒绝时 call() 不发起网络请求（用 monkeypatch 断言 _session.post 未被调用）."""
+    rpc = RobinhoodRpc()
+    post_called = False
+
+    def fake_post(*args: Any, **kwargs: Any) -> Any:
+        nonlocal post_called
+        post_called = True
+        raise AssertionError("Network call should NOT be made when policy rejects!")
+
+    monkeypatch.setattr(rpc._session, "post", fake_post)
+
+    # 1. 默认拒绝广播操作
+    with pytest.raises(RpcTierDeniedError):
+        rpc.call("eth_sendRawTransaction", ["0xdeadbeef"])
+    assert not post_called
+
+    # 2. 默认拒绝敏感操作
+    with pytest.raises(RpcTierDeniedError):
+        rpc.call("eth_accounts", [])
+    assert not post_called
+
+    # 3. 拒绝未登记方法
+    with pytest.raises(UnknownRpcMethodError):
+        rpc.call("eth_foobar123", [])
+    assert not post_called
+
+    # 4. 拒绝禁用方法
+    with pytest.raises(MethodDisabledError):
+        rpc.call("debug_getRawBlock", ["0x1"])
+    assert not post_called
+
+
+def test_11_robinhood_rpc_default_existing_methods_work(monkeypatch: pytest.MonkeyPatch) -> None:
+    """11. 工程现有 3 个方法通过默认 RobinhoodRpc 能正常构造（不被误伤）."""
+    rpc = RobinhoodRpc()
+
+    class FakeResponse:
+        status_code = 200
+
+        def __init__(self, json_data: Any) -> None:
+            self._json = json_data
+
+        def json(self) -> Any:
+            return self._json
+
+    recorded_calls: list[str] = []
+
+    def fake_post(url: str, json: Any = None, **kwargs: Any) -> Any:
+        nonlocal recorded_calls
+        if isinstance(json, dict):
+            method = json.get("method")
+            recorded_calls.append(str(method))
+            if method == "eth_blockNumber":
+                return FakeResponse({"jsonrpc": "2.0", "result": "0x3645bdf", "id": 1})
+            if method == "eth_getBlockByNumber":
+                return FakeResponse(
+                    {"jsonrpc": "2.0", "result": {"number": "0x1", "timestamp": "0x600"}, "id": 1}
+                )
+            if method == "eth_getLogs":
+                return FakeResponse({"jsonrpc": "2.0", "result": [], "id": 1})
+        elif isinstance(json, list):
+            res_list = []
+            for item in json:
+                recorded_calls.append(str(item.get("method")))
+                res_list.append(
+                    {"jsonrpc": "2.0", "result": {"number": "0x1", "timestamp": "0x600"}, "id": 1}
+                )
+            return FakeResponse(res_list)
+        return FakeResponse({"jsonrpc": "2.0", "result": None, "id": 1})
+
+    monkeypatch.setattr(rpc._session, "post", fake_post)
+
+    # 验证 call() 正常通过策略
+    res_bn = rpc.call("eth_blockNumber", [])
+    assert res_bn.get("result") == "0x3645bdf"
+
+    res_blk = rpc.call("eth_getBlockByNumber", ["0x1", False])
+    assert "timestamp" in res_blk
+
+    res_logs = rpc.call("eth_getLogs", [{}])
+    assert res_logs.get("result") == []
+
+    # 验证 call_batch() 正常通过策略
+    res_batch = rpc.call_batch(
+        [
+            {"jsonrpc": "2.0", "method": "eth_getBlockByNumber", "params": ["0x1", False], "id": 1},
+            {"jsonrpc": "2.0", "method": "eth_getBlockByNumber", "params": ["0x2", False], "id": 2},
+        ]
+    )
+    assert len(res_batch) == 2
+    assert "eth_blockNumber" in recorded_calls
+    assert "eth_getBlockByNumber" in recorded_calls
+    assert "eth_getLogs" in recorded_calls
+
+
+def test_12_confirmation_token_not_leaked_in_exception() -> None:
+    """12. confirmation token 不出现在异常消息里：assert token not in str(exc_info.value)."""
+    sensitive_token = "top_secret_token_12345"
+    # 短 token 场景
+    short_secret = "sh_tok7"
+    policy_short = RpcPolicy(allow_broadcast=True, confirmation_token=short_secret)
+    with pytest.raises(InvalidConfirmationTokenError) as exc_short:
+        policy_short.evaluate("eth_sendRawTransaction")
+    assert short_secret not in str(exc_short.value)
+
+    # repr 也不泄漏
+    policy_valid = RpcPolicy(allow_broadcast=True, confirmation_token=sensitive_token)
+    assert sensitive_token not in repr(policy_valid)
+
+
+def test_13_batch_call_denial_blocks_network(monkeypatch: pytest.MonkeyPatch) -> None:
+    """13. call_batch 中若有一项被策略拦截，整批直接拒绝且不发网络请求."""
+    rpc = RobinhoodRpc()
+    post_called = False
+
+    def fake_post(*args: Any, **kwargs: Any) -> Any:
+        nonlocal post_called
+        post_called = True
+        raise AssertionError("Should not make network calls")
+
+    monkeypatch.setattr(rpc._session, "post", fake_post)
+
+    batch_with_illegal_item = [
+        {"jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 1},
+        {"jsonrpc": "2.0", "method": "eth_sendRawTransaction", "params": ["0x1"], "id": 2},
+    ]
+
+    with pytest.raises(RpcTierDeniedError):
+        rpc.call_batch(batch_with_illegal_item)
+    assert not post_called
+
+
+def test_14_from_manifest_file(tmp_path: Path) -> None:
+    """14. 验证 from_manifest_file 可正确加载外部 manifest."""
+    custom_manifest = {
+        "custom_read": {"tier": "read", "enabled": True, "requires_confirmation": False},
+        "custom_disabled": {"tier": "read", "enabled": False, "requires_confirmation": False},
+    }
+    m_file = tmp_path / "test_manifest.json"
+    m_file.write_text(json.dumps(custom_manifest), encoding="utf-8")
+
+    custom_policy = RpcPolicy.from_manifest_file(m_file)
+    entry = custom_policy.evaluate("custom_read")
+    assert entry.method == "custom_read"
+
+    with pytest.raises(MethodDisabledError):
+        custom_policy.evaluate("custom_disabled")
+
+    with pytest.raises(UnknownRpcMethodError):
+        custom_policy.evaluate("eth_blockNumber")
+
+
+def test_15_manifest_counts_and_structure() -> None:
+    """15. 验证 manifest 总数及各 tier 数量与上游/规范严格一致."""
+    with open(DEFAULT_MANIFEST_PATH, encoding="utf-8") as f:
+        manifest = json.load(f)
+
+    assert len(manifest) == 69, f"Expected 69 methods, got {len(manifest)}"
+
+    tier_counts: dict[str, int] = {}
+    for item in manifest.values():
+        t = item["tier"]
+        tier_counts[t] = tier_counts.get(t, 0) + 1
+
+    assert tier_counts == {
+        "read": 40,
+        "operator": 24,
+        "local-sensitive": 3,
+        "broadcast": 2,
+    }
+
+    # 5 个 debug_* 方法处于 disabled 状态
+    disabled_debug = [k for k, v in manifest.items() if not v.get("enabled", True)]
+    assert sorted(disabled_debug) == [
+        "debug_getBadBlocks",
+        "debug_getRawBlock",
+        "debug_getRawHeader",
+        "debug_getRawReceipts",
+        "debug_getRawTransaction",
+    ]

@@ -1,0 +1,26 @@
+{
+  "format": "w7-quotes-cases-v1",
+  "revision": "0.1.0-draft",
+  "cases": [
+    {
+      "id": "case_c16_manager_isolation",
+      "description": "Same pool_id on different manager addresses must maintain distinct pool keys",
+      "pool_id": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "manager_1": "0x2222222222222222222222222222222222222222",
+      "manager_2": "0x3333333333333333333333333333333333333333"
+    },
+    {
+      "id": "case_c17_bidirectional_check",
+      "description": "Unpaired single-direction quote fails bidirectional completeness",
+      "direction": "zero_for_one",
+      "expected_is_bidirectional": false
+    },
+    {
+      "id": "case_c22_revert_classification",
+      "description": "Revert quote produces amount_out=None and status=reverted",
+      "status": "reverted",
+      "amount_out_atoms": null,
+      "error": "NotEnoughLiquidity()"
+    }
+  ]
+}

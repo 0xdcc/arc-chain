@@ -1,0 +1,36 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "obligations": [
+    {
+      "category": "contracts",
+      "test_file": "tests/test_arbitrage_contracts.py",
+      "reason": "Ensure pure data models, amounts, and invariants pass",
+      "expected": "PASS"
+    },
+    {
+      "category": "catalog",
+      "test_file": "tests/test_market_catalog.py",
+      "reason": "Ensure pool identity and catalog registration models pass",
+      "expected": "PASS"
+    },
+    {
+      "category": "state_graph",
+      "test_file": "tests/test_state_graph.py",
+      "reason": "Ensure integer math, topological search and quote paths pass",
+      "expected": "PASS"
+    },
+    {
+      "category": "opportunities",
+      "test_file": "tests/test_opportunities.py",
+      "reason": "Ensure opportunity ledger and integrity pass",
+      "expected": "PASS"
+    },
+    {
+      "category": "settled_cycles",
+      "test_file": "tests/test_settled_cycles.py",
+      "reason": "Ensure historical cycle reconstruction pass",
+      "expected": "PASS"
+    }
+  ]
+}

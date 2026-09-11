@@ -1,0 +1,89 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "brains": [
+    {
+      "id": "M1",
+      "name": "总控与集成",
+      "prompt_file": "10_主脑1_总控与集成.md",
+      "tasks": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05",
+        "T06",
+        "T37",
+        "T38",
+        "T39",
+        "T40",
+        "T41",
+        "T42"
+      ],
+      "max_children": 4,
+      "initial_children": 1
+    },
+    {
+      "id": "M2",
+      "name": "数据与市场",
+      "prompt_file": "20_主脑2_数据与市场.md",
+      "tasks": [
+        "T07",
+        "T08",
+        "T09",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T14",
+        "T15",
+        "T16",
+        "T17",
+        "T18"
+      ],
+      "max_children": 4,
+      "initial_children": 2
+    },
+    {
+      "id": "M3",
+      "name": "策略、仿真与研究",
+      "prompt_file": "30_主脑3_策略仿真与研究.md",
+      "tasks": [
+        "T19",
+        "T20",
+        "T21",
+        "T22",
+        "T23",
+        "T24",
+        "T25",
+        "T26",
+        "T27",
+        "T28",
+        "T29",
+        "T30",
+        "T31",
+        "T32",
+        "T33",
+        "T34",
+        "T35",
+        "T36"
+      ],
+      "max_children": 4,
+      "initial_children": 2
+    },
+    {
+      "id": "M4",
+      "name": "独立审查",
+      "prompt_file": "40_主脑4_独立审查.md",
+      "tasks": [
+        "T43",
+        "T44",
+        "T45",
+        "T46",
+        "T47",
+        "T48"
+      ],
+      "max_children": 4,
+      "initial_children": 1
+    }
+  ]
+}

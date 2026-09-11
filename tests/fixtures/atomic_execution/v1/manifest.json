@@ -1,0 +1,22 @@
+{
+  "schema_id": "w5-input-fixtures-manifest-v1",
+  "format": "atomic_execution-v1",
+  "chain_id": 4663,
+  "created_at_utc": "2026-09-10T00:00:00Z",
+  "partitions": {
+    "input-cases.jsonl": "cada416829ed99f0641fac99652317036b7926cf203742e59075e073a4471c1b"
+  },
+  "summary": {
+    "total_cases": 19,
+    "positive_cases": 2,
+    "rejected_cases": 17,
+    "categories": {
+      "positive": 2,
+      "C01": 4,
+      "C02": 3,
+      "C03": 4,
+      "C04": 2,
+      "C05": 4
+    }
+  }
+}

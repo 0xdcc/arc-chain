@@ -1,0 +1,60 @@
+{
+  "format": "w4-e2e-fixture-v2",
+  "revision": "v2.1.0-whole-block-explicit-units",
+  "chain_id": 4663,
+  "base_assets": [
+    "0x7765746800000000000000000000000000000000"
+  ],
+  "pools": [
+    {
+      "pool_id": "0x706f6f6c5f776574685f757364675f3100000000",
+      "currency0": "0x7765746800000000000000000000000000000000",
+      "currency1": "0x7573646700000000000000000000000000000000",
+      "fee_pips": 500,
+      "tick_spacing": 10
+    },
+    {
+      "pool_id": "0x706f6f6c5f776574685f757364675f3200000000",
+      "currency0": "0x7765746800000000000000000000000000000000",
+      "currency1": "0x7573646700000000000000000000000000000000",
+      "fee_pips": 3000,
+      "tick_spacing": 60
+    }
+  ],
+  "state_version": {
+    "chain_id": 4663,
+    "block_domain": "l2",
+    "block_number": 58239320,
+    "block_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "received_at_ms": 1725900010000,
+    "completeness": "ready",
+    "complete_through_block": 58239320,
+    "applied_cursor": null
+  },
+  "pool_snapshots": [
+    {
+      "pool_id": "0x706f6f6c5f776574685f757364675f3100000000",
+      "sqrt_price_x96": "79247971040445709311708648151",
+      "tick": 5,
+      "liquidity": "10000000000000000000000",
+      "fee_pips": 500,
+      "tick_spacing": 10,
+      "block_number": 58239320,
+      "block_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "pool_id": "0x706f6f6c5f776574685f757364675f3200000000",
+      "sqrt_price_x96": "79247971040445709311708648151",
+      "tick": 5,
+      "liquidity": "20000000000000000000000",
+      "fee_pips": 3000,
+      "tick_spacing": 60,
+      "block_number": 58239320,
+      "block_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "token_decimals": {
+    "0x7765746800000000000000000000000000000000": 18,
+    "0x7573646700000000000000000000000000000000": 18
+  }
+}

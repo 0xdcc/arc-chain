@@ -1,0 +1,42 @@
+{
+  "format": "w4-base-fixture-v2",
+  "revision": "v2.0.0",
+  "chain_id": 4663,
+  "state_version": {
+    "chain_id": 4663,
+    "block_domain": "l2",
+    "block_number": 58239320,
+    "block_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "received_at_ms": 1725900010000,
+    "completeness": "ready",
+    "complete_through_block": 58239320,
+    "applied_cursor": {
+      "block_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "transaction_hash": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "transaction_index": 12,
+      "log_index": 45
+    }
+  },
+  "pool_snapshots": [
+    {
+      "pool_id": "0x706f6f6c5f776574685f757364675f3100000000",
+      "sqrt_price_x96": "79228162514264337593543950336",
+      "tick": 0,
+      "liquidity": "1000000000000000000",
+      "fee_pips": 500,
+      "tick_spacing": 10,
+      "block_number": 58239320,
+      "block_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "pool_id": "0x706f6f6c5f776574685f757364675f3200000000",
+      "sqrt_price_x96": "79228162514264337593543950336",
+      "tick": 0,
+      "liquidity": "2000000000000000000",
+      "fee_pips": 3000,
+      "tick_spacing": 60,
+      "block_number": 58239320,
+      "block_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "format": "w7-fixture-manifest-v1",
+  "revision": "0.1.0-draft",
+  "files": [
+    {
+      "relative_path": "README.md",
+      "sha256": "183e678f13a339db56b2dab74d6dcbdb4a1498f63cb9dabd94710b659d4158b5",
+      "size_bytes": 770
+    },
+    {
+      "relative_path": "e2e.json",
+      "sha256": "9644af51c620ee56fff1f7745c6185a8ae56f7369f9df5a6c2650e186fb6fadb",
+      "size_bytes": 7764
+    },
+    {
+      "relative_path": "models.json",
+      "sha256": "2c97acbdb5f6870d57b5ad9f26eb0cdad2822c232b58f6861d7d9a64eddf015f",
+      "size_bytes": 8057
+    },
+    {
+      "relative_path": "normalize.json",
+      "sha256": "85468214d378f42c14e28f0012d03dbcb86fed1b9d5142b70a12e654071b5eea",
+      "size_bytes": 1571
+    },
+    {
+      "relative_path": "quotes.json",
+      "sha256": "c04895acf9d2375872d8607dc81ad46fc096b2d7108d988968666f2dd8d610fc",
+      "size_bytes": 916
+    },
+    {
+      "relative_path": "validity.json",
+      "sha256": "c2456df023f57c74d607bdea29639447694b0aafafcc72340cdb88533c7b4a29",
+      "size_bytes": 1361
+    }
+  ]
+}

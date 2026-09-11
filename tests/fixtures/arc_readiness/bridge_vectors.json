@@ -1,0 +1,20 @@
+{
+  "description": "Deterministic vectors for bridge to public arbitrage_contracts and single-hop quoting (C24-C27)",
+  "chain_id": 5042002,
+  "vectors": [
+    {
+      "id": "C26_public_bridge_assets",
+      "native_symbol": "USDC",
+      "native_decimals": 18,
+      "erc20_contract": "0x3600000000000000000000000000000000000000",
+      "erc20_decimals": 6,
+      "expected_domain_id": "arc:5042002:usdc_canonical"
+    },
+    {
+      "id": "C26_public_state_version",
+      "block_number": 123456,
+      "block_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "expected_block_domain": "l1"
+    }
+  ]
+}

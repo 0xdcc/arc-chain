@@ -1,0 +1,106 @@
+{
+  "description": "Deterministic event vectors covering EIP-7708 dual logging, identical multi-transfer preservation, and Mint/Burn semantics",
+  "system_emitter": "0xfffffffffffffffffffffffffffffffffffffffe",
+  "erc20_usdc": "0x3600000000000000000000000000000000000000",
+  "vectors": [
+    {
+      "id": "C07_dual_emitted_erc20_transfer",
+      "description": "Single ERC-20 transfer producing both 18d system log and 6d ERC-20 log in the same tx",
+      "logs": [
+        {
+          "address": "0xfffffffffffffffffffffffffffffffffffffffe",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000001111111111111111111111111111111111111111",
+            "0x0000000000000000000000002222222222222222222222222222222222222222"
+          ],
+          "data": "0x0de0b6b3a7640000",
+          "blockNumber": "0x64",
+          "blockHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "transactionHash": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "logIndex": "0x0"
+        },
+        {
+          "address": "0x3600000000000000000000000000000000000000",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000001111111111111111111111111111111111111111",
+            "0x0000000000000000000000002222222222222222222222222222222222222222"
+          ],
+          "data": "0x0f4240",
+          "blockNumber": "0x64",
+          "blockHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "transactionHash": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "logIndex": "0x1"
+        }
+      ],
+      "expected_collapsed_count": 1,
+      "expected_raw_value_atoms": 1000000000000000000
+    },
+    {
+      "id": "C08_two_identical_transfers_same_tx",
+      "description": "Two legitimate distinct transfers of 50 USDC from A to B in one tx",
+      "logs": [
+        {
+          "address": "0xfffffffffffffffffffffffffffffffffffffffe",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000001111111111111111111111111111111111111111",
+            "0x0000000000000000000000002222222222222222222222222222222222222222"
+          ],
+          "data": "0x2b5e3af16b1880000",
+          "blockNumber": "0x65",
+          "blockHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "transactionHash": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "logIndex": "0x0"
+        },
+        {
+          "address": "0xfffffffffffffffffffffffffffffffffffffffe",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000001111111111111111111111111111111111111111",
+            "0x0000000000000000000000002222222222222222222222222222222222222222"
+          ],
+          "data": "0x2b5e3af16b1880000",
+          "blockNumber": "0x65",
+          "blockHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "transactionHash": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "logIndex": "0x1"
+        }
+      ],
+      "expected_collapsed_count": 2
+    },
+    {
+      "id": "C11_mint_and_burn",
+      "description": "Mint from 0x0 and Burn to 0x0",
+      "logs": [
+        {
+          "address": "0xfffffffffffffffffffffffffffffffffffffffe",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000003333333333333333333333333333333333333333"
+          ],
+          "data": "0x0de0b6b3a7640000",
+          "blockNumber": "0x66",
+          "blockHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "transactionHash": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "logIndex": "0x0"
+        },
+        {
+          "address": "0xfffffffffffffffffffffffffffffffffffffffe",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000003333333333333333333333333333333333333333",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "data": "0x0de0b6b3a7640000",
+          "blockNumber": "0x66",
+          "blockHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "transactionHash": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "logIndex": "0x0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "description": "Deterministic RPC vectors covering Arc chain identity, non-decreasing timestamps, failure taxonomy, and readonly enforcement",
+  "expected_chain_id": 5042002,
+  "vectors": [
+    {
+      "id": "C12_chain_id_cases",
+      "valid": 5042002,
+      "invalid_chains": [5040, 1, 56, 4663, 0, -1]
+    },
+    {
+      "id": "C13_timestamp_order_cases",
+      "sub_second_equal_timestamps": {
+        "prev_block": 100,
+        "curr_block": 101,
+        "prev_ts": 1757500000,
+        "curr_ts": 1757500000,
+        "expected_valid": true
+      },
+      "increasing_timestamps": {
+        "prev_block": 100,
+        "curr_block": 101,
+        "prev_ts": 1757500000,
+        "curr_ts": 1757500001,
+        "expected_valid": true
+      },
+      "retrograde_timestamps": {
+        "prev_block": 100,
+        "curr_block": 101,
+        "prev_ts": 1757500005,
+        "curr_ts": 1757500004,
+        "expected_valid": false
+      }
+    },
+    {
+      "id": "C14_failure_taxonomy_cases",
+      "cases": [
+        {
+          "status_code": 429,
+          "expected_category": "RATE_LIMITED"
+        },
+        {
+          "status_code": 408,
+          "expected_category": "TIMEOUT"
+        },
+        {
+          "rpc_error_code": -32601,
+          "expected_category": "METHOD_NOT_FOUND"
+        },
+        {
+          "rpc_error_code": 3,
+          "error_message": "execution reverted: zero address not allowed",
+          "expected_category": "EXECUTION_REVERTED"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schema_id": "w2-shadow-manifest-v1",
+  "mode": "replay",
+  "data_mode": "synthetic",
+  "registry_path": "tests/fixtures/opportunities/v1/shadow-registry.json",
+  "candidates_path": "tests/fixtures/opportunities/v1/shadow-candidates.json",
+  "registry_semantic_revision": "shadow-registry-v1",
+  "state": {
+    "chain_id": 4663,
+    "block_number": 120,
+    "block_hash": "0x9191919191919191919191919191919191919191919191919191919191919191",
+    "received_at_ms": 1000,
+    "block_timestamp_s": 1,
+    "complete_through_block": 120,
+    "completeness": "ready"
+  },
+  "policy": {
+    "gap_limit_ms": 3000,
+    "target_delay_ms": 250
+  },
+  "quote_request": {
+    "quoter_v3": "0x33e885eD0Ec9bF04EcfB19341582aADCb4c8A9E7",
+    "quoter_v4": "0x8Dc178eFB8111BB0973Dd9d722ebeFF267c98F94",
+    "data_mode": "synthetic",
+    "actor_scope": "synthetic",
+    "rpc_gas_price_atoms": 0,
+    "rpc_gas_l1_fee_atoms": 0,
+    "source_refs": [
+      "fixture:offline"
+    ],
+    "schema_version": "offline",
+    "requests": {
+      "good": {
+        "amounts": {
+          "1000": [
+            "good-1000.json",
+            "bad-1000.json"
+          ]
+        },
+        "route": "c8e6805d18c89c2e1c6af3092fd44d055cbfd118565972e159e9205f478436a9"
+      },
+      "bad": {
+        "amounts": {
+          "1000": [
+            "bad-1000.json"
+          ]
+        },
+        "route": "39d83155230643c4a9ae4b5f82a261ceb45f880453eba65924b4d4c8e2ccc8fd"
+      }
+    }
+  },
+  "max_candidates": 2,
+  "max_rpc_calls": 10
+}

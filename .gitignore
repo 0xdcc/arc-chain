@@ -1,0 +1,22 @@
+# Environments
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Arc runtime data & ledgers
+runtime-data/
+.evidence/
+.worktrees/
+*.log
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+keystore/

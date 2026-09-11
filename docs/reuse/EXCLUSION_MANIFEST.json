@@ -1,0 +1,41 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "fixed_source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "excluded_items": [
+    {
+      "path": "apps/live_pipeline.py",
+      "reason": "Robinhood specific monolithic pipeline. Arc uses modular apps/arc_collect.py and arc_shadow.py.",
+      "category": "ARCHITECTURE_ISOLATION"
+    },
+    {
+      "path": ".env*",
+      "reason": "Production secrets, keystores, and private keys strictly excluded.",
+      "category": "SECURITY_RED_LINE"
+    },
+    {
+      "path": "data/v3_pools_live_catalog.json",
+      "reason": "Robinhood 4663 pool catalog must not be imported into Arc production registry.",
+      "category": "CHAIN_ID_ISOLATION"
+    },
+    {
+      "path": "data/v4_pools_live_catalog.json",
+      "reason": "Robinhood 4663 pool catalog must not be imported into Arc production registry.",
+      "category": "CHAIN_ID_ISOLATION"
+    },
+    {
+      "path": "tools/update_v3_catalog.py",
+      "reason": "Contains hardcoded Robinhood paths and notes dependencies.",
+      "category": "TOOL_DEPENDENCY"
+    },
+    {
+      "path": "tools/export_v4_catalog.py",
+      "reason": "Contains legacy manifest dependencies and missing hooks defaults.",
+      "category": "TOOL_DEPENDENCY"
+    },
+    {
+      "path": ".github/workflows/*",
+      "reason": "Automated remote CI/push actions not applicable to local Arc repo.",
+      "category": "NO_AUTO_PUSH"
+    }
+  ]
+}

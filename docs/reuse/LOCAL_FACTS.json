@@ -1,0 +1,28 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "host_identity": "dc-PC-llm",
+  "local_modular_path": "/root/projects/crypto/v2-modular/dex-sniper-engine-modular",
+  "local_git_head": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "fixed_source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "is_head_equal_to_fixed_sha": true,
+  "working_tree_status": [
+    " M data/v3_pools_live_catalog.json",
+    " M data/v4_pools_live_catalog.json",
+    " M tests/test_v4_pipeline_integration.py"
+  ],
+  "resource_snapshot": {
+    "load_average": [
+      1.7734375,
+      1.39599609375,
+      1.17919921875
+    ],
+    "memory_total_bytes": 12401356800,
+    "memory_available_bytes": 7483834368,
+    "disk_total_bytes": 234039422976,
+    "disk_free_bytes": 162128773120,
+    "disk_percent": 27.0
+  },
+  "running_writers_or_services": [],
+  "secrets_accessed": false
+}

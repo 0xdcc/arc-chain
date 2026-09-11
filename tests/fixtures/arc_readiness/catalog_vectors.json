@@ -1,0 +1,32 @@
+{
+  "description": "Deterministic catalog and eligibility vectors covering C18-C23",
+  "vectors": [
+    {
+      "id": "C18_token_distinct_addresses",
+      "tokens": [
+        {
+          "asset_id": "arc:cool_legit",
+          "symbol": "COOL",
+          "decimals": 6,
+          "contract_address": "0xacd3c4ae00ddac5cd857d83424cf4eb85f32ad8f"
+        },
+        {
+          "asset_id": "arc:cool_fake",
+          "symbol": "COOL",
+          "decimals": 18,
+          "contract_address": "0x9999999999999999999999999999999999999999"
+        }
+      ]
+    },
+    {
+      "id": "C21_eurc_and_usyc",
+      "eurc_contract": "0x89b50855aa3be2f677cd6303cec089b5f319d72a",
+      "usyc_contract": "0xe9185f0c5f296ed1797aae4238d26ccabeadb86c"
+    },
+    {
+      "id": "C22_stablefx_permissioned_rfq",
+      "protocol_id": "stablefx",
+      "escrow_contract": "0xd68256f4d69c6bbecb873d8588ae0dc6b8e22e10"
+    }
+  ]
+}

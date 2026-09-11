@@ -1,0 +1,239 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:w3:settled-research:schema:1.0.0",
+  "title": "W3 Settled Cycle Research Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "tx_hash",
+    "chain_id",
+    "block_number",
+    "block_hash",
+    "transaction_index",
+    "timestamp_s",
+    "subjects",
+    "actions",
+    "subject_deltas",
+    "cost_breakdown",
+    "attribution_status",
+    "economic_status",
+    "attributed_net_atoms",
+    "attributed_net_usd",
+    "rejection_or_unknown_reasons",
+    "provenance",
+    "data_mode",
+    "verified"
+  ],
+  "properties": {
+    "schema_id": {"const": "w3-settled-research"},
+    "schema_version": {"const": "1.0.0"},
+    "tx_hash": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "chain_id": {"type": "integer", "minimum": 1},
+    "block_number": {"type": "integer", "minimum": 0},
+    "block_hash": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "transaction_index": {"type": "integer", "minimum": 0},
+    "timestamp_s": {"type": "integer", "minimum": 0},
+    "subjects": {"$ref": "#/definitions/transactionSubjects"},
+    "actions": {"type": "array", "items": {"$ref": "#/definitions/cycleAction"}},
+    "subject_deltas": {"type": "array", "items": {"$ref": "#/definitions/subjectBalanceDelta"}},
+    "cost_breakdown": {"$ref": "#/definitions/executionCostBreakdown"},
+    "attribution_status": {
+      "enum": [
+        "fully_attributed",
+        "partially_attributed",
+        "unverified_missing_trace",
+        "ambiguous_complex_tx",
+        "inconsistent"
+      ]
+    },
+    "economic_status": {
+      "enum": ["positive", "nonpositive", "unknown", "not_applicable"]
+    },
+    "attributed_net_atoms": {
+      "oneOf": [{"type": "integer"}, {"type": "string", "pattern": "^-?(0|[1-9][0-9]*)$"}, {"type": "null"}]
+    },
+    "attributed_net_usd": {
+      "oneOf": [
+        {"type": "string", "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$"},
+        {"type": "null"}
+      ]
+    },
+    "rejection_or_unknown_reasons": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["source_sha256"],
+      "properties": {"source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+    },
+    "data_mode": {"enum": ["synthetic", "historical"]},
+    "verified": {"type": "boolean"}
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "attribution_status": {
+            "enum": ["unverified_missing_trace", "ambiguous_complex_tx"]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "attributed_net_atoms": {"type": "null"},
+          "attributed_net_usd": {"type": "null"}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "economic_status": {"enum": ["positive", "nonpositive"]}
+        }
+      },
+      "then": {
+        "properties": {
+          "attributed_net_atoms": {"not": {"type": "null"}}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"data_mode": {"const": "synthetic"}},
+        "required": ["data_mode"]
+      },
+      "then": {
+        "properties": {"verified": {"const": false}}
+      }
+    }
+  ],
+  "definitions": {
+    "address": {"type": "string", "pattern": "^0x[0-9a-fA-F]{40}$"},
+    "bytes32": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "uint256OrIntegerString": {
+      "oneOf": [
+        {"type": "integer", "minimum": 0},
+        {"type": "string", "pattern": "^(0|[1-9][0-9]*)$"}
+      ]
+    },
+    "signedAtoms": {
+      "oneOf": [
+        {"type": "integer"},
+        {"type": "string", "pattern": "^-?(0|[1-9][0-9]*)$"},
+        {"type": "null"}
+      ]
+    },
+    "transactionSubjects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tx_origin", "executor_contract", "beneficiary", "gas_payer", "economic_bearer"],
+      "properties": {
+        "tx_origin": {"oneOf": [{"$ref": "#/definitions/address"}, {"type": "null"}]},
+        "executor_contract": {"oneOf": [{"$ref": "#/definitions/address"}, {"type": "null"}]},
+        "beneficiary": {"oneOf": [{"$ref": "#/definitions/address"}, {"type": "null"}]},
+        "gas_payer": {"oneOf": [{"$ref": "#/definitions/address"}, {"type": "null"}]},
+        "economic_bearer": {"oneOf": [{"$ref": "#/definitions/address"}, {"type": "null"}]}
+      }
+    },
+    "tokenKey": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["chain_id", "address"],
+      "properties": {
+        "chain_id": {"type": "integer", "minimum": 1},
+        "address": {"$ref": "#/definitions/address"}
+      }
+    },
+    "assetRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["interface_kind", "chain_id", "token_key", "native_identifier", "balance_domain_id"],
+      "properties": {
+        "interface_kind": {"enum": ["erc20", "native"]},
+        "chain_id": {"type": "integer", "minimum": 1},
+        "token_key": {"oneOf": [{"$ref": "#/definitions/tokenKey"}, {"type": "null"}]},
+        "native_identifier": {"type": ["string", "null"], "minLength": 1},
+        "balance_domain_id": {"type": ["string", "null"], "minLength": 1}
+      }
+    },
+    "poolKey": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["chain_id", "protocol_id", "venue_kind", "venue_address", "pool_id_kind", "pool_id"],
+      "properties": {
+        "chain_id": {"type": "integer", "minimum": 1},
+        "protocol_id": {"type": "string", "minLength": 1},
+        "venue_kind": {"enum": ["factory", "manager"]},
+        "venue_address": {"$ref": "#/definitions/address"},
+        "pool_id_kind": {"enum": ["address", "bytes32"]},
+        "pool_id": {
+          "oneOf": [
+            {"$ref": "#/definitions/address"},
+            {"$ref": "#/definitions/bytes32"}
+          ]
+        }
+      }
+    },
+    "cycleAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "step_id", "action_kind", "pool_key", "asset_in", "asset_out", "amount_in_atoms",
+        "amount_out_atoms", "direction", "log_index", "trace_address", "parent_step_id",
+        "execution_status", "evidence_refs"
+      ],
+      "properties": {
+        "step_id": {"type": "integer", "minimum": 1},
+        "action_kind": {
+          "enum": ["swap", "transfer", "wrap", "unwrap", "borrow", "repay", "mint", "burn", "lp", "unknown"]
+        },
+        "pool_key": {"oneOf": [{"$ref": "#/definitions/poolKey"}, {"type": "null"}]},
+        "asset_in": {"oneOf": [{"$ref": "#/definitions/assetRef"}, {"type": "null"}]},
+        "asset_out": {"oneOf": [{"$ref": "#/definitions/assetRef"}, {"type": "null"}]},
+        "amount_in_atoms": {"$ref": "#/definitions/signedAtoms"},
+        "amount_out_atoms": {"$ref": "#/definitions/signedAtoms"},
+        "direction": {"type": ["string", "null"], "minLength": 1},
+        "log_index": {"oneOf": [{"type": "integer", "minimum": 0}, {"type": "null"}]},
+        "trace_address": {"type": ["string", "null"], "minLength": 1},
+        "parent_step_id": {"oneOf": [{"type": "integer", "minimum": 0}, {"type": "null"}]},
+        "execution_status": {"enum": ["success", "reverted", "unknown"]},
+        "evidence_refs": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "subjectBalanceDelta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject_address", "asset", "delta_atoms", "basis", "completeness", "reconciliation_diff_atoms"],
+      "properties": {
+        "subject_address": {"$ref": "#/definitions/address"},
+        "asset": {"$ref": "#/definitions/assetRef"},
+        "delta_atoms": {"$ref": "#/definitions/signedAtoms"},
+        "basis": {"enum": ["events", "tx_state_diff", "trace_transfer", "mixed", "unknown"]},
+        "completeness": {"enum": ["complete", "partial", "unknown"]},
+        "reconciliation_diff_atoms": {"$ref": "#/definitions/signedAtoms"}
+      }
+    },
+    "feeComponentRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["component_id", "asset", "amount_atoms", "payer", "economic_bearer", "source", "counted_in", "dedup_key"],
+      "properties": {
+        "component_id": {"type": "string", "minLength": 1},
+        "asset": {"$ref": "#/definitions/assetRef"},
+        "amount_atoms": {"$ref": "#/definitions/uint256OrIntegerString"},
+        "payer": {"oneOf": [{"$ref": "#/definitions/address"}, {"type": "null"}]},
+        "economic_bearer": {"oneOf": [{"$ref": "#/definitions/address"}, {"type": "null"}]},
+        "source": {"enum": ["receipt", "trace", "event", "state_diff"]},
+        "counted_in": {"type": "string", "minLength": 1},
+        "dedup_key": {"type": ["string", "null"], "minLength": 1}
+      }
+    },
+    "executionCostBreakdown": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["components"],
+      "properties": {"components": {"type": "array", "items": {"$ref": "#/definitions/feeComponentRecord"}}}
+    }
+  }
+}

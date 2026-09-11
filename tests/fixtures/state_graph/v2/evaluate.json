@@ -1,0 +1,21 @@
+{
+  "format": "w4-evaluate-fixture-v2",
+  "revision": "v2.0.0",
+  "chain_id": 4663,
+  "route_evaluation_cases": [
+    {
+      "case_name": "two_hop_clmm_exact_input",
+      "base_asset": "0x7765746800000000000000000000000000000000",
+      "amount_in_atoms": 10000,
+      "expected_status": "quoted",
+      "expected_delta_atoms_negative": true
+    },
+    {
+      "case_name": "three_hop_clmm_exact_input",
+      "base_asset": "0x7765746800000000000000000000000000000000",
+      "amount_in_atoms": 50000,
+      "expected_status": "quoted",
+      "expected_delta_atoms_negative": true
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+[project]
+name = "dex-sniper-engine"
+version = "0.1.0"
+description = "跨链智能合约下单引擎 (Robinhood / BSC / Arc)"
+requires-python = ">=3.12"
+
+[tool.mypy]
+python_version = "3.12"
+explicit_package_bases = true
+
+# ===== 渐进式采用：先只查新增/改动代码，避免历史代码一次性爆几百条 =====
+# 阶段1(当前)：不强制注解，只抓真实错误（类型不匹配、调用了不存在的方法等）
+check_untyped_defs = false
+disallow_untyped_defs = false
+
+# 已开启的实用检查
+warn_unused_ignores = true      # 多余的 type: ignore 会报警
+warn_redundant_casts = true
+warn_unreachable = true         # 抓不可达代码（逻辑错误信号）
+no_implicit_optional = true
+
+# 放宽：第三方库大多无类型桩，不因缺桩报错
+ignore_missing_imports = true
+
+# 排除虚拟环境与缓存
+exclude = ["venv/", ".venv/", "build/", "__pycache__/"]
+
+# ===== 逐步收紧路线（达成后手动放开下一档）=====
+# 阶段2：核心模块强制注解
+# [tool.mypy.overrides]
+# module = ["core.*", "chains.*"]
+# disallow_untyped_defs = true
+#
+# 阶段3：全局强制 + 严格可选
+# disallow_untyped_defs = true
+# strict_optional = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+exclude = ["venv", ".venv", "__pycache__", "build", ".git"]
+
+[tool.ruff.lint]
+# 精选规则集：只开能防真 bug 的，不开风格洁癖
+select = [
+    "E",    # pycodestyle 错误
+    "F",    # pyflakes：未定义变量、未使用导入 —— 抓漏改调用点的主力
+    "I",    # isort：导入排序
+    "B",    # bugbear：常见 bug 模式
+    "UP",   # pyupgrade：过时写法
+]
+ignore = [
+    "E501",  # 行长交给 formatter 管
+    "B008",  # 函数调用作默认值（click 装饰器常用，会误报）
+]
+
+[tool.ruff.lint.per-file-ignores]
+# 测试文件允许未使用变量（fixture 常这样）
+"tests/*" = ["F401", "F841"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

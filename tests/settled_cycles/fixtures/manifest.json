@@ -1,0 +1,8 @@
+{
+  "files": {
+    "expected.jsonl": "70a2a9f3217a24ede3a112bedcdfa4db1af672c7aa1455e22b53bd6126a5f8a6",
+    "historical-index.json": "91dfe5291da596f8f5866d655038698323d929f9dbd6603c8ceefcfb9f9ddf56",
+    "synthetic.jsonl": "ed379935005136c65c9bccfafc70d3d83ba574a7c611aa146ef497ce9714e349"
+  },
+  "schema": "w3-settled-research-fixture-manifest/1.0.0"
+}

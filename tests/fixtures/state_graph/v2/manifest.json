@@ -1,0 +1,16 @@
+{
+  "format": "w4-fixture-manifest-v2",
+  "revision": "v2.0.0",
+  "files": [
+    {
+      "relative_path": "README.md",
+      "sha256": "5aa49557452d3a39e88bf0a0740a6b9868be8803ad94e9f78ea7efbbceb41315",
+      "required_by": "W4-B0"
+    },
+    {
+      "relative_path": "graph.json",
+      "sha256": "8dd5030a8449d8acb6b51f9dbada0d557253f1c53780d472ff311557b9c17607",
+      "required_by": "W4-G"
+    }
+  ]
+}

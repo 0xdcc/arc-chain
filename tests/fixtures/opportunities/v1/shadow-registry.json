@@ -1,0 +1,14 @@
+{
+  "schema_id": "w2-shadow-registry-v1",
+  "data_mode": "synthetic",
+  "registry_semantic_revision": "shadow-registry-v1",
+  "assets": [
+    {"address": "0x00000000000000000000000000000000000000aa", "chain_id": 4663, "decimals": 18, "decimals_status": "verified", "decimals_evidence_ref": "fixture:decimals", "review_status": "approved", "reviewer_ref": "fixture:reviewer", "reviewed_at_ms": 1, "evidence_refs": ["fixture:asset"]},
+    {"address": "0x00000000000000000000000000000000000000bb", "chain_id": 4663, "decimals": 18, "decimals_status": "verified", "decimals_evidence_ref": "fixture:decimals", "review_status": "approved", "reviewer_ref": "fixture:reviewer", "reviewed_at_ms": 1, "evidence_refs": ["fixture:asset"]}
+  ],
+  "pools": [
+    {"chain_id": 4663, "protocol_id": "uniswap_v3", "venue_kind": "factory", "venue_address": "0x0000000000000000000000000000000000000002", "pool_id_kind": "address", "pool_id": "0x0000000000000000000000000000000000000002", "can_quote": "supported", "can_simulate": "unknown", "can_atomic_execute": "unknown"},
+    {"chain_id": 4663, "protocol_id": "uniswap_v3", "venue_kind": "factory", "venue_address": "0x0000000000000000000000000000000000000003", "pool_id_kind": "address", "pool_id": "0x0000000000000000000000000000000000000003", "can_quote": "supported", "can_simulate": "unknown", "can_atomic_execute": "unknown"},
+    {"chain_id": 4663, "protocol_id": "uniswap_v3", "venue_kind": "factory", "venue_address": "0x0000000000000000000000000000000000000009", "pool_id_kind": "address", "pool_id": "0x0000000000000000000000000000000000000009", "can_quote": "unsupported", "can_simulate": "unknown", "can_atomic_execute": "unknown", "reasons": ["pool_hook_unsupported"]}
+  ]
+}

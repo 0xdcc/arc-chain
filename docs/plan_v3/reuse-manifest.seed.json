@@ -1,0 +1,93 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "items": [
+    {
+      "path": "arbitrage_contracts/",
+      "owner": "M1",
+      "action": "REUSE_CORE",
+      "note": "保留公共单位/身份/状态，T03差异扩展"
+    },
+    {
+      "path": "market_catalog/",
+      "owner": "M2",
+      "action": "REUSE_WITH_PROFILE",
+      "note": "实际主网部署/资产资格重新验证"
+    },
+    {
+      "path": "arc_readiness/",
+      "owner": "M2",
+      "action": "ADAPT",
+      "note": "主网/测试网隔离，保留18/6语义与guard"
+    },
+    {
+      "path": "opportunities/",
+      "owner": "M3",
+      "action": "REUSE_CORE",
+      "note": "F04完整性，原始数据和机会账分开"
+    },
+    {
+      "path": "state_graph/",
+      "owner": "M3",
+      "action": "REUSE_CORE",
+      "note": "单段fail-closed保留，多tick条件扩展"
+    },
+    {
+      "path": "atomic_execution/",
+      "owner": "M3",
+      "action": "ADAPT",
+      "note": "保留纯校验，所有层部署绑定需改造"
+    },
+    {
+      "path": "research/settled_cycles/",
+      "owner": "M3",
+      "action": "CONDITIONAL_REUSE",
+      "note": "查明依赖与Arc事件差异"
+    },
+    {
+      "path": "apps/live_pipeline.py",
+      "owner": "M1",
+      "action": "REFERENCE_ONLY",
+      "note": "不作为Arc实际入口导入"
+    },
+    {
+      "path": "tools/update_v3_catalog.py",
+      "owner": "M2",
+      "action": "EXTRACT_PATTERN_ONLY",
+      "note": "不继承缓存/代理/RPC/地址"
+    },
+    {
+      "path": "tools/export_v4_catalog.py",
+      "owner": "M2",
+      "action": "EXTRACT_PATTERN_ONLY",
+      "note": "不继承legacy manifest和缺hooks默认值"
+    },
+    {
+      "path": "tests/test_v4_pipeline_integration.py",
+      "owner": "M4",
+      "action": "TEST_OBLIGATION",
+      "note": "目录与初始化，不是live采样证据"
+    }
+  ],
+  "actual_file_imports": [],
+  "actual_imports_status": "T02 must fill source path/blob sha/destination hash/reason/dependency and test mapping before normal writes",
+  "source_policy": {
+    "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "code_digest_scope": "selected reusable source + transitive dependencies + relevant configuration/build/tests",
+    "whole_repository_clean_required": false,
+    "local_git_head_must_equal_code_reference": false,
+    "local_pool_data_may_differ": true,
+    "data_only_change_blocks_arc": false,
+    "data_only_change_requires_global_reaudit": false,
+    "pool_data_candidate_paths": [
+      "data/v3_pools_live_catalog.json",
+      "data/v4_pools_live_catalog.json"
+    ],
+    "blanket_data_directory_exemption": false,
+    "code_change_action": "M1/M4 targeted review; unaffected tasks and pinned code work may continue",
+    "unknown_change_action": "classify or quarantine only the affected input",
+    "robinhood_catalog_to_arc_production": false,
+    "user_clarification": "2026-09-11T08:05:34Z",
+    "details": "07_本地池目录变化处理规则.md"
+  }
+}

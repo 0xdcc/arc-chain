@@ -1,0 +1,18 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "task_id": null,
+  "review_instance_id": null,
+  "reviewer_id": null,
+  "author_ids": [],
+  "candidate_sha": null,
+  "scope": null,
+  "verdict": "NOT_RUN",
+  "report_delivered": false,
+  "required_tests": [],
+  "executed_tests": [],
+  "not_run": [],
+  "findings": [],
+  "qa_tooling_cross_review": null,
+  "gate_satisfied": false,
+  "rule": "gate_satisfied only if verdict PASS, exact candidate+scope match, required evidence complete; delivered report alone never satisfies gate"
+}

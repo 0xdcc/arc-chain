@@ -1,0 +1,37 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": null,
+  "task_id": null,
+  "attempt": null,
+  "lease_epoch": null,
+  "worker_id": null,
+  "status": "NOT_RUN",
+  "baseline_sha": null,
+  "result_commit": null,
+  "contract_digest": null,
+  "changed_files": [],
+  "input_hashes": {},
+  "test_runs": [
+    {
+      "command": null,
+      "exit_code": null,
+      "collected": null,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "not_run_reason": null,
+      "raw_output_path": null,
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "OFFLINE_UNVERIFIED",
+  "pending_processes": [],
+  "residual_risks": [],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": null,
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": null
+}

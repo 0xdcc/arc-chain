@@ -1,0 +1,48 @@
+{
+  "description": "Deterministic test vectors for Arc dual-interface balances and fee calculations",
+  "scale_factor": 1000000000000,
+  "vectors": [
+    {
+      "id": "C01_normal_dust",
+      "native_atoms": 1000000000000000123,
+      "erc20_atoms": 1000000,
+      "expected_dust_atoms": 123,
+      "verified_consistency": true
+    },
+    {
+      "id": "C02_sub_micro_dust_only",
+      "native_atoms": 999999999999,
+      "erc20_atoms": 0,
+      "expected_dust_atoms": 999999999999,
+      "verified_consistency": true
+    },
+    {
+      "id": "C02_boundary_zero",
+      "native_atoms": 0,
+      "erc20_atoms": 0,
+      "expected_dust_atoms": 0,
+      "verified_consistency": true
+    },
+    {
+      "id": "C02_boundary_exact_one_erc20",
+      "native_atoms": 1000000000000,
+      "erc20_atoms": 1,
+      "expected_dust_atoms": 0,
+      "verified_consistency": true
+    },
+    {
+      "id": "C02_boundary_one_erc20_plus_one_dust",
+      "native_atoms": 1000000000001,
+      "erc20_atoms": 1,
+      "expected_dust_atoms": 1,
+      "verified_consistency": true
+    },
+    {
+      "id": "C04_typical_transfer_fee",
+      "gas_used": 21000,
+      "effective_gas_price_wei": 21000000000,
+      "expected_total_atoms": 441000000000000,
+      "expected_decimal_usdc": "0.000441"
+    }
+  ]
+}

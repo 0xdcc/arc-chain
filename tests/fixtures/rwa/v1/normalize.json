@@ -1,0 +1,44 @@
+{
+  "format": "w7-normalize-cases-v1",
+  "revision": "0.1.0-draft",
+  "cases": [
+    {
+      "id": "case_c01_feed_already_token_adjusted",
+      "description": "Feed price includes multiplier; token price is direct, underlying share price divides multiplier",
+      "feed_answer_raw": 12550000000,
+      "feed_decimals": 8,
+      "multiplier_uint": "1050000000000000000",
+      "expected_token_price_usd": "125.5",
+      "expected_share_price_usd": "119.5238095238095238095238095"
+    },
+    {
+      "id": "case_c02_rest_decimal_multiplier",
+      "description": "REST price is per share; multiplier is decimal string 1.05; converts to token without 1e18 scaling error",
+      "underlier_bid_share": "120.00",
+      "underlier_ask_share": "120.50",
+      "current_multiplier": "1.050000000000000000",
+      "expected_token_bid": "126.0",
+      "expected_token_ask": "126.525"
+    },
+    {
+      "id": "case_c03_cross_decimal_execution",
+      "description": "18-dec token to 6-dec USDG independent directional quote without reciprocal shortcuts",
+      "sell_token": {
+        "direction": "zero_for_one",
+        "amount_in_atoms": "1000000000000000000",
+        "amount_out_atoms": "125000000",
+        "decimals_in": 18,
+        "decimals_out": 6,
+        "expected_effective_price": "125.0"
+      },
+      "buy_token": {
+        "direction": "one_for_zero",
+        "amount_in_atoms": "126000000",
+        "amount_out_atoms": "1000000000000000000",
+        "decimals_in": 6,
+        "decimals_out": 18,
+        "expected_effective_price": "126.0"
+      }
+    }
+  ]
+}

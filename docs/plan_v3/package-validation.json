@@ -1,0 +1,107 @@
+{
+  "planning_errors": [],
+  "self_tests": {
+    "scope": "planning package static checks and example gate predicates only",
+    "project_tests_run": false,
+    "live_rpc_accessed": false,
+    "cases": [
+      {
+        "name": "normal package",
+        "passed": true
+      },
+      {
+        "name": "reject cyclic dependency",
+        "passed": true
+      },
+      {
+        "name": "reject cross-role file claim",
+        "passed": true
+      },
+      {
+        "name": "reject broadcast enabled",
+        "passed": true
+      },
+      {
+        "name": "reject source version drift",
+        "passed": true
+      },
+      {
+        "name": "reject fifth main brain",
+        "passed": true
+      },
+      {
+        "name": "separate offline and live gate",
+        "passed": true
+      },
+      {
+        "name": "accept matching scoped PASS",
+        "passed": true
+      },
+      {
+        "name": "reject delivered FAIL as gate",
+        "passed": true
+      },
+      {
+        "name": "reject stale review candidate",
+        "passed": true
+      },
+      {
+        "name": "reject missing required evidence",
+        "passed": true
+      },
+      {
+        "name": "allow added V3/V4 data with unchanged selected code",
+        "passed": true
+      },
+      {
+        "name": "code change cannot masquerade as catalog update",
+        "passed": true
+      },
+      {
+        "name": "mixed catalog and policy edits need review",
+        "passed": true
+      },
+      {
+        "name": "unknown file is not a blanket data exemption",
+        "passed": true
+      },
+      {
+        "name": "half written catalog blocks only its data snapshot",
+        "passed": true
+      },
+      {
+        "name": "reject whole repository clean requirement",
+        "passed": true
+      },
+      {
+        "name": "reject cross-chain production catalog copying",
+        "passed": true
+      }
+    ],
+    "passed": 18,
+    "failed": 0
+  },
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "validator_exit_code": 0,
+  "artifact_checks": {
+    "ticket_count": 48,
+    "main_brain_count": 4,
+    "no_stale_v3_0_plan_ids": true,
+    "relative_markdown_links_resolve": true
+  },
+  "limitations": [
+    "Only the planning artifact and example policy predicates were checked.",
+    "No user-server files inspected, no Robinhood/Arc project tests run, no RPC probe, signing, transfer, push or deployment."
+  ],
+  "build_history": [
+    {
+      "version": "v3.0 preparation",
+      "issue": "An early validation output was redirected into its own JSON input while empty; the builder reran with captured output.",
+      "target_project_affected": false
+    },
+    {
+      "version": "v3.1",
+      "change": "User-approved local pool-data variation separated from selected code baseline; 18 planning self-tests passed."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "project_root": "/root/projects/crypto/arc-chain",
+  "coord_root": "/root/projects/crypto/arc-chain/.coord",
+  "authority": "M1",
+  "active_roles": [
+    "M1"
+  ],
+  "registered_windows": {
+    "M1": {
+      "status": "ACTIVE",
+      "registered_at": "2026-09-11T08:00:00Z"
+    },
+    "M2": {
+      "status": "UNINITIALIZED",
+      "registered_at": null
+    },
+    "M3": {
+      "status": "UNINITIALIZED",
+      "registered_at": null
+    },
+    "M4": {
+      "status": "UNINITIALIZED",
+      "registered_at": null
+    }
+  }
+}

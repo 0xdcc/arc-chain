@@ -1,0 +1,13 @@
+{
+  "schema_id": "w2-shadow-candidates-v1",
+  "routes": [
+    {"route_id": "c8e6805d18c89c2e1c6af3092fd44d055cbfd118565972e159e9205f478436a9", "chain_id": 4663, "base_asset": {"chain_id": 4663, "address": "0x00000000000000000000000000000000000000aa"}, "hops": [
+      {"key": {"chain_id": 4663, "protocol_id": "uniswap_v3", "venue_kind": "factory", "venue_address": "0x0000000000000000000000000000000000000002", "pool_id_kind": "address", "pool_id": "0x0000000000000000000000000000000000000002"}, "currency0": "0x00000000000000000000000000000000000000aa", "currency1": "0x00000000000000000000000000000000000000bb", "fee_model": {"kind": "static", "raw_value": 500}, "identity_evidence_refs": ["fixture:pool"], "asset_out": "0x00000000000000000000000000000000000000bb"},
+      {"key": {"chain_id": 4663, "protocol_id": "uniswap_v3", "venue_kind": "factory", "venue_address": "0x0000000000000000000000000000000000000003", "pool_id_kind": "address", "pool_id": "0x0000000000000000000000000000000000000003"}, "currency0": "0x00000000000000000000000000000000000000bb", "currency1": "0x00000000000000000000000000000000000000aa", "fee_model": {"kind": "static", "raw_value": 500}, "identity_evidence_refs": ["fixture:pool"], "asset_out": "0x00000000000000000000000000000000000000aa"}
+    ], "amounts": [{"amount_atoms": "1000", "decimals": 18, "decimals_evidence_ref": "fixture:decimals"}]},
+    {"route_id": "39d83155230643c4a9ae4b5f82a261ceb45f880453eba65924b4d4c8e2ccc8fd", "chain_id": 4663, "base_asset": {"chain_id": 4663, "address": "0x00000000000000000000000000000000000000aa"}, "hops": [
+      {"key": {"chain_id": 4663, "protocol_id": "uniswap_v3", "venue_kind": "factory", "venue_address": "0x0000000000000000000000000000000000000009", "pool_id_kind": "address", "pool_id": "0x0000000000000000000000000000000000000009"}, "currency0": "0x00000000000000000000000000000000000000aa", "currency1": "0x00000000000000000000000000000000000000bb", "fee_model": {"kind": "static", "raw_value": 500}, "identity_evidence_refs": ["fixture:pool"], "asset_out": "0x00000000000000000000000000000000000000bb"},
+      {"key": {"chain_id": 4663, "protocol_id": "uniswap_v3", "venue_kind": "factory", "venue_address": "0x0000000000000000000000000000000000000002", "pool_id_kind": "address", "pool_id": "0x0000000000000000000000000000000000000002"}, "currency0": "0x00000000000000000000000000000000000000bb", "currency1": "0x00000000000000000000000000000000000000aa", "fee_model": {"kind": "static", "raw_value": 500}, "identity_evidence_refs": ["fixture:pool"], "asset_out": "0x00000000000000000000000000000000000000aa"}
+    ], "amounts": [{"amount_atoms": "1000", "decimals": 18, "decimals_evidence_ref": "fixture:decimals"}]}
+  ]
+}

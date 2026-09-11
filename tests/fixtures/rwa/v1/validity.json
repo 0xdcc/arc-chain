@@ -1,0 +1,43 @@
+{
+  "format": "w7-validity-cases-v1",
+  "revision": "0.1.0-draft",
+  "cases": [
+    {
+      "id": "case_c09_oracle_paused",
+      "description": "Feed is paused onchain during corporate action; marked ORACLE_PAUSED",
+      "oracle_paused": true,
+      "answer": 12550000000,
+      "expected_status": "oracle_paused",
+      "expected_is_valid": false
+    },
+    {
+      "id": "case_c10_oracle_stale",
+      "description": "Price age exceeds heartbeat threshold; marked ORACLE_STALE",
+      "age_s": 100,
+      "heartbeat_s": 60,
+      "expected_status": "oracle_stale",
+      "expected_is_valid": false
+    },
+    {
+      "id": "case_c11_pending_multiplier",
+      "description": "Pending multiplier only activates at effective_at timestamp",
+      "multiplier_before": "1000000000000000000",
+      "pending_multiplier": "10000000000000000000",
+      "effective_at_s": 1700000050
+    },
+    {
+      "id": "case_c14_sequencer_down",
+      "description": "L2 sequencer is down; marked SEQUENCER_DOWN",
+      "sequencer_status": "down",
+      "expected_status": "sequencer_down",
+      "expected_is_valid": false
+    },
+    {
+      "id": "case_c15_trading_halt",
+      "description": "Underlying equity trading halt flag active; marked TRADING_HALT",
+      "trading_halt": true,
+      "expected_status": "trading_halt",
+      "expected_is_valid": false
+    }
+  ]
+}

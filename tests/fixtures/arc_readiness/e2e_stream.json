@@ -1,0 +1,80 @@
+{
+  "description": "Deterministic synthetic stream fixture for Arc readiness and catalog CLI E2E execution",
+  "network_identity": {
+    "chain_id": 5042002,
+    "network_name": "Arc Testnet",
+    "rpc_endpoint": "https://rpc.testnet.arc.io",
+    "native_currency": "USDC",
+    "native_decimals": 18,
+    "erc20_usdc_decimals": 6,
+    "erc20_usdc_address": "0x3600000000000000000000000000000000000000",
+    "verification_status": "synthetic_verified",
+    "known_stage": "testnet",
+    "source_evidence_ref": "official_arc_docs"
+  },
+  "balance_observations": [
+    {
+      "account_address": "0x1111111111111111111111111111111111111111",
+      "chain_id": 5042002,
+      "block_number": 50000,
+      "block_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "native_atoms": 1000000000000000123,
+      "erc20_atoms": 1000000,
+      "balance_domain_id": "arc:5042002:usdc_canonical",
+      "dust_atoms": 123,
+      "verified_consistency": true,
+      "stale_or_incomplete_reasons": []
+    }
+  ],
+  "fee_observations": [
+    {
+      "chain_id": 5042002,
+      "block_number": 50000,
+      "block_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "gas_used": 21000,
+      "effective_gas_price_wei": 21000000000,
+      "total_fee_atoms": 441000000000000,
+      "base_fee_gwei": 20,
+      "priority_fee_gwei": 1,
+      "fee_source": "receipt",
+      "is_estimate": false
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "arc:usdc",
+      "symbol": "USDC",
+      "decimals": 6,
+      "contract_address": "0x3600000000000000000000000000000000000000",
+      "interface_kind": "erc20",
+      "review_status": "verified",
+      "decimals_status": "verified",
+      "is_usdc_native_domain": true,
+      "reasons": ["canonical_erc20_usdc_predeploy"]
+    },
+    {
+      "asset_id": "arc:eurc",
+      "symbol": "EURC",
+      "decimals": 6,
+      "contract_address": "0x89b50855aa3be2f677cd6303cec089b5f319d72a",
+      "interface_kind": "erc20",
+      "review_status": "verified",
+      "decimals_status": "verified",
+      "is_usdc_native_domain": false,
+      "reasons": ["canonical_eurc_euro_stablecoin"]
+    }
+  ],
+  "markets": [
+    {
+      "market_id": "arc:v3:usdc_eurc",
+      "protocol_id": "uniswap_v3",
+      "pool_address": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "base_asset_id": "arc:usdc",
+      "quote_asset_id": "arc:eurc",
+      "can_quote": "supported",
+      "can_simulate": "unknown",
+      "can_atomic_execute": "unsupported",
+      "reasons": []
+    }
+  ]
+}

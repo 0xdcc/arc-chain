@@ -1,0 +1,4 @@
+chains/robinhood.py:219: error: Missing keys ("currency_0", "currency_1") for TypedDict "PoolKey"  [typeddict-item]
+chains/robinhood.py:219: error: Extra keys ("currency0", "currency1") for TypedDict "PoolKey"  [typeddict-unknown-key]
+chains/robinhood.py:233: error: Argument "amount_in" to "swap_exact_in_single" of "_BaseV4ChainedSwapFunctionBuilder" has incompatible type "int"; expected "Wei"  [arg-type]
+chains/robinhood.py:234: error: Argument "amount_out_min" to "swap_exact_in_single" of "_BaseV4ChainedSwapFunctionBuilder" has incompatible type "int"; expected "Wei"  [arg-type]

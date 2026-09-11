@@ -1,0 +1,558 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "coord_authority": "M1",
+  "bootstrap_import_owner": "M1",
+  "bootstrap_import_list": "generated-before-write in T02; expires before normal writers",
+  "package_default_owners": {
+    "arbitrage_contracts": "M1",
+    "market_catalog": "M2",
+    "arc_readiness": "M2",
+    "arc_ingest": "M2",
+    "arc_markets": "M2",
+    "opportunities": "M3",
+    "state_graph": "M3",
+    "atomic_execution": "M3",
+    "research/settled_cycles": "M3",
+    "arc_opportunities": "M3",
+    "arc_research": "M3",
+    "arc_execution": "M3",
+    "apps/arc_*": "M1",
+    "arc_runtime": "M1",
+    "ops": "M1",
+    "tests/arc_v3/independent": "M4"
+  },
+  "planned_paths": {
+    "docs/reuse/SOURCE_BASELINE.md": [
+      "T01"
+    ],
+    "docs/reuse/SOURCE_LOCK.json": [
+      "T01"
+    ],
+    "docs/reuse/LOCAL_FACTS.json": [
+      "T01"
+    ],
+    "docs/reuse/CODE_MANIFEST.json": [
+      "T01"
+    ],
+    "docs/reuse/LOCAL_DATA_OVERLAY.json": [
+      "T01"
+    ],
+    "docs/reuse/IMPORT_MANIFEST.json": [
+      "T02"
+    ],
+    "docs/reuse/TEST_OBLIGATION_MAP.json": [
+      "T02"
+    ],
+    "docs/reuse/EXCLUSION_MANIFEST.json": [
+      "T02"
+    ],
+    ".gitignore": [
+      "T02"
+    ],
+    "pyproject.toml": [
+      "T02"
+    ],
+    "requirements.lock": [
+      "T02"
+    ],
+    "AGENTS.md": [
+      "T02"
+    ],
+    ".hermes.md": [
+      "T02"
+    ],
+    "check.sh": [
+      "T02"
+    ],
+    "tools/checks/run_layers.py": [
+      "T02"
+    ],
+    "tools/checks/test_obligations.json": [
+      "T02"
+    ],
+    "arbitrage_contracts/arc_extensions.py": [
+      "T03"
+    ],
+    "docs/contracts/INTERFACES_v1.md": [
+      "T03"
+    ],
+    "docs/contracts/CONTRACT_VERSION.json": [
+      "T03"
+    ],
+    "tests/arc_v3/foundation/test_arc_contracts.py": [
+      "T03"
+    ],
+    "tools/coord/validate_dispatch.py": [
+      "T04"
+    ],
+    "tools/coord/reduce_outbox.py": [
+      "T04"
+    ],
+    "docs/coordination/OWNERSHIP.json": [
+      "T04"
+    ],
+    "docs/coordination/RUNBOOK.md": [
+      "T04"
+    ],
+    "tests/arc_v3/foundation/test_dispatch.py": [
+      "T04"
+    ],
+    "docs/coordination/G1_RELEASE.json": [
+      "T05"
+    ],
+    "docs/coordination/INTEGRATION_LOG.md": [
+      "T05"
+    ],
+    "docs/coordination/G2_RELEASE.json": [
+      "T06"
+    ],
+    "docs/coordination/USER_DELIVERY.md": [
+      "T06"
+    ],
+    "docs/coordination/DEFERRED_SCOPE.md": [
+      "T06"
+    ],
+    "README.md": [
+      "T06"
+    ],
+    "arc_readiness/network.py": [
+      "T07"
+    ],
+    "arc_readiness/rpc_readonly.py": [
+      "T07"
+    ],
+    "arc_readiness/profiles.py": [
+      "T07"
+    ],
+    "arc_readiness/http_readonly.py": [
+      "T07"
+    ],
+    "configs/arc/network.example.json": [
+      "T07"
+    ],
+    "tests/arc_v3/ingest/test_profile_transport.py": [
+      "T07"
+    ],
+    "arc_readiness/fixed_block.py": [
+      "T08"
+    ],
+    "arc_readiness/capabilities.py": [
+      "T08"
+    ],
+    "tests/arc_v3/ingest/test_fixed_block.py": [
+      "T08"
+    ],
+    "arc_ingest/recorder.py": [
+      "T09"
+    ],
+    "arc_ingest/segments.py": [
+      "T09"
+    ],
+    "arc_ingest/cursors.py": [
+      "T09"
+    ],
+    "tests/arc_v3/ingest/test_raw_recorder.py": [
+      "T09"
+    ],
+    "arc_readiness/balances.py": [
+      "T10"
+    ],
+    "arc_readiness/events.py": [
+      "T10"
+    ],
+    "arc_readiness/fees.py": [
+      "T10"
+    ],
+    "arc_readiness/eligibility.py": [
+      "T10"
+    ],
+    "arc_readiness/profile_assets.py": [
+      "T10"
+    ],
+    "tests/arc_v3/ingest/test_usdc_semantics.py": [
+      "T10"
+    ],
+    "arc_ingest/recovery.py": [
+      "T11"
+    ],
+    "arc_ingest/coverage.py": [
+      "T11"
+    ],
+    "tests/arc_v3/ingest/test_recovery.py": [
+      "T11"
+    ],
+    "arc_ingest/history_scan.py": [
+      "T11"
+    ],
+    "tests/arc_v3/ingest/test_history_scan.py": [
+      "T11"
+    ],
+    "docs/acceptance/m2-live/REPORT.md": [
+      "T12"
+    ],
+    "docs/acceptance/m2-live/coverage.json": [
+      "T12"
+    ],
+    "arc_markets/deployments.py": [
+      "T13"
+    ],
+    "arc_markets/review_bridge.py": [
+      "T13"
+    ],
+    "configs/arc/venues.example.json": [
+      "T13"
+    ],
+    "tests/arc_v3/markets/test_deployments.py": [
+      "T13"
+    ],
+    "arc_markets/v3_events.py": [
+      "T14"
+    ],
+    "arc_markets/v3_discovery.py": [
+      "T14"
+    ],
+    "arc_markets/decimals.py": [
+      "T14"
+    ],
+    "tests/arc_v3/markets/test_v3_discovery.py": [
+      "T14"
+    ],
+    "arc_markets/v4_events.py": [
+      "T15"
+    ],
+    "arc_markets/v4_discovery.py": [
+      "T15"
+    ],
+    "tests/arc_v3/markets/test_v4_identity.py": [
+      "T15"
+    ],
+    "arc_markets/v4_state.py": [
+      "T15"
+    ],
+    "tests/arc_v3/markets/test_v4_stateview.py": [
+      "T15"
+    ],
+    "arc_markets/tick_loader.py": [
+      "T16"
+    ],
+    "arc_markets/tick_coverage.py": [
+      "T16"
+    ],
+    "tests/arc_v3/markets/test_tick_coverage.py": [
+      "T16"
+    ],
+    "arc_markets/launchpads/base.py": [
+      "T17"
+    ],
+    "arc_markets/launchpads/verified_adapters.py": [
+      "T17"
+    ],
+    "arc_markets/docs/LAUNCHPAD_EVIDENCE.md": [
+      "T17"
+    ],
+    "tests/arc_v3/markets/test_launchpad_lifecycle.py": [
+      "T17"
+    ],
+    "arc_markets/quote_catalog.py": [
+      "T18"
+    ],
+    "arc_markets/snapshots.py": [
+      "T18"
+    ],
+    "tests/arc_v3/markets/test_catalog_snapshots.py": [
+      "T18"
+    ],
+    "arc_opportunities/quote_bridge.py": [
+      "T19"
+    ],
+    "tests/arc_v3/quotes/test_quote_parity.py": [
+      "T19"
+    ],
+    "arc_opportunities/economics.py": [
+      "T20"
+    ],
+    "arc_opportunities/costs.py": [
+      "T20"
+    ],
+    "tests/arc_v3/quotes/test_economics.py": [
+      "T20"
+    ],
+    "state_graph/multi_tick.py": [
+      "T21"
+    ],
+    "arc_opportunities/quote_capabilities.py": [
+      "T21"
+    ],
+    "tests/arc_v3/quotes/test_multi_tick.py": [
+      "T21"
+    ],
+    "arc_opportunities/incremental.py": [
+      "T22"
+    ],
+    "arc_opportunities/sizing.py": [
+      "T22"
+    ],
+    "tests/arc_v3/quotes/test_incremental_sizing.py": [
+      "T22"
+    ],
+    "arc_opportunities/ledger.py": [
+      "T23"
+    ],
+    "arc_opportunities/ledger_segments.py": [
+      "T23"
+    ],
+    "tests/arc_v3/quotes/test_ledger_integration.py": [
+      "T23"
+    ],
+    "arc_opportunities/shadow.py": [
+      "T24"
+    ],
+    "arc_opportunities/reasons.py": [
+      "T24"
+    ],
+    "tests/arc_v3/quotes/test_shadow_service.py": [
+      "T24"
+    ],
+    "atomic_execution/deployments.py": [
+      "T25"
+    ],
+    "atomic_execution/arc_planning.py": [
+      "T25"
+    ],
+    "tests/arc_v3/simulation/test_deployment_binding.py": [
+      "T25"
+    ],
+    "atomic_execution/arc_encoding.py": [
+      "T25"
+    ],
+    "docs/architecture/ARC_EXECUTION_BINDING.md": [
+      "T25"
+    ],
+    "atomic_execution/arc_transport.py": [
+      "T26"
+    ],
+    "tests/arc_v3/simulation/test_arc_transport.py": [
+      "T26"
+    ],
+    "atomic_execution/arc_simulation.py": [
+      "T26"
+    ],
+    "atomic_execution/output_evidence.py": [
+      "T27"
+    ],
+    "atomic_execution/arc_output_adapter.py": [
+      "T27"
+    ],
+    "tests/arc_v3/simulation/test_output_evidence.py": [
+      "T27"
+    ],
+    "arc_execution/authorization.py": [
+      "T28"
+    ],
+    "arc_execution/policy.py": [
+      "T28"
+    ],
+    "tests/arc_v3/simulation/test_authorization_policy.py": [
+      "T28"
+    ],
+    "arc_execution/state_machine.py": [
+      "T29"
+    ],
+    "arc_execution/nonce_journal.py": [
+      "T29"
+    ],
+    "tests/arc_v3/simulation/test_nonce_recovery.py": [
+      "T29"
+    ],
+    "arc_execution/reconcile.py": [
+      "T30"
+    ],
+    "arc_execution/circuit_breaker.py": [
+      "T30"
+    ],
+    "tests/arc_v3/simulation/test_reconciliation.py": [
+      "T30"
+    ],
+    "arc_research/wall/sources.py": [
+      "T31"
+    ],
+    "arc_research/wall/channel_status.py": [
+      "T31"
+    ],
+    "tests/arc_v3/research/test_wall_sources.py": [
+      "T31"
+    ],
+    "arc_research/wall/normalization.py": [
+      "T32"
+    ],
+    "arc_research/wall/premium.py": [
+      "T32"
+    ],
+    "tests/arc_v3/research/test_wall_pricing.py": [
+      "T32"
+    ],
+    "arc_research/events/engine.py": [
+      "T33"
+    ],
+    "arc_research/events/rules.py": [
+      "T33"
+    ],
+    "tests/arc_v3/research/test_market_events.py": [
+      "T33"
+    ],
+    "arc_research/settled/adapter.py": [
+      "T34"
+    ],
+    "arc_research/settled/report.py": [
+      "T34"
+    ],
+    "tests/arc_v3/research/test_settled_arc.py": [
+      "T34"
+    ],
+    "arc_research/replay/engine.py": [
+      "T35"
+    ],
+    "arc_research/replay/latency.py": [
+      "T35"
+    ],
+    "tests/arc_v3/research/test_replay_causality.py": [
+      "T35"
+    ],
+    "arc_research/reports/alpha_summary.py": [
+      "T36"
+    ],
+    "docs/acceptance/ALPHA_RESEARCH.md": [
+      "T36"
+    ],
+    "tests/arc_v3/research/test_alpha_summary.py": [
+      "T36"
+    ],
+    "apps/arc_collect.py": [
+      "T37"
+    ],
+    "arc_runtime/collect.py": [
+      "T37"
+    ],
+    "tests/arc_v3/runtime/test_collect_cli.py": [
+      "T37"
+    ],
+    "apps/arc_shadow.py": [
+      "T38"
+    ],
+    "arc_runtime/shadow.py": [
+      "T38"
+    ],
+    "tests/arc_v3/runtime/test_shadow_cli.py": [
+      "T38"
+    ],
+    "apps/arc_history.py": [
+      "T38"
+    ],
+    "arc_runtime/history.py": [
+      "T38"
+    ],
+    "tests/arc_v3/runtime/test_history_cli.py": [
+      "T38"
+    ],
+    "arc_runtime/reporting.py": [
+      "T39"
+    ],
+    "arc_runtime/notifications.py": [
+      "T39"
+    ],
+    "tests/arc_v3/runtime/test_reporting.py": [
+      "T39"
+    ],
+    "arc_runtime/health.py": [
+      "T40"
+    ],
+    "arc_runtime/lifecycle.py": [
+      "T40"
+    ],
+    "tests/arc_v3/runtime/test_health_lifecycle.py": [
+      "T40"
+    ],
+    "ops/arc-readonly.service.example": [
+      "T41"
+    ],
+    "ops/ENVIRONMENT.md": [
+      "T41"
+    ],
+    "ops/START_STOP.md": [
+      "T41"
+    ],
+    "tests/arc_v3/runtime/test_environment_spec.py": [
+      "T41"
+    ],
+    "docs/runbooks/ARC_OPERATIONS.md": [
+      "T42"
+    ],
+    "docs/runbooks/MAINNET_CHANGE_CHECKLIST.md": [
+      "T42"
+    ],
+    "docs/acceptance/IMPORT_REVIEW.md": [
+      "T43"
+    ],
+    "tools/qa/upstream_obligations.py": [
+      "T43"
+    ],
+    "tests/arc_v3/independent/test_import_manifest.py": [
+      "T43"
+    ],
+    "tests/arc_v3/independent/test_source_data_separation.py": [
+      "T43"
+    ],
+    "tests/arc_v3/independent/test_collect_e2e.py": [
+      "T44"
+    ],
+    "tests/arc_v3/independent/test_readonly_boundary.py": [
+      "T44"
+    ],
+    "docs/acceptance/G1_REVIEW.md": [
+      "T44"
+    ],
+    "tests/arc_v3/independent/test_f01_f07.py": [
+      "T45"
+    ],
+    "tools/qa/fault_mutations.py": [
+      "T45"
+    ],
+    "docs/acceptance/F01_F07_MIGRATION.md": [
+      "T45"
+    ],
+    "tests/arc_v3/independent/test_v4_migration.py": [
+      "T45"
+    ],
+    "tests/arc_v3/independent/test_history_claims.py": [
+      "T45"
+    ],
+    "tests/arc_v3/independent/test_arc_accounting.py": [
+      "T46"
+    ],
+    "tests/arc_v3/independent/test_output_proof.py": [
+      "T46"
+    ],
+    "docs/acceptance/ARC_SEMANTICS.md": [
+      "T46"
+    ],
+    "tests/arc_v3/independent/test_coordination_chaos.py": [
+      "T47"
+    ],
+    "tests/arc_v3/independent/test_storage_chaos.py": [
+      "T47"
+    ],
+    "docs/acceptance/CONCURRENCY_RECOVERY.md": [
+      "T47"
+    ],
+    "docs/acceptance/G2_REVIEW.md": [
+      "T48"
+    ],
+    "docs/acceptance/TEST_RESULTS.json": [
+      "T48"
+    ],
+    "docs/acceptance/RESIDUAL_RISKS.md": [
+      "T48"
+    ]
+  },
+  "rule": "planned paths are not dispatch permission; M1 must bind exact files per task/attempt/lease. Unlisted __init__/conftest/dependency/old core changes require registration before write."
+}

@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "fixtures": [
+    {
+      "path": "tests/fixtures/arc_readiness/balance_vectors.json",
+      "sha256": "09b7c8c6aa0608065c7e5fac51d17a66397fd0e9d1bec391dcdb8d4f3aae5433"
+    },
+    {
+      "path": "tests/fixtures/arc_readiness/event_vectors.json",
+      "sha256": "3f4a35faa2c96790ae495589c99b4e562e3e0b551c4c7ac91577e1ff01a4ae37"
+    },
+    {
+      "path": "tests/fixtures/arc_readiness/rpc_vectors.json",
+      "sha256": "18ad1c9cfa14b436891873cadc10a57c9ed9e7c71a5d06b2ca6555d6530b210d"
+    },
+    {
+      "path": "tests/fixtures/arc_readiness/catalog_vectors.json",
+      "sha256": "1226a9ee96497671003db3187496cab34ffce48ed4a0db516b4f137b92ca8900"
+    },
+    {
+      "path": "tests/fixtures/arc_readiness/bridge_vectors.json",
+      "sha256": "2edc7f7aeb09e3b329aaad513fc074f53c5d8670b56edd44dd82aab5d78c4150"
+    },
+    {
+      "path": "tests/fixtures/arc_readiness/e2e_stream.json",
+      "sha256": "48ed2cd415f380b77d57e1507de484a6b6ce47aaa0a509b16ca8a9d090f8896c"
+    }
+  ]
+}

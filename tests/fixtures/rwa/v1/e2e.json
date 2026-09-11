@@ -1,0 +1,227 @@
+{
+  "format": "w7-rwa-e2e-bundle-v1",
+  "as_of_ms": 1700000005000,
+  "records": [
+    {
+      "schema_id": "w7-rwa-research",
+      "schema_version": "0.1.0-draft",
+      "record_id": "rec:e2e:nvda:001",
+      "is_draft": true,
+      "data_mode": "synthetic",
+      "as_of_ms": 1700000005000,
+      "observed_at_ms": 1700000006000,
+      "instrument": {
+        "token_key": {
+          "chain_id": 4663,
+          "address": "0x1111111111111111111111111111111111111111"
+        },
+        "issuer_id": "robinhood_rhj",
+        "underlier_id": "NVDA",
+        "feed_address": "0x2222222222222222222222222222222222222222",
+        "quote_currency": "USD",
+        "token_decimals": 18,
+        "feed_decimals": 8,
+        "evidence_refs": [],
+        "valid_from_ms": 1700000000000,
+        "valid_to_ms": null
+      },
+      "oracle": {
+        "state_version": {
+          "applied_cursor": null,
+          "block_domain": "l2",
+          "block_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "block_number": 100000,
+          "block_timestamp_s": null,
+          "chain_id": 4663,
+          "complete_through_block": 100000,
+          "completeness": "ready",
+          "coverage": [],
+          "epoch_id": null,
+          "finality": "unknown",
+          "finality_evidence_ref": null,
+          "optional_l1_anchor": null,
+          "parent_hash": null,
+          "received_at_ms": 1700000005000,
+          "source_ref": null,
+          "stale_reasons": []
+        },
+        "round_id": 1,
+        "answer": "12550000000",
+        "started_at_s": 1700000000,
+        "updated_at_s": 1700000000,
+        "answered_in_round": 1,
+        "multiplier_uint": "1050000000000000000",
+        "pending_multiplier_uint": null,
+        "effective_at_s": null,
+        "oracle_paused": false,
+        "heartbeat_s": 86400,
+        "session_kind": "regular",
+        "sequencer_status": null,
+        "sequencer_started_at_s": null,
+        "grace_period_s": null
+      },
+      "equity_ref": {
+        "underlier_id": "NVDA",
+        "currency": "USD",
+        "bid_price": "120.50",
+        "ask_price": "120.60",
+        "price_basis": "underlying_share",
+        "generated_at_ms": 1700000000000,
+        "received_at_ms": 1700000001000,
+        "session_kind": "regular",
+        "trading_halt": false,
+        "source_ref": "rest:/rhj/prices/NVDA"
+      },
+      "quotes": [
+        {
+          "pool_key": {
+            "chain_id": 4663,
+            "pool_id": "0x1111111111111111111111111111111111111111111111111111111111111111",
+            "pool_id_kind": "bytes32",
+            "protocol_id": "uniswap_v4",
+            "venue_address": "0x2222222222222222222222222222222222222222",
+            "venue_kind": "manager"
+          },
+          "pool_descriptor": null,
+          "direction": "zero_for_one",
+          "asset_in": {
+            "address": "0x1111111111111111111111111111111111111111",
+            "balance_domain_id": null,
+            "chain_id": 4663,
+            "interface_kind": "erc20"
+          },
+          "asset_out": {
+            "address": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+            "balance_domain_id": null,
+            "chain_id": 4663,
+            "interface_kind": "erc20"
+          },
+          "amount_in_atoms": "1000000000000000000",
+          "amount_out_atoms": "119000000",
+          "quote_id": "q1_s",
+          "state_version_ref": null,
+          "fee_included": "unknown",
+          "impact_included": "unknown",
+          "gas_estimate": null,
+          "gas_evidence_kind": null,
+          "status": "quoted",
+          "error": null,
+          "data_mode": "synthetic",
+          "evidence_level": "local_quote"
+        },
+        {
+          "pool_key": {
+            "chain_id": 4663,
+            "pool_id": "0x1111111111111111111111111111111111111111111111111111111111111111",
+            "pool_id_kind": "bytes32",
+            "protocol_id": "uniswap_v4",
+            "venue_address": "0x2222222222222222222222222222222222222222",
+            "venue_kind": "manager"
+          },
+          "pool_descriptor": null,
+          "direction": "one_for_zero",
+          "asset_in": {
+            "address": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+            "balance_domain_id": null,
+            "chain_id": 4663,
+            "interface_kind": "erc20"
+          },
+          "asset_out": {
+            "address": "0x1111111111111111111111111111111111111111",
+            "balance_domain_id": null,
+            "chain_id": 4663,
+            "interface_kind": "erc20"
+          },
+          "amount_in_atoms": "120000000",
+          "amount_out_atoms": "1000000000000000000",
+          "quote_id": "q1_b",
+          "state_version_ref": null,
+          "fee_included": "unknown",
+          "impact_included": "unknown",
+          "gas_estimate": null,
+          "gas_evidence_kind": null,
+          "status": "quoted",
+          "error": null,
+          "data_mode": "synthetic",
+          "evidence_level": "local_quote"
+        },
+        {
+          "pool_key": {
+            "chain_id": 4663,
+            "pool_id": "0x2222222222222222222222222222222222222222222222222222222222222222",
+            "pool_id_kind": "bytes32",
+            "protocol_id": "uniswap_v4",
+            "venue_address": "0x3333333333333333333333333333333333333333",
+            "venue_kind": "manager"
+          },
+          "pool_descriptor": null,
+          "direction": "zero_for_one",
+          "asset_in": {
+            "address": "0x1111111111111111111111111111111111111111",
+            "balance_domain_id": null,
+            "chain_id": 4663,
+            "interface_kind": "erc20"
+          },
+          "asset_out": {
+            "address": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+            "balance_domain_id": null,
+            "chain_id": 4663,
+            "interface_kind": "erc20"
+          },
+          "amount_in_atoms": "1000000000000000000",
+          "amount_out_atoms": "125000000",
+          "quote_id": "q2_s",
+          "state_version_ref": null,
+          "fee_included": "unknown",
+          "impact_included": "unknown",
+          "gas_estimate": null,
+          "gas_evidence_kind": null,
+          "status": "quoted",
+          "error": null,
+          "data_mode": "synthetic",
+          "evidence_level": "local_quote"
+        },
+        {
+          "pool_key": {
+            "chain_id": 4663,
+            "pool_id": "0x2222222222222222222222222222222222222222222222222222222222222222",
+            "pool_id_kind": "bytes32",
+            "protocol_id": "uniswap_v4",
+            "venue_address": "0x3333333333333333333333333333333333333333",
+            "venue_kind": "manager"
+          },
+          "pool_descriptor": null,
+          "direction": "one_for_zero",
+          "asset_in": {
+            "address": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+            "balance_domain_id": null,
+            "chain_id": 4663,
+            "interface_kind": "erc20"
+          },
+          "asset_out": {
+            "address": "0x1111111111111111111111111111111111111111",
+            "balance_domain_id": null,
+            "chain_id": 4663,
+            "interface_kind": "erc20"
+          },
+          "amount_in_atoms": "126000000",
+          "amount_out_atoms": "1000000000000000000",
+          "quote_id": "q2_b",
+          "state_version_ref": null,
+          "fee_included": "unknown",
+          "impact_included": "unknown",
+          "gas_estimate": null,
+          "gas_evidence_kind": null,
+          "status": "quoted",
+          "error": null,
+          "data_mode": "synthetic",
+          "evidence_level": "local_quote"
+        }
+      ],
+      "eligibility": null,
+      "reasons": [
+        "e2e_pass"
+      ]
+    }
+  ]
+}

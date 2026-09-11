@@ -1,0 +1,10 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "fixed_source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "reference_repo_url": "https://github.com/dc787/dex-sniper-engine-modular.git",
+  "lock_policy": "STRICT_PINNED_SOURCE_SHA",
+  "rule_reference": "02_四窗口共同规则.md, 07_本地池目录变化处理规则.md",
+  "whole_repository_clean_required": false,
+  "local_pool_data_may_differ": true,
+  "locked_at": "2026-09-11T08:00:00Z"
+}

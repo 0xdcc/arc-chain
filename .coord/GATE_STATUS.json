@@ -1,0 +1,37 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "candidate_sha": null,
+  "G0_BOOTSTRAP": {
+    "verdict": "IN_PROGRESS",
+    "evidence": [
+      "T01"
+    ]
+  },
+  "G1_CODE": {
+    "verdict": "NOT_RUN",
+    "evidence": []
+  },
+  "G1_LIVE": {
+    "verdict": "PENDING_AUTHORIZATION",
+    "evidence": []
+  },
+  "G2_CODE": {
+    "verdict": "NOT_RUN",
+    "evidence": []
+  },
+  "G2_LIVE": {
+    "verdict": "PENDING_AUTHORIZATION",
+    "evidence": []
+  },
+  "ALPHA_EVIDENCE": {
+    "verdict": "INSUFFICIENT_DATA",
+    "scope": null
+  },
+  "EXECUTION_AUTH": {
+    "enabled": false,
+    "authorization_ref": null
+  },
+  "scope_capabilities": {},
+  "not_run": [],
+  "residual_risks": []
+}

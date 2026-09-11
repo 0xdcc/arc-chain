@@ -1,0 +1,87 @@
+"""Arc fee accounting and gas cost normalization in 18-decimal native USDC units."""
+
+from __future__ import annotations
+
+from arc_readiness.errors import ArcValidationError
+from arc_readiness.models import (
+    ArcFeeObservation,
+    validate_bytes32,
+    validate_non_negative_int,
+    validate_optional_non_negative_int,
+    validate_positive_int,
+)
+
+
+def calculate_receipt_fee_atoms(
+    gas_used: int,
+    effective_gas_price_wei: int,
+    chain_id: int,
+    block_number: int,
+    block_hash: str,
+    base_fee_gwei: int | None = None,
+    priority_fee_gwei: int | None = None,
+) -> ArcFeeObservation:
+    """Calculate exact transaction fee from execution receipt in 18-decimal native USDC atoms."""
+    used = validate_non_negative_int(gas_used, "gas_used")
+    price = validate_non_negative_int(effective_gas_price_wei, "effective_gas_price_wei")
+    c_id = validate_positive_int(chain_id, "chain_id")
+    b_num = validate_non_negative_int(block_number, "block_number")
+    b_hash = validate_bytes32(block_hash, "block_hash")
+    b_fee = validate_optional_non_negative_int(base_fee_gwei, "base_fee_gwei")
+    p_fee = validate_optional_non_negative_int(priority_fee_gwei, "priority_fee_gwei")
+
+    total_atoms = used * price
+
+    return ArcFeeObservation(
+        chain_id=c_id,
+        block_number=b_num,
+        block_hash=b_hash,
+        gas_used=used,
+        effective_gas_price_wei=price,
+        total_fee_atoms=total_atoms,
+        base_fee_gwei=b_fee,
+        priority_fee_gwei=p_fee,
+        fee_source="receipt",
+        is_estimate=False,
+    )
+
+
+def estimate_max_fee_atoms(gas_limit: int, max_fee_per_gas_wei: int) -> int:
+    """Calculate worst-case fee cap from gas limit and max fee per gas."""
+    limit = validate_non_negative_int(gas_limit, "gas_limit")
+    max_price = validate_non_negative_int(max_fee_per_gas_wei, "max_fee_per_gas_wei")
+    return limit * max_price
+
+
+def validate_fee_calculation(gas_used: int, gas_price_wei: int, reported_total: int) -> None:
+    """Guard against confusing gas price alone with total fee or decimal mismatches."""
+    expected = gas_used * gas_price_wei
+    if reported_total == gas_price_wei and gas_used != 1:
+        raise ArcValidationError(
+            f"Reported fee {reported_total} equals gas_price alone, ignoring gas_used={gas_used}"
+        )
+    if reported_total != expected:
+        raise ArcValidationError(
+            f"Reported fee {reported_total} does not match gas_used * gas_price ({expected})"
+        )
+
+
+def atoms_to_decimal_string(atoms: int, decimals: int = 18) -> str:
+    """Format an atomic integer into a human-readable decimal string without floating point rounding."""
+    if isinstance(atoms, bool) or not isinstance(atoms, int):
+        raise ArcValidationError(f"atoms must be an integer, got {type(atoms).__name__}")
+    if decimals <= 0:
+        raise ArcValidationError(f"decimals must be positive, got {decimals}")
+
+    sign = "-" if atoms < 0 else ""
+    abs_atoms = abs(atoms)
+    scale = 10**decimals
+
+    integer_part = abs_atoms // scale
+    fractional_part = abs_atoms % scale
+
+    if fractional_part == 0:
+        return f"{sign}{integer_part}.0"
+
+    frac_str = str(fractional_part).zfill(decimals).rstrip("0")
+    return f"{sign}{integer_part}.{frac_str}"

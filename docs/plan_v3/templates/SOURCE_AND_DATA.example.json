@@ -1,0 +1,21 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "is_template": true,
+  "reference_code_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "local_repo_path": null,
+  "local_git_head": null,
+  "selected_code_digest": null,
+  "selected_code_matches_reference": null,
+  "local_data_difference_classification": null,
+  "normal_pool_data_difference_is_blocker": false,
+  "pool_catalog_candidate_paths": [
+    "data/v3_pools_live_catalog.json",
+    "data/v4_pools_live_catalog.json"
+  ],
+  "local_catalog_snapshots": [],
+  "code_or_policy_changes": [],
+  "unclassified_changes": [],
+  "arc_catalog_generation": null,
+  "robinhood_catalog_used_as_arc_production": false,
+  "notes": "Do not fill match=true without comparison; local HEAD can differ. Copy no secrets/runtime ledgers."
+}

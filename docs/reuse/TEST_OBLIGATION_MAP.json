@@ -1,0 +1,37 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "fixed_source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "mappings": [
+    {
+      "upstream_test": "tests/test_arbitrage_contracts.py",
+      "arc_target_test": "tests/test_arbitrage_contracts.py",
+      "obligation_type": "CORE_CONTRACT_PARITY",
+      "status": "MAPPED"
+    },
+    {
+      "upstream_test": "tests/test_market_catalog.py",
+      "arc_target_test": "tests/test_market_catalog.py",
+      "obligation_type": "CATALOG_PARITY",
+      "status": "MAPPED"
+    },
+    {
+      "upstream_test": "tests/test_state_graph.py",
+      "arc_target_test": "tests/test_state_graph.py",
+      "obligation_type": "MATH_AND_GRAPH_PARITY",
+      "status": "MAPPED"
+    },
+    {
+      "upstream_test": "tests/test_opportunities.py",
+      "arc_target_test": "tests/test_opportunities.py",
+      "obligation_type": "LEDGER_INTEGRITY_PARITY",
+      "status": "MAPPED"
+    },
+    {
+      "upstream_test": "tests/test_v4_pipeline_integration.py",
+      "arc_target_test": "tests/arc_v3/independent/test_v4_migration.py",
+      "obligation_type": "V4_INITIALIZATION_OBLIGATION",
+      "status": "MIGRATED_TO_M4_INDEPENDENT_TEST",
+      "note": "Replaced hardcoded 137 pool assertion with Arc catalog semantics and fixture decoupling."
+    }
+  ]
+}
