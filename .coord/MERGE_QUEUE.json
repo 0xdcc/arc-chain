@@ -299,6 +299,20 @@
         "ops/START_STOP.md",
         "tests/arc_v3/runtime/test_environment_spec.py"
       ]
+    },
+    {
+      "task_id": "T15",
+      "brain": "M2",
+      "message_id": "M2/RESULT-T15-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "ea948ce92baa08ec076202245beb117a2d1ab19f",
+      "changed_files": [
+        "arc_markets/v4_events.py",
+        "arc_markets/v4_discovery.py",
+        "arc_markets/v4_state.py",
+        "tests/arc_v3/markets/test_v4_identity.py",
+        "tests/arc_v3/markets/test_v4_stateview.py"
+      ]
     }
   ],
   "processed_messages": [
@@ -317,6 +331,7 @@
     "M2/RESULT-T10-attempt1.json",
     "M2/RESULT-T13-attempt1.json",
     "M2/RESULT-T14-attempt1.json",
+    "M2/RESULT-T15-attempt1.json",
     "M3/RESULT-T19-attempt1.json",
     "M3/RESULT-T20-attempt1.json",
     "M3/RESULT-T21-attempt1.json",

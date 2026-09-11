@@ -257,7 +257,7 @@
       "title": "V4\u72ec\u7acb\u6c60\u8eab\u4efd\u3001\u4e8b\u4ef6\u4e0eStateView\u72b6\u6001\u91c7\u6837",
       "lead": "M2",
       "phase": "G2",
-      "status": "LEASED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T13",
         "T08"
@@ -274,7 +274,10 @@
           "tests/arc_v3/markets/test_v4_stateview.py"
         ]
       },
-      "result": null
+      "result": "ea948ce92baa08ec076202245beb117a2d1ab19f",
+      "last_attempt": 1,
+      "last_updated_by": "M2",
+      "integrated_commit": "ea948ce92baa08ec076202245beb117a2d1ab19f"
     },
     "T16": {
       "title": "V3 tick bitmap\u8986\u76d6\u4e0e\u4e00\u81f4\u5feb\u7167",
@@ -433,13 +436,22 @@
       "title": "Shadow\u8bc4\u4f30\u670d\u52a1\u4e0e\u539f\u56e0\u5206\u7c7b",
       "lead": "M3",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T22",
         "T23",
         "T18"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M3",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T10:15:00Z",
+        "exact_write_allowlist": [
+          "arc_opportunities/shadow.py",
+          "arc_opportunities/reasons.py",
+          "tests/arc_v3/quotes/test_shadow_service.py"
+        ]
+      },
       "result": null
     },
     "T25": {
@@ -472,13 +484,22 @@
       "title": "\u4e25\u683c\u5e93\u5b58\u4e0e\u8c03\u7528\u8005\u7684\u53ea\u8bfb\u4eff\u771ftransport",
       "lead": "M3",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T25",
         "T08",
         "T18"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M3",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T10:15:00Z",
+        "exact_write_allowlist": [
+          "atomic_execution/arc_transport.py",
+          "tests/arc_v3/simulation/test_arc_transport.py",
+          "atomic_execution/arc_simulation.py"
+        ]
+      },
       "result": null
     },
     "T27": {
@@ -533,12 +554,21 @@
       "title": "USDC\u56f4\u5899\u53ea\u8bfb\u6765\u6e90\u91c7\u96c6",
       "lead": "M3",
       "phase": "G2-RESEARCH",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T03",
         "T04"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M3",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T10:15:00Z",
+        "exact_write_allowlist": [
+          "arc_research/wall/sources.py",
+          "arc_research/wall/channel_status.py",
+          "tests/arc_v3/research/test_wall_sources.py"
+        ]
+      },
       "result": null
     },
     "T32": {
@@ -556,12 +586,21 @@
       "title": "\u7b2c\u4e8c\u573a\u6240\u4e0e\u6d41\u52a8\u6027\u673a\u5236\u4e8b\u4ef6\u96f7\u8fbe",
       "lead": "M3",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T14",
         "T03"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M3",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T10:15:00Z",
+        "exact_write_allowlist": [
+          "arc_research/events/engine.py",
+          "arc_research/events/rules.py",
+          "tests/arc_v3/research/test_market_events.py"
+        ]
+      },
       "result": null
     },
     "T34": {
@@ -749,13 +788,24 @@
       "title": "F01\u2013F07\u4e0e\u65b0\u5165\u53e3\u8fc1\u79fb\u53cd\u8bc1",
       "lead": "M4",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T24",
         "T26",
         "T15"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M4",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T10:15:00Z",
+        "exact_write_allowlist": [
+          "tests/arc_v3/independent/test_f01_f07.py",
+          "tools/qa/fault_mutations.py",
+          "docs/acceptance/F01_F07_MIGRATION.md",
+          "tests/arc_v3/independent/test_v4_migration.py",
+          "tests/arc_v3/independent/test_history_claims.py"
+        ]
+      },
       "result": null
     },
     "T46": {

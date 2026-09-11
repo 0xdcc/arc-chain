@@ -2,16 +2,56 @@
   "plan_id": "ARC-4B-v3.1-20260911-13817f4",
   "project_instance_id": "arc-chain-1789123287",
   "active_leases": {
-    "T15": {
-      "brain": "M2",
+    "T45": {
+      "brain": "M4",
       "lease_epoch": 1,
-      "granted_at": "2026-09-11T09:30:00Z",
+      "granted_at": "2026-09-11T10:15:00Z",
       "exact_write_allowlist": [
-        "arc_markets/v4_events.py",
-        "arc_markets/v4_discovery.py",
-        "tests/arc_v3/markets/test_v4_identity.py",
-        "arc_markets/v4_state.py",
-        "tests/arc_v3/markets/test_v4_stateview.py"
+        "tests/arc_v3/independent/test_f01_f07.py",
+        "tools/qa/fault_mutations.py",
+        "docs/acceptance/F01_F07_MIGRATION.md",
+        "tests/arc_v3/independent/test_v4_migration.py",
+        "tests/arc_v3/independent/test_history_claims.py"
+      ]
+    },
+    "T24": {
+      "brain": "M3",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T10:15:00Z",
+      "exact_write_allowlist": [
+        "arc_opportunities/shadow.py",
+        "arc_opportunities/reasons.py",
+        "tests/arc_v3/quotes/test_shadow_service.py"
+      ]
+    },
+    "T26": {
+      "brain": "M3",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T10:15:00Z",
+      "exact_write_allowlist": [
+        "atomic_execution/arc_transport.py",
+        "tests/arc_v3/simulation/test_arc_transport.py",
+        "atomic_execution/arc_simulation.py"
+      ]
+    },
+    "T31": {
+      "brain": "M3",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T10:15:00Z",
+      "exact_write_allowlist": [
+        "arc_research/wall/sources.py",
+        "arc_research/wall/channel_status.py",
+        "tests/arc_v3/research/test_wall_sources.py"
+      ]
+    },
+    "T33": {
+      "brain": "M3",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T10:15:00Z",
+      "exact_write_allowlist": [
+        "arc_research/events/engine.py",
+        "arc_research/events/rules.py",
+        "tests/arc_v3/research/test_market_events.py"
       ]
     }
   }

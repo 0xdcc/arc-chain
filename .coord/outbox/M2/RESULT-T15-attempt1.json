@@ -1,0 +1,49 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T15",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M2-worker-1",
+  "status": "SUBMITTED",
+  "baseline_sha": "5dc1ecd7d3f82cb9eefb036573c9db659e5a1e7b",
+  "result_commit": "ea948ce92baa08ec076202245beb117a2d1ab19f",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_markets/v4_events.py",
+    "arc_markets/v4_discovery.py",
+    "arc_markets/v4_state.py",
+    "tests/arc_v3/markets/test_v4_identity.py",
+    "tests/arc_v3/markets/test_v4_stateview.py"
+  ],
+  "input_hashes": {
+    "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=.worktrees/T15-attempt1-worker1 ./venv/bin/python -m pytest .worktrees/T15-attempt1-worker1/tests/arc_v3/markets/test_v4_identity.py .worktrees/T15-attempt1-worker1/tests/arc_v3/markets/test_v4_stateview.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T15/attempt1/test_v4.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "OFFLINE_V4_DISCOVERY_AND_STATEVIEW_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "V4 non-zero hook pools and dynamic fee calculation require hook-specific research.",
+    "Live StateView multi-call queries require explicit G1_LIVE endpoint authorization."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T15 implemented V4 PoolManager poolId discovery, full 4-word StateView.getSlot0 decoding (sqrtPriceX96, tick, protocolFee, lpFee), dynamic fee flag detection, and fixed-block multi-call sampler. 10 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

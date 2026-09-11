@@ -1,0 +1,51 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "brain": "M3",
+  "status": "READY_FOR_LEASES",
+  "registered_at": "2026-09-11T10:00:00Z",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "arc_candidate_sha": "5dc1ecd7d3f82cb9eefb036573c9db659e5a1e7b",
+  "requested_tasks": [
+    {
+      "task_id": "T33",
+      "phase": "G2",
+      "lead": "M3",
+      "depends_on": [
+        "T14",
+        "T03"
+      ],
+      "dependencies_satisfied": true,
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_research/events/engine.py",
+        "arc_research/events/rules.py",
+        "tests/arc_v3/research/test_market_events.py"
+      ],
+      "requested_capabilities": [
+        "offline_research"
+      ]
+    },
+    {
+      "task_id": "T31",
+      "phase": "G2-RESEARCH",
+      "lead": "M3",
+      "depends_on": [
+        "T03",
+        "T04"
+      ],
+      "dependencies_satisfied": true,
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_research/wall/sources.py",
+        "arc_research/wall/channel_status.py",
+        "tests/arc_v3/research/test_wall_sources.py"
+      ],
+      "requested_capabilities": [
+        "offline_research"
+      ]
+    }
+  ],
+  "note": "M3 completed and submitted T19, T20, T21, T22, T23, T25. Awaiting M1 integration of T23/T25 and formal lease registration for T33 and T31."
+}
