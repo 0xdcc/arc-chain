@@ -671,13 +671,15 @@
       "title": "\u72ec\u7acb\u73af\u5883\u4e0e\u53ea\u8bfb\u90e8\u7f72\u5019\u9009",
       "lead": "M1",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "ACCEPTED",
       "depends_on": [
         "T37",
         "T44"
       ],
       "lease": null,
-      "result": null
+      "result": "01bc6e265744289e2bbdde0d95e389a9656e59d1",
+      "last_attempt": 1,
+      "last_updated_by": "M1"
     },
     "T42": {
       "title": "\u8fd0\u8425\u4ea4\u63a5\u4e0e\u516c\u5f00\u5f00\u653e\u68c0\u67e5\u8868",

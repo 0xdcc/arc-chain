@@ -286,6 +286,19 @@
         "arc_runtime/lifecycle.py",
         "tests/arc_v3/runtime/test_health_lifecycle.py"
       ]
+    },
+    {
+      "task_id": "T41",
+      "brain": "M1",
+      "message_id": "M1/RESULT-T41-attempt1.json",
+      "status": "ACCEPTED",
+      "result_commit": "01bc6e265744289e2bbdde0d95e389a9656e59d1",
+      "changed_files": [
+        "ops/arc-readonly.service.example",
+        "ops/ENVIRONMENT.md",
+        "ops/START_STOP.md",
+        "tests/arc_v3/runtime/test_environment_spec.py"
+      ]
     }
   ],
   "processed_messages": [
@@ -297,6 +310,7 @@
     "M1/RESULT-T37-attempt1.json",
     "M1/RESULT-T39-attempt1.json",
     "M1/RESULT-T40-attempt1.json",
+    "M1/RESULT-T41-attempt1.json",
     "M2/RESULT-T07-attempt1.json",
     "M2/RESULT-T08-attempt1.json",
     "M2/RESULT-T09-attempt1.json",
