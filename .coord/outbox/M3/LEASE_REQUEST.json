@@ -2,11 +2,11 @@
   "plan_id": "ARC-4B-v3.1-20260911-13817f4",
   "project_instance_id": "arc-chain-1789123287",
   "brain": "M3",
-  "status": "READY_FOR_LEASES",
-  "registered_at": "2026-09-11T18:15:00Z",
+  "status": "ALL_TASKS_COMPLETED",
+  "updated_at": "2026-09-11T19:00:00Z",
   "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
   "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
-  "arc_candidate_sha": "80af59779df528a4746637ef8540c43ca7526ee6",
+  "arc_candidate_sha": "4ba882778f4e30f3e82a173def39728519e71507",
   "completed_tasks": [
     "T19",
     "T20",
@@ -19,6 +19,7 @@
     "T27",
     "T28",
     "T29",
+    "T30",
     "T31",
     "T32",
     "T33",
@@ -26,26 +27,6 @@
     "T35",
     "T36"
   ],
-  "requested_tasks": [
-    {
-      "task_id": "T30",
-      "phase": "G3-PREP",
-      "lead": "M3",
-      "depends_on": [
-        "T29",
-        "T27"
-      ],
-      "dependencies_satisfied": true,
-      "lease_epoch": 1,
-      "exact_write_allowlist": [
-        "arc_execution/reconcile.py",
-        "arc_execution/circuit_breaker.py",
-        "tests/arc_v3/simulation/test_reconciliation.py"
-      ],
-      "requested_capabilities": [
-        "offline_simulation"
-      ]
-    }
-  ],
-  "note": "M3 has delivered T29 (submitted to outbox). T27 is integrated on main. Upon M1 integration of T29, all dependencies for T30 will be satisfied. Requesting T30 lease grant in .coord/LEASES.json."
+  "requested_tasks": [],
+  "note": "M3 (Strategy, Simulation & Research) has finished all 18 assigned tasks (T19-T36) defined under ARC-4B-v3.1-20260911-13817f4. All results submitted to outbox or integrated on main. Zero pending leases requested."
 }

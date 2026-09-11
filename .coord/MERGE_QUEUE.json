@@ -591,6 +591,29 @@
         "docs/coordination/DEFERRED_SCOPE.md",
         "README.md"
       ]
+    },
+    {
+      "task_id": "T12",
+      "brain": "M2",
+      "message_id": "M2/RESULT-T12-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "b032aac4e21bcf2419f9fcf4e6a9ecf096dd668e",
+      "changed_files": [
+        "docs/acceptance/m2-live/REPORT.md",
+        "docs/acceptance/m2-live/coverage.json"
+      ]
+    },
+    {
+      "task_id": "T30",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T30-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "2b55508ffebac26c6d2c495c2d3cbf8b4f6c2086",
+      "changed_files": [
+        "arc_execution/reconcile.py",
+        "arc_execution/circuit_breaker.py",
+        "tests/arc_v3/simulation/test_reconciliation.py"
+      ]
     }
   ],
   "processed_messages": [
@@ -611,6 +634,7 @@
     "M2/RESULT-T09-attempt1.json",
     "M2/RESULT-T10-attempt1.json",
     "M2/RESULT-T11-attempt1.json",
+    "M2/RESULT-T12-attempt1.json",
     "M2/RESULT-T13-attempt1.json",
     "M2/RESULT-T14-attempt1.json",
     "M2/RESULT-T15-attempt1.json",
@@ -628,6 +652,7 @@
     "M3/RESULT-T27-attempt1.json",
     "M3/RESULT-T28-attempt1.json",
     "M3/RESULT-T29-attempt1.json",
+    "M3/RESULT-T30-attempt1.json",
     "M3/RESULT-T31-attempt1.json",
     "M3/RESULT-T32-attempt1.json",
     "M3/RESULT-T33-attempt1.json",

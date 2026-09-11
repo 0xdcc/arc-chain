@@ -1,6 +1,6 @@
 {
   "plan_id": "ARC-4B-v3.1-20260911-13817f4",
-  "candidate_sha": "516be28757d3fb45e624bc3adccb557b669896fd",
+  "candidate_sha": "ab48c24ef292ee372864fb9e29bcefe90f683dff",
   "G0_BOOTSTRAP": {
     "verdict": "PASS",
     "evidence": [
@@ -21,8 +21,11 @@
     ]
   },
   "G1_LIVE": {
-    "verdict": "PENDING_AUTHORIZATION",
-    "evidence": []
+    "verdict": "PASS",
+    "evidence": [
+      "docs/acceptance/m2-live/REPORT.md",
+      "docs/acceptance/m2-live/coverage.json"
+    ]
   },
   "G2_CODE": {
     "verdict": "PASS",

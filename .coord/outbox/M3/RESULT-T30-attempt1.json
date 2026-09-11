@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T30",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker",
+  "status": "SUBMITTED",
+  "baseline_sha": "4ba882778f4e30f3e82a173def39728519e71507",
+  "result_commit": "2b55508ffebac26c6d2c495c2d3cbf8b4f6c2086",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_execution/reconcile.py",
+    "arc_execution/circuit_breaker.py",
+    "tests/arc_v3/simulation/test_reconciliation.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/simulation/test_reconciliation.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 8,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T30/attempt1/test_reconciliation.log",
+      "raw_output_sha256": "deaf2bd032faf18e8dbb74dc3f8fc0fd77a3dab2b15d21d3cf1c8af3271c0232"
+    }
+  ],
+  "evidence_scope": "OFFLINE_RECONCILIATION_CIRCUIT_BREAKER_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Reconciliation logic operates strictly offline against simulated receipts and balance snapshots.",
+    "Real on-chain receipt extraction and RPC gas parsing will require live network activation in future phase."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T30 delivered execution receipt reconciliation, multi-account consolidation, on-chain revert loss accounting, anti-pollution detection, and financial circuit breaker. 8 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

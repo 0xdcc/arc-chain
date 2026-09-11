@@ -1,54 +1,7 @@
 {
   "plan_id": "ARC-4B-v3.1-20260911-13817f4",
   "project_instance_id": "arc-chain-1789123287",
-  "active_leases": [
-    {
-      "lease_id": "lease-M3-T30-b8",
-      "task_id": "T30",
-      "worker_id": "M3-worker",
-      "lead_brain": "M3",
-      "branch": "task/T30-reconcile-circuit-breaker",
-      "worktree": ".worktrees/T30-attempt1-worker1",
-      "granted_at": "2026-09-11T18:37:20Z",
-      "expires_at": "2026-09-12T00:00:00Z",
-      "lease_epoch": 1,
-      "exact_write_allowlist": [
-        "arc_execution/reconcile.py",
-        "arc_execution/circuit_breaker.py",
-        "tests/arc_v3/simulation/test_reconciliation.py"
-      ],
-      "status": "ACTIVE"
-    },
-    {
-      "lease_id": "lease-M2-T12-live",
-      "task_id": "T12",
-      "worker_id": "M2-worker",
-      "lead_brain": "M2",
-      "branch": "task/T12-live-sampling",
-      "worktree": ".worktrees/T12-attempt1-worker1",
-      "granted_at": "2026-09-11T18:51:49Z",
-      "expires_at": "2026-09-12T00:00:00Z",
-      "lease_epoch": 1,
-      "exact_write_allowlist": [
-        "docs/acceptance/m2-live/REPORT.md",
-        "docs/acceptance/m2-live/coverage.json"
-      ],
-      "requested_capabilities": [
-        "bounded_readonly_live_rpc"
-      ],
-      "authorization_constraints": {
-        "max_rpc_requests": 50,
-        "timeout_seconds": 5,
-        "allowed_methods": [
-          "eth_chainId",
-          "eth_blockNumber",
-          "eth_getBlockByNumber"
-        ],
-        "mutating_methods": "FORBIDDEN"
-      },
-      "status": "ACTIVE"
-    }
-  ],
+  "active_leases": [],
   "lease_history": [
     {
       "lease_id": "lease-M2-T11-b5",
@@ -289,6 +242,52 @@
         "arc_execution/nonce_journal.py",
         "tests/arc_v3/simulation/test_nonce_recovery.py"
       ],
+      "status": "COMPLETED"
+    },
+    {
+      "lease_id": "lease-M3-T30-b8",
+      "task_id": "T30",
+      "worker_id": "M3-worker",
+      "lead_brain": "M3",
+      "branch": "task/T30-reconcile-circuit-breaker",
+      "worktree": ".worktrees/T30-attempt1-worker1",
+      "granted_at": "2026-09-11T18:37:20Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_execution/reconcile.py",
+        "arc_execution/circuit_breaker.py",
+        "tests/arc_v3/simulation/test_reconciliation.py"
+      ],
+      "status": "COMPLETED"
+    },
+    {
+      "lease_id": "lease-M2-T12-live",
+      "task_id": "T12",
+      "worker_id": "M2-worker",
+      "lead_brain": "M2",
+      "branch": "task/T12-live-sampling",
+      "worktree": ".worktrees/T12-attempt1-worker1",
+      "granted_at": "2026-09-11T18:51:49Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "docs/acceptance/m2-live/REPORT.md",
+        "docs/acceptance/m2-live/coverage.json"
+      ],
+      "requested_capabilities": [
+        "bounded_readonly_live_rpc"
+      ],
+      "authorization_constraints": {
+        "max_rpc_requests": 50,
+        "timeout_seconds": 5,
+        "allowed_methods": [
+          "eth_chainId",
+          "eth_blockNumber",
+          "eth_getBlockByNumber"
+        ],
+        "mutating_methods": "FORBIDDEN"
+      },
       "status": "COMPLETED"
     }
   ]
