@@ -1,0 +1,104 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "release_tag": "G2_CODE",
+  "release_status": "RELEASED_CANDIDATE",
+  "candidate_sha": "516be28757d3fb45e624bc3adccb557b669896fd",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "released_at": "2026-09-11T19:00:00Z",
+  "released_by": "M1",
+  "gate_status_summary": {
+    "G0_BOOTSTRAP": "PASS",
+    "G1_CODE": "PASS",
+    "G2_CODE": "PASS",
+    "G1_LIVE": "PENDING_AUTHORIZATION",
+    "G2_LIVE": "PENDING_AUTHORIZATION",
+    "ALPHA_EVIDENCE": "INSUFFICIENT_DATA",
+    "EXECUTION_AUTH": "DISABLED"
+  },
+  "independent_reviews": [
+    {
+      "task_id": "T43",
+      "scope": "G0_IMPORT_AND_SEPARATION_INDEPENDENT_AUDIT",
+      "verdict": "PASS",
+      "report_file": "docs/acceptance/IMPORT_REVIEW.md"
+    },
+    {
+      "task_id": "T44",
+      "scope": "G1_CODE_INGEST_AND_READONLY_BOUNDARY_AUDIT",
+      "verdict": "PASS",
+      "report_file": "docs/acceptance/G1_REVIEW.md"
+    },
+    {
+      "task_id": "T45",
+      "scope": "F01_F07_MUTATION_AND_UPSTREAM_MIGRATION_AUDIT",
+      "verdict": "PASS",
+      "report_file": "docs/acceptance/F01_F07_MIGRATION.md"
+    },
+    {
+      "task_id": "T46",
+      "scope": "G2_ARC_ACCOUNTING_AND_OUTPUT_EVIDENCE_AUDIT",
+      "verdict": "PASS",
+      "report_file": "docs/acceptance/ARC_SEMANTICS.md"
+    },
+    {
+      "task_id": "T47",
+      "scope": "G2_CONCURRENCY_LEASES_AND_STORAGE_RECOVERY_AUDIT",
+      "verdict": "PASS",
+      "report_file": "docs/acceptance/CONCURRENCY_RECOVERY.md"
+    },
+    {
+      "task_id": "T48",
+      "scope": "G2_END_TO_END_DELIVERY_AND_RESIDUAL_RISKS_AUDIT",
+      "verdict": "PASS",
+      "report_file": "docs/acceptance/G2_REVIEW.md"
+    }
+  ],
+  "integrated_tasks": [
+    "T01", "T02", "T03", "T04", "T05", "T06",
+    "T07", "T08", "T09", "T10", "T11", "T13", "T14", "T15", "T16", "T17", "T18",
+    "T19", "T20", "T21", "T22", "T23", "T24", "T25", "T26", "T27", "T28", "T29",
+    "T31", "T32", "T33", "T34", "T35", "T36",
+    "T37", "T38", "T39", "T40", "T41", "T42",
+    "T43", "T44", "T45", "T46", "T47", "T48"
+  ],
+  "deferred_tasks": [
+    {
+      "task_id": "T12",
+      "lead": "M2",
+      "reason": "G1-LIVE requires external verified readonly RPC endpoints and authorized rate budget."
+    }
+  ],
+  "in_progress_tasks": [
+    {
+      "task_id": "T30",
+      "lead": "M3",
+      "phase": "G3-PREP",
+      "reason": "Execution reconciliation and circuit breaker finalization."
+    }
+  ],
+  "test_metrics": {
+    "total_collected": 321,
+    "total_passed": 321,
+    "total_failed": 0,
+    "pass_rate": "100%",
+    "coverage_domains": [
+      "foundation",
+      "independent_audit",
+      "ingest_and_cursors",
+      "markets_and_v4_stateview",
+      "quotes_and_ledger",
+      "research_and_alpha",
+      "runtime_cli_and_health",
+      "simulation_and_output_proof"
+    ]
+  },
+  "operational_boundaries": {
+    "real_funds_trading": "DISABLED_PHYSICALLY",
+    "private_key_signing": "REJECTED_AT_IMPORT",
+    "network_mutations": "RPC_TRANSPORT_FILTERED",
+    "qq_notifications": "FAKE_NOTIFIER_REDIRECTED",
+    "max_trade_cap_usd": 500.0,
+    "pathfinder_mode": "ACTIVE (<= 1.0 USD)",
+    "public_launch_date_rule": "Arrival of Sept 16, 2026 does NOT grant automatic trading authorization"
+  }
+}

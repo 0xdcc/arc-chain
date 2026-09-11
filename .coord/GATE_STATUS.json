@@ -1,6 +1,6 @@
 {
   "plan_id": "ARC-4B-v3.1-20260911-13817f4",
-  "candidate_sha": "efb9e153cd312e519ebc3722763919de295e0136",
+  "candidate_sha": "516be28757d3fb45e624bc3adccb557b669896fd",
   "G0_BOOTSTRAP": {
     "verdict": "PASS",
     "evidence": [
@@ -25,8 +25,13 @@
     "evidence": []
   },
   "G2_CODE": {
-    "verdict": "NOT_RUN",
-    "evidence": []
+    "verdict": "PASS",
+    "evidence": [
+      "docs/acceptance/G2_REVIEW.md",
+      "docs/acceptance/TEST_RESULTS.json",
+      "docs/acceptance/RESIDUAL_RISKS.md",
+      "321_TESTS_PASS"
+    ]
   },
   "G2_LIVE": {
     "verdict": "PENDING_AUTHORIZATION",
@@ -34,11 +39,11 @@
   },
   "ALPHA_EVIDENCE": {
     "verdict": "INSUFFICIENT_DATA",
-    "scope": null
+    "scope": "LOCAL_MOCK_AND_SYNTHETIC_ONLY"
   },
   "EXECUTION_AUTH": {
     "enabled": false,
-    "authorization_ref": null
+    "authorization_ref": "READONLY_STUDY_ISOLATED"
   },
   "scope_capabilities": {},
   "not_run": [],

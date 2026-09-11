@@ -75,13 +75,15 @@
       "title": "\u51bb\u7ed3\u9636\u6bb5\u4ea4\u4ed8\u4e0e\u540e\u7eed\u542f\u7528\u51b3\u5b9a",
       "lead": "M1",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "ACCEPTED",
       "depends_on": [
         "T48",
         "T36"
       ],
       "lease": null,
-      "result": null
+      "result": "516be28757d3fb45e624bc3adccb557b669896fd",
+      "last_attempt": 1,
+      "last_updated_by": "M1"
     },
     "T07": {
       "title": "\u663e\u5f0fArc\u4e3b\u7f51/\u6d4b\u8bd5\u7f51Profile\u4e0e\u53ea\u8bfbHTTP",
@@ -568,26 +570,31 @@
       "title": "nonce\uff0f\u5e42\u7b49\uff0f\u5f85\u786e\u8ba4\u72b6\u6001\u673a\u79bb\u7ebf\u5b9e\u73b0",
       "lead": "M3",
       "phase": "G3-PREP",
-      "status": "IN_PROGRESS",
+      "status": "INTEGRATED",
       "depends_on": [
         "T28"
       ],
       "lease": null,
-      "result": null,
+      "result": "4e030567825610dd922fe2432dbf09abfd48dce5",
       "assigned_to": "M3-worker",
-      "lease_id": "lease-M3-T29-b7"
+      "lease_id": "lease-M3-T29-b7",
+      "last_attempt": 1,
+      "last_updated_by": "M3",
+      "integrated_at": "2026-09-11T18:37:20Z"
     },
     "T30": {
       "title": "\u56de\u6267\u4e0e\u8d44\u91d1\u57df\u5b8c\u6574\u5bf9\u8d26\u79bb\u7ebf\u5b9e\u73b0",
       "lead": "M3",
       "phase": "G3-PREP",
-      "status": "UNASSIGNED",
+      "status": "IN_PROGRESS",
       "depends_on": [
         "T29",
         "T27"
       ],
       "lease": null,
-      "result": null
+      "result": null,
+      "assigned_to": "M3-worker",
+      "lease_id": "lease-M3-T30-b8"
     },
     "T31": {
       "title": "USDC\u56f4\u5899\u53ea\u8bfb\u6765\u6e90\u91c7\u96c6",
@@ -923,7 +930,7 @@
       "title": "\u7aef\u5230\u7aef\u4ea4\u4ed8\u5ba1\u67e5\u4e0e\u6b8b\u4f59\u98ce\u9669",
       "lead": "M4",
       "phase": "G2",
-      "status": "IN_PROGRESS",
+      "status": "INTEGRATED",
       "depends_on": [
         "T45",
         "T46",
@@ -932,9 +939,12 @@
         "T36"
       ],
       "lease": null,
-      "result": null,
+      "result": "5e3872253326638f75671afcfc53f5c2e17530fa",
       "assigned_to": "M4-reviewer",
-      "lease_id": "lease-M4-T48-b7"
+      "lease_id": "lease-M4-T48-b7",
+      "last_attempt": 1,
+      "last_updated_by": "M4",
+      "integrated_at": "2026-09-11T18:37:20Z"
     }
   }
 }

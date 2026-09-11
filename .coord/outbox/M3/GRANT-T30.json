@@ -1,0 +1,19 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "brain": "M3",
+  "status": "LEASES_ACTIVE",
+  "granted_at": "2026-09-11T18:37:20Z",
+  "leases": [
+    {
+      "task_id": "T30",
+      "lease_id": "lease-M3-T30-b8",
+      "branch": "task/T30-reconcile-circuit-breaker",
+      "exact_write_allowlist": [
+        "arc_execution/reconcile.py",
+        "arc_execution/circuit_breaker.py",
+        "tests/arc_v3/simulation/test_reconciliation.py"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T29",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker",
+  "status": "SUBMITTED",
+  "baseline_sha": "80af59779df528a4746637ef8540c43ca7526ee6",
+  "result_commit": "4e030567825610dd922fe2432dbf09abfd48dce5",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_execution/state_machine.py",
+    "arc_execution/nonce_journal.py",
+    "tests/arc_v3/simulation/test_nonce_recovery.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/simulation/test_nonce_recovery.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T29/attempt1/test_nonce_recovery.log",
+      "raw_output_sha256": "9311050783fb725b642737c642c55cca029a146473b0d07d0b4ade7f4b45f24a"
+    }
+  ],
+  "evidence_scope": "OFFLINE_NONCE_RECOVERY_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Live RPC broadcast and real mempool monitoring remain strictly mock/offline.",
+    "Bilateral multi-wallet orchestration is deferred to production deployment."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T29 delivered durable nonce journaling, 7-stage idempotent state machine, single in-flight lock, and crash recovery. 3 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

@@ -554,6 +554,43 @@
         "tests/arc_v3/independent/test_storage_chaos.py"
       ],
       "integrated_at": "2026-09-11T17:51:57Z"
+    },
+    {
+      "task_id": "T29",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T29-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "4e030567825610dd922fe2432dbf09abfd48dce5",
+      "changed_files": [
+        "arc_execution/state_machine.py",
+        "arc_execution/nonce_journal.py",
+        "tests/arc_v3/simulation/test_nonce_recovery.py"
+      ]
+    },
+    {
+      "task_id": "T48",
+      "brain": "M4",
+      "message_id": "M4/RESULT-T48-attempt1.json",
+      "status": "ACCEPTED",
+      "result_commit": "5e3872253326638f75671afcfc53f5c2e17530fa",
+      "changed_files": [
+        "docs/acceptance/G2_REVIEW.md",
+        "docs/acceptance/RESIDUAL_RISKS.md",
+        "docs/acceptance/TEST_RESULTS.json"
+      ]
+    },
+    {
+      "task_id": "T06",
+      "brain": "M1",
+      "message_id": "M1/RESULT-T06-attempt1.json",
+      "status": "ACCEPTED",
+      "result_commit": "516be28757d3fb45e624bc3adccb557b669896fd",
+      "changed_files": [
+        "docs/coordination/G2_RELEASE.json",
+        "docs/coordination/USER_DELIVERY.md",
+        "docs/coordination/DEFERRED_SCOPE.md",
+        "README.md"
+      ]
     }
   ],
   "processed_messages": [
@@ -562,6 +599,7 @@
     "M1/RESULT-T03-attempt1.json",
     "M1/RESULT-T04-attempt1.json",
     "M1/RESULT-T05-attempt1.json",
+    "M1/RESULT-T06-attempt1.json",
     "M1/RESULT-T37-attempt1.json",
     "M1/RESULT-T38-attempt1.json",
     "M1/RESULT-T39-attempt1.json",
@@ -589,6 +627,7 @@
     "M3/RESULT-T26-attempt1.json",
     "M3/RESULT-T27-attempt1.json",
     "M3/RESULT-T28-attempt1.json",
+    "M3/RESULT-T29-attempt1.json",
     "M3/RESULT-T31-attempt1.json",
     "M3/RESULT-T32-attempt1.json",
     "M3/RESULT-T33-attempt1.json",
@@ -599,6 +638,7 @@
     "M4/RESULT-T44-attempt1.json",
     "M4/RESULT-T45-attempt1.json",
     "M4/RESULT-T46-attempt1.json",
-    "M4/RESULT-T47-attempt1.json"
+    "M4/RESULT-T47-attempt1.json",
+    "M4/RESULT-T48-attempt1.json"
   ]
 }

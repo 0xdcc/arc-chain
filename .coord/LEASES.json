@@ -3,36 +3,19 @@
   "project_instance_id": "arc-chain-1789123287",
   "active_leases": [
     {
-      "lease_id": "lease-M4-T48-b7",
-      "task_id": "T48",
-      "worker_id": "M4-reviewer",
-      "lead_brain": "M4",
-      "branch": "review/T48-attempt1",
-      "worktree": ".worktrees/T48-attempt1-m4",
-      "granted_at": "2026-09-11T17:51:57Z",
-      "expires_at": "2026-09-12T00:00:00Z",
-      "lease_epoch": 1,
-      "exact_write_allowlist": [
-        "docs/acceptance/G2_REVIEW.md",
-        "docs/acceptance/TEST_RESULTS.json",
-        "docs/acceptance/RESIDUAL_RISKS.md"
-      ],
-      "status": "ACTIVE"
-    },
-    {
-      "lease_id": "lease-M3-T29-b7",
-      "task_id": "T29",
+      "lease_id": "lease-M3-T30-b8",
+      "task_id": "T30",
       "worker_id": "M3-worker",
       "lead_brain": "M3",
-      "branch": "task/T29-nonce-journal",
-      "worktree": ".worktrees/T29-attempt1-worker1",
-      "granted_at": "2026-09-11T17:51:57Z",
+      "branch": "task/T30-reconcile-circuit-breaker",
+      "worktree": ".worktrees/T30-attempt1-worker1",
+      "granted_at": "2026-09-11T18:37:20Z",
       "expires_at": "2026-09-12T00:00:00Z",
       "lease_epoch": 1,
       "exact_write_allowlist": [
-        "arc_execution/state_machine.py",
-        "arc_execution/nonce_journal.py",
-        "tests/arc_v3/simulation/test_nonce_recovery.py"
+        "arc_execution/reconcile.py",
+        "arc_execution/circuit_breaker.py",
+        "tests/arc_v3/simulation/test_reconciliation.py"
       ],
       "status": "ACTIVE"
     }
@@ -242,6 +225,40 @@
         "arc_research/reports/alpha_summary.py",
         "docs/acceptance/ALPHA_RESEARCH.md",
         "tests/arc_v3/research/test_alpha_summary.py"
+      ],
+      "status": "COMPLETED"
+    },
+    {
+      "lease_id": "lease-M4-T48-b7",
+      "task_id": "T48",
+      "worker_id": "M4-reviewer",
+      "lead_brain": "M4",
+      "branch": "review/T48-attempt1",
+      "worktree": ".worktrees/T48-attempt1-m4",
+      "granted_at": "2026-09-11T17:51:57Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "docs/acceptance/G2_REVIEW.md",
+        "docs/acceptance/TEST_RESULTS.json",
+        "docs/acceptance/RESIDUAL_RISKS.md"
+      ],
+      "status": "COMPLETED"
+    },
+    {
+      "lease_id": "lease-M3-T29-b7",
+      "task_id": "T29",
+      "worker_id": "M3-worker",
+      "lead_brain": "M3",
+      "branch": "task/T29-nonce-journal",
+      "worktree": ".worktrees/T29-attempt1-worker1",
+      "granted_at": "2026-09-11T17:51:57Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_execution/state_machine.py",
+        "arc_execution/nonce_journal.py",
+        "tests/arc_v3/simulation/test_nonce_recovery.py"
       ],
       "status": "COMPLETED"
     }

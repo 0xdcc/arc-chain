@@ -1,0 +1,48 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T06",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M1-controller",
+  "status": "ACCEPTED",
+  "baseline_sha": "516be28757d3fb45e624bc3adccb557b669896fd",
+  "result_commit": "516be28757d3fb45e624bc3adccb557b669896fd",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "docs/coordination/G2_RELEASE.json",
+    "docs/coordination/USER_DELIVERY.md",
+    "docs/coordination/DEFERRED_SCOPE.md",
+    "README.md"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "./venv/bin/python -m pytest tests/arc_v3/ -q -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 321,
+      "passed": 321,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T06/attempt1/full_test_suite.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "G2_RELEASE_DELIVERY_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Live network calls remain deferred awaiting external RPC authorization.",
+    "Zero funds trading enabled; system armed flag strictly False."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T06 delivered G2_RELEASE candidate declaration, user delivery summary, deferred scope manifest, and repo README. 321 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

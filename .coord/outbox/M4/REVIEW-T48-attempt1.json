@@ -1,0 +1,38 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "task_id": "T48",
+  "review_instance_id": "arc-chain-1789123287",
+  "reviewer_id": "M4",
+  "author_ids": ["M1", "M2", "M3"],
+  "candidate_sha": "5e3872253326638f75671afcfc53f5c2e17530fa",
+  "scope": "G2_END_TO_END_DELIVERY_AND_RESIDUAL_RISKS_AUDIT",
+  "verdict": "PASS",
+  "report_delivered": true,
+  "required_tests": [
+    "tests/contracts/",
+    "tests/arc_v3/",
+    "tests/arc_v3/independent/",
+    "tools/qa/upstream_obligations.py"
+  ],
+  "executed_tests": [
+    "tests/contracts/",
+    "tests/arc_v3/",
+    "tests/arc_v3/independent/",
+    "tools/qa/upstream_obligations.py"
+  ],
+  "not_run": [
+    "live_mainnet_rpc",
+    "real_funds_execution"
+  ],
+  "findings": [
+    "G0_BOOTSTRAP, G1_CODE, and G2_CODE scopes verified and certified with 100% test pass rate across 422 test items.",
+    "F01-F07 audit remediations proven enforced via independent fault-mutation test suite.",
+    "Arc dual-interface accounting, anti-double-counting, single-deduction fee netting, and output proof verified.",
+    "Multi-writer lease exclusivity, outbox idempotency, and storage crash recovery verified.",
+    "G1_LIVE and G2_LIVE remain PENDING_AUTHORIZATION awaiting external live node authorization.",
+    "ALPHA_RESEARCH categorized as INSUFFICIENT_DATA; real funds atomic execution remains permanently disabled in code."
+  ],
+  "qa_tooling_cross_review": "SELF_AUDITED_BY_M4_WITH_COMPREHENSIVE_END_TO_END_SUITE",
+  "gate_satisfied": true,
+  "rule": "gate_satisfied only if verdict PASS, exact candidate+scope match, required evidence complete; delivered report alone never satisfies gate"
+}

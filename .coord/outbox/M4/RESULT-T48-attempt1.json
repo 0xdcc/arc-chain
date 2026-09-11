@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T48",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M4-reviewer",
+  "status": "ACCEPTED",
+  "baseline_sha": "80af5970c679a96e27a92be32e3160e1d5218d6e",
+  "result_commit": "5e3872253326638f75671afcfc53f5c2e17530fa",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "docs/acceptance/G2_REVIEW.md",
+    "docs/acceptance/RESIDUAL_RISKS.md",
+    "docs/acceptance/TEST_RESULTS.json"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=. /root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/independent/ -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 103,
+      "passed": 103,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T48/attempt1/independent_t48_summary.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "G2_END_TO_END_ACCEPTANCE_AND_RESIDUAL_RISKS_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Live RPC endpoints remain uncalled offline; G1_LIVE and G2_LIVE stay PENDING_AUTHORIZATION.",
+    "Real funds atomic execution remains permanently disabled via hardcoded can_atomic_execute=False."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T48 concluded G2 independent review: 422/422 total tests pass across all layers, F01-F07 remediations certified, G2_CODE verdict PASS, G2_LIVE pending authorization, real funds blocked.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": "1e06e54567abc368812f094110614a71976ca27841c2f664e016c330ab519e9c",
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}
