@@ -137,22 +137,44 @@
       "title": "\u539f\u59cb\u6570\u636e\u8bb0\u5f55\u5668\u4e0e\u6301\u4e45\u6e38\u6807",
       "lead": "M2",
       "phase": "G1",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T08"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M2",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T09:30:00Z",
+        "exact_write_allowlist": [
+          "arc_ingest/recorder.py",
+          "arc_ingest/segments.py",
+          "arc_ingest/cursors.py",
+          "tests/arc_v3/ingest/test_raw_recorder.py"
+        ]
+      },
       "result": null
     },
     "T10": {
       "title": "USDC\u4f59\u989d\u3001\u4e8b\u4ef6\u4e0eGas\u4e00\u81f4\u89c2\u6d4b",
       "lead": "M2",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T08"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M2",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T09:30:00Z",
+        "exact_write_allowlist": [
+          "arc_readiness/balances.py",
+          "arc_readiness/events.py",
+          "arc_readiness/fees.py",
+          "arc_readiness/eligibility.py",
+          "arc_readiness/profile_assets.py",
+          "tests/arc_v3/ingest/test_usdc_semantics.py"
+        ]
+      },
       "result": null
     },
     "T11": {
@@ -231,12 +253,23 @@
       "title": "V4\u72ec\u7acb\u6c60\u8eab\u4efd\u3001\u4e8b\u4ef6\u4e0eStateView\u72b6\u6001\u91c7\u6837",
       "lead": "M2",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T13",
         "T08"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M2",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T09:30:00Z",
+        "exact_write_allowlist": [
+          "arc_markets/v4_events.py",
+          "arc_markets/v4_discovery.py",
+          "tests/arc_v3/markets/test_v4_identity.py",
+          "arc_markets/v4_state.py",
+          "tests/arc_v3/markets/test_v4_stateview.py"
+        ]
+      },
       "result": null
     },
     "T16": {
@@ -374,11 +407,20 @@
       "title": "\u673a\u4f1a\u8d26\u672c\u7248\u672c\u5316\u3001\u6062\u590d\u4e0e\u6709\u754c\u5206\u6bb5",
       "lead": "M3",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T20"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M3",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T09:30:00Z",
+        "exact_write_allowlist": [
+          "arc_opportunities/ledger.py",
+          "arc_opportunities/ledger_segments.py",
+          "tests/arc_v3/quotes/test_ledger_integration.py"
+        ]
+      },
       "result": null
     },
     "T24": {
@@ -398,13 +440,24 @@
       "title": "W5\u771f\u5b9e\u90e8\u7f72\u7ed1\u5b9a\u4e0e\u7f16\u7801\u9002\u914d",
       "lead": "M3",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T03",
         "T04",
         "T13"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M3",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T09:30:00Z",
+        "exact_write_allowlist": [
+          "atomic_execution/deployments.py",
+          "atomic_execution/arc_planning.py",
+          "tests/arc_v3/simulation/test_deployment_binding.py",
+          "atomic_execution/arc_encoding.py",
+          "docs/architecture/ARC_EXECUTION_BINDING.md"
+        ]
+      },
       "result": null
     },
     "T26": {

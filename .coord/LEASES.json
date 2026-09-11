@@ -1,5 +1,64 @@
 {
   "plan_id": "ARC-4B-v3.1-20260911-13817f4",
   "project_instance_id": "arc-chain-1789123287",
-  "active_leases": {}
+  "active_leases": {
+    "T09": {
+      "brain": "M2",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T09:30:00Z",
+      "exact_write_allowlist": [
+        "arc_ingest/recorder.py",
+        "arc_ingest/segments.py",
+        "arc_ingest/cursors.py",
+        "tests/arc_v3/ingest/test_raw_recorder.py"
+      ]
+    },
+    "T10": {
+      "brain": "M2",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T09:30:00Z",
+      "exact_write_allowlist": [
+        "arc_readiness/balances.py",
+        "arc_readiness/events.py",
+        "arc_readiness/fees.py",
+        "arc_readiness/eligibility.py",
+        "arc_readiness/profile_assets.py",
+        "tests/arc_v3/ingest/test_usdc_semantics.py"
+      ]
+    },
+    "T15": {
+      "brain": "M2",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T09:30:00Z",
+      "exact_write_allowlist": [
+        "arc_markets/v4_events.py",
+        "arc_markets/v4_discovery.py",
+        "tests/arc_v3/markets/test_v4_identity.py",
+        "arc_markets/v4_state.py",
+        "tests/arc_v3/markets/test_v4_stateview.py"
+      ]
+    },
+    "T23": {
+      "brain": "M3",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T09:30:00Z",
+      "exact_write_allowlist": [
+        "arc_opportunities/ledger.py",
+        "arc_opportunities/ledger_segments.py",
+        "tests/arc_v3/quotes/test_ledger_integration.py"
+      ]
+    },
+    "T25": {
+      "brain": "M3",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T09:30:00Z",
+      "exact_write_allowlist": [
+        "atomic_execution/deployments.py",
+        "atomic_execution/arc_planning.py",
+        "tests/arc_v3/simulation/test_deployment_binding.py",
+        "atomic_execution/arc_encoding.py",
+        "docs/architecture/ARC_EXECUTION_BINDING.md"
+      ]
+    }
+  }
 }
