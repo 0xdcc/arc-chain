@@ -1,0 +1,72 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T12",
+  "lease_id": "lease-M2-T12-live",
+  "lease_epoch": 1,
+  "probe_window_utc": {
+    "start": "2026-09-11T19:09:13.645097+00:00",
+    "end": "2026-09-11T19:09:19.516219+00:00"
+  },
+  "budget": {
+    "max_rpc_requests": 50,
+    "total_rpc_requests_used": 5,
+    "timeout_seconds": 5.0
+  },
+  "targets": {
+    "arc_mainnet": {
+      "chain_id": 5042,
+      "configured_endpoint": "https://rpc.arc.io",
+      "status": "UNAVAILABLE_DNS_NXDOMAIN",
+      "error": "ArcValidationError: RPC request failed: <urlopen error [Errno -2] Name or service not known>",
+      "blocks_sampled": 0,
+      "coverage_ratio": 0.0,
+      "missing_blocks": "ALL",
+      "notes": "Public DNS does not resolve rpc.arc.io. Per T12 invariant, synthetic data or testnet substitution is strictly forbidden."
+    },
+    "arc_testnet": {
+      "chain_id": 5042002,
+      "configured_endpoint": "https://rpc.testnet.arc.io",
+      "status": "ONLINE_VERIFIED",
+      "chain_id_hex": "0x4cef52",
+      "blocks_sampled": 3,
+      "coverage_ratio": 1.0,
+      "sampled_blocks": [
+        {
+          "block_number": 61611854,
+          "block_hash": "0xa47b38e68efdfe7888c06bcf388ed1fce2caeb2147f701596f4a9fb1b76205a2",
+          "parent_hash": "0x1e07816ddbb1af3661f526de513f989cce354df3111bc0bc674f5db802715cbc",
+          "timestamp": 1789153757,
+          "tx_count": 20
+        },
+        {
+          "block_number": 61611853,
+          "block_hash": "0x1e07816ddbb1af3661f526de513f989cce354df3111bc0bc674f5db802715cbc",
+          "parent_hash": "0xe56c4f8e622618eb41d598c43e90a208494c3a484a0ab7dac63fba4a5b9e0c3c",
+          "timestamp": 1789153756,
+          "tx_count": 9
+        },
+        {
+          "block_number": 61611852,
+          "block_hash": "0xe56c4f8e622618eb41d598c43e90a208494c3a484a0ab7dac63fba4a5b9e0c3c",
+          "parent_hash": "0x54b311de331321b768067c491db89afdad4b28a75fc5ac2b6191517b21b2d9a1",
+          "timestamp": 1789153756,
+          "tx_count": 12
+        }
+      ],
+      "latency_distribution_ms": {
+        "min": 850.4,
+        "max": 910.2,
+        "mean": 883.3
+      },
+      "hash_continuity_verified": true,
+      "notes": "Testnet blocks captured for live pipeline validation; strictly demarcated to prevent conflation with mainnet 5042."
+    }
+  },
+  "invariant_checks": {
+    "testnet_labeled_as_mainnet": false,
+    "synthetic_data_used": false,
+    "mutating_methods_called": false,
+    "rpc_budget_exceeded": false
+  }
+}
