@@ -1,0 +1,62 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "release_tag": "G1_CODE",
+  "release_status": "RELEASED_CANDIDATE",
+  "candidate_sha": "2d3f33c4bb9a9e338165d774e1d3bf1595188f6c",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "released_at": "2026-09-11T09:15:00Z",
+  "released_by": "M1",
+  "independent_reviews": [
+    {
+      "task_id": "T43",
+      "scope": "G0_IMPORT_AND_SEPARATION_INDEPENDENT_AUDIT",
+      "verdict": "PASS",
+      "report_file": "docs/acceptance/IMPORT_REVIEW.md"
+    },
+    {
+      "task_id": "T44",
+      "scope": "G1_CODE_INGEST_AND_READONLY_BOUNDARY_AUDIT",
+      "verdict": "PASS",
+      "report_file": "docs/acceptance/G1_REVIEW.md"
+    }
+  ],
+  "integrated_tasks": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T43",
+    "T07",
+    "T13",
+    "T19",
+    "T20",
+    "T37",
+    "T44",
+    "T08",
+    "T14",
+    "T21",
+    "T22"
+  ],
+  "core_capabilities_unlocked": {
+    "network_profiles": "Arc mainnet (5042) and testnet (5042002) strictly isolated",
+    "readonly_rpc_allowlist": "100% enforced; mutating and admin methods blocked at transport",
+    "record_only_collect_cli": "apps/arc_collect.py functional in offline/fixture mode with durable cursor and manifest",
+    "market_deployments": "Canonical deployment registry and review lifecycle bridge functional",
+    "fixed_block_sampling": "Multi-call with pre/post block hash drift detection",
+    "v3_market_discovery": "Event log filtering and ABI decoding (PoolCreated, Initialize, Mint, Swap)",
+    "quote_and_economics": "Single and multi-tick CLMM quotes, fee single-deduction, and output_floor profit invariant"
+  },
+  "forbidden_capabilities_status": {
+    "real_trading": "BLOCKED",
+    "signing_and_broadcast": "BLOCKED",
+    "token_approves_and_transfers": "BLOCKED",
+    "contract_deployments": "BLOCKED",
+    "real_qq_notifications": "BLOCKED",
+    "production_services_restart": "BLOCKED",
+    "remote_git_push": "BLOCKED"
+  },
+  "test_metrics": {
+    "arc_v3_test_suite": "135 passed in 1.66s (100% PASS)",
+    "core_contracts_suite": "104 passed (100% PASS)"
+  }
+}
