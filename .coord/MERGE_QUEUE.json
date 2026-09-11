@@ -390,6 +390,17 @@
         "arc_research/events/rules.py",
         "tests/arc_v3/research/test_market_events.py"
       ]
+    },
+    {
+      "task_id": "T42",
+      "brain": "M1",
+      "message_id": "M1/RESULT-T42-attempt1.json",
+      "status": "ACCEPTED",
+      "result_commit": "eb8d3e9508d004d677a15cf010ca1832640d14f0",
+      "changed_files": [
+        "docs/runbooks/ARC_OPERATIONS.md",
+        "docs/runbooks/MAINNET_CHANGE_CHECKLIST.md"
+      ]
     }
   ],
   "processed_messages": [
@@ -403,6 +414,7 @@
     "M1/RESULT-T39-attempt1.json",
     "M1/RESULT-T40-attempt1.json",
     "M1/RESULT-T41-attempt1.json",
+    "M1/RESULT-T42-attempt1.json",
     "M2/RESULT-T07-attempt1.json",
     "M2/RESULT-T08-attempt1.json",
     "M2/RESULT-T09-attempt1.json",

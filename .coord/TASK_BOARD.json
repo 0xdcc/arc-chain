@@ -734,7 +734,7 @@
       "title": "\u8fd0\u8425\u4ea4\u63a5\u4e0e\u516c\u5f00\u5f00\u653e\u68c0\u67e5\u8868",
       "lead": "M1",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "ACCEPTED",
       "depends_on": [
         "T38",
         "T39",
@@ -742,7 +742,9 @@
         "T41"
       ],
       "lease": null,
-      "result": null
+      "result": "eb8d3e9508d004d677a15cf010ca1832640d14f0",
+      "last_attempt": 1,
+      "last_updated_by": "M1"
     },
     "T43": {
       "title": "\u4e0a\u6e38\u8fc1\u79fb\u5dee\u5206\u4e0e\u539f\u6d4b\u8bd5\u4e49\u52a1\u9a8c\u6536",
