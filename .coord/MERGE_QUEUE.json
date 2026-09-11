@@ -313,6 +313,83 @@
         "tests/arc_v3/markets/test_v4_identity.py",
         "tests/arc_v3/markets/test_v4_stateview.py"
       ]
+    },
+    {
+      "task_id": "T24",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T24-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "33c275f93e04e5005f24e8c6d71e85e694477761",
+      "changed_files": [
+        "arc_opportunities/shadow.py",
+        "arc_opportunities/reasons.py",
+        "tests/arc_v3/quotes/test_shadow_service.py"
+      ]
+    },
+    {
+      "task_id": "T26",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T26-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "68e68ff30c52765344b14312661fb47bbca8e0b0",
+      "changed_files": [
+        "atomic_execution/arc_transport.py",
+        "atomic_execution/arc_simulation.py",
+        "tests/arc_v3/simulation/test_arc_transport.py"
+      ]
+    },
+    {
+      "task_id": "T31",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T31-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "945deae0678aad635c76f0505ebdc5852022c4bb",
+      "changed_files": [
+        "arc_research/wall/sources.py",
+        "arc_research/wall/channel_status.py",
+        "tests/arc_v3/research/test_wall_sources.py"
+      ]
+    },
+    {
+      "task_id": "T45",
+      "brain": "M4",
+      "message_id": "M4/RESULT-T45-attempt1.json",
+      "status": "ACCEPTED",
+      "result_commit": "20705715adfac6efd9834e9d991ec62ca21a618c",
+      "changed_files": [
+        "docs/acceptance/F01_F07_MIGRATION.md",
+        "tests/arc_v3/independent/test_f01_f07.py",
+        "tests/arc_v3/independent/test_history_claims.py",
+        "tests/arc_v3/independent/test_v4_migration.py",
+        "tools/qa/fault_mutations.py"
+      ]
+    },
+    {
+      "task_id": "T38",
+      "brain": "M1",
+      "message_id": "M1/RESULT-T38-attempt1.json",
+      "status": "ACCEPTED",
+      "result_commit": "d4ae8aa95aba3a5296e00e306100fbb40006a358",
+      "changed_files": [
+        "apps/arc_shadow.py",
+        "arc_runtime/shadow.py",
+        "tests/arc_v3/runtime/test_shadow_cli.py",
+        "apps/arc_history.py",
+        "arc_runtime/history.py",
+        "tests/arc_v3/runtime/test_history_cli.py"
+      ]
+    },
+    {
+      "task_id": "T33",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T33-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "1304834d0d139696fde41785de8445245c3d67df",
+      "changed_files": [
+        "arc_research/events/engine.py",
+        "arc_research/events/rules.py",
+        "tests/arc_v3/research/test_market_events.py"
+      ]
     }
   ],
   "processed_messages": [
@@ -322,6 +399,7 @@
     "M1/RESULT-T04-attempt1.json",
     "M1/RESULT-T05-attempt1.json",
     "M1/RESULT-T37-attempt1.json",
+    "M1/RESULT-T38-attempt1.json",
     "M1/RESULT-T39-attempt1.json",
     "M1/RESULT-T40-attempt1.json",
     "M1/RESULT-T41-attempt1.json",
@@ -337,8 +415,13 @@
     "M3/RESULT-T21-attempt1.json",
     "M3/RESULT-T22-attempt1.json",
     "M3/RESULT-T23-attempt1.json",
+    "M3/RESULT-T24-attempt1.json",
     "M3/RESULT-T25-attempt1.json",
+    "M3/RESULT-T26-attempt1.json",
+    "M3/RESULT-T31-attempt1.json",
+    "M3/RESULT-T33-attempt1.json",
     "M4/RESULT-T43-attempt1.json",
-    "M4/RESULT-T44-attempt1.json"
+    "M4/RESULT-T44-attempt1.json",
+    "M4/RESULT-T45-attempt1.json"
   ]
 }

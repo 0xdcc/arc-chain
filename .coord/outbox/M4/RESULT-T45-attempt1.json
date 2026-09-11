@@ -1,0 +1,49 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T45",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M4-independent-reviewer",
+  "status": "ACCEPTED",
+  "baseline_sha": "a68d6159c9049a37e5ff41fe3ee52123ecf52988",
+  "result_commit": "20705715adfac6efd9834e9d991ec62ca21a618c",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "docs/acceptance/F01_F07_MIGRATION.md",
+    "tests/arc_v3/independent/test_f01_f07.py",
+    "tests/arc_v3/independent/test_history_claims.py",
+    "tests/arc_v3/independent/test_v4_migration.py",
+    "tools/qa/fault_mutations.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=. /root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/independent/test_f01_f07.py tests/arc_v3/independent/test_v4_migration.py tests/arc_v3/independent/test_history_claims.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 18,
+      "passed": 18,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T45/attempt1/independent_f01_f07_tests.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "G2_F01_F07_REMEDIATION_AND_MIGRATION_TRAPS_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "V4 state sampling offline tests pass with exact 4-word ABI and fixed-block constraints; live V4 StateView calls remain gated under G2_LIVE authorization.",
+    "History replay 100% failure mask eliminated offline; historical node latency and gas estimation await historical benchmark evidence."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T45 independently verified F01-F07 core remediations, V4 StateView 4-word ABI decoding, and history replay anti-leakage defenses with 18/18 pytest pass and mutation test proof.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": "1e06e54567abc368812f094110614a71976ca27841c2f664e016c330ab519e9c",
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

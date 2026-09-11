@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T26",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker-2",
+  "status": "SUBMITTED",
+  "baseline_sha": "a68d6150a6fa08507cb82eba450055edf5625ac5",
+  "result_commit": "68e68ff30c52765344b14312661fb47bbca8e0b0",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "atomic_execution/arc_transport.py",
+    "atomic_execution/arc_simulation.py",
+    "tests/arc_v3/simulation/test_arc_transport.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/simulation/test_arc_transport.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T26/attempt1/test_arc_transport.log",
+      "raw_output_sha256": "065b0c9ae4c6b602b9a9ac7d5e60a3c751b04697b8e4cceab67184788efe0231"
+    }
+  ],
+  "evidence_scope": "OFFLINE_SIMULATION_TRANSPORT_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Independent output delta proof and net profit proof requires T27.",
+    "Real on-chain broadcast remains locked."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T26 delivered strict inventory verification, readonly eth_call transport, and unverified output safeguards. 6 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

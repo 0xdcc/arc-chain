@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T24",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker-1",
+  "status": "SUBMITTED",
+  "baseline_sha": "a68d6150a6fa08507cb82eba450055edf5625ac5",
+  "result_commit": "33c275f93e04e5005f24e8c6d71e85e694477761",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_opportunities/shadow.py",
+    "arc_opportunities/reasons.py",
+    "tests/arc_v3/quotes/test_shadow_service.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/quotes/test_shadow_service.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T24/attempt1/test_shadow_service.log",
+      "raw_output_sha256": "7fb327f76e3aec01c2cb949a00651987192504b4b406c29cc6d7a072202aa19e"
+    }
+  ],
+  "evidence_scope": "OFFLINE_SHADOW_SERVICE_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "End-to-end shadow evaluation pipeline with live RPC blocks requires T38 CLI assembly.",
+    "Real contract execution remains locked with can_atomic_execute=False."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T24 delivered 4-tier shadow evaluation service with reason categorization and full audit retention. 2 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

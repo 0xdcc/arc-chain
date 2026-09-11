@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T33",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker-2",
+  "status": "SUBMITTED",
+  "baseline_sha": "a68d6150a6fa08507cb82eba450055edf5625ac5",
+  "result_commit": "1304834d0d139696fde41785de8445245c3d67df",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_research/events/engine.py",
+    "arc_research/events/rules.py",
+    "tests/arc_v3/research/test_market_events.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=. /root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/research/test_market_events.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T33/attempt1/test_market_events.log",
+      "raw_output_sha256": "da96ae4baa68c5edb643489829561d31f7aedc1d5cef473a5b504b2ebcf7429b"
+    }
+  ],
+  "evidence_scope": "OFFLINE_EVENT_RADAR_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Launchpad bonding curve lifecycle integration requires T17.",
+    "Automated buy order emission is permanently disabled across all event types."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T33 delivered second venue discovery, alias deduplication, and market event radar with strict zero-buy invariants. 5 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

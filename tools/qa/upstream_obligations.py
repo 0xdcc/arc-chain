@@ -39,7 +39,7 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
     },
     "tests/conftest.py": {
         "reason": "Arc modular decoupling, safe config singleton handling, and /tmp cache redirection harness",
-        "expected_sha256": "a197cc1d7ea7733bd6b27efa62a4af0b0aa9657a910937917542637973a689f5",
+        "expected_sha256": "401e455cbfbfb4979fdd0b79dc19c2e81989b4b205c04fc837c06f46ee097e56",
     },
     "arc_readiness/network.py": {
         "reason": "T07 Arc network profile separation (5042 mainnet, 5042002 testnet, L1 domain)",

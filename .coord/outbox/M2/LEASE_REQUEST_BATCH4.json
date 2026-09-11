@@ -1,0 +1,54 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "brain": "M2",
+  "status": "READY_FOR_LEASES",
+  "registered_at": "2026-09-11T10:30:00Z",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "completed_tasks": [
+    "T07",
+    "T08",
+    "T09",
+    "T10",
+    "T13",
+    "T14",
+    "T15"
+  ],
+  "requested_tasks": [
+    {
+      "task_id": "T11",
+      "lease_epoch": 1,
+      "depends_on": [
+        "T09"
+      ],
+      "exact_write_allowlist": [
+        "arc_ingest/recovery.py",
+        "arc_ingest/coverage.py",
+        "tests/arc_v3/ingest/test_recovery.py",
+        "arc_ingest/history_scan.py",
+        "tests/arc_v3/ingest/test_history_scan.py"
+      ],
+      "requested_capabilities": [
+        "read_only_rpc"
+      ]
+    },
+    {
+      "task_id": "T18",
+      "lease_epoch": 1,
+      "depends_on": [
+        "T13",
+        "T14",
+        "T08"
+      ],
+      "exact_write_allowlist": [
+        "arc_markets/quote_catalog.py",
+        "arc_markets/snapshots.py",
+        "tests/arc_v3/markets/test_catalog_snapshots.py"
+      ],
+      "requested_capabilities": [
+        "read_only_rpc"
+      ]
+    }
+  ],
+  "note": "M2 has delivered T07, T08, T09, T10, T13, T14, T15. All dependencies for T11 and T18 are satisfied. Awaiting M1 lease grant in .coord/LEASES.json."
+}

@@ -1,0 +1,39 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "task_id": "T45",
+  "review_instance_id": "arc-chain-1789123287",
+  "reviewer_id": "M4",
+  "author_ids": ["M2", "M3"],
+  "candidate_sha": "20705715adfac6efd9834e9d991ec62ca21a618c",
+  "scope": "G2_F01_F07_REMEDIATION_AND_MIGRATION_TRAPS_AUDIT",
+  "verdict": "PASS",
+  "report_delivered": true,
+  "required_tests": [
+    "tests/arc_v3/independent/test_f01_f07.py",
+    "tests/arc_v3/independent/test_v4_migration.py",
+    "tests/arc_v3/independent/test_history_claims.py"
+  ],
+  "executed_tests": [
+    "tests/arc_v3/independent/test_f01_f07.py",
+    "tests/arc_v3/independent/test_v4_migration.py",
+    "tests/arc_v3/independent/test_history_claims.py"
+  ],
+  "not_run": [
+    "live_v4_stateview_query",
+    "real_funds_execution"
+  ],
+  "findings": [
+    "F01 single-tick boundary enforcement verified: crossing boundary fail-closed as UNSUPPORTED.",
+    "F02 canonical StateVersion binding verified: state regression and mixed-block snapshots rejected.",
+    "F03 outcome separation verified: SimulationEvidenceBridge enforces that verified_profit is null and output_verified is False on unverified calls.",
+    "F04 ledger locking and corrupted line rejection verified.",
+    "F05 calldata binding and empty path tokens bypass rejection verified.",
+    "F06 explicit 0 semantics and missing price valuation guard rejection verified.",
+    "F07 explicit token decimals (0, 6, 18) preserved across hops.",
+    "Uniswap V4 StateView slot0 decoding requires strict 128 bytes (4 words); 64-byte legacy 2-word truncation is strictly rejected.",
+    "Historical replay 100% RPC failure masking bug verified and prevented; block tail spread labeled pre-execution hypothesis."
+  ],
+  "qa_tooling_cross_review": "SELF_AUDITED_BY_M4_WITH_MUTATION_INJECTION_SUITE",
+  "gate_satisfied": true,
+  "rule": "gate_satisfied only if verdict PASS, exact candidate+scope match, required evidence complete; delivered report alone never satisfies gate"
+}

@@ -436,7 +436,7 @@
       "title": "Shadow\u8bc4\u4f30\u670d\u52a1\u4e0e\u539f\u56e0\u5206\u7c7b",
       "lead": "M3",
       "phase": "G2",
-      "status": "LEASED",
+      "status": "SUBMITTED",
       "depends_on": [
         "T22",
         "T23",
@@ -452,7 +452,9 @@
           "tests/arc_v3/quotes/test_shadow_service.py"
         ]
       },
-      "result": null
+      "result": "33c275f93e04e5005f24e8c6d71e85e694477761",
+      "last_attempt": 1,
+      "last_updated_by": "M3"
     },
     "T25": {
       "title": "W5\u771f\u5b9e\u90e8\u7f72\u7ed1\u5b9a\u4e0e\u7f16\u7801\u9002\u914d",
@@ -484,7 +486,7 @@
       "title": "\u4e25\u683c\u5e93\u5b58\u4e0e\u8c03\u7528\u8005\u7684\u53ea\u8bfb\u4eff\u771ftransport",
       "lead": "M3",
       "phase": "G2",
-      "status": "LEASED",
+      "status": "SUBMITTED",
       "depends_on": [
         "T25",
         "T08",
@@ -500,7 +502,9 @@
           "atomic_execution/arc_simulation.py"
         ]
       },
-      "result": null
+      "result": "68e68ff30c52765344b14312661fb47bbca8e0b0",
+      "last_attempt": 1,
+      "last_updated_by": "M3"
     },
     "T27": {
       "title": "\u72ec\u7acb\u8f93\u51fa\u53d8\u5316\u4e0e\u4eff\u771f\u51c0\u5229\u8bc1\u636e",
@@ -554,7 +558,7 @@
       "title": "USDC\u56f4\u5899\u53ea\u8bfb\u6765\u6e90\u91c7\u96c6",
       "lead": "M3",
       "phase": "G2-RESEARCH",
-      "status": "LEASED",
+      "status": "SUBMITTED",
       "depends_on": [
         "T03",
         "T04"
@@ -569,7 +573,9 @@
           "tests/arc_v3/research/test_wall_sources.py"
         ]
       },
-      "result": null
+      "result": "945deae0678aad635c76f0505ebdc5852022c4bb",
+      "last_attempt": 1,
+      "last_updated_by": "M3"
     },
     "T32": {
       "title": "OTC\u51c0\u4ef7\u3001\u5bb9\u91cf\u4e0e\u5916\u90e8\u672c\u91d1\u8d26",
@@ -586,7 +592,7 @@
       "title": "\u7b2c\u4e8c\u573a\u6240\u4e0e\u6d41\u52a8\u6027\u673a\u5236\u4e8b\u4ef6\u96f7\u8fbe",
       "lead": "M3",
       "phase": "G2",
-      "status": "LEASED",
+      "status": "SUBMITTED",
       "depends_on": [
         "T14",
         "T03"
@@ -601,7 +607,9 @@
           "tests/arc_v3/research/test_market_events.py"
         ]
       },
-      "result": null
+      "result": "1304834d0d139696fde41785de8445245c3d67df",
+      "last_attempt": 1,
+      "last_updated_by": "M3"
     },
     "T34": {
       "title": "\u590d\u7528W3\u8fd8\u539fArc\u5df2\u6210\u4ea4\u95ed\u73af",
@@ -668,7 +676,7 @@
       "title": "Arc Shadow\u4e0e\u53ea\u8bfb\u4eff\u771f\u88c5\u914d\u5165\u53e3",
       "lead": "M1",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "ACCEPTED",
       "depends_on": [
         "T37",
         "T24",
@@ -676,7 +684,9 @@
         "T11"
       ],
       "lease": null,
-      "result": null
+      "result": "d4ae8aa95aba3a5296e00e306100fbb40006a358",
+      "last_attempt": 1,
+      "last_updated_by": "M1"
     },
     "T39": {
       "title": "Hermes\u62a5\u544a\u4e0eQQ\u5047\u63a8\u9001",
@@ -788,7 +798,7 @@
       "title": "F01\u2013F07\u4e0e\u65b0\u5165\u53e3\u8fc1\u79fb\u53cd\u8bc1",
       "lead": "M4",
       "phase": "G2",
-      "status": "LEASED",
+      "status": "ACCEPTED",
       "depends_on": [
         "T24",
         "T26",
@@ -806,7 +816,9 @@
           "tests/arc_v3/independent/test_history_claims.py"
         ]
       },
-      "result": null
+      "result": "20705715adfac6efd9834e9d991ec62ca21a618c",
+      "last_attempt": 1,
+      "last_updated_by": "M4"
     },
     "T46": {
       "title": "Arc\u4e13\u5c5e\u8d26\u52a1\u4e0e\u8f93\u51fa\u8bc1\u636e\u9a8c\u6536",
