@@ -41,6 +41,14 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
         "reason": "Arc modular decoupling, safe config singleton handling, and /tmp cache redirection harness",
         "expected_sha256": "a197cc1d7ea7733bd6b27efa62a4af0b0aa9657a910937917542637973a689f5",
     },
+    "arc_readiness/network.py": {
+        "reason": "T07 Arc network profile separation (5042 mainnet, 5042002 testnet, L1 domain)",
+        "expected_sha256": "2e6728f06d1aba0625725cf5bfa1d3c242077d37f9af0ca96fff1d9dbb683066",
+    },
+    "arc_readiness/rpc_readonly.py": {
+        "reason": "T07 strict readonly RPC allowlist, batch safety, and 3-failure circuit breaker",
+        "expected_sha256": "9e9ea80c5964c594e152fce4f81b7e4d879807e58dbd52941871647c29ab07c5",
+    },
 }
 
 # Known Robinhood chain ID and deployments that must NEVER enter Arc 5042 registry

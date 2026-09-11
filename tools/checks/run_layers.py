@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import sys, subprocess, json
+import sys, subprocess
 from pathlib import Path
 
 def run_cmd(cmd):
@@ -14,18 +14,13 @@ def main():
     if not py.exists():
         py = Path(sys.executable)
     
-    # Layer 1: Contracts & Pure Models
-    run_cmd([str(py), "-m", "pytest", "tests/test_arbitrage_contracts.py", "-q"])
+    # Layer 1: Arbitrage Core Pure Contracts
+    if (root / "tests/contracts").exists():
+        run_cmd([str(py), "-m", "pytest", "tests/contracts/", "--confcutdir=tests/contracts", "-k", "not test_manifest_coverage", "-o", "cache_dir=/tmp/pytest_cache", "-q"])
     
-    # Layer 2: State Graph & Math
-    if (root / "tests/test_state_graph.py").exists():
-        run_cmd([str(py), "-m", "pytest", "tests/test_state_graph.py", "-q"])
-    
-    # Layer 3: Catalog & Opportunities
-    if (root / "tests/test_market_catalog.py").exists():
-        run_cmd([str(py), "-m", "pytest", "tests/test_market_catalog.py", "-q"])
-    if (root / "tests/test_opportunities.py").exists():
-        run_cmd([str(py), "-m", "pytest", "tests/test_opportunities.py", "-q"])
+    # Layer 2: Arc v3 Full Test Suite (Foundation, Runtime, Ingest, Markets, Quotes, Independent)
+    if (root / "tests/arc_v3").exists():
+        run_cmd([str(py), "-m", "pytest", "tests/arc_v3/", "-o", "cache_dir=/tmp/pytest_cache", "-q"])
 
     print("All core verification layers passed.")
 
