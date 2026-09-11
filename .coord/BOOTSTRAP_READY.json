@@ -6,7 +6,7 @@
   "coord_root": "/root/projects/crypto/arc-chain/.coord",
   "plan_dir": "/root/projects/crypto/arc-chain/docs/plan_v3",
   "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
-  "arc_candidate_sha": "dcf7464695c748a31bc501dfb7b72e6d570ee2e6",
+  "arc_candidate_sha": "e30a760aca026975a61f7f034774bd8228a1f4dd",
   "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
   "plan_manifest_sha256": "b24fbfef7439e4e4bf9dead359b0ccb7860ba2c64058d6d05706b8014af5f795",
   "host_identity": "dc-PC-llm",
@@ -15,7 +15,8 @@
     "T01",
     "T02",
     "T03",
-    "T04"
+    "T04",
+    "T43"
   ],
   "runtime_authority": "M1",
   "meaning": "coordination readiness only; not test/live/funds gate",

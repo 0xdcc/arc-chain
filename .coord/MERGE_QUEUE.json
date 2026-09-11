@@ -73,6 +73,70 @@
         "arc_runtime/collect.py",
         "tests/arc_v3/runtime/test_collect_cli.py"
       ]
+    },
+    {
+      "task_id": "T07",
+      "brain": "M2",
+      "message_id": "M2/RESULT-T07-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "b26109b40d63f9fa46ca56d28eedaa6038386911",
+      "changed_files": [
+        "arc_readiness/network.py",
+        "arc_readiness/rpc_readonly.py",
+        "arc_readiness/profiles.py",
+        "arc_readiness/http_readonly.py",
+        "configs/arc/network.example.json",
+        "tests/arc_v3/ingest/test_profile_transport.py"
+      ]
+    },
+    {
+      "task_id": "T13",
+      "brain": "M2",
+      "message_id": "M2/RESULT-T13-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "fce1c6832d078392850528f368a94266f97437e1",
+      "changed_files": [
+        "arc_markets/deployments.py",
+        "arc_markets/review_bridge.py",
+        "configs/arc/venues.example.json",
+        "tests/arc_v3/markets/test_deployments.py"
+      ]
+    },
+    {
+      "task_id": "T19",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T19-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "b7ba7373ff98ef6d2816b152485b22ec6907589e",
+      "changed_files": [
+        "arc_opportunities/quote_bridge.py",
+        "tests/arc_v3/quotes/test_quote_parity.py"
+      ]
+    },
+    {
+      "task_id": "T20",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T20-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "705487bc3d5816ca95443c1be3b7f70787fb60ad",
+      "changed_files": [
+        "arc_opportunities/economics.py",
+        "arc_opportunities/costs.py",
+        "tests/arc_v3/quotes/test_economics.py"
+      ]
+    },
+    {
+      "task_id": "T43",
+      "brain": "M4",
+      "message_id": "M4/RESULT-T43-attempt1.json",
+      "status": "ACCEPTED",
+      "result_commit": "f1bb4c751269d4115be06c3feed92f2f5cf16296",
+      "changed_files": [
+        "docs/acceptance/IMPORT_REVIEW.md",
+        "tests/arc_v3/independent/test_import_manifest.py",
+        "tests/arc_v3/independent/test_source_data_separation.py",
+        "tools/qa/upstream_obligations.py"
+      ]
     }
   ],
   "processed_messages": [
@@ -80,6 +144,11 @@
     "M1/RESULT-T02-attempt1.json",
     "M1/RESULT-T03-attempt1.json",
     "M1/RESULT-T04-attempt1.json",
-    "M1/RESULT-T37-attempt1.json"
+    "M1/RESULT-T37-attempt1.json",
+    "M2/RESULT-T07-attempt1.json",
+    "M2/RESULT-T13-attempt1.json",
+    "M3/RESULT-T19-attempt1.json",
+    "M3/RESULT-T20-attempt1.json",
+    "M4/RESULT-T43-attempt1.json"
   ]
 }

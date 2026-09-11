@@ -7,51 +7,55 @@
       "title": "\u56fa\u5b9a\u6765\u6e90\u3001\u76ee\u6807\u76ee\u5f55\u4e0e\u8d44\u6e90\u73b0\u573a",
       "lead": "M1",
       "phase": "G0",
-      "status": "BOOTSTRAP_PREPARED",
+      "status": "INTEGRATED",
       "depends_on": [],
       "lease": null,
       "result": null,
       "last_attempt": 1,
-      "last_updated_by": "M1"
+      "last_updated_by": "M1",
+      "integrated_commit": "e30a760aca026975a61f7f034774bd8228a1f4dd"
     },
     "T02": {
       "title": "\u53d7\u63a7\u5bfc\u5165\u901a\u7528\u5185\u6838\u4e0e\u914d\u5957\u6d4b\u8bd5",
       "lead": "M1",
       "phase": "G0",
-      "status": "BOOTSTRAP_PREPARED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T01"
       ],
       "lease": null,
       "result": "1da8f3a7c098be2d00194fb7ec05caab8da8a49b",
       "last_attempt": 1,
-      "last_updated_by": "M1"
+      "last_updated_by": "M1",
+      "integrated_commit": "e30a760aca026975a61f7f034774bd8228a1f4dd"
     },
     "T03": {
       "title": "\u51bb\u7ed3\u516c\u5171\u5951\u7ea6\u4e0e\u6d88\u8d39\u6837\u4f8b",
       "lead": "M1",
       "phase": "G0",
-      "status": "BOOTSTRAP_PREPARED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T02"
       ],
       "lease": null,
       "result": "6d9ed1492e3d319aefbedcf8f28c4e05b5f897d9",
       "last_attempt": 1,
-      "last_updated_by": "M1"
+      "last_updated_by": "M1",
+      "integrated_commit": "e30a760aca026975a61f7f034774bd8228a1f4dd"
     },
     "T04": {
       "title": "\u5efa\u7acb\u6587\u4ef6\u79df\u7ea6\u3001\u4efb\u52a1\u767b\u8bb0\u4e0e\u5355\u4e00\u5408\u5e76\u961f\u5217",
       "lead": "M1",
       "phase": "G0",
-      "status": "BOOTSTRAP_PREPARED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T03"
       ],
       "lease": null,
       "result": "8b9554965b91d0258fe3ef083a698e31c44acf87",
       "last_attempt": 1,
-      "last_updated_by": "M1"
+      "last_updated_by": "M1",
+      "integrated_commit": "e30a760aca026975a61f7f034774bd8228a1f4dd"
     },
     "T05": {
       "title": "\u96c6\u6210\u6700\u5c0f\u91c7\u96c6\u94fe\u8def\u5e76\u53d1\u5e03G1\u5019\u9009",
@@ -80,7 +84,7 @@
       "title": "\u663e\u5f0fArc\u4e3b\u7f51/\u6d4b\u8bd5\u7f51Profile\u4e0e\u53ea\u8bfbHTTP",
       "lead": "M2",
       "phase": "G1",
-      "status": "LEASED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T03",
         "T04"
@@ -98,17 +102,29 @@
           "tests/arc_v3/ingest/test_profile_transport.py"
         ]
       },
-      "result": null
+      "result": "b26109b40d63f9fa46ca56d28eedaa6038386911",
+      "last_attempt": 1,
+      "last_updated_by": "M2",
+      "integrated_commit": "e30a760aca026975a61f7f034774bd8228a1f4dd"
     },
     "T08": {
       "title": "\u56fa\u5b9a\u5757\u91c7\u6837\u4e0e\u8282\u70b9\u80fd\u529b\u8bc1\u636e",
       "lead": "M2",
       "phase": "G1",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T07"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M2",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T08:50:00Z",
+        "exact_write_allowlist": [
+          "arc_readiness/fixed_block.py",
+          "arc_readiness/capabilities.py",
+          "tests/arc_v3/ingest/test_fixed_block.py"
+        ]
+      },
       "result": null
     },
     "T09": {
@@ -159,7 +175,7 @@
       "title": "\u590d\u7528W1\u5e76\u5efa\u7acb\u4e3b\u7f51\u90e8\u7f72\u8bc1\u636e\u6ce8\u518c",
       "lead": "M2",
       "phase": "G1",
-      "status": "LEASED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T03",
         "T04"
@@ -175,18 +191,31 @@
           "tests/arc_v3/markets/test_deployments.py"
         ]
       },
-      "result": null
+      "result": "fce1c6832d078392850528f368a94266f97437e1",
+      "last_attempt": 1,
+      "last_updated_by": "M2",
+      "integrated_commit": "e30a760aca026975a61f7f034774bd8228a1f4dd"
     },
     "T14": {
       "title": "V3\u6700\u5c0f\u5e02\u573a\u53d1\u73b0\u548c\u89c4\u8303\u5316\u4e8b\u4ef6",
       "lead": "M2",
       "phase": "G1",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T13",
         "T07"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M2",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T08:50:00Z",
+        "exact_write_allowlist": [
+          "arc_markets/v3_events.py",
+          "arc_markets/v3_discovery.py",
+          "arc_markets/decimals.py",
+          "tests/arc_v3/markets/test_v3_discovery.py"
+        ]
+      },
       "result": null
     },
     "T15": {
@@ -241,7 +270,7 @@
       "title": "Arc\u5355\u6bb5\u62a5\u4ef7\u4e0e\u56fe\u5f15\u64ce\u5dee\u5206\u8fc1\u79fb",
       "lead": "M3",
       "phase": "G2",
-      "status": "LEASED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T03",
         "T04"
@@ -255,13 +284,16 @@
           "tests/arc_v3/quotes/test_quote_parity.py"
         ]
       },
-      "result": null
+      "result": "b7ba7373ff98ef6d2816b152485b22ec6907589e",
+      "last_attempt": 1,
+      "last_updated_by": "M3",
+      "integrated_commit": "e30a760aca026975a61f7f034774bd8228a1f4dd"
     },
     "T20": {
       "title": "\u7edf\u4e00\u94fe\u5185\u51c0\u5229\u4e0e\u5916\u90e8\u8d44\u91d1\u6210\u672c\u53e3\u5f84",
       "lead": "M3",
       "phase": "G2",
-      "status": "LEASED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T03",
         "T04"
@@ -276,30 +308,51 @@
           "tests/arc_v3/quotes/test_economics.py"
         ]
       },
-      "result": null
+      "result": "705487bc3d5816ca95443c1be3b7f70787fb60ad",
+      "last_attempt": 1,
+      "last_updated_by": "M3",
+      "integrated_commit": "e30a760aca026975a61f7f034774bd8228a1f4dd"
     },
     "T21": {
       "title": "\u589e\u91cf\u8865\u9f50\u6709\u8bc1\u636e\u7684V3\u591atick\u62a5\u4ef7",
       "lead": "M3",
       "phase": "G2-EXT",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T19",
         "T16"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M3",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T08:50:00Z",
+        "exact_write_allowlist": [
+          "state_graph/multi_tick.py",
+          "arc_opportunities/quote_capabilities.py",
+          "tests/arc_v3/quotes/test_multi_tick.py"
+        ]
+      },
       "result": null
     },
     "T22": {
       "title": "\u4e8b\u4ef6\u589e\u91cf\u91cd\u7b97\u4e0e\u4ea4\u6613\u91d1\u989d\u641c\u7d22",
       "lead": "M3",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T19",
         "T20"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M3",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T08:50:00Z",
+        "exact_write_allowlist": [
+          "arc_opportunities/incremental.py",
+          "arc_opportunities/sizing.py",
+          "tests/arc_v3/quotes/test_incremental_sizing.py"
+        ]
+      },
       "result": null
     },
     "T23": {
@@ -476,7 +529,7 @@
       "title": "\u6700\u5c0farc_collect\u5b9e\u9645CLI\u5165\u53e3",
       "lead": "M1",
       "phase": "G1",
-      "status": "SUBMITTED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T03",
         "T04"
@@ -493,7 +546,8 @@
       },
       "result": "aea64dfe2c04e140dd80494696c81f8bee0803bc",
       "last_attempt": 1,
-      "last_updated_by": "M1"
+      "last_updated_by": "M1",
+      "integrated_commit": "e30a760aca026975a61f7f034774bd8228a1f4dd"
     },
     "T38": {
       "title": "Arc Shadow\u4e0e\u53ea\u8bfb\u4eff\u771f\u88c5\u914d\u5165\u53e3",
@@ -563,7 +617,7 @@
       "title": "\u4e0a\u6e38\u8fc1\u79fb\u5dee\u5206\u4e0e\u539f\u6d4b\u8bd5\u4e49\u52a1\u9a8c\u6536",
       "lead": "M4",
       "phase": "G0",
-      "status": "LEASED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T02"
       ],
@@ -578,20 +632,32 @@
           "tests/arc_v3/independent/test_import_manifest.py"
         ]
       },
-      "result": null
+      "result": "f1bb4c751269d4115be06c3feed92f2f5cf16296",
+      "last_attempt": 1,
+      "last_updated_by": "M4",
+      "integrated_commit": "e30a760aca026975a61f7f034774bd8228a1f4dd"
     },
     "T44": {
       "title": "\u6700\u5c0f\u91c7\u96c6\u4e3b\u6d41\u7a0b\u4e0e\u6743\u9650\u9694\u79bb\u9a8c\u6536",
       "lead": "M4",
       "phase": "G1",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T09",
         "T14",
         "T37",
         "T43"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M4",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T08:50:00Z",
+        "exact_write_allowlist": [
+          "tests/arc_v3/independent/test_collect_e2e.py",
+          "tests/arc_v3/independent/test_readonly_boundary.py",
+          "docs/acceptance/G1_REVIEW.md"
+        ]
+      },
       "result": null
     },
     "T45": {

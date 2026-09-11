@@ -2,58 +2,55 @@
   "plan_id": "ARC-4B-v3.1-20260911-13817f4",
   "project_instance_id": "arc-chain-1789123287",
   "active_leases": {
-    "T07": {
+    "T08": {
       "brain": "M2",
       "lease_epoch": 1,
-      "granted_at": "2026-09-11T08:35:00Z",
+      "granted_at": "2026-09-11T08:50:00Z",
       "exact_write_allowlist": [
-        "arc_readiness/network.py",
-        "arc_readiness/rpc_readonly.py",
-        "arc_readiness/profiles.py",
-        "arc_readiness/http_readonly.py",
-        "configs/arc/network.example.json",
-        "tests/arc_v3/ingest/test_profile_transport.py"
+        "arc_readiness/fixed_block.py",
+        "arc_readiness/capabilities.py",
+        "tests/arc_v3/ingest/test_fixed_block.py"
       ]
     },
-    "T13": {
+    "T14": {
       "brain": "M2",
       "lease_epoch": 1,
-      "granted_at": "2026-09-11T08:35:00Z",
+      "granted_at": "2026-09-11T08:50:00Z",
       "exact_write_allowlist": [
-        "arc_markets/deployments.py",
-        "arc_markets/review_bridge.py",
-        "configs/arc/venues.example.json",
-        "tests/arc_v3/markets/test_deployments.py"
+        "arc_markets/v3_events.py",
+        "arc_markets/v3_discovery.py",
+        "arc_markets/decimals.py",
+        "tests/arc_v3/markets/test_v3_discovery.py"
       ]
     },
-    "T19": {
+    "T21": {
       "brain": "M3",
       "lease_epoch": 1,
-      "granted_at": "2026-09-11T08:35:00Z",
+      "granted_at": "2026-09-11T08:50:00Z",
       "exact_write_allowlist": [
-        "arc_opportunities/quote_bridge.py",
-        "tests/arc_v3/quotes/test_quote_parity.py"
+        "state_graph/multi_tick.py",
+        "arc_opportunities/quote_capabilities.py",
+        "tests/arc_v3/quotes/test_multi_tick.py"
       ]
     },
-    "T20": {
+    "T22": {
       "brain": "M3",
       "lease_epoch": 1,
-      "granted_at": "2026-09-11T08:35:00Z",
+      "granted_at": "2026-09-11T08:50:00Z",
       "exact_write_allowlist": [
-        "arc_opportunities/economics.py",
-        "arc_opportunities/costs.py",
-        "tests/arc_v3/quotes/test_economics.py"
+        "arc_opportunities/incremental.py",
+        "arc_opportunities/sizing.py",
+        "tests/arc_v3/quotes/test_incremental_sizing.py"
       ]
     },
-    "T43": {
+    "T44": {
       "brain": "M4",
       "lease_epoch": 1,
-      "granted_at": "2026-09-11T08:35:00Z",
+      "granted_at": "2026-09-11T08:50:00Z",
       "exact_write_allowlist": [
-        "tests/arc_v3/independent/test_source_data_separation.py",
-        "docs/acceptance/IMPORT_REVIEW.md",
-        "tools/qa/upstream_obligations.py",
-        "tests/arc_v3/independent/test_import_manifest.py"
+        "tests/arc_v3/independent/test_collect_e2e.py",
+        "tests/arc_v3/independent/test_readonly_boundary.py",
+        "docs/acceptance/G1_REVIEW.md"
       ]
     }
   }

@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T20",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker-2",
+  "status": "SUBMITTED",
+  "baseline_sha": "fd6403b3fc558b572d813bf912a06dfc2e1126aa",
+  "result_commit": "705487bc3d5816ca95443c1be3b7f70787fb60ad",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_opportunities/economics.py",
+    "arc_opportunities/costs.py",
+    "tests/arc_v3/quotes/test_economics.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/quotes/test_economics.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 7,
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T20/attempt1/test_economics.log",
+      "raw_output_sha256": "54b952c058f15018f830ccfb6bfbee8c50ac466234953c9ce1bc3cfe6f8c605f"
+    }
+  ],
+  "evidence_scope": "OFFLINE_ECONOMICS_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Observed live gas prices and L1 base fees require M2 T10 live balances and fees integration.",
+    "Real off-chain OTC channel quotes require T31/T32 research activation."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T20 delivered unified Arc net profit and cost breakdown engine. 7 accounting and fail-closed tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

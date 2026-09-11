@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T07",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M2-worker-1",
+  "status": "SUBMITTED",
+  "baseline_sha": "fd6403b3fc558b572d813bf912a06dfc2e1126aa",
+  "result_commit": "b26109b40d63f9fa46ca56d28eedaa6038386911",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_readiness/network.py",
+    "arc_readiness/rpc_readonly.py",
+    "arc_readiness/profiles.py",
+    "arc_readiness/http_readonly.py",
+    "configs/arc/network.example.json",
+    "tests/arc_v3/ingest/test_profile_transport.py"
+  ],
+  "input_hashes": {
+    "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=.worktrees/T07-attempt1-worker1 ./venv/bin/python -m pytest .worktrees/T07-attempt1-worker1/tests/arc_v3/ingest/test_profile_transport.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T07/attempt1/test_profile_transport.log",
+      "raw_output_sha256": "d7456dea08ee5d3fddd33019bc8f5365c3a09ad0946928b2e1f35b662a74463f"
+    }
+  ],
+  "evidence_scope": "OFFLINE_TRANSPORT_AND_PROFILES_PASS",
+  "pending_processes": [],
+  "residual_risks": [],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T07 implemented explicit Arc mainnet (5042) and testnet (5042002) profiles, strict method allowlist with batch protection, offline-default safeguards, explicit proxy isolation, and 3-failure circuit breaker. 15 unit tests passed with sabotage regression verification.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

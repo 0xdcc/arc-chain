@@ -1,0 +1,46 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T19",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker-1",
+  "status": "SUBMITTED",
+  "baseline_sha": "fd6403b3fc558b572d813bf912a06dfc2e1126aa",
+  "result_commit": "b7ba7373ff98ef6d2816b152485b22ec6907589e",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_opportunities/quote_bridge.py",
+    "tests/arc_v3/quotes/test_quote_parity.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/quotes/test_quote_parity.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 8,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T19/attempt1/test_quote_parity.log",
+      "raw_output_sha256": "1f8b09beff0eabb56cd9d6053970934160eaa7685eaff0446ee93b733be21503"
+    }
+  ],
+  "evidence_scope": "OFFLINE_QUOTE_PARITY_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Multi-tick bitmap quoting requires T21 and real tick coverage from M2 T16.",
+    "Dynamic fees and non-zero hook pools return QuoteStatus.UNSUPPORTED in single_segment mode."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T19 delivered Arc single-segment quote bridge and CLMM graph parity. 8 parity and fail-closed tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

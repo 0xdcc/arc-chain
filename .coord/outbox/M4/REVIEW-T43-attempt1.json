@@ -1,0 +1,33 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "task_id": "T43",
+  "review_instance_id": "arc-chain-1789123287",
+  "reviewer_id": "M4",
+  "author_ids": ["M1"],
+  "candidate_sha": "f1bb4c751269d4115be06c3feed92f2f5cf16296",
+  "scope": "G0_IMPORT_AND_SEPARATION_INDEPENDENT_AUDIT",
+  "verdict": "PASS",
+  "report_delivered": true,
+  "required_tests": [
+    "tests/arc_v3/independent/test_import_manifest.py",
+    "tests/arc_v3/independent/test_source_data_separation.py"
+  ],
+  "executed_tests": [
+    "tests/arc_v3/independent/test_import_manifest.py",
+    "tests/arc_v3/independent/test_source_data_separation.py",
+    "tools/qa/upstream_obligations.py"
+  ],
+  "not_run": [
+    "live_rpc_ingest",
+    "real_funds_execution"
+  ],
+  "findings": [
+    "All 281 imported files verified against upstream 13817f4 (278 exact matches, 3 documented Arc adaptations: AGENTS.md, arbitrage_contracts/__init__.py, tests/conftest.py).",
+    "Zero sensitive secrets, zero .env files, zero keystores, zero production credentials.",
+    "07 rule separation verified: DATA_ONLY_DIFFERENCE fast path functional, code differences blocked from data fast path, corrupted/partial data fails closed, Robinhood 4663 addresses rejected.",
+    "Upstream defect: tools/checks/run_layers.py points to outdated monolithic test paths."
+  ],
+  "qa_tooling_cross_review": "SELF_AUDITED_BY_M4_WITH_INDEPENDENT_PARITY_SUITE",
+  "gate_satisfied": true,
+  "rule": "gate_satisfied only if verdict PASS, exact candidate+scope match, required evidence complete; delivered report alone never satisfies gate"
+}
