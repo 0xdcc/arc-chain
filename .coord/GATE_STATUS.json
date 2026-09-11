@@ -1,6 +1,6 @@
 {
   "plan_id": "ARC-4B-v3.1-20260911-13817f4",
-  "candidate_sha": "e30a760aca026975a61f7f034774bd8228a1f4dd",
+  "candidate_sha": "efb9e153cd312e519ebc3722763919de295e0136",
   "G0_BOOTSTRAP": {
     "verdict": "PASS",
     "evidence": [
@@ -12,8 +12,13 @@
     ]
   },
   "G1_CODE": {
-    "verdict": "NOT_RUN",
-    "evidence": []
+    "verdict": "PASS",
+    "evidence": [
+      "T44_INDEPENDENT_AUDIT_PASS",
+      "T05_G1_RELEASE_CANDIDATE",
+      "G1_REVIEW_REPORT",
+      "135_UNIT_TESTS_PASS"
+    ]
   },
   "G1_LIVE": {
     "verdict": "PENDING_AUTHORIZATION",

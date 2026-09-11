@@ -1,0 +1,45 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T14",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M2-worker-2",
+  "status": "SUBMITTED",
+  "baseline_sha": "d0099ce5b211a77db326c2e36b85c181fbf2a249",
+  "result_commit": "2b5db2fc66f4651426918f51e71fb20a4c7f4a65",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_markets/v3_events.py",
+    "arc_markets/v3_discovery.py",
+    "arc_markets/decimals.py",
+    "tests/arc_v3/markets/test_v3_discovery.py"
+  ],
+  "input_hashes": {
+    "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=.worktrees/T14-attempt1-worker2 ./venv/bin/python -m pytest .worktrees/T14-attempt1-worker2/tests/arc_v3/markets/test_v3_discovery.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T14/attempt1/test_v3_discovery.log",
+      "raw_output_sha256": "c2af8b670d3bd5aa107bc7273a4df6b3f4a9511bee1575c7bf45098de23a2f2d"
+    }
+  ],
+  "evidence_scope": "OFFLINE_V3_DISCOVERY_AND_NORMALIZED_EVENTS_PASS",
+  "pending_processes": [],
+  "residual_risks": [],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T14 implemented V3 minimal market discovery, ABI-strict event decoding (PoolCreated, Initialize, Mint, Swap), zero-decimals legal asset registry, and canonical topic filter generation. 5 unit tests passed with sabotage regression verification.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T22",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker-1",
+  "status": "SUBMITTED",
+  "baseline_sha": "d0099ceddff505d9c2409f6e613045610815cf1a",
+  "result_commit": "5f6768cbd0ac8f3fdc2050aadfc1ad639ac0653c",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_opportunities/incremental.py",
+    "arc_opportunities/sizing.py",
+    "tests/arc_v3/quotes/test_incremental_sizing.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/quotes/test_incremental_sizing.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T22/attempt1/test_incremental_sizing.log",
+      "raw_output_sha256": "1206ffc88197ab9ce8aa07122d9afcfab2b92922f6dc9a952e3681a59b5c695b"
+    }
+  ],
+  "evidence_scope": "OFFLINE_INCREMENTAL_SIZING_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Full state mirror recovery and persistent opportunity ledger segments require T23.",
+    "Real-time event streaming triggers require live cursor feed from M2 T09/T11."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T22 delivered event-driven incremental route recalculation and bounded trade sizing grid. 5 parity and safety tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

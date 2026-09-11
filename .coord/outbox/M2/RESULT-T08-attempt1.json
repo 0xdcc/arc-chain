@@ -1,0 +1,44 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T08",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M2-worker-1",
+  "status": "SUBMITTED",
+  "baseline_sha": "d0099ce5b211a77db326c2e36b85c181fbf2a249",
+  "result_commit": "92f2ebbe1dcdf45c56fd83e8e6becab925022018",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_readiness/fixed_block.py",
+    "arc_readiness/capabilities.py",
+    "tests/arc_v3/ingest/test_fixed_block.py"
+  ],
+  "input_hashes": {
+    "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=.worktrees/T08-attempt1-worker1 ./venv/bin/python -m pytest .worktrees/T08-attempt1-worker1/tests/arc_v3/ingest/test_fixed_block.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 7,
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T08/attempt1/test_fixed_block.log",
+      "raw_output_sha256": "cebbbf4023e0c17734192f161357a4270bd8daa939bf9de27d05845dc5ef6ec9"
+    }
+  ],
+  "evidence_scope": "OFFLINE_FIXED_BLOCK_SAMPLING_PASS",
+  "pending_processes": [],
+  "residual_risks": [],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T08 implemented fixed-block multi-call sampling with pre/post hash verification, BlockAnchor immutable references, explicit latest fallback rejection, and structured endpoint capability probing. 7 unit tests passed with sabotage regression verification.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

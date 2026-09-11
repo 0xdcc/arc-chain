@@ -1,0 +1,46 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T05",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M1-controller",
+  "status": "ACCEPTED",
+  "baseline_sha": "2d3f33c4bb9a9e338165d774e1d3bf1595188f6c",
+  "result_commit": "efb9e153cd312e519ebc3722763919de295e0136",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "docs/coordination/G1_RELEASE.json",
+    "docs/coordination/INTEGRATION_LOG.md"
+  ],
+  "input_hashes": {
+    "candidate_sha": "efb9e153cd312e519ebc3722763919de295e0136",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "./venv/bin/python -m pytest tests/arc_v3/ -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 135,
+      "passed": 135,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T05/attempt1/full_arc_v3_test.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "G1_CODE_RELEASE_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "G1_LIVE requires explicit user RPC authorization before polling real network.",
+    "Zero funds execution enabled; system armed flag remains False."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T05 officially integrated all G1 code and released G1_CODE candidate efb9e15. 135 unit and regression tests passing 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

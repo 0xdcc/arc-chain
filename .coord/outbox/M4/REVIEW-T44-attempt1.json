@@ -1,0 +1,32 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "task_id": "T44",
+  "review_instance_id": "arc-chain-1789123287",
+  "reviewer_id": "M4",
+  "author_ids": ["M1", "M2"],
+  "candidate_sha": "c198163c01931a9a43d7232f419852fba522884e",
+  "scope": "G1_CODE_INGEST_AND_READONLY_BOUNDARY_AUDIT",
+  "verdict": "PASS",
+  "report_delivered": true,
+  "required_tests": [
+    "tests/arc_v3/independent/test_collect_e2e.py",
+    "tests/arc_v3/independent/test_readonly_boundary.py"
+  ],
+  "executed_tests": [
+    "tests/arc_v3/independent/test_collect_e2e.py",
+    "tests/arc_v3/independent/test_readonly_boundary.py"
+  ],
+  "not_run": [
+    "live_rpc_ingest",
+    "real_funds_execution"
+  ],
+  "findings": [
+    "CLI to durable on-disk pipeline functional and contract-compliant (envelopes JSONL, coverage manifest, durable cursor).",
+    "Monotonic cursor advancement verified without gaps.",
+    "Four security boundaries verified: zero import side effects, credential scrubbing, filesystem confinement, and strict RPC allowlist.",
+    "Prohibited mutating RPC methods (sendRawTransaction, sendTransaction, sign, personal_sign) fail closed before transport execution."
+  ],
+  "qa_tooling_cross_review": "SELF_AUDITED_BY_M4_WITH_INDEPENDENT_E2E_AND_BOUNDARY_SUITE",
+  "gate_satisfied": true,
+  "rule": "gate_satisfied only if verdict PASS, exact candidate+scope match, required evidence complete; delivered report alone never satisfies gate"
+}

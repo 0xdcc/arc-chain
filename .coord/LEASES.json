@@ -1,57 +1,5 @@
 {
   "plan_id": "ARC-4B-v3.1-20260911-13817f4",
   "project_instance_id": "arc-chain-1789123287",
-  "active_leases": {
-    "T08": {
-      "brain": "M2",
-      "lease_epoch": 1,
-      "granted_at": "2026-09-11T08:50:00Z",
-      "exact_write_allowlist": [
-        "arc_readiness/fixed_block.py",
-        "arc_readiness/capabilities.py",
-        "tests/arc_v3/ingest/test_fixed_block.py"
-      ]
-    },
-    "T14": {
-      "brain": "M2",
-      "lease_epoch": 1,
-      "granted_at": "2026-09-11T08:50:00Z",
-      "exact_write_allowlist": [
-        "arc_markets/v3_events.py",
-        "arc_markets/v3_discovery.py",
-        "arc_markets/decimals.py",
-        "tests/arc_v3/markets/test_v3_discovery.py"
-      ]
-    },
-    "T21": {
-      "brain": "M3",
-      "lease_epoch": 1,
-      "granted_at": "2026-09-11T08:50:00Z",
-      "exact_write_allowlist": [
-        "state_graph/multi_tick.py",
-        "arc_opportunities/quote_capabilities.py",
-        "tests/arc_v3/quotes/test_multi_tick.py"
-      ]
-    },
-    "T22": {
-      "brain": "M3",
-      "lease_epoch": 1,
-      "granted_at": "2026-09-11T08:50:00Z",
-      "exact_write_allowlist": [
-        "arc_opportunities/incremental.py",
-        "arc_opportunities/sizing.py",
-        "tests/arc_v3/quotes/test_incremental_sizing.py"
-      ]
-    },
-    "T44": {
-      "brain": "M4",
-      "lease_epoch": 1,
-      "granted_at": "2026-09-11T08:50:00Z",
-      "exact_write_allowlist": [
-        "tests/arc_v3/independent/test_collect_e2e.py",
-        "tests/arc_v3/independent/test_readonly_boundary.py",
-        "docs/acceptance/G1_REVIEW.md"
-      ]
-    }
-  }
+  "active_leases": {}
 }

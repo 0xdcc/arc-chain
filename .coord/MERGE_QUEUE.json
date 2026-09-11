@@ -137,6 +137,67 @@
         "tests/arc_v3/independent/test_source_data_separation.py",
         "tools/qa/upstream_obligations.py"
       ]
+    },
+    {
+      "task_id": "T08",
+      "brain": "M2",
+      "message_id": "M2/RESULT-T08-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "92f2ebbe1dcdf45c56fd83e8e6becab925022018",
+      "changed_files": [
+        "arc_readiness/fixed_block.py",
+        "arc_readiness/capabilities.py",
+        "tests/arc_v3/ingest/test_fixed_block.py"
+      ]
+    },
+    {
+      "task_id": "T14",
+      "brain": "M2",
+      "message_id": "M2/RESULT-T14-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "2b5db2fc66f4651426918f51e71fb20a4c7f4a65",
+      "changed_files": [
+        "arc_markets/v3_events.py",
+        "arc_markets/v3_discovery.py",
+        "arc_markets/decimals.py",
+        "tests/arc_v3/markets/test_v3_discovery.py"
+      ]
+    },
+    {
+      "task_id": "T21",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T21-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "c77fab3cbe6d80ca533ef2e91aed3406480efc43",
+      "changed_files": [
+        "state_graph/multi_tick.py",
+        "arc_opportunities/quote_capabilities.py",
+        "tests/arc_v3/quotes/test_multi_tick.py"
+      ]
+    },
+    {
+      "task_id": "T22",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T22-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "5f6768cbd0ac8f3fdc2050aadfc1ad639ac0653c",
+      "changed_files": [
+        "arc_opportunities/incremental.py",
+        "arc_opportunities/sizing.py",
+        "tests/arc_v3/quotes/test_incremental_sizing.py"
+      ]
+    },
+    {
+      "task_id": "T44",
+      "brain": "M4",
+      "message_id": "M4/RESULT-T44-attempt1.json",
+      "status": "ACCEPTED",
+      "result_commit": "c198163c01931a9a43d7232f419852fba522884e",
+      "changed_files": [
+        "docs/acceptance/G1_REVIEW.md",
+        "tests/arc_v3/independent/test_collect_e2e.py",
+        "tests/arc_v3/independent/test_readonly_boundary.py"
+      ]
     }
   ],
   "processed_messages": [
@@ -146,9 +207,14 @@
     "M1/RESULT-T04-attempt1.json",
     "M1/RESULT-T37-attempt1.json",
     "M2/RESULT-T07-attempt1.json",
+    "M2/RESULT-T08-attempt1.json",
     "M2/RESULT-T13-attempt1.json",
+    "M2/RESULT-T14-attempt1.json",
     "M3/RESULT-T19-attempt1.json",
     "M3/RESULT-T20-attempt1.json",
-    "M4/RESULT-T43-attempt1.json"
+    "M3/RESULT-T21-attempt1.json",
+    "M3/RESULT-T22-attempt1.json",
+    "M4/RESULT-T43-attempt1.json",
+    "M4/RESULT-T44-attempt1.json"
   ]
 }

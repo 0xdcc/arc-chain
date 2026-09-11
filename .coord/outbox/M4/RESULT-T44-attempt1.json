@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T44",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M4-independent-reviewer",
+  "status": "ACCEPTED",
+  "baseline_sha": "d0099ce3cbf07137f88417c805eb3ef711b74706",
+  "result_commit": "c198163c01931a9a43d7232f419852fba522884e",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "docs/acceptance/G1_REVIEW.md",
+    "tests/arc_v3/independent/test_collect_e2e.py",
+    "tests/arc_v3/independent/test_readonly_boundary.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=. /root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/independent/test_collect_e2e.py tests/arc_v3/independent/test_readonly_boundary.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 25,
+      "passed": 25,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T44/attempt1/independent_g1_tests.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "G1_CODE_INGEST_AND_READONLY_BOUNDARY_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Live RPC sampling remains in NOT_RUN status; live network probing requires explicit user endpoint authorization (G1_LIVE).",
+    "Zero financial actions or trading execution verified; all mutating methods strictly blocked."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T44 independently certified minimal arc_collect pipeline (CLI -> raw envelopes -> coverage manifest -> durable cursor) and four security boundaries (import, env, filesystem, RPC allowlist) with 25/25 pytest pass.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": "1e06e54567abc368812f094110614a71976ca27841c2f664e016c330ab519e9c",
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

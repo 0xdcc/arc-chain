@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T21",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker-2",
+  "status": "SUBMITTED",
+  "baseline_sha": "d0099ceddff505d9c2409f6e613045610815cf1a",
+  "result_commit": "c77fab3cbe6d80ca533ef2e91aed3406480efc43",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "state_graph/multi_tick.py",
+    "arc_opportunities/quote_capabilities.py",
+    "tests/arc_v3/quotes/test_multi_tick.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/quotes/test_multi_tick.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T21/attempt1/test_multi_tick.log",
+      "raw_output_sha256": "f2441c75ccdbb17c1f4ae335ccadd399f66af4b8e2d98d6b1b6f603da0b56735"
+    }
+  ],
+  "evidence_scope": "OFFLINE_MULTI_TICK_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Production live tick bitmap sync requires M2 T16 full coverage.",
+    "Single_segment mode remains active fail-closed default whenever coverage is missing or incomplete."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T21 delivered discrete multi-tick CLMM engine with fail-closed coverage enforcement and capability negotiation. 3 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

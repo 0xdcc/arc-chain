@@ -61,12 +61,13 @@
       "title": "\u96c6\u6210\u6700\u5c0f\u91c7\u96c6\u94fe\u8def\u5e76\u53d1\u5e03G1\u5019\u9009",
       "lead": "M1",
       "phase": "G1",
-      "status": "UNASSIGNED",
+      "status": "RELEASED",
       "depends_on": [
         "T44"
       ],
       "lease": null,
-      "result": null
+      "result": null,
+      "integrated_commit": "efb9e153cd312e519ebc3722763919de295e0136"
     },
     "T06": {
       "title": "\u51bb\u7ed3\u9636\u6bb5\u4ea4\u4ed8\u4e0e\u540e\u7eed\u542f\u7528\u51b3\u5b9a",
@@ -111,7 +112,7 @@
       "title": "\u56fa\u5b9a\u5757\u91c7\u6837\u4e0e\u8282\u70b9\u80fd\u529b\u8bc1\u636e",
       "lead": "M2",
       "phase": "G1",
-      "status": "LEASED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T07"
       ],
@@ -125,7 +126,10 @@
           "tests/arc_v3/ingest/test_fixed_block.py"
         ]
       },
-      "result": null
+      "result": "92f2ebbe1dcdf45c56fd83e8e6becab925022018",
+      "last_attempt": 1,
+      "last_updated_by": "M2",
+      "integrated_commit": "efb9e153cd312e519ebc3722763919de295e0136"
     },
     "T09": {
       "title": "\u539f\u59cb\u6570\u636e\u8bb0\u5f55\u5668\u4e0e\u6301\u4e45\u6e38\u6807",
@@ -200,7 +204,7 @@
       "title": "V3\u6700\u5c0f\u5e02\u573a\u53d1\u73b0\u548c\u89c4\u8303\u5316\u4e8b\u4ef6",
       "lead": "M2",
       "phase": "G1",
-      "status": "LEASED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T13",
         "T07"
@@ -216,7 +220,10 @@
           "tests/arc_v3/markets/test_v3_discovery.py"
         ]
       },
-      "result": null
+      "result": "2b5db2fc66f4651426918f51e71fb20a4c7f4a65",
+      "last_attempt": 1,
+      "last_updated_by": "M2",
+      "integrated_commit": "efb9e153cd312e519ebc3722763919de295e0136"
     },
     "T15": {
       "title": "V4\u72ec\u7acb\u6c60\u8eab\u4efd\u3001\u4e8b\u4ef6\u4e0eStateView\u72b6\u6001\u91c7\u6837",
@@ -317,7 +324,7 @@
       "title": "\u589e\u91cf\u8865\u9f50\u6709\u8bc1\u636e\u7684V3\u591atick\u62a5\u4ef7",
       "lead": "M3",
       "phase": "G2-EXT",
-      "status": "LEASED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T19",
         "T16"
@@ -332,13 +339,16 @@
           "tests/arc_v3/quotes/test_multi_tick.py"
         ]
       },
-      "result": null
+      "result": "c77fab3cbe6d80ca533ef2e91aed3406480efc43",
+      "last_attempt": 1,
+      "last_updated_by": "M3",
+      "integrated_commit": "efb9e153cd312e519ebc3722763919de295e0136"
     },
     "T22": {
       "title": "\u4e8b\u4ef6\u589e\u91cf\u91cd\u7b97\u4e0e\u4ea4\u6613\u91d1\u989d\u641c\u7d22",
       "lead": "M3",
       "phase": "G2",
-      "status": "LEASED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T19",
         "T20"
@@ -353,7 +363,10 @@
           "tests/arc_v3/quotes/test_incremental_sizing.py"
         ]
       },
-      "result": null
+      "result": "5f6768cbd0ac8f3fdc2050aadfc1ad639ac0653c",
+      "last_attempt": 1,
+      "last_updated_by": "M3",
+      "integrated_commit": "efb9e153cd312e519ebc3722763919de295e0136"
     },
     "T23": {
       "title": "\u673a\u4f1a\u8d26\u672c\u7248\u672c\u5316\u3001\u6062\u590d\u4e0e\u6709\u754c\u5206\u6bb5",
@@ -641,7 +654,7 @@
       "title": "\u6700\u5c0f\u91c7\u96c6\u4e3b\u6d41\u7a0b\u4e0e\u6743\u9650\u9694\u79bb\u9a8c\u6536",
       "lead": "M4",
       "phase": "G1",
-      "status": "LEASED",
+      "status": "INTEGRATED",
       "depends_on": [
         "T09",
         "T14",
@@ -658,7 +671,10 @@
           "docs/acceptance/G1_REVIEW.md"
         ]
       },
-      "result": null
+      "result": "c198163c01931a9a43d7232f419852fba522884e",
+      "last_attempt": 1,
+      "last_updated_by": "M4",
+      "integrated_commit": "efb9e153cd312e519ebc3722763919de295e0136"
     },
     "T45": {
       "title": "F01\u2013F07\u4e0e\u65b0\u5165\u53e3\u8fc1\u79fb\u53cd\u8bc1",
