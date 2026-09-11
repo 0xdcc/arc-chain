@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T46",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M4-reviewer",
+  "status": "ACCEPTED",
+  "baseline_sha": "16daab85db5db1e2336336e4f32a76f28cf67d4f",
+  "result_commit": "0f6623f12ad2378b823017d35e53d71f81d76974",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "docs/acceptance/ARC_SEMANTICS.md",
+    "tests/arc_v3/independent/test_arc_accounting.py",
+    "tests/arc_v3/independent/test_output_proof.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=. /root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/independent/test_arc_accounting.py tests/arc_v3/independent/test_output_proof.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 25,
+      "passed": 25,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T46/attempt1/independent_t46_tests.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "G2_ARC_ACCOUNTING_AND_OUTPUT_EVIDENCE_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Trace generation offline testing uses synthetic state diffs; client RPC debug_traceCall support depends on live node configuration.",
+    "Gas price volatility between block quote and transaction inclusion remains governed by EIP-1559 base fee adjustments."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T46 independently verified Arc dual-interface USDC accounting, anti-double-counting, single-deduction netting, EIP-7708 event dedup, and output evidence certification with 25/25 pytest pass.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": "1e06e54567abc368812f094110614a71976ca27841c2f664e016c330ab519e9c",
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

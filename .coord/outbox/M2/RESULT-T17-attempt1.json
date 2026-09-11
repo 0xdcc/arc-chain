@@ -1,0 +1,45 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T17",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M2-worker",
+  "status": "SUBMITTED",
+  "baseline_sha": "16daab8b6806b072328ffa83986875f76685d47b",
+  "result_commit": "9d2eb520a98b7f70630856dfeccbe31f76ce592a",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_markets/launchpads/base.py",
+    "arc_markets/launchpads/verified_adapters.py",
+    "arc_markets/docs/LAUNCHPAD_EVIDENCE.md",
+    "tests/arc_v3/markets/test_launchpad_lifecycle.py"
+  ],
+  "input_hashes": {
+    "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=.worktrees/T17-attempt1-worker1 ./venv/bin/python -m pytest .worktrees/T17-attempt1-worker1/tests/arc_v3/markets/test_launchpad_lifecycle.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T17/attempt1/test_launchpad_lifecycle.log",
+      "raw_output_sha256": "3bb5c0299362f120f4c5a68a7ea65f74e0aa724b8935596681b3f8820f341dab"
+    }
+  ],
+  "evidence_scope": "OFFLINE_LAUNCHPAD_TAXONOMY_AND_GRADUATION_PASS",
+  "pending_processes": [],
+  "residual_risks": [],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T17 classified launchpads into DIRECT_V3_LISTING, BONDING_CURVE_PRE_GRADUATION, MIGRATED_POST_GRADUATION, and UNSUPPORTED_MISSING_EVIDENCE. Pre-graduation bonding curves fail closed against arbitrage quoting; post-graduation unlocks only with verified target pool and tx hash. 5 unit tests passed with sabotage regression verification.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

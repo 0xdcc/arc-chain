@@ -1,0 +1,34 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "task_id": "T47",
+  "review_instance_id": "arc-chain-1789123287",
+  "reviewer_id": "M4",
+  "author_ids": ["M1", "M2", "M3"],
+  "candidate_sha": "d3062b625c12c7c11fe463bb4c1e45e0c45ddbd3",
+  "scope": "G2_CONCURRENCY_LEASES_AND_STORAGE_RECOVERY_AUDIT",
+  "verdict": "PASS",
+  "report_delivered": true,
+  "required_tests": [
+    "tests/arc_v3/independent/test_coordination_chaos.py",
+    "tests/arc_v3/independent/test_storage_chaos.py"
+  ],
+  "executed_tests": [
+    "tests/arc_v3/independent/test_coordination_chaos.py",
+    "tests/arc_v3/independent/test_storage_chaos.py"
+  ],
+  "not_run": [
+    "network_partition_testing",
+    "real_funds_execution"
+  ],
+  "findings": [
+    "Multi-writer lease protection verified: writing outside granted lease allowlist fails closed without corrupting task board.",
+    "Outbox reduction idempotency verified: re-running reducer on existing messages produces no duplicate merge queue items.",
+    "Unknown task ID in outbox fails closed via OutboxReductionError.",
+    "Raw ingest segment recovery skips severed JSONL tail lines, correctly indexes valid block prefixes, and plans gap backfills.",
+    "Ledger torn-tail detection verified: AppendOnlyLedger detects truncated trailing records, raises LedgerCorruptionError, and appends monotonically after truncation.",
+    "Resource health monitoring correctly tracks disk space headroom and load averages."
+  ],
+  "qa_tooling_cross_review": "SELF_AUDITED_BY_M4_WITH_CHAOS_AND_RECOVERY_SUITE",
+  "gate_satisfied": true,
+  "rule": "gate_satisfied only if verdict PASS, exact candidate+scope match, required evidence complete; delivered report alone never satisfies gate"
+}

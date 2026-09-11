@@ -1,0 +1,19 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "brain": "M3",
+  "status": "LEASES_ACTIVE",
+  "granted_at": "2026-09-11T17:51:57Z",
+  "leases": [
+    {
+      "task_id": "T29",
+      "lease_id": "lease-M3-T29-b7",
+      "branch": "task/T29-nonce-journal",
+      "exact_write_allowlist": [
+        "arc_execution/state_machine.py",
+        "arc_execution/nonce_journal.py",
+        "tests/arc_v3/simulation/test_nonce_recovery.py"
+      ]
+    }
+  ]
+}

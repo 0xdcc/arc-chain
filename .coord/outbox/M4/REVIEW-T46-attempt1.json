@@ -1,0 +1,36 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "task_id": "T46",
+  "review_instance_id": "arc-chain-1789123287",
+  "reviewer_id": "M4",
+  "author_ids": ["M2", "M3"],
+  "candidate_sha": "0f6623f12ad2378b823017d35e53d71f81d76974",
+  "scope": "G2_ARC_ACCOUNTING_AND_OUTPUT_EVIDENCE_AUDIT",
+  "verdict": "PASS",
+  "report_delivered": true,
+  "required_tests": [
+    "tests/arc_v3/independent/test_arc_accounting.py",
+    "tests/arc_v3/independent/test_output_proof.py"
+  ],
+  "executed_tests": [
+    "tests/arc_v3/independent/test_arc_accounting.py",
+    "tests/arc_v3/independent/test_output_proof.py"
+  ],
+  "not_run": [
+    "live_node_trace_call",
+    "real_funds_execution"
+  ],
+  "findings": [
+    "Dual-interface USDC 18d vs 6d scaling factor (10^12) verified; double-counting prevention strictly enforced via ArcValidationError.",
+    "Native-only observation correctly derives ERC-20 and dust; ERC-20 only observation preserves dust as explicitly unknown (None).",
+    "Native spending authority is decoupled from ERC-20 allowance; attempting to bypass native permission via ERC-20 allowance fails closed.",
+    "EIP-7708 dual-emitted Transfer events collapsed to canonical 18d system event while preserving distinct multiple transfers in single tx.",
+    "Gas single-deduction netting verified; output floor enforces principal + gas + 1 atom (>0 profit).",
+    "Output evidence verifier strictly rejects secondary balanceOf polling as post-state proof.",
+    "Untracked external account balance pollution is detected and rejected.",
+    "ArcOutputAdapter strictly decouples expected output from verified output: unverified calls retain net_output_atoms=None."
+  ],
+  "qa_tooling_cross_review": "SELF_AUDITED_BY_M4_WITH_INDEPENDENT_EVIDENCE_SUITE",
+  "gate_satisfied": true,
+  "rule": "gate_satisfied only if verdict PASS, exact candidate+scope match, required evidence complete; delivered report alone never satisfies gate"
+}

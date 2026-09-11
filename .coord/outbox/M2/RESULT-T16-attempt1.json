@@ -1,0 +1,44 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T16",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M2-worker",
+  "status": "SUBMITTED",
+  "baseline_sha": "16daab8b6806b072328ffa83986875f76685d47b",
+  "result_commit": "e51b84b380b1c3e6908a668a69476159b8db79b9",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_markets/tick_coverage.py",
+    "arc_markets/tick_loader.py",
+    "tests/arc_v3/markets/test_tick_coverage.py"
+  ],
+  "input_hashes": {
+    "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=.worktrees/T16-attempt1-worker1 ./venv/bin/python -m pytest .worktrees/T16-attempt1-worker1/tests/arc_v3/markets/test_tick_coverage.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T16/attempt1/test_tick_coverage.log",
+      "raw_output_sha256": "f4221d356b1933591b6d6f531c82936bf128f55e364bf28c70948724baae111c"
+    }
+  ],
+  "evidence_scope": "OFFLINE_TICK_COVERAGE_AND_WORD_STATES_PASS",
+  "pending_processes": [],
+  "residual_risks": [],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T16 implemented V3 tick bitmap coverage proofs, distinguishing READ_POPULATED, READ_EMPTY, and UNREAD_UNKNOWN word states. Fails-closed on unread words with zero-liquidity imputation barriers. 5 unit tests passed with sabotage regression verification.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

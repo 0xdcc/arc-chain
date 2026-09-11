@@ -1,0 +1,19 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "brain": "M4",
+  "status": "LEASES_ACTIVE",
+  "granted_at": "2026-09-11T17:51:57Z",
+  "leases": [
+    {
+      "task_id": "T48",
+      "lease_id": "lease-M4-T48-b7",
+      "branch": "review/T48-attempt1",
+      "exact_write_allowlist": [
+        "docs/acceptance/G2_REVIEW.md",
+        "docs/acceptance/TEST_RESULTS.json",
+        "docs/acceptance/RESIDUAL_RISKS.md"
+      ]
+    }
+  ]
+}

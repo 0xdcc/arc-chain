@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T28",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker",
+  "status": "SUBMITTED",
+  "baseline_sha": "16daab8580026a761e3892742da530a66d5b0a3d",
+  "result_commit": "bb83633b1e26213c9ae34b36e17f079c64e8d3e0",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_execution/authorization.py",
+    "arc_execution/policy.py",
+    "tests/arc_v3/simulation/test_authorization_policy.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/simulation/test_authorization_policy.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T28/attempt1/test_authorization_policy.log",
+      "raw_output_sha256": "463bedfc9bfc500f481c0dda2e65d4ef53165898761479189155d68c96528305"
+    }
+  ],
+  "evidence_scope": "OFFLINE_AUTHORIZATION_POLICY_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Real on-chain broadcast signers are completely uninstantiated and locked out.",
+    "Hardware wallet integration requires separate future authorization."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T28 delivered execution authorization cards, 500 USD hard cap, atomic budget reservations, and mock sink routing. 6 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

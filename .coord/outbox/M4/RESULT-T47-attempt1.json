@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T47",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M4-reviewer",
+  "status": "ACCEPTED",
+  "baseline_sha": "16daab85db5db1e2336336e4f32a76f28cf67d4f",
+  "result_commit": "d3062b625c12c7c11fe463bb4c1e45e0c45ddbd3",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "docs/acceptance/CONCURRENCY_RECOVERY.md",
+    "tests/arc_v3/independent/test_coordination_chaos.py",
+    "tests/arc_v3/independent/test_storage_chaos.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=. /root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/independent/test_coordination_chaos.py tests/arc_v3/independent/test_storage_chaos.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 8,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T47/attempt1/independent_t47_tests.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "G2_CONCURRENCY_LEASES_AND_STORAGE_RECOVERY_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "POSIX advisory locking relies on local file systems; network-mounted NFS shares require network lock managers.",
+    "Byzantine payload corruption with intact JSON formatting requires digital signature verifications."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T47 independently verified coordination chaos, multi-writer lease exclusivity, outbox idempotency, ingest gap backfill planning, and ledger torn-tail recovery with 8/8 pytest pass.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": "1e06e54567abc368812f094110614a71976ca27841c2f664e016c330ab519e9c",
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}
