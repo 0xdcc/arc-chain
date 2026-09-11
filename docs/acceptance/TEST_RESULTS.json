@@ -1,0 +1,67 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "candidate_sha": "80af5970c679a96e27a92be32e3160e1d5218d6e",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "as_of": "2026-09-11T18:30:00Z",
+  "reviewer": "M4",
+  "layers": [
+    {
+      "layer": 1,
+      "name": "contracts_pure_invariants",
+      "command": "python -m pytest tests/contracts/ --confcutdir=tests/contracts -k 'not test_manifest_coverage' -o cache_dir=/tmp/pytest_cache -q",
+      "exit_code": 0,
+      "collected": 109,
+      "passed": 104,
+      "failed": 0,
+      "skipped": 0,
+      "deselected": 5,
+      "status": "PASS"
+    },
+    {
+      "layer": 2,
+      "name": "arc_v3_full_modular_suite",
+      "command": "python -m pytest tests/arc_v3/ -o cache_dir=/tmp/pytest_cache -q",
+      "exit_code": 0,
+      "collected": 318,
+      "passed": 318,
+      "failed": 0,
+      "skipped": 0,
+      "deselected": 0,
+      "status": "PASS"
+    },
+    {
+      "layer": 3,
+      "name": "independent_acceptance_and_chaos_suite",
+      "command": "python -m pytest tests/arc_v3/independent/ -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 103,
+      "passed": 103,
+      "failed": 0,
+      "skipped": 0,
+      "deselected": 0,
+      "status": "PASS"
+    },
+    {
+      "layer": 4,
+      "name": "upstream_obligations_and_parity_audit",
+      "command": "python tools/qa/upstream_obligations.py --audit",
+      "exit_code": 0,
+      "collected": 281,
+      "passed": 281,
+      "failed": 0,
+      "skipped": 0,
+      "status": "PASS"
+    }
+  ],
+  "scope_verdicts": {
+    "G0_BOOTSTRAP": "PASS",
+    "G1_CODE": "PASS",
+    "G1_LIVE": "PENDING_AUTHORIZATION",
+    "G2_CODE": "PASS",
+    "G2_LIVE": "PENDING_AUTHORIZATION",
+    "ALPHA_RESEARCH": "INSUFFICIENT_DATA",
+    "REAL_FUNDS_EXECUTION": "BLOCKED"
+  },
+  "overall_code_gate": "PASS"
+}
