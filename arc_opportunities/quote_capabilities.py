@@ -8,21 +8,28 @@ Manages quote engine capability negotiation:
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
+import hashlib
+import time
+from collections.abc import Mapping
 from dataclasses import dataclass
 from typing import Any
 
-from arbitrage_contracts.arc_extensions import TickCoverage
-from arbitrage_contracts.identity import Amount, AssetRef
+from arbitrage_contracts.identity import Amount
 from arbitrage_contracts.quote import (
+    ActorScope,
+    DataMode,
+    EvidenceLevel,
     HopQuote,
     QuoteEvidence,
     QuoteStatus,
     RouteRef,
     TriState,
 )
+from arbitrage_contracts.state import canonical_state_ref
 from arc_opportunities.quote_bridge import ArcQuoteBridge
+from state_graph.evaluate import resolve_token_decimals
 from state_graph.multi_tick import PoolTickTable, execute_multi_tick_hop
+from state_graph.store import StateStoreError, validate_snapshots
 from state_graph.types import FrozenEpoch
 
 CAPABILITY_SINGLE_SEGMENT = "single_segment"
@@ -55,6 +62,8 @@ class ArcCapabilityRouter:
         amount_in: Amount,
         epoch: FrozenEpoch,
         token_decimals: Mapping[Any, int] | None = None,
+        data_mode: str = DataMode.SYNTHETIC,
+        actor_scope: str = ActorScope.OWN_AUTHORIZED,
     ) -> QuoteEvidence:
         """Route quote evaluation based on active capability."""
         if self.profile.enabled_capability == CAPABILITY_SINGLE_SEGMENT:
@@ -64,6 +73,8 @@ class ArcCapabilityRouter:
                 amount_in=amount_in,
                 epoch=epoch,
                 token_decimals=token_decimals,
+                data_mode=data_mode,
+                actor_scope=actor_scope,
             )
 
         # Multi-tick capability: check if all pools have complete coverage
@@ -82,10 +93,53 @@ class ArcCapabilityRouter:
                 amount_in=amount_in,
                 epoch=epoch,
                 token_decimals=token_decimals,
+                data_mode=data_mode,
+                actor_scope=actor_scope,
             )
 
         # Execute multi-tick hops
-        return self._quote_multi_tick_route(route, amount_in, epoch, tables, token_decimals)
+        try:
+            sv = epoch.state_version
+            if (
+                route.chain_id != self.bridge.config.chain_id
+                or sv.chain_id != route.chain_id
+                or sv.block_domain != "l1"
+                or not sv.is_ready()
+                or sv.applied_cursor is not None
+            ):
+                raise ValueError("Multi-tick route requires consistent complete Arc L1 state")
+            if amount_in.asset_ref != route.base_asset:
+                raise ValueError("Input asset mismatch")
+            validate_snapshots(sv, epoch.snapshots, [h.pool_key.pool_id for h in route.hops])
+            if resolve_token_decimals(route.base_asset, token_decimals) != amount_in.decimals:
+                raise ValueError("Input decimals mismatch")
+            for hop in route.hops:
+                resolve_token_decimals(hop.asset_out, token_decimals)
+                snap = epoch.get_snapshot(hop.pool_key.pool_id)
+                table = tables[hop.pool_key.pool_id]
+                desc = hop.pool_descriptor
+                if (
+                    snap is None
+                    or not table.block_hash
+                    or table.block_hash.lower() != sv.block_hash.lower()
+                ):
+                    raise ValueError("Tick coverage must bind the exact block hash")
+                if (
+                    desc is None
+                    or hop.pool_key.protocol_id not in ("v3", "uniswap_v3")
+                    or desc.fee_model.kind != "static"
+                    or desc.fee_model.raw_value != snap.fee_pips
+                    or desc.tick_spacing != snap.tick_spacing
+                    or (desc.hooks and int(desc.hooks, 16))
+                ):
+                    raise ValueError("Unsupported protocol, hook, fee or spacing")
+            return self._quote_multi_tick_route(
+                route, amount_in, epoch, tables, token_decimals, data_mode, actor_scope
+            )
+        except (ValueError, TypeError, StateStoreError) as exc:
+            return self.bridge._make_unsupported_quote(
+                route, amount_in, epoch, str(exc), data_mode=data_mode, actor_scope=actor_scope
+            )
 
     def _quote_multi_tick_route(
         self,
@@ -94,7 +148,10 @@ class ArcCapabilityRouter:
         epoch: FrozenEpoch,
         tables: dict[str, PoolTickTable],
         token_decimals: Mapping[Any, int] | None,
+        data_mode: str,
+        actor_scope: str,
     ) -> QuoteEvidence:
+        started_at = int(time.time() * 1000)
         current_amount = amount_in
         hop_quotes: list[HopQuote] = []
         status = QuoteStatus.QUOTED
@@ -108,7 +165,7 @@ class ArcCapabilityRouter:
                 break
 
             table = tables.get(hop.pool_key.pool_id)
-            z41 = (hop.direction == "zero_for_one")
+            z41 = hop.direction == "zero_for_one"
             res = execute_multi_tick_hop(
                 snapshot=snap,
                 amount_in=current_amount.atoms,
@@ -121,9 +178,7 @@ class ArcCapabilityRouter:
                 error_msg = res.error or f"Multi-tick failed at hop {idx}"
                 break
 
-            out_decimals = 18
-            if token_decimals and hop.asset_out in token_decimals:
-                out_decimals = token_decimals[hop.asset_out]
+            out_decimals = resolve_token_decimals(hop.asset_out, token_decimals)
 
             out_amount = Amount(
                 asset_ref=hop.asset_out,
@@ -151,16 +206,21 @@ class ArcCapabilityRouter:
             final_out = None
             delta = None
 
+        state_ref = canonical_state_ref(epoch.state_version)
+        seed = f"{route.route_id}:{state_ref}:{amount_in.atoms}:{started_at}"
         return QuoteEvidence(
-            quote_id=f"multi-tick:{route.route_id[:16]}",
+            quote_id="multi-tick:" + hashlib.sha256(seed.encode()).hexdigest()[:24],
             route_ref=route,
             amount_in=amount_in,
             amount_out=final_out,
             delta_atoms=delta,
             hop_quotes=tuple(hop_quotes),
-            state_version_ref=epoch.state_version.block_hash,
-            started_at_ms=0,
-            finished_at_ms=1,
+            state_version_ref=state_ref,
+            started_at_ms=started_at,
+            finished_at_ms=int(time.time() * 1000),
+            data_mode=data_mode,
+            actor_scope=actor_scope,
+            evidence_level=EvidenceLevel.LOCAL_QUOTE,
             status=status,
             fee_included=TriState.YES if status == QuoteStatus.QUOTED else TriState.UNKNOWN,
             impact_included=TriState.YES if status == QuoteStatus.QUOTED else TriState.UNKNOWN,

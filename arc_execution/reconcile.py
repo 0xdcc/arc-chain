@@ -14,9 +14,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import StrEnum
-from typing import Any
 
+from arbitrage_contracts.identity import validate_bytes32, validate_evm_address
+from arc_opportunities.cost_units import rescale_cost_atoms
 from atomic_execution.arc_planning import ArcExecutionPlan
+
+ARC_USDC_ADDRESS = "0x3600000000000000000000000000000000000000"
 
 
 class ReconciliationCategory(StrEnum):
@@ -108,9 +111,7 @@ class ExecutionReconciler:
            - is_profitable is True ONLY if realized_net_atoms > 0.
         """
         base_asset_addr = (
-            plan.base_asset.token_key.address.lower()
-            if plan.base_asset.token_key
-            else ""
+            plan.base_asset.token_key.address.lower() if plan.base_asset.token_key else ""
         )
         controlled_set = {a.lower() for a in controlled_accounts}
         notes: list[str] = []
@@ -133,12 +134,69 @@ class ExecutionReconciler:
                 verdict_notes=tuple(notes),
             )
 
+        validate_bytes32(receipt.tx_hash)
+        if type(receipt.status) is not int or receipt.status not in (0, 1):
+            raise ReconciliationError("Receipt status must be 0 or 1")
+        if any(
+            type(v) is not int or v < 0
+            for v in (receipt.gas_used_atoms, receipt.effective_gas_price_atoms)
+        ):
+            raise ReconciliationError("Gas fields must be nonnegative integer atoms")
+        if receipt.to_address.lower() != plan.target_router.lower():
+            raise ReconciliationError("Receipt target does not match plan router")
+        if receipt.from_address.lower() not in controlled_set:
+            raise ReconciliationError("Gas payer must be in controlled accounts")
+        if type(gas_deducted_in_base_token) is not bool:
+            raise ReconciliationError("Gas deduction flag must be boolean")
+        if base_asset_addr != ARC_USDC_ADDRESS or plan.amount_in.decimals != 6:
+            return ReconciliationReport(
+                reconcile_id,
+                receipt.tx_hash.lower(),
+                ReconciliationCategory.INDETERMINATE,
+                False,
+                0,
+                0,
+                base_asset_addr,
+                0,
+                tuple(sorted(controlled_set)),
+                {},
+                False,
+                ("Unsupported base currency/precision; explicit gas conversion evidence required",),
+            )
+        gas_fee_base = rescale_cost_atoms(receipt.gas_fee_atoms, 18, 6)
+        seen: set[tuple[str, str]] = set()
+        for snap in balance_snapshots:
+            validate_evm_address(snap.account)
+            validate_evm_address(snap.token_address)
+            key = (snap.account.lower(), snap.token_address.lower())
+            if key in seen:
+                raise ReconciliationError("Duplicate account/token balance snapshot")
+            seen.add(key)
+            if any(type(v) is not int or v < 0 for v in (snap.balance_before, snap.balance_after)):
+                raise ReconciliationError("Balances must be nonnegative integer atoms")
+        if receipt.is_evm_success and any((a, base_asset_addr) not in seen for a in controlled_set):
+            return ReconciliationReport(
+                reconcile_id,
+                receipt.tx_hash.lower(),
+                ReconciliationCategory.INDETERMINATE,
+                False,
+                0,
+                gas_fee_base,
+                base_asset_addr,
+                0,
+                tuple(sorted(controlled_set)),
+                {},
+                False,
+                ("Incomplete base balances across controlled accounts",),
+            )
         tx_hash_norm = receipt.tx_hash.lower()
 
         # 2. Transaction reverted on-chain
         if not receipt.is_evm_success:
-            gas_loss = receipt.gas_fee_atoms
-            notes.append(f"Transaction reverted on-chain; gas fee {gas_loss} atoms debited as net loss")
+            gas_loss = gas_fee_base
+            notes.append(
+                f"Transaction reverted on-chain; gas fee {gas_loss} atoms debited as net loss"
+            )
             return ReconciliationReport(
                 reconcile_id=reconcile_id,
                 tx_hash=tx_hash_norm,
@@ -169,21 +227,25 @@ class ExecutionReconciler:
                 elif snap.delta > 0:
                     # Untracked third party injected base asset!
                     untracked_injections = True
-                    notes.append(f"State pollution detected: untracked account {snap.account} received {snap.delta} base tokens")
+                    notes.append(
+                        f"State pollution detected: untracked account {snap.account} received {snap.delta} base tokens"
+                    )
             else:
                 # Non-base token delta check (dust residues)
                 if acc_norm in controlled_set and snap.delta > 0:
                     residual_dust[token_norm] = residual_dust.get(token_norm, 0) + snap.delta
 
         if untracked_injections:
-            notes.append("Reconciliation failed due to untracked external balance injection; classified INDETERMINATE")
+            notes.append(
+                "Reconciliation failed due to untracked external balance injection; classified INDETERMINATE"
+            )
             return ReconciliationReport(
                 reconcile_id=reconcile_id,
                 tx_hash=tx_hash_norm,
                 category=ReconciliationCategory.INDETERMINATE,
                 is_profitable=False,
                 realized_net_atoms=0,
-                gas_fee_atoms=receipt.gas_fee_atoms,
+                gas_fee_atoms=gas_fee_base,
                 base_asset=base_asset_addr,
                 base_asset_net_delta=base_net_delta,
                 controlled_accounts=tuple(sorted(controlled_set)),
@@ -193,16 +255,20 @@ class ExecutionReconciler:
             )
 
         # Calculate true realized profit
-        gas_fee = receipt.gas_fee_atoms
+        gas_fee = gas_fee_base
         realized_net = base_net_delta
         if not gas_deducted_in_base_token:
             realized_net -= gas_fee
 
         is_prof = realized_net > 0
         if is_prof:
-            notes.append(f"Closed-loop arbitrage verified: net profit +{realized_net} base atoms after gas")
+            notes.append(
+                f"Closed-loop arbitrage verified: net profit +{realized_net} base atoms after gas"
+            )
         else:
-            notes.append(f"Receipt succeeded but trade was unprofitable: net {realized_net} base atoms after gas")
+            notes.append(
+                f"Receipt succeeded but trade was unprofitable: net {realized_net} base atoms after gas"
+            )
 
         return ReconciliationReport(
             reconcile_id=reconcile_id,

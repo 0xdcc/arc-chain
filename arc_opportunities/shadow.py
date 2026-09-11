@@ -14,20 +14,23 @@ Enforces:
 from __future__ import annotations
 
 import time
-from collections.abc import Mapping, Sequence
+from collections.abc import Mapping
 from dataclasses import dataclass
 from decimal import Decimal
 from typing import Any
 
-from arbitrage_contracts.arc_extensions import CostEvidence, SimulationEvidenceBridge, SimulationStatus
-from arbitrage_contracts.identity import Amount, AssetRef
+from arbitrage_contracts.arc_extensions import (
+    CostEvidence,
+    SimulationEvidenceBridge,
+)
+from arbitrage_contracts.identity import Amount
 from arbitrage_contracts.quote import (
     DataMode,
     QuoteEvidence,
     QuoteStatus,
     RouteRef,
-    TriState,
 )
+from arbitrage_contracts.state import canonical_state_ref
 from arc_opportunities.costs import ArcCostBreakdown
 from arc_opportunities.economics import ArcEconomicEvaluator
 from arc_opportunities.ledger import (
@@ -102,7 +105,7 @@ class ArcShadowEvaluationService:
     ) -> ShadowEvaluationResult:
         """Evaluate a single candidate route and enforce 4-tier separation."""
         now_ms = int(time.time() * 1000)
-        state_ref = epoch.state_version.block_hash
+        state_ref = canonical_state_ref(epoch.state_version)
         obs_id = compute_observation_id(route.route_id, state_ref, amount_in.atoms, now_ms)
 
         # Tier 1: Quoting

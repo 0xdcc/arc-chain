@@ -9,13 +9,12 @@ Provides:
 
 from __future__ import annotations
 
-from collections.abc import Sequence
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass
 from decimal import Decimal
-from typing import Any
 
 from arbitrage_contracts.arc_extensions import CostEvidence
 from arbitrage_contracts.identity import AssetRef
+from arc_opportunities.cost_units import DenominatedCostEvidence
 
 
 class CostInputError(ValueError):
@@ -54,6 +53,10 @@ def create_gas_cost_evidence(
     gas_payer: str | None = None,
     beneficiary: str | None = None,
     as_of_timestamp: float = 0.0,
+    *,
+    asset_ref: AssetRef | None = None,
+    decimals: int | None = None,
+    state_ref: str | None = None,
 ) -> CostEvidence:
     """Create verified CostEvidence for gas costs, rejecting negative or made-up zero amounts."""
     if type(cost_atoms) is not int or isinstance(cost_atoms, bool):
@@ -62,7 +65,7 @@ def create_gas_cost_evidence(
         raise CostInputError("cost_atoms cannot be negative")
     if not source:
         raise CostInputError("source cannot be empty")
-    return CostEvidence(
+    cost = CostEvidence(
         currency=currency,
         cost_atoms=cost_atoms,
         source=source,
@@ -72,6 +75,11 @@ def create_gas_cost_evidence(
         beneficiary=beneficiary,
         as_of_timestamp=as_of_timestamp,
     )
+    if asset_ref is not None or decimals is not None or state_ref is not None:
+        return DenominatedCostEvidence(
+            **asdict(cost), asset_ref=asset_ref, decimals=decimals, state_ref=state_ref
+        )
+    return cost
 
 
 def create_otc_cost_evidence(
@@ -81,13 +89,17 @@ def create_otc_cost_evidence(
     source: str = "otc_channel",
     venue: str = "offchain_otc",
     as_of_timestamp: float = 0.0,
+    *,
+    asset_ref: AssetRef | None = None,
+    decimals: int | None = None,
+    state_ref: str | None = None,
 ) -> CostEvidence:
     """Create CostEvidence for external OTC / financing costs, kept distinct from on-chain gas."""
     if type(cost_atoms) is not int or isinstance(cost_atoms, bool):
         raise CostInputError("cost_atoms must be an integer")
     if cost_atoms < 0:
         raise CostInputError("cost_atoms cannot be negative")
-    return CostEvidence(
+    cost = CostEvidence(
         currency=currency,
         cost_atoms=cost_atoms,
         source=f"{source}:{venue}",
@@ -95,3 +107,8 @@ def create_otc_cost_evidence(
         estimated_or_observed=estimated_or_observed,
         as_of_timestamp=as_of_timestamp,
     )
+    if asset_ref is not None or decimals is not None or state_ref is not None:
+        return DenominatedCostEvidence(
+            **asdict(cost), asset_ref=asset_ref, decimals=decimals, state_ref=state_ref
+        )
+    return cost

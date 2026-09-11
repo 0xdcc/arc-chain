@@ -14,7 +14,7 @@ import time
 from dataclasses import dataclass
 from typing import Any
 
-from arbitrage_contracts.arc_extensions import SimulationEvidenceBridge, SimulationStatus
+from arbitrage_contracts.arc_extensions import SimulationStatus
 
 
 class SimulationTransportError(Exception):
@@ -65,7 +65,9 @@ class ArcSimulationTransport:
                 block=block_number,
             )
             if balance is None:
-                raise InventoryUnknownError(f"RPC returned null balance for {account_address} at {block_number}")
+                raise InventoryUnknownError(
+                    f"RPC returned null balance for {account_address} at {block_number}"
+                )
             if type(balance) is not int or balance < 0:
                 raise InventoryUnknownError(f"Malformed balance response: {balance}")
             return balance
@@ -91,19 +93,22 @@ class ArcSimulationTransport:
         3. Gas used is strictly measured or returned as None, NEVER defaulted to 180,000!
         """
         if state_override is not None:
-            raise SimulationTransportError("State overrides are strictly prohibited on Arc simulation transport")
+            raise SimulationTransportError(
+                "State overrides are strictly prohibited on Arc simulation transport"
+            )
 
         started_at = int(time.time() * 1000)
 
         if self.rpc_client is None:
             # Offline mock mode
             return SimulationCallResult(
-                status=SimulationStatus.OUTPUT_UNVERIFIED,
-                call_succeeded=True,
+                status=SimulationStatus.NODE_LIMITATION,
+                call_succeeded=False,
                 return_data_hex="0x",
                 gas_used_atoms=None,
                 revert_reason=None,
-                execution_duration_ms=1,
+                rpc_error_message="NO_RPC_CLIENT_CONFIGURED",
+                execution_duration_ms=0,
             )
 
         try:
@@ -139,6 +144,9 @@ class ArcSimulationTransport:
                 # If gas measurement is unsupported or fails, leave as None (UNKNOWN)
                 gas_used = None
 
+            if type(gas_used) is not int or gas_used < 0:
+                gas_used = None
+
             return SimulationCallResult(
                 status=SimulationStatus.CALL_SUCCEEDED,
                 call_succeeded=True,
@@ -151,7 +159,11 @@ class ArcSimulationTransport:
         except Exception as exc:
             err_str = str(exc).lower()
             dur = int(time.time() * 1000) - started_at
-            if "node limitation" in err_str or "archive" in err_str or "block not available" in err_str:
+            if (
+                "node limitation" in err_str
+                or "archive" in err_str
+                or "block not available" in err_str
+            ):
                 return SimulationCallResult(
                     status=SimulationStatus.NODE_LIMITATION,
                     call_succeeded=False,

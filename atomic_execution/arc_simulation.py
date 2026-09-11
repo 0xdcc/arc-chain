@@ -9,18 +9,25 @@ Coordinates read-only simulation of ArcExecutionPlan over ArcSimulationTransport
 
 from __future__ import annotations
 
-from typing import Any
+from eth_abi.abi import decode as abi_decode
+from eth_abi.exceptions import DecodingError
 
 from arbitrage_contracts.arc_extensions import SimulationEvidenceBridge, SimulationStatus
-from atomic_execution.arc_encoding import EncodedArcCalldata
+from atomic_execution.arc_encoding import EncodedArcCalldata, encode_arc_execution_plan
 from atomic_execution.arc_planning import ArcExecutionPlan
-from atomic_execution.arc_transport import ArcSimulationTransport, InventoryUnknownError, SimulationTransportError
+from atomic_execution.arc_transport import (
+    ArcSimulationTransport,
+    InventoryUnknownError,
+    SimulationTransportError,
+)
 
 
 class ArcSimulationService:
     """Read-only contract simulation service for Arc opportunities."""
 
-    def __init__(self, transport: ArcSimulationTransport, backend_name: str = "arc_rpc_readonly") -> None:
+    def __init__(
+        self, transport: ArcSimulationTransport, backend_name: str = "arc_rpc_readonly"
+    ) -> None:
         self.transport = transport
         self.backend_name = backend_name
 
@@ -39,6 +46,20 @@ class ArcSimulationService:
         2. Contract revert: Returns call_succeeded=False, status=CONTRACT_REVERT.
         3. Output verification: If return data is empty or cannot be parsed, output_verified=False.
         """
+        if type(block_number) is not int or block_number < 0:
+            raise SimulationTransportError("A fixed nonnegative block number is required")
+        try:
+            raw = bytes.fromhex(encoded.calldata_hex[2:])
+            _, _, deadline = abi_decode(["bytes", "bytes[]", "uint256"], raw[4:])
+            expected = encode_arc_execution_plan(plan, deadline_s=deadline)
+        except (ValueError, TypeError, DecodingError) as exc:
+            raise SimulationTransportError("Malformed or unsupported encoded plan") from exc
+        if encoded != expected:
+            raise SimulationTransportError(
+                "Encoded calldata/metadata do not match originating plan"
+            )
+        if require_inventory_check is not True:
+            raise SimulationTransportError("Inventory checking cannot be disabled")
         base_token_addr = plan.base_asset.token_key.address if plan.base_asset.token_key else ""
 
         # Step 1: Pre-flight inventory verification
@@ -59,6 +80,20 @@ class ArcSimulationService:
                     execution_revert_reason=f"INSUFFICIENT_CALLER_BALANCE: {caller_bal} < {plan.amount_in.atoms}",
                 )
 
+        if self.transport.rpc_client is not None:
+            tokens = {
+                h.asset_in.token_key.address for h in plan.route_ref.hops if h.asset_in.token_key
+            }
+            tokens.update(
+                h.asset_out.token_key.address for h in plan.route_ref.hops if h.asset_out.token_key
+            )
+            for token in tokens:
+                if (
+                    self.transport.check_token_balance(token, encoded.target_router, block_number)
+                    != 0
+                ):
+                    raise InventoryUnknownError("Router inventory may subsidize simulated route")
+
         # Step 2: Execute routed eth_call simulation
         call_res = self.transport.execute_simulation_call(
             to_address=encoded.target_router,
@@ -78,29 +113,11 @@ class ArcSimulationService:
                 execution_revert_reason=call_res.revert_reason or call_res.rpc_error_message,
             )
 
-        # Step 3: Verify output return data
-        # In Universal Router, empty return data or unverified output MUST yield OUTPUT_UNVERIFIED
-        raw_data = call_res.return_data_hex
+        # Universal Router return bytes do not prove post-state balances.
+        # Only the independently bound OutputEvidence adapter may elevate verification.
+        status = SimulationStatus.OUTPUT_UNVERIFIED
         output_verified = False
         net_atoms: int | None = None
-        status = call_res.status
-
-        if not raw_data or raw_data in ("0x", ""):
-            # Empty return data: call succeeded on EVM level, but output cannot be proved!
-            status = SimulationStatus.OUTPUT_UNVERIFIED
-            output_verified = False
-            net_atoms = None
-        else:
-            # If valid decoded payload returned (mock/synthetic verification)
-            try:
-                # When output can be verified from receipt/trace
-                status = SimulationStatus.CALL_SUCCEEDED
-                output_verified = True
-                net_atoms = plan.expected_out.atoms - plan.amount_in.atoms
-            except Exception:
-                status = SimulationStatus.OUTPUT_UNVERIFIED
-                output_verified = False
-                net_atoms = None
 
         return SimulationEvidenceBridge(
             call_succeeded=True,

@@ -11,20 +11,18 @@ Enforces:
 
 from __future__ import annotations
 
-from decimal import ROUND_CEILING, Decimal, InvalidOperation
+from decimal import Decimal, InvalidOperation
 from typing import Any
 
 from arbitrage_contracts.arc_extensions import CostEvidence
-from arbitrage_contracts.identity import Amount, AssetRef
 from arbitrage_contracts.quote import (
     QuoteEvidence,
     QuoteStatus,
     TriState,
 )
+from arc_opportunities.cost_units import cost_in_base_atoms
 from arc_opportunities.costs import (
     ArcCostBreakdown,
-    CostInputError,
-    create_gas_cost_evidence,
 )
 
 USDC_SHARED_BALANCE_DOMAIN = "usdc_shared"
@@ -50,7 +48,9 @@ def validate_positive_decimal(value: Any, name: str) -> Decimal:
 class ArcEconomicEvaluator:
     """Economic Evaluator for Arc Opportunities."""
 
-    def __init__(self, default_gas_payer: str | None = None, default_beneficiary: str | None = None) -> None:
+    def __init__(
+        self, default_gas_payer: str | None = None, default_beneficiary: str | None = None
+    ) -> None:
         self.default_gas_payer = default_gas_payer
         self.default_beneficiary = default_beneficiary
 
@@ -71,8 +71,26 @@ class ArcEconomicEvaluator:
         4. Strict output floor: expected_out must cover amount_in + gas_atoms + 1 atom.
         5. Native vs ERC20 USDC shared balance domain: cannot be used for synthetic zero-cost profit.
         """
+        if type(slippage_bps) is not int or not 0 <= slippage_bps < 10000:
+            raise EconomicsError("slippage_bps must be an integer in [0, 10000)")
+        if quote.amount_in.asset_ref != quote.route_ref.base_asset:
+            raise EconomicsError("Input asset must match route base asset")
+        if quote.amount_out is not None:
+            if (
+                quote.amount_out.asset_ref != quote.amount_in.asset_ref
+                or quote.amount_out.decimals != quote.amount_in.decimals
+            ):
+                raise EconomicsError("Closed-loop output asset/decimals mismatch")
+            if quote.delta_atoms is not None and (
+                quote.delta_atoms != quote.amount_out.atoms - quote.amount_in.atoms
+            ):
+                raise EconomicsError("Quote delta does not match actual amounts")
         # 1. Basic quote validation
-        if quote.status != QuoteStatus.QUOTED or quote.delta_atoms is None or quote.amount_out is None:
+        if (
+            quote.status != QuoteStatus.QUOTED
+            or quote.delta_atoms is None
+            or quote.amount_out is None
+        ):
             return ArcCostBreakdown(
                 base_asset=quote.route_ref.base_asset,
                 gross_delta_atoms=quote.delta_atoms or 0,
@@ -101,11 +119,13 @@ class ArcEconomicEvaluator:
                         otc_cost=otc_evidence,
                         net_atoms=None,
                         economic_status="unknown",
-                        calculation_notes=("Rejected synthetic conversion between same balance domain views",),
+                        calculation_notes=(
+                            "Rejected synthetic conversion between same balance domain views",
+                        ),
                     )
 
         notes: list[str] = []
-        dex_fee_included = (quote.fee_included == TriState.YES)
+        dex_fee_included = quote.fee_included == TriState.YES
         if dex_fee_included:
             notes.append("DEX fees already included in quote delta; single deduction preserved")
         else:
@@ -121,18 +141,55 @@ class ArcEconomicEvaluator:
                 otc_cost=otc_evidence,
                 net_atoms=None,
                 economic_status="unknown",
-                calculation_notes=tuple(notes + ["Gas evidence missing; net profit UNKNOWN (cannot assume 0)"]),
+                calculation_notes=tuple(
+                    notes + ["Gas evidence missing; net profit UNKNOWN (cannot assume 0)"]
+                ),
             )
 
-        # Check gas currency matches base asset
-        gas_atoms = gas_evidence.cost_atoms
+        if quote.fee_included != TriState.YES or quote.impact_included != TriState.YES:
+            return ArcCostBreakdown(
+                base_asset=quote.route_ref.base_asset,
+                gross_delta_atoms=quote.delta_atoms,
+                dex_fee_included_in_quote=dex_fee_included,
+                gas_cost=gas_evidence,
+                otc_cost=otc_evidence,
+                net_atoms=None,
+                economic_status="unknown",
+                calculation_notes=tuple(notes + ["DEX fee or price impact inclusion UNKNOWN"]),
+            )
+        try:
+            gas_atoms = cost_in_base_atoms(
+                gas_evidence,
+                quote.amount_in.asset_ref,
+                quote.amount_in.decimals,
+                quote.state_version_ref,
+                quote.data_mode,
+                "gas",
+            )
+            otc_atoms = 0
+            if otc_evidence is not None:
+                otc_atoms = cost_in_base_atoms(
+                    otc_evidence,
+                    quote.amount_in.asset_ref,
+                    quote.amount_in.decimals,
+                    quote.state_version_ref,
+                    quote.data_mode,
+                    "otc_channel",
+                )
+                notes.append(f"Deducted allocated external OTC cost: {otc_atoms} base atoms")
+        except ValueError as exc:
+            return ArcCostBreakdown(
+                base_asset=quote.route_ref.base_asset,
+                gross_delta_atoms=quote.delta_atoms,
+                dex_fee_included_in_quote=dex_fee_included,
+                gas_cost=gas_evidence,
+                otc_cost=otc_evidence,
+                net_atoms=None,
+                economic_status="unknown",
+                calculation_notes=tuple(notes + [str(exc)]),
+            )
         gross_delta = quote.delta_atoms
-        total_costs_atoms = gas_atoms
-
-        # Deduct external OTC costs if present and denominated in base currency
-        if otc_evidence is not None:
-            total_costs_atoms += otc_evidence.cost_atoms
-            notes.append(f"Deducted external OTC channel cost: {otc_evidence.cost_atoms} atoms")
+        total_costs_atoms = gas_atoms + otc_atoms
 
         net_atoms = gross_delta - total_costs_atoms
         status = "profitable" if net_atoms > 0 else "unprofitable"
@@ -154,7 +211,9 @@ class ArcEconomicEvaluator:
         output_floor = max(slippage_min, required_floor)
 
         if expected_out_atoms < output_floor:
-            notes.append(f"Expected out {expected_out_atoms} below strict output floor {output_floor}")
+            notes.append(
+                f"Expected out {expected_out_atoms} below strict output floor {output_floor}"
+            )
             if status == "profitable":
                 status = "unprofitable"
 
