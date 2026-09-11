@@ -198,6 +198,29 @@
         "tests/arc_v3/independent/test_collect_e2e.py",
         "tests/arc_v3/independent/test_readonly_boundary.py"
       ]
+    },
+    {
+      "task_id": "T05",
+      "brain": "M1",
+      "message_id": "M1/RESULT-T05-attempt1.json",
+      "status": "ACCEPTED",
+      "result_commit": "efb9e153cd312e519ebc3722763919de295e0136",
+      "changed_files": [
+        "docs/coordination/G1_RELEASE.json",
+        "docs/coordination/INTEGRATION_LOG.md"
+      ]
+    },
+    {
+      "task_id": "T39",
+      "brain": "M1",
+      "message_id": "M1/RESULT-T39-attempt1.json",
+      "status": "ACCEPTED",
+      "result_commit": "47c84301bdaef76f9504d6eb9028cd6fb5a2ebe3",
+      "changed_files": [
+        "arc_runtime/reporting.py",
+        "arc_runtime/notifications.py",
+        "tests/arc_v3/runtime/test_reporting.py"
+      ]
     }
   ],
   "processed_messages": [
@@ -205,7 +228,9 @@
     "M1/RESULT-T02-attempt1.json",
     "M1/RESULT-T03-attempt1.json",
     "M1/RESULT-T04-attempt1.json",
+    "M1/RESULT-T05-attempt1.json",
     "M1/RESULT-T37-attempt1.json",
+    "M1/RESULT-T39-attempt1.json",
     "M2/RESULT-T07-attempt1.json",
     "M2/RESULT-T08-attempt1.json",
     "M2/RESULT-T13-attempt1.json",

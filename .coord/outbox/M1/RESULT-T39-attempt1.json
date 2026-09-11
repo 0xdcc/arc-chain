@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T39",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M1-controller",
+  "status": "ACCEPTED",
+  "baseline_sha": "b71f6a9b6f3c6f827488c46b6eed6b14d432bd6d",
+  "result_commit": "47c84301bdaef76f9504d6eb9028cd6fb5a2ebe3",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_runtime/reporting.py",
+    "arc_runtime/notifications.py",
+    "tests/arc_v3/runtime/test_reporting.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "./venv/bin/python -m pytest tests/arc_v3/runtime/test_reporting.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 7,
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T39/attempt1/test_reporting.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "OFFLINE_REPORTING_AND_NOTIFICATIONS_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Real QQ notifications remain physically blocked (DELIVERED_FAKE only).",
+    "Real execution profits remain strictly zero in offline research mode."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T39 delivered Hermes opportunity reporting engine and fake notifier with idempotency and net profit gating. 7 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

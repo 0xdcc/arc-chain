@@ -61,13 +61,15 @@
       "title": "\u96c6\u6210\u6700\u5c0f\u91c7\u96c6\u94fe\u8def\u5e76\u53d1\u5e03G1\u5019\u9009",
       "lead": "M1",
       "phase": "G1",
-      "status": "RELEASED",
+      "status": "ACCEPTED",
       "depends_on": [
         "T44"
       ],
       "lease": null,
-      "result": null,
-      "integrated_commit": "efb9e153cd312e519ebc3722763919de295e0136"
+      "result": "efb9e153cd312e519ebc3722763919de295e0136",
+      "integrated_commit": "efb9e153cd312e519ebc3722763919de295e0136",
+      "last_attempt": 1,
+      "last_updated_by": "M1"
     },
     "T06": {
       "title": "\u51bb\u7ed3\u9636\u6bb5\u4ea4\u4ed8\u4e0e\u540e\u7eed\u542f\u7528\u51b3\u5b9a",
@@ -580,13 +582,15 @@
       "title": "Hermes\u62a5\u544a\u4e0eQQ\u5047\u63a8\u9001",
       "lead": "M1",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "ACCEPTED",
       "depends_on": [
         "T20",
         "T37"
       ],
       "lease": null,
-      "result": null
+      "result": "47c84301bdaef76f9504d6eb9028cd6fb5a2ebe3",
+      "last_attempt": 1,
+      "last_updated_by": "M1"
     },
     "T40": {
       "title": "\u5065\u5eb7\u72b6\u6001\u3001\u7194\u65ad\u4e0e\u8d44\u6e90\u89c2\u6d4b",
