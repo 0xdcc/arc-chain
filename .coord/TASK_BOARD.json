@@ -185,14 +185,17 @@
       "title": "\u5386\u53f2\u8fde\u7eed\u533a\u5757\u626b\u63cf\u3001\u7f3a\u53e3\u56de\u8865\u4e0e\u6062\u590d",
       "lead": "M2",
       "phase": "G2",
-      "status": "IN_PROGRESS",
+      "status": "INTEGRATED",
       "depends_on": [
         "T09"
       ],
       "lease": null,
-      "result": null,
+      "result": "d8f088f4f6b5470a0004d40d20efebacb445e8bb",
       "assigned_to": "M2-worker",
-      "lease_id": "lease-M2-T11-b5"
+      "lease_id": "lease-M2-T11-b5",
+      "last_attempt": 1,
+      "last_updated_by": "M2",
+      "integrated_at": "2026-09-11T16:16:14Z"
     },
     "T12": {
       "title": "\u6709\u9650\u53ea\u8bfb\u4e3b\u7f51\u91c7\u6837\u4e0e\u8d44\u6e90\u9a8c\u6536",
@@ -286,39 +289,46 @@
       "title": "V3 tick bitmap\u8986\u76d6\u4e0e\u4e00\u81f4\u5feb\u7167",
       "lead": "M2",
       "phase": "G2-EXT",
-      "status": "UNASSIGNED",
-      "depends_on": [
-        "T14",
-        "T08"
-      ],
-      "lease": null,
-      "result": null
-    },
-    "T17": {
-      "title": "\u53d1\u5c04\u53f0\u673a\u5236\u9002\u914d\u4e0e\u771f\u5b9e\u8fc1\u79fb\u8bc1\u636e",
-      "lead": "M2",
-      "phase": "G2-EXT",
-      "status": "UNASSIGNED",
-      "depends_on": [
-        "T14"
-      ],
-      "lease": null,
-      "result": null
-    },
-    "T18": {
-      "title": "\u76ee\u5f55\u5230\u62a5\u4ef7\u5feb\u7167\u7684\u8d44\u683c\u6865\u63a5",
-      "lead": "M2",
-      "phase": "G2",
       "status": "IN_PROGRESS",
       "depends_on": [
-        "T13",
         "T14",
         "T08"
       ],
       "lease": null,
       "result": null,
       "assigned_to": "M2-worker",
-      "lease_id": "lease-M2-T18-b5"
+      "lease_id": "lease-M2-T16-b6"
+    },
+    "T17": {
+      "title": "\u53d1\u5c04\u53f0\u673a\u5236\u9002\u914d\u4e0e\u771f\u5b9e\u8fc1\u79fb\u8bc1\u636e",
+      "lead": "M2",
+      "phase": "G2-EXT",
+      "status": "IN_PROGRESS",
+      "depends_on": [
+        "T14"
+      ],
+      "lease": null,
+      "result": null,
+      "assigned_to": "M2-worker",
+      "lease_id": "lease-M2-T17-b6"
+    },
+    "T18": {
+      "title": "\u76ee\u5f55\u5230\u62a5\u4ef7\u5feb\u7167\u7684\u8d44\u683c\u6865\u63a5",
+      "lead": "M2",
+      "phase": "G2",
+      "status": "INTEGRATED",
+      "depends_on": [
+        "T13",
+        "T14",
+        "T08"
+      ],
+      "lease": null,
+      "result": "ff7375ea6a99dd195925fee92bfbbf0240f8d89c",
+      "assigned_to": "M2-worker",
+      "lease_id": "lease-M2-T18-b5",
+      "last_attempt": 1,
+      "last_updated_by": "M2",
+      "integrated_at": "2026-09-11T16:16:14Z"
     },
     "T19": {
       "title": "Arc\u5355\u6bb5\u62a5\u4ef7\u4e0e\u56fe\u5f15\u64ce\u5dee\u5206\u8fc1\u79fb",
@@ -517,28 +527,33 @@
       "title": "\u72ec\u7acb\u8f93\u51fa\u53d8\u5316\u4e0e\u4eff\u771f\u51c0\u5229\u8bc1\u636e",
       "lead": "M3",
       "phase": "G2",
-      "status": "IN_PROGRESS",
+      "status": "INTEGRATED",
       "depends_on": [
         "T26",
         "T10"
       ],
       "lease": null,
-      "result": null,
+      "result": "b8f42bea8bc465237ce125564eb67f0ae94c40f1",
       "assigned_to": "M3-worker",
-      "lease_id": "lease-M3-T27-b5"
+      "lease_id": "lease-M3-T27-b5",
+      "last_attempt": 1,
+      "last_updated_by": "M3",
+      "integrated_at": "2026-09-11T16:16:14Z"
     },
     "T28": {
       "title": "\u53d7\u9650\u6267\u884c\u653f\u7b56\u4e0e\u6388\u6743\u5361\u7684\u79bb\u7ebf\u5b9e\u73b0",
       "lead": "M3",
       "phase": "G3-PREP",
-      "status": "UNASSIGNED",
+      "status": "IN_PROGRESS",
       "depends_on": [
         "T25",
         "T20",
         "T10"
       ],
       "lease": null,
-      "result": null
+      "result": null,
+      "assigned_to": "M3-worker",
+      "lease_id": "lease-M3-T28-b6"
     },
     "T29": {
       "title": "nonce\uff0f\u5e42\u7b49\uff0f\u5f85\u786e\u8ba4\u72b6\u6001\u673a\u79bb\u7ebf\u5b9e\u73b0",
@@ -591,14 +606,17 @@
       "title": "OTC\u51c0\u4ef7\u3001\u5bb9\u91cf\u4e0e\u5916\u90e8\u672c\u91d1\u8d26",
       "lead": "M3",
       "phase": "G2-RESEARCH",
-      "status": "IN_PROGRESS",
+      "status": "INTEGRATED",
       "depends_on": [
         "T31"
       ],
       "lease": null,
-      "result": null,
+      "result": "40fd733eedbf57a3dbdd9b307d3ae8b69707d298",
       "assigned_to": "M3-worker",
-      "lease_id": "lease-M3-T32-b5"
+      "lease_id": "lease-M3-T32-b5",
+      "last_attempt": 1,
+      "last_updated_by": "M3",
+      "integrated_at": "2026-09-11T16:16:14Z"
     },
     "T33": {
       "title": "\u7b2c\u4e8c\u573a\u6240\u4e0e\u6d41\u52a8\u6027\u673a\u5236\u4e8b\u4ef6\u96f7\u8fbe",
@@ -628,42 +646,50 @@
       "title": "\u590d\u7528W3\u8fd8\u539fArc\u5df2\u6210\u4ea4\u95ed\u73af",
       "lead": "M3",
       "phase": "G2-RESEARCH",
-      "status": "IN_PROGRESS",
+      "status": "INTEGRATED",
       "depends_on": [
         "T10",
         "T09"
       ],
       "lease": null,
-      "result": null,
+      "result": "97eb2f4719042cc74019b836b29f90c473353913",
       "assigned_to": "M3-worker",
-      "lease_id": "lease-M3-T34-b5"
+      "lease_id": "lease-M3-T34-b5",
+      "last_attempt": 1,
+      "last_updated_by": "M3",
+      "integrated_at": "2026-09-11T16:16:14Z"
     },
     "T35": {
       "title": "\u65e0\u672a\u6765\u6cc4\u6f0f\u56de\u653e\u4e0e\u673a\u4f1a\u5bff\u547d",
       "lead": "M3",
       "phase": "G2",
-      "status": "IN_PROGRESS",
+      "status": "INTEGRATED",
       "depends_on": [
         "T24",
         "T09"
       ],
       "lease": null,
-      "result": null,
+      "result": "a58d403e36ad7af35db41931d59e40a71bc41fad",
       "assigned_to": "M3-worker",
-      "lease_id": "lease-M3-T35-b5"
+      "lease_id": "lease-M3-T35-b5",
+      "last_attempt": 1,
+      "last_updated_by": "M3",
+      "integrated_at": "2026-09-11T16:16:14Z"
     },
     "T36": {
       "title": "\u6309\u8bc1\u636e\u8bc4\u4f30Alpha\u5e76\u5b89\u6392\u589e\u91cf\u7b56\u7565",
       "lead": "M3",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "IN_PROGRESS",
       "depends_on": [
         "T35",
         "T34",
         "T33"
       ],
       "lease": null,
-      "result": null
+      "result": null,
+      "assigned_to": "M3-worker",
+      "lease_id": "lease-M3-T36-b6"
     },
     "T37": {
       "title": "\u6700\u5c0farc_collect\u5b9e\u9645CLI\u5165\u53e3",
@@ -846,20 +872,22 @@
       "title": "Arc\u4e13\u5c5e\u8d26\u52a1\u4e0e\u8f93\u51fa\u8bc1\u636e\u9a8c\u6536",
       "lead": "M4",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "IN_PROGRESS",
       "depends_on": [
         "T10",
         "T27",
         "T14"
       ],
       "lease": null,
-      "result": null
+      "result": null,
+      "assigned_to": "M4-reviewer",
+      "lease_id": "lease-M4-T46-b6"
     },
     "T47": {
       "title": "\u5e76\u53d1\u3001\u79df\u7ea6\u3001\u5d29\u6e83\u4e0e\u6570\u636e\u6062\u590d\u9a8c\u6536",
       "lead": "M4",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "IN_PROGRESS",
       "depends_on": [
         "T04",
         "T11",
@@ -867,7 +895,9 @@
         "T40"
       ],
       "lease": null,
-      "result": null
+      "result": null,
+      "assigned_to": "M4-reviewer",
+      "lease_id": "lease-M4-T47-b6"
     },
     "T48": {
       "title": "\u7aef\u5230\u7aef\u4ea4\u4ed8\u5ba1\u67e5\u4e0e\u6b8b\u4f59\u98ce\u9669",

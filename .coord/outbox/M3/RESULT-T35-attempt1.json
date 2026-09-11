@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T35",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker",
+  "status": "SUBMITTED",
+  "baseline_sha": "2b0e538f5f67b5ebc2c8f85f54318c5040608ae3",
+  "result_commit": "a58d403e36ad7af35db41931d59e40a71bc41fad",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_research/replay/engine.py",
+    "arc_research/replay/latency.py",
+    "tests/arc_v3/research/test_replay_causality.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/research/test_replay_causality.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T35/attempt1/test_replay_causality.log",
+      "raw_output_sha256": "da951571c58792dd2b9ee2640d34ba5772c41ea27388c6b7d35d81c5acd28fb0"
+    }
+  ],
+  "evidence_scope": "OFFLINE_REPLAY_CAUSALITY_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Retrospective block data without arrival timestamps cannot assert millisecond competition.",
+    "Real MEV auction ordering requires private mempool observation."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T35 delivered causal replay engine with future leakage prevention, latency offsets, and lifetime censoring. 5 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

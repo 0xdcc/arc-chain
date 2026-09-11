@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T32",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker",
+  "status": "SUBMITTED",
+  "baseline_sha": "2b0e538f5f67b5ebc2c8f85f54318c5040608ae3",
+  "result_commit": "40fd733eedbf57a3dbdd9b307d3ae8b69707d298",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_research/wall/normalization.py",
+    "arc_research/wall/premium.py",
+    "tests/arc_v3/research/test_wall_pricing.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/research/test_wall_pricing.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T32/attempt1/test_wall_pricing.log",
+      "raw_output_sha256": "61c04d457b2950b0e8b74c1825752b5e1a76f32608d6857035b91fdd40a485e6"
+    }
+  ],
+  "evidence_scope": "OFFLINE_WALL_PRICING_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Live OTC quote streaming and websocket updates remain out of scope.",
+    "Real off-chain execution requires verified custody and bilateral settlement."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T32 delivered OTC wall orderbook normalization, depth pricing, and zero-premium sensitivity analysis. 5 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

@@ -401,6 +401,80 @@
         "docs/runbooks/ARC_OPERATIONS.md",
         "docs/runbooks/MAINNET_CHANGE_CHECKLIST.md"
       ]
+    },
+    {
+      "task_id": "T11",
+      "brain": "M2",
+      "message_id": "M2/RESULT-T11-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "d8f088f4f6b5470a0004d40d20efebacb445e8bb",
+      "changed_files": [
+        "arc_ingest/coverage.py",
+        "arc_ingest/history_scan.py",
+        "arc_ingest/recovery.py",
+        "tests/arc_v3/ingest/test_history_scan.py",
+        "tests/arc_v3/ingest/test_recovery.py"
+      ]
+    },
+    {
+      "task_id": "T18",
+      "brain": "M2",
+      "message_id": "M2/RESULT-T18-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "ff7375ea6a99dd195925fee92bfbbf0240f8d89c",
+      "changed_files": [
+        "arc_markets/quote_catalog.py",
+        "arc_markets/snapshots.py",
+        "tests/arc_v3/markets/test_catalog_snapshots.py"
+      ]
+    },
+    {
+      "task_id": "T27",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T27-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "b8f42bea8bc465237ce125564eb67f0ae94c40f1",
+      "changed_files": [
+        "atomic_execution/output_evidence.py",
+        "atomic_execution/arc_output_adapter.py",
+        "tests/arc_v3/simulation/test_output_evidence.py"
+      ]
+    },
+    {
+      "task_id": "T32",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T32-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "40fd733eedbf57a3dbdd9b307d3ae8b69707d298",
+      "changed_files": [
+        "arc_research/wall/normalization.py",
+        "arc_research/wall/premium.py",
+        "tests/arc_v3/research/test_wall_pricing.py"
+      ]
+    },
+    {
+      "task_id": "T34",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T34-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "97eb2f4719042cc74019b836b29f90c473353913",
+      "changed_files": [
+        "arc_research/settled/adapter.py",
+        "arc_research/settled/report.py",
+        "tests/arc_v3/research/test_settled_arc.py"
+      ]
+    },
+    {
+      "task_id": "T35",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T35-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "a58d403e36ad7af35db41931d59e40a71bc41fad",
+      "changed_files": [
+        "arc_research/replay/engine.py",
+        "arc_research/replay/latency.py",
+        "tests/arc_v3/research/test_replay_causality.py"
+      ]
     }
   ],
   "processed_messages": [
@@ -419,9 +493,11 @@
     "M2/RESULT-T08-attempt1.json",
     "M2/RESULT-T09-attempt1.json",
     "M2/RESULT-T10-attempt1.json",
+    "M2/RESULT-T11-attempt1.json",
     "M2/RESULT-T13-attempt1.json",
     "M2/RESULT-T14-attempt1.json",
     "M2/RESULT-T15-attempt1.json",
+    "M2/RESULT-T18-attempt1.json",
     "M3/RESULT-T19-attempt1.json",
     "M3/RESULT-T20-attempt1.json",
     "M3/RESULT-T21-attempt1.json",
@@ -430,8 +506,12 @@
     "M3/RESULT-T24-attempt1.json",
     "M3/RESULT-T25-attempt1.json",
     "M3/RESULT-T26-attempt1.json",
+    "M3/RESULT-T27-attempt1.json",
     "M3/RESULT-T31-attempt1.json",
+    "M3/RESULT-T32-attempt1.json",
     "M3/RESULT-T33-attempt1.json",
+    "M3/RESULT-T34-attempt1.json",
+    "M3/RESULT-T35-attempt1.json",
     "M4/RESULT-T43-attempt1.json",
     "M4/RESULT-T44-attempt1.json",
     "M4/RESULT-T45-attempt1.json"

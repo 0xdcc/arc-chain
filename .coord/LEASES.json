@@ -3,6 +3,111 @@
   "project_instance_id": "arc-chain-1789123287",
   "active_leases": [
     {
+      "lease_id": "lease-M4-T46-b6",
+      "task_id": "T46",
+      "worker_id": "M4-reviewer",
+      "lead_brain": "M4",
+      "branch": "review/T46-attempt1",
+      "worktree": ".worktrees/T46-attempt1-m4",
+      "granted_at": "2026-09-11T16:16:14Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "tests/arc_v3/independent/test_arc_accounting.py",
+        "tests/arc_v3/independent/test_output_proof.py",
+        "docs/acceptance/ARC_SEMANTICS.md"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "lease_id": "lease-M4-T47-b6",
+      "task_id": "T47",
+      "worker_id": "M4-reviewer",
+      "lead_brain": "M4",
+      "branch": "review/T47-attempt1",
+      "worktree": ".worktrees/T47-attempt1-m4",
+      "granted_at": "2026-09-11T16:16:14Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "tests/arc_v3/independent/test_coordination_chaos.py",
+        "tests/arc_v3/independent/test_storage_chaos.py",
+        "docs/acceptance/CONCURRENCY_RECOVERY.md"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "lease_id": "lease-M2-T16-b6",
+      "task_id": "T16",
+      "worker_id": "M2-worker",
+      "lead_brain": "M2",
+      "branch": "task/T16-tick-coverage",
+      "worktree": ".worktrees/T16-attempt1-worker1",
+      "granted_at": "2026-09-11T16:16:14Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_markets/tick_loader.py",
+        "arc_markets/tick_coverage.py",
+        "tests/arc_v3/markets/test_tick_coverage.py"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "lease_id": "lease-M2-T17-b6",
+      "task_id": "T17",
+      "worker_id": "M2-worker",
+      "lead_brain": "M2",
+      "branch": "task/T17-launchpad-lifecycle",
+      "worktree": ".worktrees/T17-attempt1-worker1",
+      "granted_at": "2026-09-11T16:16:14Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_markets/launchpads/base.py",
+        "arc_markets/launchpads/verified_adapters.py",
+        "arc_markets/docs/LAUNCHPAD_EVIDENCE.md",
+        "tests/arc_v3/markets/test_launchpad_lifecycle.py"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "lease_id": "lease-M3-T28-b6",
+      "task_id": "T28",
+      "worker_id": "M3-worker",
+      "lead_brain": "M3",
+      "branch": "task/T28-authorization-policy",
+      "worktree": ".worktrees/T28-attempt1-worker1",
+      "granted_at": "2026-09-11T16:16:14Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_execution/authorization.py",
+        "arc_execution/policy.py",
+        "tests/arc_v3/simulation/test_authorization_policy.py"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "lease_id": "lease-M3-T36-b6",
+      "task_id": "T36",
+      "worker_id": "M3-worker",
+      "lead_brain": "M3",
+      "branch": "task/T36-alpha-summary",
+      "worktree": ".worktrees/T36-attempt1-worker1",
+      "granted_at": "2026-09-11T16:16:14Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_research/reports/alpha_summary.py",
+        "docs/acceptance/ALPHA_RESEARCH.md",
+        "tests/arc_v3/research/test_alpha_summary.py"
+      ],
+      "status": "ACTIVE"
+    }
+  ],
+  "lease_history": [
+    {
       "lease_id": "lease-M2-T11-b5",
       "task_id": "T11",
       "worker_id": "M2-worker",
@@ -19,7 +124,7 @@
         "arc_ingest/history_scan.py",
         "tests/arc_v3/ingest/test_history_scan.py"
       ],
-      "status": "ACTIVE"
+      "status": "COMPLETED"
     },
     {
       "lease_id": "lease-M2-T18-b5",
@@ -36,7 +141,7 @@
         "arc_markets/snapshots.py",
         "tests/arc_v3/markets/test_catalog_snapshots.py"
       ],
-      "status": "ACTIVE"
+      "status": "COMPLETED"
     },
     {
       "lease_id": "lease-M3-T27-b5",
@@ -53,7 +158,7 @@
         "atomic_execution/arc_output_adapter.py",
         "tests/arc_v3/simulation/test_output_evidence.py"
       ],
-      "status": "ACTIVE"
+      "status": "COMPLETED"
     },
     {
       "lease_id": "lease-M3-T32-b5",
@@ -70,7 +175,7 @@
         "arc_research/wall/premium.py",
         "tests/arc_v3/research/test_wall_pricing.py"
       ],
-      "status": "ACTIVE"
+      "status": "COMPLETED"
     },
     {
       "lease_id": "lease-M3-T34-b5",
@@ -87,7 +192,7 @@
         "arc_research/settled/report.py",
         "tests/arc_v3/research/test_settled_arc.py"
       ],
-      "status": "ACTIVE"
+      "status": "COMPLETED"
     },
     {
       "lease_id": "lease-M3-T35-b5",
@@ -104,7 +209,7 @@
         "arc_research/replay/latency.py",
         "tests/arc_v3/research/test_replay_causality.py"
       ],
-      "status": "ACTIVE"
+      "status": "COMPLETED"
     }
   ]
 }

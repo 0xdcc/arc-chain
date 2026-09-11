@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T27",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker",
+  "status": "SUBMITTED",
+  "baseline_sha": "2b0e538f5f67b5ebc2c8f85f54318c5040608ae3",
+  "result_commit": "b8f42bea8bc465237ce125564eb67f0ae94c40f1",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "atomic_execution/output_evidence.py",
+    "atomic_execution/arc_output_adapter.py",
+    "tests/arc_v3/simulation/test_output_evidence.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/simulation/test_output_evidence.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T27/attempt1/test_output_evidence.log",
+      "raw_output_sha256": "92d8eb34b7a34148a5b8c2276154de8008828cf8c3b0aa61a1fc7d44edc63fc8"
+    }
+  ],
+  "evidence_scope": "OFFLINE_OUTPUT_EVIDENCE_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Trace RPC backend capability unavailable in public read-only nodes gracefully defaults to output_verified=False.",
+    "Real on-chain receipt and balance accounting requires G3 reconciliation."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T27 delivered state-diff output verification, gas accounting, anti-pollution guards, and adapter. 6 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

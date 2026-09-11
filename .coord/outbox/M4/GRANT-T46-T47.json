@@ -1,0 +1,29 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "brain": "M4",
+  "status": "LEASES_ACTIVE",
+  "granted_at": "2026-09-11T16:16:14Z",
+  "leases": [
+    {
+      "task_id": "T46",
+      "lease_id": "lease-M4-T46-b6",
+      "branch": "review/T46-attempt1",
+      "exact_write_allowlist": [
+        "tests/arc_v3/independent/test_arc_accounting.py",
+        "tests/arc_v3/independent/test_output_proof.py",
+        "docs/acceptance/ARC_SEMANTICS.md"
+      ]
+    },
+    {
+      "task_id": "T47",
+      "lease_id": "lease-M4-T47-b6",
+      "branch": "review/T47-attempt1",
+      "exact_write_allowlist": [
+        "tests/arc_v3/independent/test_coordination_chaos.py",
+        "tests/arc_v3/independent/test_storage_chaos.py",
+        "docs/acceptance/CONCURRENCY_RECOVERY.md"
+      ]
+    }
+  ]
+}
