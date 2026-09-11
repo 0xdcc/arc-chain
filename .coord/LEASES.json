@@ -18,6 +18,35 @@
         "tests/arc_v3/simulation/test_reconciliation.py"
       ],
       "status": "ACTIVE"
+    },
+    {
+      "lease_id": "lease-M2-T12-live",
+      "task_id": "T12",
+      "worker_id": "M2-worker",
+      "lead_brain": "M2",
+      "branch": "task/T12-live-sampling",
+      "worktree": ".worktrees/T12-attempt1-worker1",
+      "granted_at": "2026-09-11T18:51:49Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "docs/acceptance/m2-live/REPORT.md",
+        "docs/acceptance/m2-live/coverage.json"
+      ],
+      "requested_capabilities": [
+        "bounded_readonly_live_rpc"
+      ],
+      "authorization_constraints": {
+        "max_rpc_requests": 50,
+        "timeout_seconds": 5,
+        "allowed_methods": [
+          "eth_chainId",
+          "eth_blockNumber",
+          "eth_getBlockByNumber"
+        ],
+        "mutating_methods": "FORBIDDEN"
+      },
+      "status": "ACTIVE"
     }
   ],
   "lease_history": [

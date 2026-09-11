@@ -1,0 +1,19 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "brain": "M2",
+  "status": "LEASES_ACTIVE",
+  "granted_at": "2026-09-11T18:51:49Z",
+  "leases": [
+    {
+      "task_id": "T12",
+      "lease_id": "lease-M2-T12-live",
+      "branch": "task/T12-live-sampling",
+      "exact_write_allowlist": [
+        "docs/acceptance/m2-live/REPORT.md",
+        "docs/acceptance/m2-live/coverage.json"
+      ],
+      "authorization_note": "User has explicitly approved bounded readonly live RPC sampling (budget <= 50 requests, read-only methods only)."
+    }
+  ]
+}
