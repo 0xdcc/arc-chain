@@ -1,0 +1,61 @@
+{
+  "_comment": "Arc Venues & Deployments Review Template (v3.1) - Default PENDING_REVIEW and empty verified set",
+  "chain_id": 5042,
+  "verified_set": [],
+  "venues": [
+    {
+      "name": "uniswap_v3_factory",
+      "role": "factory",
+      "address": "0x0000000000000000000000000000000000005042",
+      "chain_id": 5042,
+      "abi_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_proof": "genesis:arc_mainnet_v3_factory",
+      "valid_from_block": 0,
+      "is_system_precompile": true,
+      "aliases": [
+        "v3_factory",
+        "arc_v3_factory"
+      ]
+    },
+    {
+      "name": "uniswap_v4_pool_manager",
+      "role": "manager",
+      "address": "0x1111111111111111111111111111111111115042",
+      "chain_id": 5042,
+      "abi_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_proof": "genesis:arc_mainnet_v4_manager",
+      "valid_from_block": 0,
+      "is_system_precompile": true,
+      "aliases": [
+        "v4_manager",
+        "pool_manager"
+      ]
+    },
+    {
+      "name": "universal_router",
+      "role": "router",
+      "address": "0x2222222222222222222222222222222222225042",
+      "chain_id": 5042,
+      "abi_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_proof": "official_deployment:arc_mainnet_router_v1",
+      "valid_from_block": 100,
+      "is_system_precompile": false,
+      "aliases": [
+        "router"
+      ]
+    },
+    {
+      "name": "multicall3",
+      "role": "multicall",
+      "address": "0xca11bde05977b3631167028862be2a173976ca11",
+      "chain_id": 5042,
+      "abi_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_proof": "spec:canonical_multicall3",
+      "valid_from_block": 0,
+      "is_system_precompile": true,
+      "aliases": [
+        "multicall"
+      ]
+    }
+  ]
+}
