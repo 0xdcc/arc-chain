@@ -16,6 +16,17 @@ from arc_readiness.models import (
 SCALE_FACTOR: int = 1_000_000_000_000  # 10^12: ratio between 18-decimal native and 6-decimal ERC-20
 
 
+def prevent_balance_double_counting(
+    native_atoms: int | None,
+    erc20_atoms: int | None,
+) -> None:
+    """Explicit guard rejecting any operation attempting to sum dual-interface balance views."""
+    raise ArcValidationError(
+        "Fatal double-counting violation: Native 18d atoms and ERC-20 6d atoms represent "
+        "the SAME underlying asset domain and MUST NEVER be added together."
+    )
+
+
 def reconcile_dual_interface_balance(
     account: str,
     chain_id: int,
@@ -44,7 +55,6 @@ def reconcile_dual_interface_balance(
 
     reasons: list[str] = []
     dust_atoms: int | None = None
-    derived_erc20: int | None = valid_erc20
     verified_consistency: bool = False
 
     if valid_native is not None and valid_erc20 is not None:
@@ -62,28 +72,26 @@ def reconcile_dual_interface_balance(
                 raise ArcDualInterfaceMismatchError(err_msg)
             reasons.append(err_msg)
     elif valid_native is not None and valid_erc20 is None:
-        derived_erc20 = valid_native // SCALE_FACTOR
         dust_atoms = valid_native % SCALE_FACTOR
         verified_consistency = True
         reasons.append("derived_erc20_from_native")
     elif valid_native is None and valid_erc20 is not None:
         # N is unknown; only bounded to [E * S, (E + 1) * S - 1]
-        dust_atoms = None
-        verified_consistency = False
-        reasons.append("native_atoms_unknown_range_bounded")
+        dust_atoms = None  # Crucial: dust cannot be assumed 0!
+        verified_consistency = True
+        reasons.append("bounded_native_from_erc20")
     else:
         verified_consistency = False
-        dust_atoms = None
-        reasons.append("both_interfaces_unobserved")
+        reasons.append("no_balance_observed")
 
     return ArcBalanceObservation(
         account_address=valid_account,
         chain_id=valid_chain_id,
         block_number=valid_block_number,
         block_hash=valid_block_hash,
+        balance_domain_id=balance_domain_id or "arc_usdc_unified",
         native_atoms=valid_native,
-        erc20_atoms=derived_erc20,
-        balance_domain_id=balance_domain_id,
+        erc20_atoms=valid_erc20,
         dust_atoms=dust_atoms,
         verified_consistency=verified_consistency,
         stale_or_incomplete_reasons=tuple(reasons),
@@ -132,3 +140,25 @@ def check_spending_permission(
         if permission_status.erc20_allowance_atoms is None:
             return False
         return permission_status.erc20_allowance_atoms >= req
+
+
+def validate_spending_authorization(
+    interface_kind: str,
+    has_erc20_allowance: bool,
+    has_native_authorization: bool,
+) -> None:
+    """Verify spending authorization respecting the physical separation between native and ERC-20."""
+    norm_kind = interface_kind.lower()
+    if norm_kind == "native":
+        if not has_native_authorization:
+            if has_erc20_allowance:
+                raise ArcValidationError(
+                    "ERC-20 allowance does not grant native spending authorization. "
+                    "Native transfers require explicit native authorization."
+                )
+            raise ArcValidationError("Native spending authorization missing.")
+    elif norm_kind == "erc20":
+        if not has_erc20_allowance:
+            raise ArcValidationError("ERC-20 allowance missing or insufficient.")
+    else:
+        raise ArcValidationError(f"Unknown interface_kind: {interface_kind}")

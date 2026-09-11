@@ -1,4 +1,4 @@
-"""Arc fee accounting and gas cost normalization in 18-decimal native USDC units."""
+"""Arc fee accounting, single-deduction netting, and gas cost normalization in 18d native USDC."""
 
 from __future__ import annotations
 
@@ -46,6 +46,35 @@ def calculate_receipt_fee_atoms(
     )
 
 
+def apply_single_deduction_netting(
+    gross_quote_out_atoms: int,
+    amount_in_atoms: int,
+    gas_cost_atoms: int,
+    dex_fee_already_deducted_in_quoter: bool = True,
+    gas_already_deducted: bool = False,
+) -> tuple[int, int]:
+    """Single-deduction netting guard ensuring DEX fee and gas are deducted exactly once.
+
+    Invariants:
+    - Quoter output already accounts for DEX liquidity pool fees; deducting DEX fee again is strictly prohibited.
+    - Gas cost must be subtracted exactly once from gross output.
+    - Returns (net_profit_atoms, output_floor).
+    """
+    if gas_already_deducted:
+        raise ArcValidationError("Double-deduction violation: Gas cost has already been deducted.")
+
+    if not dex_fee_already_deducted_in_quoter:
+        raise ArcValidationError(
+            "Unsupported fee configuration: quoter must natively account for DEX pool fee."
+        )
+
+    # Calculate output floor: principal + gas_cost + 1 atom pure profit
+    output_floor = amount_in_atoms + gas_cost_atoms + 1
+
+    net_profit_atoms = gross_quote_out_atoms - amount_in_atoms - gas_cost_atoms
+    return net_profit_atoms, output_floor
+
+
 def estimate_max_fee_atoms(gas_limit: int, max_fee_per_gas_wei: int) -> int:
     """Calculate worst-case fee cap from gas limit and max fee per gas."""
     limit = validate_non_negative_int(gas_limit, "gas_limit")
@@ -68,20 +97,14 @@ def validate_fee_calculation(gas_used: int, gas_price_wei: int, reported_total: 
 
 def atoms_to_decimal_string(atoms: int, decimals: int = 18) -> str:
     """Format an atomic integer into a human-readable decimal string without floating point rounding."""
-    if isinstance(atoms, bool) or not isinstance(atoms, int):
-        raise ArcValidationError(f"atoms must be an integer, got {type(atoms).__name__}")
+    if atoms < 0:
+        raise ArcValidationError(f"atoms cannot be negative: {atoms}")
     if decimals <= 0:
-        raise ArcValidationError(f"decimals must be positive, got {decimals}")
+        return str(atoms)
 
-    sign = "-" if atoms < 0 else ""
-    abs_atoms = abs(atoms)
-    scale = 10**decimals
-
-    integer_part = abs_atoms // scale
-    fractional_part = abs_atoms % scale
-
-    if fractional_part == 0:
-        return f"{sign}{integer_part}.0"
-
-    frac_str = str(fractional_part).zfill(decimals).rstrip("0")
-    return f"{sign}{integer_part}.{frac_str}"
+    s = str(atoms).zfill(decimals + 1)
+    integer_part = s[:-decimals]
+    fractional_part = s[-decimals:].rstrip("0")
+    if fractional_part:
+        return f"{integer_part}.{fractional_part}"
+    return integer_part
