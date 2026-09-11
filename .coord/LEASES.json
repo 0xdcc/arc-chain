@@ -1,5 +1,110 @@
 {
   "plan_id": "ARC-4B-v3.1-20260911-13817f4",
   "project_instance_id": "arc-chain-1789123287",
-  "active_leases": {}
+  "active_leases": [
+    {
+      "lease_id": "lease-M2-T11-b5",
+      "task_id": "T11",
+      "worker_id": "M2-worker",
+      "lead_brain": "M2",
+      "branch": "task/T11-history-recovery",
+      "worktree": ".worktrees/T11-attempt1-worker1",
+      "granted_at": "2026-09-11T15:48:44Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_ingest/recovery.py",
+        "arc_ingest/coverage.py",
+        "tests/arc_v3/ingest/test_recovery.py",
+        "arc_ingest/history_scan.py",
+        "tests/arc_v3/ingest/test_history_scan.py"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "lease_id": "lease-M2-T18-b5",
+      "task_id": "T18",
+      "worker_id": "M2-worker",
+      "lead_brain": "M2",
+      "branch": "task/T18-quote-catalog",
+      "worktree": ".worktrees/T18-attempt1-worker1",
+      "granted_at": "2026-09-11T15:48:44Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_markets/quote_catalog.py",
+        "arc_markets/snapshots.py",
+        "tests/arc_v3/markets/test_catalog_snapshots.py"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "lease_id": "lease-M3-T27-b5",
+      "task_id": "T27",
+      "worker_id": "M3-worker",
+      "lead_brain": "M3",
+      "branch": "task/T27-output-evidence",
+      "worktree": ".worktrees/T27-attempt1-worker1",
+      "granted_at": "2026-09-11T15:48:44Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "atomic_execution/output_evidence.py",
+        "atomic_execution/arc_output_adapter.py",
+        "tests/arc_v3/simulation/test_output_evidence.py"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "lease_id": "lease-M3-T32-b5",
+      "task_id": "T32",
+      "worker_id": "M3-worker",
+      "lead_brain": "M3",
+      "branch": "task/T32-wall-pricing",
+      "worktree": ".worktrees/T32-attempt1-worker1",
+      "granted_at": "2026-09-11T15:48:44Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_research/wall/normalization.py",
+        "arc_research/wall/premium.py",
+        "tests/arc_v3/research/test_wall_pricing.py"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "lease_id": "lease-M3-T34-b5",
+      "task_id": "T34",
+      "worker_id": "M3-worker",
+      "lead_brain": "M3",
+      "branch": "task/T34-settled-adapter",
+      "worktree": ".worktrees/T34-attempt1-worker1",
+      "granted_at": "2026-09-11T15:48:44Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_research/settled/adapter.py",
+        "arc_research/settled/report.py",
+        "tests/arc_v3/research/test_settled_arc.py"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "lease_id": "lease-M3-T35-b5",
+      "task_id": "T35",
+      "worker_id": "M3-worker",
+      "lead_brain": "M3",
+      "branch": "task/T35-replay-engine",
+      "worktree": ".worktrees/T35-attempt1-worker1",
+      "granted_at": "2026-09-11T15:48:44Z",
+      "expires_at": "2026-09-12T00:00:00Z",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_research/replay/engine.py",
+        "arc_research/replay/latency.py",
+        "tests/arc_v3/research/test_replay_causality.py"
+      ],
+      "status": "ACTIVE"
+    }
+  ]
 }

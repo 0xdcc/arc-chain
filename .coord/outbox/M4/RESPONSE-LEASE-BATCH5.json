@@ -1,0 +1,36 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "brain": "M4",
+  "status": "LEASES_PENDING_DEPENDENCY",
+  "response_at": "2026-09-11T15:48:44Z",
+  "pending_tasks": [
+    {
+      "task_id": "T46",
+      "depends_on": [
+        "T10",
+        "T27",
+        "T14"
+      ],
+      "blocking_dependencies": [
+        "T27"
+      ],
+      "status": "WAITING_FOR_T27_MERGE",
+      "action": "T27 lease has been granted to M3. As soon as M3 integrates T27, T46 lease will be automatically activated."
+    },
+    {
+      "task_id": "T47",
+      "depends_on": [
+        "T04",
+        "T11",
+        "T23",
+        "T40"
+      ],
+      "blocking_dependencies": [
+        "T11"
+      ],
+      "status": "WAITING_FOR_T11_MERGE",
+      "action": "T11 lease has been granted to M2. As soon as M2 integrates T11, T47 lease will be automatically activated."
+    }
+  ]
+}
