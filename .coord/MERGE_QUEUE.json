@@ -61,12 +61,25 @@
         "docs/coordination/RUNBOOK.md",
         "tests/arc_v3/foundation/test_dispatch.py"
       ]
+    },
+    {
+      "task_id": "T37",
+      "brain": "M1",
+      "message_id": "M1/RESULT-T37-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "aea64dfe2c04e140dd80494696c81f8bee0803bc",
+      "changed_files": [
+        "apps/arc_collect.py",
+        "arc_runtime/collect.py",
+        "tests/arc_v3/runtime/test_collect_cli.py"
+      ]
     }
   ],
   "processed_messages": [
     "M1/RESULT-T01-attempt1.json",
     "M1/RESULT-T02-attempt1.json",
     "M1/RESULT-T03-attempt1.json",
-    "M1/RESULT-T04-attempt1.json"
+    "M1/RESULT-T04-attempt1.json",
+    "M1/RESULT-T37-attempt1.json"
   ]
 }

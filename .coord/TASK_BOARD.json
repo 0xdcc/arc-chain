@@ -80,12 +80,24 @@
       "title": "\u663e\u5f0fArc\u4e3b\u7f51/\u6d4b\u8bd5\u7f51Profile\u4e0e\u53ea\u8bfbHTTP",
       "lead": "M2",
       "phase": "G1",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T03",
         "T04"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M2",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T08:35:00Z",
+        "exact_write_allowlist": [
+          "arc_readiness/network.py",
+          "arc_readiness/rpc_readonly.py",
+          "arc_readiness/profiles.py",
+          "arc_readiness/http_readonly.py",
+          "configs/arc/network.example.json",
+          "tests/arc_v3/ingest/test_profile_transport.py"
+        ]
+      },
       "result": null
     },
     "T08": {
@@ -147,12 +159,22 @@
       "title": "\u590d\u7528W1\u5e76\u5efa\u7acb\u4e3b\u7f51\u90e8\u7f72\u8bc1\u636e\u6ce8\u518c",
       "lead": "M2",
       "phase": "G1",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T03",
         "T04"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M2",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T08:35:00Z",
+        "exact_write_allowlist": [
+          "arc_markets/deployments.py",
+          "arc_markets/review_bridge.py",
+          "configs/arc/venues.example.json",
+          "tests/arc_v3/markets/test_deployments.py"
+        ]
+      },
       "result": null
     },
     "T14": {
@@ -219,24 +241,41 @@
       "title": "Arc\u5355\u6bb5\u62a5\u4ef7\u4e0e\u56fe\u5f15\u64ce\u5dee\u5206\u8fc1\u79fb",
       "lead": "M3",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T03",
         "T04"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M3",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T08:35:00Z",
+        "exact_write_allowlist": [
+          "arc_opportunities/quote_bridge.py",
+          "tests/arc_v3/quotes/test_quote_parity.py"
+        ]
+      },
       "result": null
     },
     "T20": {
       "title": "\u7edf\u4e00\u94fe\u5185\u51c0\u5229\u4e0e\u5916\u90e8\u8d44\u91d1\u6210\u672c\u53e3\u5f84",
       "lead": "M3",
       "phase": "G2",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T03",
         "T04"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M3",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T08:35:00Z",
+        "exact_write_allowlist": [
+          "arc_opportunities/economics.py",
+          "arc_opportunities/costs.py",
+          "tests/arc_v3/quotes/test_economics.py"
+        ]
+      },
       "result": null
     },
     "T21": {
@@ -437,13 +476,24 @@
       "title": "\u6700\u5c0farc_collect\u5b9e\u9645CLI\u5165\u53e3",
       "lead": "M1",
       "phase": "G1",
-      "status": "UNASSIGNED",
+      "status": "SUBMITTED",
       "depends_on": [
         "T03",
         "T04"
       ],
-      "lease": null,
-      "result": null
+      "lease": {
+        "brain": "M1",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T08:35:00Z",
+        "exact_write_allowlist": [
+          "apps/arc_collect.py",
+          "arc_runtime/collect.py",
+          "tests/arc_v3/runtime/test_collect_cli.py"
+        ]
+      },
+      "result": "aea64dfe2c04e140dd80494696c81f8bee0803bc",
+      "last_attempt": 1,
+      "last_updated_by": "M1"
     },
     "T38": {
       "title": "Arc Shadow\u4e0e\u53ea\u8bfb\u4eff\u771f\u88c5\u914d\u5165\u53e3",
@@ -513,11 +563,21 @@
       "title": "\u4e0a\u6e38\u8fc1\u79fb\u5dee\u5206\u4e0e\u539f\u6d4b\u8bd5\u4e49\u52a1\u9a8c\u6536",
       "lead": "M4",
       "phase": "G0",
-      "status": "UNASSIGNED",
+      "status": "LEASED",
       "depends_on": [
         "T02"
       ],
-      "lease": null,
+      "lease": {
+        "brain": "M4",
+        "lease_epoch": 1,
+        "granted_at": "2026-09-11T08:35:00Z",
+        "exact_write_allowlist": [
+          "tests/arc_v3/independent/test_source_data_separation.py",
+          "docs/acceptance/IMPORT_REVIEW.md",
+          "tools/qa/upstream_obligations.py",
+          "tests/arc_v3/independent/test_import_manifest.py"
+        ]
+      },
       "result": null
     },
     "T44": {

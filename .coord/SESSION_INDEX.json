@@ -10,19 +10,19 @@
   "registered_windows": {
     "M1": {
       "status": "ACTIVE",
-      "registered_at": "2026-09-11T08:00:00Z"
+      "registered_at": "2026-09-11T08:30:00Z"
     },
     "M2": {
-      "status": "UNINITIALIZED",
-      "registered_at": null
+      "status": "ACTIVE",
+      "registered_at": "2026-09-11T08:30:00Z"
     },
     "M3": {
-      "status": "UNINITIALIZED",
-      "registered_at": null
+      "status": "ACTIVE",
+      "registered_at": "2026-09-11T08:30:00Z"
     },
     "M4": {
-      "status": "UNINITIALIZED",
-      "registered_at": null
+      "status": "ACTIVE",
+      "registered_at": "2026-09-11T08:30:00Z"
     }
   }
 }

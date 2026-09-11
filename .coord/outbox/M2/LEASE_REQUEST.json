@@ -1,0 +1,41 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "brain": "M2",
+  "status": "READY_FOR_LEASES",
+  "registered_at": "2026-09-11T08:30:00Z",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "arc_candidate_sha": "dcf7464695c748a31bc501dfb7b72e6d570ee2e6",
+  "requested_tasks": [
+    {
+      "task_id": "T07",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_readiness/network.py",
+        "arc_readiness/rpc_readonly.py",
+        "arc_readiness/profiles.py",
+        "arc_readiness/http_readonly.py",
+        "configs/arc/network.example.json",
+        "tests/arc_v3/ingest/test_profile_transport.py"
+      ],
+      "requested_capabilities": [
+        "read_only_rpc"
+      ]
+    },
+    {
+      "task_id": "T13",
+      "lease_epoch": 1,
+      "exact_write_allowlist": [
+        "arc_markets/deployments.py",
+        "arc_markets/review_bridge.py",
+        "configs/arc/venues.example.json",
+        "tests/arc_v3/markets/test_deployments.py"
+      ],
+      "requested_capabilities": [
+        "read_only_rpc"
+      ]
+    }
+  ],
+  "note": "M2 verified bootstrap state and awaits M1 formal lease registration in .coord/LEASES.json."
+}

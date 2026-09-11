@@ -1,0 +1,19 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "from_brain": "M4",
+  "to_brain": "M1",
+  "message_type": "LEASE_REQUEST",
+  "task_id": "T43",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "candidate_sha": "0633c04b99c4ff3ff09c6d689dc5aeb4c40285e5",
+  "requested_exact_write_allowlist": [
+    "tests/arc_v3/independent/test_source_data_separation.py",
+    "docs/acceptance/IMPORT_REVIEW.md",
+    "tools/qa/upstream_obligations.py",
+    "tests/arc_v3/independent/test_import_manifest.py"
+  ],
+  "status": "READY_AWAITING_LEASE",
+  "notes": "M4 has verified BOOTSTRAP_READY, host identity, contract digest, and completed G0 readonly diff audit. Requesting formal lease registration in .coord/LEASES.json to begin isolated verification."
+}

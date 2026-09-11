@@ -1,0 +1,51 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "role": "M3",
+  "host_identity": "dc-PC-llm",
+  "status": "READY_FOR_LEASES",
+  "registered_at": "2026-09-11T08:30:00Z",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "baseline_sha": "0633c04b99c4ff3ff09c6d689dc5aeb4c40285e5",
+  "arc_candidate_sha": "dcf7464695c748a31bc501dfb7b72e6d570ee2e6",
+  "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "verified_conditions": {
+    "bootstrap_ready": true,
+    "rogue_writers": 0,
+    "local_robinhood_data_policy_understood": true,
+    "forbidden_capabilities_enforced": true
+  },
+  "requested_leases": [
+    {
+      "task_id": "T19",
+      "phase": "G2",
+      "lead": "M3",
+      "depends_on": ["T03", "T04"],
+      "dependencies_satisfied": true,
+      "exact_write_allowlist": [
+        "arc_opportunities/__init__.py",
+        "arc_opportunities/quote_bridge.py",
+        "tests/arc_v3/quotes/__init__.py",
+        "tests/arc_v3/quotes/test_quote_parity.py"
+      ]
+    },
+    {
+      "task_id": "T20",
+      "phase": "G2",
+      "lead": "M3",
+      "depends_on": ["T03", "T04"],
+      "dependencies_satisfied": true,
+      "exact_write_allowlist": [
+        "arc_opportunities/__init__.py",
+        "arc_opportunities/economics.py",
+        "arc_opportunities/costs.py",
+        "tests/arc_v3/quotes/__init__.py",
+        "tests/arc_v3/quotes/test_economics.py"
+      ]
+    }
+  ],
+  "concurrency_plan": {
+    "max_subagents": 2,
+    "isolated_worktrees": true
+  }
+}

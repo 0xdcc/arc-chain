@@ -1,5 +1,60 @@
 {
   "plan_id": "ARC-4B-v3.1-20260911-13817f4",
   "project_instance_id": "arc-chain-1789123287",
-  "active_leases": {}
+  "active_leases": {
+    "T07": {
+      "brain": "M2",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T08:35:00Z",
+      "exact_write_allowlist": [
+        "arc_readiness/network.py",
+        "arc_readiness/rpc_readonly.py",
+        "arc_readiness/profiles.py",
+        "arc_readiness/http_readonly.py",
+        "configs/arc/network.example.json",
+        "tests/arc_v3/ingest/test_profile_transport.py"
+      ]
+    },
+    "T13": {
+      "brain": "M2",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T08:35:00Z",
+      "exact_write_allowlist": [
+        "arc_markets/deployments.py",
+        "arc_markets/review_bridge.py",
+        "configs/arc/venues.example.json",
+        "tests/arc_v3/markets/test_deployments.py"
+      ]
+    },
+    "T19": {
+      "brain": "M3",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T08:35:00Z",
+      "exact_write_allowlist": [
+        "arc_opportunities/quote_bridge.py",
+        "tests/arc_v3/quotes/test_quote_parity.py"
+      ]
+    },
+    "T20": {
+      "brain": "M3",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T08:35:00Z",
+      "exact_write_allowlist": [
+        "arc_opportunities/economics.py",
+        "arc_opportunities/costs.py",
+        "tests/arc_v3/quotes/test_economics.py"
+      ]
+    },
+    "T43": {
+      "brain": "M4",
+      "lease_epoch": 1,
+      "granted_at": "2026-09-11T08:35:00Z",
+      "exact_write_allowlist": [
+        "tests/arc_v3/independent/test_source_data_separation.py",
+        "docs/acceptance/IMPORT_REVIEW.md",
+        "tools/qa/upstream_obligations.py",
+        "tests/arc_v3/independent/test_import_manifest.py"
+      ]
+    }
+  }
 }
