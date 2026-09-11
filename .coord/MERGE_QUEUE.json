@@ -1,4 +1,72 @@
 {
   "plan_id": "ARC-4B-v3.1-20260911-13817f4",
-  "queue": []
+  "queue": [
+    {
+      "task_id": "T01",
+      "brain": "M1",
+      "message_id": "M1/RESULT-T01-attempt1.json",
+      "status": "BOOTSTRAP_PREPARED",
+      "result_commit": null,
+      "changed_files": [
+        "docs/reuse/CODE_MANIFEST.json",
+        "docs/reuse/LOCAL_DATA_OVERLAY.json",
+        "docs/reuse/SOURCE_BASELINE.md",
+        "docs/reuse/SOURCE_LOCK.json",
+        "docs/reuse/LOCAL_FACTS.json"
+      ]
+    },
+    {
+      "task_id": "T02",
+      "brain": "M1",
+      "message_id": "M1/RESULT-T02-attempt1.json",
+      "status": "BOOTSTRAP_PREPARED",
+      "result_commit": "1da8f3a7c098be2d00194fb7ec05caab8da8a49b",
+      "changed_files": [
+        "docs/reuse/IMPORT_MANIFEST.json",
+        "docs/reuse/TEST_OBLIGATION_MAP.json",
+        "docs/reuse/EXCLUSION_MANIFEST.json",
+        ".gitignore",
+        "pyproject.toml",
+        "AGENTS.md",
+        ".hermes.md",
+        "check.sh",
+        "tools/checks/run_layers.py",
+        "tools/checks/test_obligations.json"
+      ]
+    },
+    {
+      "task_id": "T03",
+      "brain": "M1",
+      "message_id": "M1/RESULT-T03-attempt1.json",
+      "status": "BOOTSTRAP_PREPARED",
+      "result_commit": "6d9ed1492e3d319aefbedcf8f28c4e05b5f897d9",
+      "changed_files": [
+        "arbitrage_contracts/arc_extensions.py",
+        "arbitrage_contracts/__init__.py",
+        "docs/contracts/INTERFACES_v1.md",
+        "docs/contracts/CONTRACT_VERSION.json",
+        "tests/arc_v3/foundation/test_arc_contracts.py"
+      ]
+    },
+    {
+      "task_id": "T04",
+      "brain": "M1",
+      "message_id": "M1/RESULT-T04-attempt1.json",
+      "status": "BOOTSTRAP_PREPARED",
+      "result_commit": "8b9554965b91d0258fe3ef083a698e31c44acf87",
+      "changed_files": [
+        "tools/coord/validate_dispatch.py",
+        "tools/coord/reduce_outbox.py",
+        "docs/coordination/OWNERSHIP.json",
+        "docs/coordination/RUNBOOK.md",
+        "tests/arc_v3/foundation/test_dispatch.py"
+      ]
+    }
+  ],
+  "processed_messages": [
+    "M1/RESULT-T01-attempt1.json",
+    "M1/RESULT-T02-attempt1.json",
+    "M1/RESULT-T03-attempt1.json",
+    "M1/RESULT-T04-attempt1.json"
+  ]
 }

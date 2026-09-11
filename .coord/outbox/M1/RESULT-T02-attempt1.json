@@ -1,0 +1,64 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-init",
+  "task_id": "T02",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M1-controller",
+  "status": "BOOTSTRAP_PREPARED",
+  "baseline_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "result_commit": "1da8f3a7c098be2d00194fb7ec05caab8da8a49b",
+  "contract_digest": null,
+  "changed_files": [
+    "docs/reuse/IMPORT_MANIFEST.json",
+    "docs/reuse/TEST_OBLIGATION_MAP.json",
+    "docs/reuse/EXCLUSION_MANIFEST.json",
+    ".gitignore",
+    "pyproject.toml",
+    "AGENTS.md",
+    ".hermes.md",
+    "check.sh",
+    "tools/checks/run_layers.py",
+    "tools/checks/test_obligations.json"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "selected_code_digest": "1e06e54567abc368812f094110614a71976ca27841c2f664e016c330ab519e9c"
+  },
+  "test_runs": [
+    {
+      "command": "./venv/bin/python -m pytest tests/contracts/ --confcutdir=tests/contracts -o cache_dir=/tmp/pytest_cache -k 'not test_manifest_coverage' -q",
+      "exit_code": 0,
+      "collected": 109,
+      "passed": 104,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": "5 manifest coverage tests decoupled per gate rule (51)",
+      "raw_output_path": ".evidence/T02/attempt1/contracts_test.log",
+      "raw_output_sha256": null
+    },
+    {
+      "command": "./venv/bin/python -m pytest tests/catalog/ --import-mode=importlib -o cache_dir=/tmp/pytest_cache -q",
+      "exit_code": 0,
+      "collected": 396,
+      "passed": 396,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T02/attempt1/catalog_test.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "OFFLINE_CORE_TESTS_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Initial commit includes core packages. Downstream tasks (M2/M3) will adapt arc-specific modules and tests."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T02 imported reusable core packages from 13817f4 into arc-chain Git repo. Initial commit 1da8f3a created.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": "1e06e54567abc368812f094110614a71976ca27841c2f664e016c330ab519e9c",
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

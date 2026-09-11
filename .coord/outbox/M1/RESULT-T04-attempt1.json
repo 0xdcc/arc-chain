@@ -1,0 +1,46 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-init",
+  "task_id": "T04",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M1-controller",
+  "status": "BOOTSTRAP_PREPARED",
+  "baseline_sha": "6d9ed1492e3d319aefbedcf8f28c4e05b5f897d9",
+  "result_commit": "8b9554965b91d0258fe3ef083a698e31c44acf87",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "tools/coord/validate_dispatch.py",
+    "tools/coord/reduce_outbox.py",
+    "docs/coordination/OWNERSHIP.json",
+    "docs/coordination/RUNBOOK.md",
+    "tests/arc_v3/foundation/test_dispatch.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "./venv/bin/python -m pytest tests/arc_v3/foundation/test_dispatch.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T04/attempt1/test_dispatch.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "OFFLINE_COORDINATION_PASS",
+  "pending_processes": [],
+  "residual_risks": [],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T04 established dispatch validation, outbox reduction, and coordination runbook. 6 coordination tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

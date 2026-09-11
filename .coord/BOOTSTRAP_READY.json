@@ -1,0 +1,27 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "ready": true,
+  "project_instance_id": "arc-chain-1789123287",
+  "project_root": "/root/projects/crypto/arc-chain",
+  "coord_root": "/root/projects/crypto/arc-chain/.coord",
+  "plan_dir": "/root/projects/crypto/arc-chain/docs/plan_v3",
+  "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "arc_candidate_sha": "8b9554965b91d0258fe3ef083a698e31c44acf87",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "plan_manifest_sha256": "b24fbfef7439e4e4bf9dead359b0ccb7860ba2c64058d6d05706b8014af5f795",
+  "host_identity": "dc-PC-llm",
+  "old_writer_reconciliation": "AUDITED_ZERO_ROGUE_WRITERS",
+  "bootstrap_tasks_passed": [
+    "T01",
+    "T02",
+    "T03",
+    "T04"
+  ],
+  "runtime_authority": "M1",
+  "meaning": "coordination readiness only; not test/live/funds gate",
+  "selected_code_digest": "1e06e54567abc368812f094110614a71976ca27841c2f664e016c330ab519e9c",
+  "local_git_head": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "local_data_overlay_ref": "docs/reuse/LOCAL_DATA_OVERLAY.json",
+  "local_data_difference_classification": "DATA_ONLY_DIFFERENCE",
+  "whole_repository_clean_required": false
+}

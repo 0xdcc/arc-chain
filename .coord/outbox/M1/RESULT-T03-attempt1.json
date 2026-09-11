@@ -1,0 +1,46 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-init",
+  "task_id": "T03",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M1-controller",
+  "status": "BOOTSTRAP_PREPARED",
+  "baseline_sha": "1da8f3a7c098be2d00194fb7ec05caab8da8a49b",
+  "result_commit": "6d9ed1492e3d319aefbedcf8f28c4e05b5f897d9",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arbitrage_contracts/arc_extensions.py",
+    "arbitrage_contracts/__init__.py",
+    "docs/contracts/INTERFACES_v1.md",
+    "docs/contracts/CONTRACT_VERSION.json",
+    "tests/arc_v3/foundation/test_arc_contracts.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "./venv/bin/python -m pytest tests/arc_v3/foundation/test_arc_contracts.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 13,
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T03/attempt1/test_arc_contracts.log",
+      "raw_output_sha256": null
+    }
+  ],
+  "evidence_scope": "OFFLINE_CONTRACTS_PASS",
+  "pending_processes": [],
+  "residual_risks": [],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T03 froze public contracts and arc extensions (digest: 604333c5...). 13 foundation contract tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}
