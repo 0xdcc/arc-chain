@@ -1,0 +1,55 @@
+name: Arc audit diagnostics
+on:
+  push:
+    branches: [audit/arc-acceptance-20260912]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  offline-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Isolated dependencies
+        run: |
+          python -m venv venv
+          venv/bin/python -m pip install pytest eth-abi eth-utils 'eth-hash[pycryptodome]' requests PyYAML web3 ruff mypy
+          venv/bin/python -m pip freeze
+      - name: Offline test and quality evidence (not a live gate)
+        shell: bash
+        run: |
+          mkdir -p /tmp/arc-audit-evidence
+          export PYTHONDONTWRITEBYTECODE=1
+          export PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+          failed=0
+          run_check() {
+            label="$1"; shift
+            set +e
+            timeout 240 "$@" >"/tmp/arc-audit-evidence/$label.log" 2>&1
+            code=$?
+            set -e
+            cat "/tmp/arc-audit-evidence/$label.log"
+            printf '\nAUDIT_RESULT %s exit=%s\n' "$label" "$code"
+            if [ "$code" -ne 0 ]; then failed=1; fi
+          }
+          run_check arc-tests venv/bin/python -m pytest tests/arc_v3/ -q --tb=short -o cache_dir=/tmp/arc-audit-pytest
+          run_check contracts venv/bin/python -m unittest discover -s tests/contracts -v
+          run_check full-collection venv/bin/python -m pytest tests/ --collect-only -q --tb=short -o cache_dir=/tmp/arc-audit-collection
+          run_check lint venv/bin/python -m ruff check --no-cache .
+          run_check typing venv/bin/python -m mypy --cache-dir=/tmp/arc-audit-mypy .
+          printf '\nNo live RPC, signing, broadcast, or deployment was requested by this workflow.\n'
+          exit "$failed"
+      - name: Preserve raw diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arc-audit-diagnostics
+          path: /tmp/arc-audit-evidence/
+          retention-days: 7
