@@ -1,0 +1,45 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T09",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M2-worker-1",
+  "status": "SUBMITTED",
+  "baseline_sha": "390eadba1db6b8a82914101e2ebae008f1f7cf47",
+  "result_commit": "ff074e849d6e1c6519d32ac880618d6368b79a3d",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_ingest/recorder.py",
+    "arc_ingest/segments.py",
+    "arc_ingest/cursors.py",
+    "tests/arc_v3/ingest/test_raw_recorder.py"
+  ],
+  "input_hashes": {
+    "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=.worktrees/T09-attempt1-worker1 ./venv/bin/python -m pytest .worktrees/T09-attempt1-worker1/tests/arc_v3/ingest/test_raw_recorder.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T09/attempt1/test_raw_recorder.log",
+      "raw_output_sha256": "61ca05267cdc3d2cd6aa6e3993d0963172be2947ecf1b94227cd93eb32c328de"
+    }
+  ],
+  "evidence_scope": "OFFLINE_RAW_RECORDER_AND_CURSORS_PASS",
+  "pending_processes": [],
+  "residual_risks": [],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T09 implemented raw block and log recorder with write-then-cursor ordering, atomic durable cursors with monotonicity enforcement, and bounded segment integrity verification. 4 unit tests passed with sabotage regression verification.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

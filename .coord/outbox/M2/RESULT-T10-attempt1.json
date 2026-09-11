@@ -1,0 +1,46 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T10",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M2-worker-2",
+  "status": "SUBMITTED",
+  "baseline_sha": "390eadba1db6b8a82914101e2ebae008f1f7cf47",
+  "result_commit": "6ecd5da7410bc326a16b188d0b1fbfd84d6f5a0e",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_readiness/balances.py",
+    "arc_readiness/eligibility.py",
+    "arc_readiness/fees.py",
+    "arc_readiness/profile_assets.py",
+    "tests/arc_v3/ingest/test_usdc_semantics.py"
+  ],
+  "input_hashes": {
+    "source_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "PYTHONPATH=.worktrees/T10-attempt1-worker2 ./venv/bin/python -m pytest .worktrees/T10-attempt1-worker2/tests/arc_v3/ingest/test_usdc_semantics.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 9,
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T10/attempt1/test_usdc_semantics.log",
+      "raw_output_sha256": "cb125fac48eb182209150adaa444f8b0d7d4d6ce581c5cdcd666d2ed6f731d05"
+    }
+  ],
+  "evidence_scope": "OFFLINE_USDC_DUAL_INTERFACE_AND_GAS_NETTING_PASS",
+  "pending_processes": [],
+  "residual_risks": [],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T10 enforced strict dual-interface USDC reconciliation with zero-summing double-counting guard, dust tracking, single-deduction gas netting, native/ERC20 authorization separation, and removal of automatic verified shortcuts for testnet EURC constants. 9 unit tests passed with sabotage regression verification.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

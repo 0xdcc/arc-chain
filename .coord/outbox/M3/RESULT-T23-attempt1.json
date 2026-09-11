@@ -1,0 +1,47 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T23",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker-1",
+  "status": "SUBMITTED",
+  "baseline_sha": "390eadb4bf3df9857d4c898b584a7e937d55f9a6",
+  "result_commit": "d44666324bd915fa7c5d085e6f3963a2a005e835",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "arc_opportunities/ledger.py",
+    "arc_opportunities/ledger_segments.py",
+    "tests/arc_v3/quotes/test_ledger_integration.py"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/quotes/test_ledger_integration.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T23/attempt1/test_ledger_integration.log",
+      "raw_output_sha256": "009026bb703b1e2c80d2672768b654dbcb592edc259987f6821a1b5ccf3f6efa"
+    }
+  ],
+  "evidence_scope": "OFFLINE_LEDGER_SEGMENTS_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Opportunity shadow evaluation daemon assembly requires T24.",
+    "Crash-recovery cross-process fuzzing requires M4 T47."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T23 delivered versioned opportunity ledger, F04 hash-chain backing, and rolling segment management. 3 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}

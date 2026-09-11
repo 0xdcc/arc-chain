@@ -221,6 +221,71 @@
         "arc_runtime/notifications.py",
         "tests/arc_v3/runtime/test_reporting.py"
       ]
+    },
+    {
+      "task_id": "T09",
+      "brain": "M2",
+      "message_id": "M2/RESULT-T09-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "ff074e849d6e1c6519d32ac880618d6368b79a3d",
+      "changed_files": [
+        "arc_ingest/recorder.py",
+        "arc_ingest/segments.py",
+        "arc_ingest/cursors.py",
+        "tests/arc_v3/ingest/test_raw_recorder.py"
+      ]
+    },
+    {
+      "task_id": "T10",
+      "brain": "M2",
+      "message_id": "M2/RESULT-T10-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "6ecd5da7410bc326a16b188d0b1fbfd84d6f5a0e",
+      "changed_files": [
+        "arc_readiness/balances.py",
+        "arc_readiness/eligibility.py",
+        "arc_readiness/fees.py",
+        "arc_readiness/profile_assets.py",
+        "tests/arc_v3/ingest/test_usdc_semantics.py"
+      ]
+    },
+    {
+      "task_id": "T23",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T23-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "d44666324bd915fa7c5d085e6f3963a2a005e835",
+      "changed_files": [
+        "arc_opportunities/ledger.py",
+        "arc_opportunities/ledger_segments.py",
+        "tests/arc_v3/quotes/test_ledger_integration.py"
+      ]
+    },
+    {
+      "task_id": "T25",
+      "brain": "M3",
+      "message_id": "M3/RESULT-T25-attempt1.json",
+      "status": "SUBMITTED",
+      "result_commit": "7c900af0e9432944cfc16d300f406ed995bf1857",
+      "changed_files": [
+        "atomic_execution/deployments.py",
+        "atomic_execution/arc_planning.py",
+        "tests/arc_v3/simulation/test_deployment_binding.py",
+        "atomic_execution/arc_encoding.py",
+        "docs/architecture/ARC_EXECUTION_BINDING.md"
+      ]
+    },
+    {
+      "task_id": "T40",
+      "brain": "M1",
+      "message_id": "M1/RESULT-T40-attempt1.json",
+      "status": "ACCEPTED",
+      "result_commit": "1f82c24cd8b05ca8b9b13a1cd8a7f72462875556",
+      "changed_files": [
+        "arc_runtime/health.py",
+        "arc_runtime/lifecycle.py",
+        "tests/arc_v3/runtime/test_health_lifecycle.py"
+      ]
     }
   ],
   "processed_messages": [
@@ -231,14 +296,19 @@
     "M1/RESULT-T05-attempt1.json",
     "M1/RESULT-T37-attempt1.json",
     "M1/RESULT-T39-attempt1.json",
+    "M1/RESULT-T40-attempt1.json",
     "M2/RESULT-T07-attempt1.json",
     "M2/RESULT-T08-attempt1.json",
+    "M2/RESULT-T09-attempt1.json",
+    "M2/RESULT-T10-attempt1.json",
     "M2/RESULT-T13-attempt1.json",
     "M2/RESULT-T14-attempt1.json",
     "M3/RESULT-T19-attempt1.json",
     "M3/RESULT-T20-attempt1.json",
     "M3/RESULT-T21-attempt1.json",
     "M3/RESULT-T22-attempt1.json",
+    "M3/RESULT-T23-attempt1.json",
+    "M3/RESULT-T25-attempt1.json",
     "M4/RESULT-T43-attempt1.json",
     "M4/RESULT-T44-attempt1.json"
   ]

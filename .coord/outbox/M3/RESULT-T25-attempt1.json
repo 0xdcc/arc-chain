@@ -1,0 +1,49 @@
+{
+  "plan_id": "ARC-4B-v3.1-20260911-13817f4",
+  "project_instance_id": "arc-chain-1789123287",
+  "task_id": "T25",
+  "attempt": 1,
+  "lease_epoch": 1,
+  "worker_id": "M3-worker-2",
+  "status": "SUBMITTED",
+  "baseline_sha": "390eadb4bf3df9857d4c898b584a7e937d55f9a6",
+  "result_commit": "7c900af0e9432944cfc16d300f406ed995bf1857",
+  "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e",
+  "changed_files": [
+    "atomic_execution/deployments.py",
+    "atomic_execution/arc_planning.py",
+    "tests/arc_v3/simulation/test_deployment_binding.py",
+    "atomic_execution/arc_encoding.py",
+    "docs/architecture/ARC_EXECUTION_BINDING.md"
+  ],
+  "input_hashes": {
+    "fixed_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+    "contract_digest": "604333c5d6857baece331bc6c78ec44f3eb6ed19e822b8a535928cf1ea14126e"
+  },
+  "test_runs": [
+    {
+      "command": "/root/projects/crypto/arc-chain/venv/bin/python -m pytest tests/arc_v3/simulation/test_deployment_binding.py -v -o cache_dir=/tmp/pytest_cache",
+      "exit_code": 0,
+      "collected": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "not_run_reason": null,
+      "raw_output_path": ".evidence/T25/attempt1/test_deployment_binding.log",
+      "raw_output_sha256": "f162b7ccb745fb1fd5e947237092bde5d08fa4eaff668b666598bc9705109edf"
+    }
+  ],
+  "evidence_scope": "OFFLINE_DEPLOYMENT_BINDING_PASS",
+  "pending_processes": [],
+  "residual_risks": [
+    "Readonly simulation transport requires T26 and live RPC fixed block evidence from M2 T08.",
+    "Real contract execution remains locked with can_atomic_execute=False."
+  ],
+  "scope_change_requested": false,
+  "financial_action_performed": false,
+  "summary_for_user": "T25 delivered Arc execution plan assembly, deployment fingerprint binding, and Universal Router calldata encoding with strict 0x80 rejection. 6 tests passed 100%.",
+  "code_reference_sha": "13817f4e027375dd59cc7a202ae641c068525f53",
+  "selected_code_digest": null,
+  "catalog_snapshot_ref": null,
+  "catalog_generation": "arc-v1-uninitialized"
+}
