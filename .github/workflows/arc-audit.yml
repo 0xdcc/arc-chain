@@ -20,12 +20,13 @@ jobs:
       - name: Isolated dependencies
         run: |
           python -m venv venv
-          venv/bin/python -m pip install pytest eth-abi eth-utils 'eth-hash[pycryptodome]' requests PyYAML web3 ruff mypy
+          venv/bin/python -m pip install pytest eth-abi eth-utils 'eth-hash[pycryptodome]' requests PyYAML web3 ruff mypy uniswap-universal-router-decoder
           venv/bin/python -m pip freeze
       - name: Offline test and quality evidence (not a live gate)
         shell: bash
         run: |
           mkdir -p /tmp/arc-audit-evidence
+          git archive --format=tar.gz HEAD > /tmp/arc-audit-evidence/tracked-source.tar.gz
           export PYTHONDONTWRITEBYTECODE=1
           export PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
           failed=0
