@@ -192,6 +192,8 @@ _REAL_SUBPROCESS_TEST_FILES = frozenset(
         _REPO_ROOT / "tests" / "rwa" / "test_cli_e2e.py",
         _REPO_ROOT / "tests" / "settled_cycles" / "test_import_boundary.py",
         _REPO_ROOT / "tests" / "arc_v3" / "runtime" / "test_collect_cli.py",
+        _REPO_ROOT / "tests" / "arc_v3" / "runtime" / "test_shadow_cli.py",
+        _REPO_ROOT / "tests" / "arc_v3" / "runtime" / "test_history_cli.py",
     }
 )
 
