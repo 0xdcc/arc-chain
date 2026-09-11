@@ -21,7 +21,9 @@ jobs:
         run: |
           python -m venv venv
           venv/bin/python -m pip install pytest eth-abi eth-utils 'eth-hash[pycryptodome]' requests PyYAML web3 ruff mypy uniswap-universal-router-decoder
-          venv/bin/python -m pip freeze
+          mkdir -p /tmp/arc-audit-evidence
+          venv/bin/python -m pip freeze | tee /tmp/arc-audit-evidence/dependencies.txt
+          gzip -c venv/bin/ruff > /tmp/arc-audit-evidence/ruff-tool.gz
       - name: Offline test and quality evidence (not a live gate)
         shell: bash
         run: |
