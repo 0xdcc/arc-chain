@@ -1,0 +1,28 @@
+# Arc Chain Readonly Record-Only Collector Service (Candidate Template)
+# NOTE: This file is an example template. Automatic installation or service restart is strictly FORBIDDEN.
+# Real deployment requires explicit separate user authorization.
+
+[Unit]
+Description=Arc Chain Read-Only Ingest & Record Collector
+After=network.target
+StartLimitIntervalSec=60s
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=/root/projects/crypto/arc-chain
+ExecStart=/root/projects/crypto/arc-chain/venv/bin/python apps/arc_collect.py --chain-id 5042 --from-block 0 --to-block 0 --output-dir /root/projects/crypto/arc-chain/runtime-data/ingest --fixture-mode
+Restart=on-failure
+RestartSec=10s
+
+# Environment and security sandboxing
+Environment="PYTHONUNBUFFERED=1"
+Environment="DRY_RUN=True"
+Environment="PYTHONDONTWRITEBYTECODE=1"
+
+# Hard limits: 3 failures trip the unit without endless restart loops
+LimitNOFILE=65536
+TimeoutStopSec=15s
+
+[Install]
+WantedBy=multi-user.target
