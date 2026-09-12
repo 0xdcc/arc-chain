@@ -11,10 +11,9 @@ Invariants:
 
 from __future__ import annotations
 
+import time
 from dataclasses import dataclass
 from enum import StrEnum
-import time
-from typing import Any
 
 from arc_execution.authorization import ExecutionAuthorizationCard
 from arc_execution.state_machine import InFlightCollisionError, JournaledIntent, NonceJournal
@@ -55,6 +54,7 @@ class ArcExecutionStateMachine:
         self.journal = journal
         self.card = card
         self._current_context: ExecutionStateContext | None = None
+        self._current_plan: ArcExecutionPlan | None = None
         self._recover_state()
 
     def _recover_state(self) -> None:
@@ -80,6 +80,8 @@ class ArcExecutionStateMachine:
 
     def can_accept_new_plan(self) -> bool:
         """Check if machine is idle and ready for a new candidate."""
+        if self.journal.get_in_flight_intent() is not None:
+            return False
         if self._current_context is None:
             return True
         return self._current_context.stage in (ExecutionStage.COMPLETED, ExecutionStage.HOLD)
@@ -92,6 +94,12 @@ class ArcExecutionStateMachine:
                 f"Cannot admit new plan: active context {self._current_context.plan_id} is in stage {self._current_context.stage}"
             )
 
+        if (
+            plan.chain_id != self.card.chain_id
+            or self.journal.wallet_address != self.card.wallet_address.lower()
+        ):
+            raise StateTransitionError("Plan/card/journal chain or wallet mismatch")
+        self._current_plan = plan
         ctx = ExecutionStateContext(
             plan_id=plan.plan_id,
             wallet_address=self.card.wallet_address,
@@ -102,11 +110,15 @@ class ArcExecutionStateMachine:
         self._current_context = ctx
         return ctx
 
-    def transition_preflight(self, passed_checks: bool, reason: str | None = None) -> ExecutionStateContext:
+    def transition_preflight(
+        self, passed_checks: bool, reason: str | None = None
+    ) -> ExecutionStateContext:
         """Advance from CANDIDATE to PREFLIGHT."""
         assert self._current_context is not None
         if self._current_context.stage != ExecutionStage.CANDIDATE:
-            raise StateTransitionError(f"Cannot transition to PREFLIGHT from {self._current_context.stage}")
+            raise StateTransitionError(
+                f"Cannot transition to PREFLIGHT from {self._current_context.stage}"
+            )
 
         if not passed_checks:
             ctx = ExecutionStateContext(
@@ -128,12 +140,25 @@ class ArcExecutionStateMachine:
         self._current_context = ctx
         return ctx
 
-    def transition_authorized(self, config_hash: str) -> ExecutionStateContext:
+    def transition_authorized(
+        self, config_hash: str, now_utc: float | None = None
+    ) -> ExecutionStateContext:
         """Advance from PREFLIGHT to AUTHORIZED using card validation."""
         assert self._current_context is not None
         if self._current_context.stage != ExecutionStage.PREFLIGHT:
-            raise StateTransitionError(f"Cannot transition to AUTHORIZED from {self._current_context.stage}")
+            raise StateTransitionError(
+                f"Cannot transition to AUTHORIZED from {self._current_context.stage}"
+            )
 
+        if self._current_plan is None:
+            raise StateTransitionError("Missing current plan")
+        self.card.validate_request(
+            self._current_plan.target_router,
+            self._current_plan.amount_in.atoms,
+            self._current_plan.min_amount_out.atoms,
+            config_hash,
+            now_utc=now_utc,
+        )
         ctx = ExecutionStateContext(
             plan_id=self._current_context.plan_id,
             wallet_address=self._current_context.wallet_address,
@@ -156,6 +181,11 @@ class ArcExecutionStateMachine:
         if self._current_context.stage != ExecutionStage.AUTHORIZED:
             raise StateTransitionError(f"Cannot record intent from {self._current_context.stage}")
 
+        if self._current_plan is None or amount_atoms != self._current_plan.amount_in.atoms:
+            raise StateTransitionError("Intent amount does not match authorized plan")
+        if target_router.lower() != self._current_plan.target_router.lower():
+            raise StateTransitionError("Intent router does not match authorized plan")
+        next_card = self.card.reserve_budget(amount_atoms, now_utc=now_utc)
         intent = self.journal.record_intent(
             intent_id=intent_id,
             plan_id=self._current_context.plan_id,
@@ -165,6 +195,7 @@ class ArcExecutionStateMachine:
             now_utc=now_utc,
         )
 
+        self.card = next_card
         ctx = ExecutionStateContext(
             plan_id=self._current_context.plan_id,
             wallet_address=self._current_context.wallet_address,
@@ -178,10 +209,17 @@ class ArcExecutionStateMachine:
     def mark_broadcast_pending(self, now_utc: float | None = None) -> ExecutionStateContext:
         """Advance from INTENT_RECORDED to PENDING_BROADCAST."""
         assert self._current_context is not None
-        if self._current_context.stage != ExecutionStage.INTENT_RECORDED or self._current_context.intent is None:
-            raise StateTransitionError(f"Cannot mark broadcast pending from {self._current_context.stage}")
+        if (
+            self._current_context.stage != ExecutionStage.INTENT_RECORDED
+            or self._current_context.intent is None
+        ):
+            raise StateTransitionError(
+                f"Cannot mark broadcast pending from {self._current_context.stage}"
+            )
 
-        updated_intent = self.journal.mark_transmitted(self._current_context.intent.intent_id, now_utc=now_utc)
+        updated_intent = self.journal.mark_transmitted(
+            self._current_context.intent.intent_id, now_utc=now_utc
+        )
         ctx = ExecutionStateContext(
             plan_id=self._current_context.plan_id,
             wallet_address=self._current_context.wallet_address,
@@ -196,7 +234,9 @@ class ArcExecutionStateMachine:
         """Advance from PENDING_BROADCAST to RECONCILE."""
         assert self._current_context is not None
         if self._current_context.stage != ExecutionStage.PENDING_BROADCAST:
-            raise StateTransitionError(f"Cannot transition to RECONCILE from {self._current_context.stage}")
+            raise StateTransitionError(
+                f"Cannot transition to RECONCILE from {self._current_context.stage}"
+            )
 
         ctx = ExecutionStateContext(
             plan_id=self._current_context.plan_id,
@@ -208,13 +248,20 @@ class ArcExecutionStateMachine:
         self._current_context = ctx
         return ctx
 
-    def finalize_reconciled(self, success: bool, now_utc: float | None = None) -> ExecutionStateContext:
+    def finalize_reconciled(
+        self, success: bool, now_utc: float | None = None
+    ) -> ExecutionStateContext:
         """Finalize transaction and release active lock."""
         assert self._current_context is not None
-        if self._current_context.stage != ExecutionStage.RECONCILE or self._current_context.intent is None:
+        if (
+            self._current_context.stage != ExecutionStage.RECONCILE
+            or self._current_context.intent is None
+        ):
             raise StateTransitionError(f"Cannot finalize from {self._current_context.stage}")
 
-        updated_intent = self.journal.mark_reconciled(self._current_context.intent.intent_id, now_utc=now_utc)
+        updated_intent = self.journal.mark_reconciled(
+            self._current_context.intent.intent_id, now_utc=now_utc
+        )
         target_stage = ExecutionStage.COMPLETED if success else ExecutionStage.HOLD
 
         ctx = ExecutionStateContext(
@@ -222,7 +269,7 @@ class ArcExecutionStateMachine:
             wallet_address=self._current_context.wallet_address,
             stage=target_stage,
             intent=updated_intent,
-            created_at_utc=updated_intent.created_at_utc,
+            created_at_utc=self._current_context.created_at_utc,
         )
         self._current_context = ctx
         return ctx

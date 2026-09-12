@@ -5,15 +5,15 @@ Enforces:
 - Immutable hard cap: single transaction NEVER exceeds 500 USD equivalent (500_000_000 atoms for 6 decimals)
 - min_output > 0 is strictly mandatory
 - Simple CLI boolean flags cannot bypass authorization
-- Budget reservation is atomic and fail-closed
+- Budget validation is fail-closed; persistence requires a serialized caller
 - Real signers are NEVER loaded in offline research environments
 """
 
 from __future__ import annotations
 
-from dataclasses import dataclass, replace
+import math
 import time
-from typing import Any
+from dataclasses import dataclass, replace
 
 
 class AuthorizationError(ValueError):
@@ -45,8 +45,25 @@ class ExecutionAuthorizationCard:
     offline_mock_only: bool = True  # Real signers are permanently locked out
 
     def __post_init__(self) -> None:
+        for name in ("total_budget_atoms", "spent_budget_atoms", "single_tx_cap_atoms"):
+            value = getattr(self, name)
+            if type(value) is not int or value < 0:
+                raise AuthorizationError(f"{name} must be a nonnegative integer")
+        if self.single_tx_cap_atoms == 0 or self.spent_budget_atoms > self.total_budget_atoms:
+            raise AuthorizationError("Invalid cap or spent budget exceeds total")
+        if (
+            isinstance(self.expires_at_utc, bool)
+            or not isinstance(self.expires_at_utc, (int, float))
+            or not math.isfinite(self.expires_at_utc)
+            or self.expires_at_utc <= 0
+        ):
+            raise AuthorizationError("Expiry must be finite and positive")
+        if type(self.is_active) is not bool or type(self.offline_mock_only) is not bool:
+            raise AuthorizationError("Authorization flags must be booleans")
         if self.chain_id not in (5042, 5042002):
-            raise AuthorizationError(f"Invalid chain_id {self.chain_id}; must be Arc mainnet or testnet")
+            raise AuthorizationError(
+                f"Invalid chain_id {self.chain_id}; must be Arc mainnet or testnet"
+            )
         if self.single_tx_cap_atoms > 500_000_000:
             raise AuthorizationError(
                 f"single_tx_cap_atoms ({self.single_tx_cap_atoms}) exceeds global hard cap of 500 USD (500,000,000 atoms)"
@@ -62,6 +79,8 @@ class ExecutionAuthorizationCard:
 
     def is_expired(self, now_utc: float | None = None) -> bool:
         current_time = now_utc if now_utc is not None else time.time()
+        if isinstance(current_time, bool) or not math.isfinite(current_time):
+            raise AuthorizationError("Clock must be finite")
         return current_time >= self.expires_at_utc
 
     def validate_request(
@@ -91,10 +110,10 @@ class ExecutionAuthorizationCard:
                 f"Router address mismatch: authorized for {self.target_router}, requested {router_address}"
             )
 
-        if amount_atoms <= 0:
+        if type(amount_atoms) is not int or amount_atoms <= 0:
             raise AuthorizationError(f"amount_atoms must be strictly positive, got {amount_atoms}")
 
-        if min_output_atoms <= 0:
+        if type(min_output_atoms) is not int or min_output_atoms <= 0:
             raise AuthorizationError(
                 f"min_output_atoms must be strictly positive, got {min_output_atoms}"
             )
@@ -109,8 +128,16 @@ class ExecutionAuthorizationCard:
                 f"Requested amount {amount_atoms} exceeds remaining budget {self.remaining_budget_atoms}"
             )
 
-    def reserve_budget(self, amount_atoms: int, now_utc: float | None = None) -> ExecutionAuthorizationCard:
-        """Atomically deduct budget and return a new updated card instance."""
+    def reserve_budget(
+        self, amount_atoms: int, now_utc: float | None = None
+    ) -> ExecutionAuthorizationCard:
+        """Return an updated immutable card; the caller must serialize persistence.
+
+        Two callers using the same old card do NOT share an atomic reservation.
+        """
+        self.validate_request(
+            self.target_router, amount_atoms, 1, self.config_hash, now_utc=now_utc
+        )
         if amount_atoms > self.remaining_budget_atoms:
             raise AuthorizationBudgetExceededError(
                 f"Cannot reserve {amount_atoms}; remaining budget is {self.remaining_budget_atoms}"

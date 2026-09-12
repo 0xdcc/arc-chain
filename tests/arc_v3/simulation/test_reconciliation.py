@@ -39,7 +39,7 @@ CHAIN_ARC = 5042
 CALLER_EOA = "0x" + "11" * 20
 CONTRACT_ROUTER = "0x" + "22" * 20
 RECIPIENT_VAULT = "0x" + "33" * 20
-USDC_ADDR = "0x" + "44" * 20
+USDC_ADDR = "0x3600000000000000000000000000000000000000"
 WETH_ADDR = "0x" + "55" * 20
 
 
@@ -89,7 +89,7 @@ class TestArcReconciliation:
             status=1,
             block_number=1000,
             gas_used_atoms=100_000,
-            effective_gas_price_atoms=2,  # 200,000 atoms gas fee
+            effective_gas_price_atoms=2_000_000_000_000,  # 200,000 canonical 6-decimal atoms
             from_address=CALLER_EOA,
             to_address=CONTRACT_ROUTER,
         )
@@ -120,7 +120,7 @@ class TestArcReconciliation:
             status=1,
             block_number=1001,
             gas_used_atoms=150_000,
-            effective_gas_price_atoms=2,  # 300,000 atoms gas fee
+            effective_gas_price_atoms=2_000_000_000_000,  # 300,000 canonical 6-decimal atoms
             from_address=CALLER_EOA,
             to_address=CONTRACT_ROUTER,
         )
@@ -150,7 +150,7 @@ class TestArcReconciliation:
             status=0,  # Reverted!
             block_number=1002,
             gas_used_atoms=80_000,
-            effective_gas_price_atoms=2,  # 160,000 atoms gas fee
+            effective_gas_price_atoms=2_000_000_000_000,  # 160,000 canonical 6-decimal atoms
             from_address=CALLER_EOA,
             to_address=CONTRACT_ROUTER,
         )
@@ -175,7 +175,7 @@ class TestArcReconciliation:
             status=1,
             block_number=1003,
             gas_used_atoms=100_000,
-            effective_gas_price_atoms=1,
+            effective_gas_price_atoms=1_000_000_000_000,
             from_address=CALLER_EOA,
             to_address=CONTRACT_ROUTER,
         )
@@ -202,7 +202,7 @@ class TestArcReconciliation:
             status=1,
             block_number=1004,
             gas_used_atoms=300_000,
-            effective_gas_price_atoms=2,  # 600,000 atoms gas fee
+            effective_gas_price_atoms=2_000_000_000_000,  # 600,000 canonical 6-decimal atoms
             from_address=CALLER_EOA,
             to_address=CONTRACT_ROUTER,
         )
@@ -228,7 +228,7 @@ class TestArcReconciliation:
             status=1,
             block_number=1005,
             gas_used_atoms=100_000,
-            effective_gas_price_atoms=1,
+            effective_gas_price_atoms=1_000_000_000_000,
             from_address=CALLER_EOA,
             to_address=CONTRACT_ROUTER,
         )

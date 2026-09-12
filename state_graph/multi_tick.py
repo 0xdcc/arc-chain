@@ -1,20 +1,13 @@
-"""Discrete Multi-Tick CLMM Swapping Engine (T21)
-
-Enforces:
-- Exact integer Q64.96 multi-tick looping within verified TickCoverage
-- Fail-closed boundary enforcement: unverified or out-of-coverage ticks return UNSUPPORTED
-- Zero missing-tick imputation: unread bitmap regions are NEVER defaulted to 0 liquidity
-- Complete reversibility: fallback to single_segment mode when coverage is unavailable
-"""
+"""Bounded integer CLMM swaps; incomplete tick evidence never authorizes crossing."""
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
-from typing import Any
+from types import MappingProxyType
 
 from arbitrage_contracts.arc_extensions import TickCoverage
-from arbitrage_contracts.identity import Amount, AssetRef, PoolKey
-from arbitrage_contracts.quote import HopQuote, QuoteStatus
+from arbitrage_contracts.quote import QuoteStatus
 from state_graph.clmm_math import (
     MAX_SQRT_RATIO,
     MAX_TICK,
@@ -23,46 +16,41 @@ from state_graph.clmm_math import (
     compute_swap_step,
     get_sqrt_ratio_at_tick,
 )
+from state_graph.evaluate import single_segment_target
 from state_graph.types import PoolStateSnapshot
 
 
 class MultiTickError(ValueError):
-    """Raised for multi-tick evaluation failures or unverified tick crossings."""
+    """Invalid or unbound liquidity evidence."""
 
 
 @dataclass(frozen=True, slots=True)
 class PoolTickTable:
-    """Bitmap of initialized ticks and net liquidity for a specific pool."""
+    """A copied, immutable table; route consumers additionally require block_hash."""
 
     pool_id: str
     coverage: TickCoverage
     tick_spacing: int
-    initialized_ticks: dict[int, int]  # tick -> liquidity_net
+    initialized_ticks: Mapping[int, int]
+    block_hash: str | None = None
+
+    def __post_init__(self) -> None:
+        object.__setattr__(
+            self, "initialized_ticks", MappingProxyType(dict(self.initialized_ticks))
+        )
 
     def get_next_initialized_tick(self, current_tick: int, zero_for_one: bool) -> int | None:
-        """Find the next initialized tick strictly in swap direction within verified coverage."""
-        if zero_for_one:
-            candidates = [t for t in self.initialized_ticks if t <= current_tick]
-            if not candidates:
-                return None
-            next_tick = max(candidates)
-            if next_tick < self.coverage.min_tick:
-                return None
-            return next_tick
-        else:
-            candidates = [t for t in self.initialized_ticks if t > current_tick]
-            if not candidates:
-                return None
-            next_tick = min(candidates)
-            if next_tick > self.coverage.max_tick:
-                return None
-            return next_tick
+        """Return the nearest initialized tick in the requested direction."""
+        candidates = [
+            t
+            for t in self.initialized_ticks
+            if (t <= current_tick if zero_for_one else t > current_tick)
+        ]
+        return (max(candidates) if zero_for_one else min(candidates)) if candidates else None
 
 
 @dataclass(frozen=True, slots=True)
 class MultiTickHopResult:
-    """Outcome of a multi-tick swap execution across one pool."""
-
     amount_in_consumed: int
     amount_out_produced: int
     total_fee_amount: int
@@ -74,6 +62,18 @@ class MultiTickHopResult:
     error: str | None = None
 
 
+def _tick_at_price(price: int) -> int:
+    """Integer inverse TickMath; no floating-point logarithms."""
+    lo, hi = MIN_TICK, MAX_TICK
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        if get_sqrt_ratio_at_tick(mid) <= price:
+            lo = mid
+        else:
+            hi = mid - 1
+    return lo
+
+
 def execute_multi_tick_hop(
     snapshot: PoolStateSnapshot,
     amount_in: int,
@@ -81,146 +81,148 @@ def execute_multi_tick_hop(
     tick_table: PoolTickTable | None = None,
     max_crossings: int = 16,
 ) -> MultiTickHopResult:
-    """Execute CLMM exact-input swap stepping across multiple initialized ticks.
+    """Quote within proven coverage; partial consumption is never QUOTED."""
+    price, tick, liquidity = snapshot.sqrt_price_x96, snapshot.tick, snapshot.liquidity
+    remaining, total_out, total_fee, crossings = amount_in, 0, 0, 0
 
-    Guarantees:
-    1. If tick_table is None, acts strictly as single_segment and fails if crossing boundary.
-    2. If crossing tick exceeds verified coverage (is_complete=False or outside min/max),
-       fails closed as UNSUPPORTED. Never imputes 0 liquidity.
-    3. Discrete integer Q64.96 math only; zero floating-point calculations.
-    """
-    if amount_in <= 0:
+    def result(error: str | None = None) -> MultiTickHopResult:
         return MultiTickHopResult(
-            amount_in_consumed=0,
-            amount_out_produced=0,
-            total_fee_amount=0,
-            final_sqrt_price_x96=snapshot.sqrt_price_x96,
-            final_tick=snapshot.tick,
-            final_liquidity=snapshot.liquidity,
-            ticks_crossed=0,
-            status=QuoteStatus.UNSUPPORTED,
-            error="amount_in must be positive",
+            amount_in - remaining,
+            total_out,
+            total_fee,
+            price,
+            tick,
+            liquidity,
+            crossings,
+            QuoteStatus.UNSUPPORTED if error else QuoteStatus.QUOTED,
+            error,
         )
 
-    current_price = snapshot.sqrt_price_x96
-    current_tick = snapshot.tick
-    current_liquidity = snapshot.liquidity
-    fee_pips = snapshot.fee_pips
-    spacing = snapshot.tick_spacing
+    fields = (
+        amount_in,
+        max_crossings,
+        price,
+        tick,
+        liquidity,
+        snapshot.fee_pips,
+        snapshot.tick_spacing,
+    )
+    if any(type(v) is not int for v in fields) or type(zero_for_one) is not bool:
+        # Do not perform arithmetic on malformed caller input.
+        return MultiTickHopResult(
+            0,
+            0,
+            0,
+            price,
+            tick,
+            liquidity,
+            0,
+            QuoteStatus.UNSUPPORTED,
+            "CLMM inputs must be exact integers",
+        )
+    if (
+        amount_in <= 0
+        or max_crossings < 0
+        or not MIN_TICK <= tick < MAX_TICK
+        or not MIN_SQRT_RATIO < price < MAX_SQRT_RATIO
+        or not 0 < liquidity < 2**128
+        or not 0 <= snapshot.fee_pips < 1_000_000
+        or not 0 < snapshot.tick_spacing < 2**23
+    ):
+        return result("Invalid CLMM bounds, amount, fee or spacing")
+    if not get_sqrt_ratio_at_tick(tick) <= price <= get_sqrt_ratio_at_tick(tick + 1):
+        return result("Inconsistent tick and sqrt price")
 
-    amount_remaining = amount_in
-    total_out = 0
-    total_fee = 0
-    ticks_crossed = 0
-
-    while amount_remaining > 0:
-        if current_liquidity <= 0:
-            return MultiTickHopResult(
-                amount_in_consumed=amount_in - amount_remaining,
-                amount_out_produced=total_out,
-                total_fee_amount=total_fee,
-                final_sqrt_price_x96=current_price,
-                final_tick=current_tick,
-                final_liquidity=current_liquidity,
-                ticks_crossed=ticks_crossed,
-                status=QuoteStatus.UNSUPPORTED,
-                error="Zero active liquidity encountered in tick segment",
+    if tick_table is not None:
+        cov = tick_table.coverage
+        if cov.is_complete is not True:
+            return result("Incomplete tick coverage cannot authorize crossing")
+        if (
+            tick_table.pool_id != snapshot.pool_id
+            or cov.pool_id != snapshot.pool_id
+            or cov.as_of_block != snapshot.block_number
+            or cov.current_tick != snapshot.tick
+            or tick_table.tick_spacing != snapshot.tick_spacing
+            or (
+                tick_table.block_hash is not None
+                and tick_table.block_hash.lower() != snapshot.block_hash.lower()
             )
+        ):
+            return result("Tick table identity/state mismatch")
+        if (
+            type(cov.initialized_ticks_count) is not int
+            or cov.initialized_ticks_count != len(tick_table.initialized_ticks)
+            or not MIN_TICK <= cov.min_tick <= tick <= cov.max_tick <= MAX_TICK
+        ):
+            return result("Invalid tick coverage count or bounds")
+        for initialized, net in tick_table.initialized_ticks.items():
+            if (
+                type(initialized) is not int
+                or type(net) is not int
+                or initialized % snapshot.tick_spacing != 0
+                or not cov.min_tick <= initialized <= cov.max_tick
+                or not -(2**127) <= net < 2**127
+            ):
+                return result("Invalid initialized tick or liquidityNet")
 
-        # 1. Determine target sqrt ratio
-        if tick_table is not None and tick_table.coverage.is_complete:
-            next_tick = tick_table.get_next_initialized_tick(current_tick, zero_for_one)
-            if next_tick is None:
-                # Boundary reached beyond coverage
-                return MultiTickHopResult(
-                    amount_in_consumed=amount_in - amount_remaining,
-                    amount_out_produced=total_out,
-                    total_fee_amount=total_fee,
-                    final_sqrt_price_x96=current_price,
-                    final_tick=current_tick,
-                    final_liquidity=current_liquidity,
-                    ticks_crossed=ticks_crossed,
-                    status=QuoteStatus.UNSUPPORTED,
-                    error=f"Swap exceeded verified tick coverage: min={tick_table.coverage.min_tick}, max={tick_table.coverage.max_tick}",
+    while remaining > 0:
+        if not 0 < liquidity < 2**128:
+            return result("Zero or invalid active liquidity encountered")
+        initialized = False
+        if tick_table is None:
+            try:
+                target = single_segment_target(
+                    snapshot, "zero_for_one" if zero_for_one else "one_for_zero"
                 )
-            target_price = get_sqrt_ratio_at_tick(next_tick)
+            except ValueError as exc:
+                return result(f"Unknown single-tick boundary: {exc}")
+            next_tick = None
         else:
-            # Single segment fallback boundary
-            lower = (current_tick // spacing) * spacing
-            upper = lower + spacing
-            if zero_for_one:
-                target_tick = max(MIN_TICK, lower)
-                target_price = max(MIN_SQRT_RATIO + 1, get_sqrt_ratio_at_tick(target_tick))
-                next_tick = target_tick
-            else:
-                target_tick = min(MAX_TICK, upper)
-                target_price = min(MAX_SQRT_RATIO - 1, get_sqrt_ratio_at_tick(target_tick))
-                next_tick = target_tick
-
-        # 2. Step compute
-        step = compute_swap_step(
-            sqrt_ratio_current_x96=current_price,
-            sqrt_ratio_target_x96=target_price,
-            liquidity=current_liquidity,
-            amount_remaining=amount_remaining,
-            fee_pips=fee_pips,
-        )
-
-        step_in = step.amount_in + step.fee_amount
-        amount_remaining -= step_in
+            cov = tick_table.coverage
+            next_tick = tick_table.get_next_initialized_tick(tick, zero_for_one)
+            initialized = next_tick is not None
+            if next_tick is None:
+                next_tick = cov.min_tick if zero_for_one else cov.max_tick
+            target = get_sqrt_ratio_at_tick(next_tick)
+            target = max(MIN_SQRT_RATIO + 1, min(MAX_SQRT_RATIO - 1, target))
+            if target > price if zero_for_one else target < price:
+                return result("Swap exceeded verified tick coverage")
+            if target == price and not initialized:
+                return result("Swap exceeded verified tick coverage")
+        step = compute_swap_step(price, target, liquidity, remaining, snapshot.fee_pips)
+        consumed = step.amount_in + step.fee_amount
+        if consumed < 0 or consumed > remaining:
+            return result("Invalid swap input consumption")
+        previous = price
+        remaining -= consumed
         total_out += step.amount_out
         total_fee += step.fee_amount
-        current_price = step.next_sqrt_price_x96
-
-        # Check if we reached the boundary tick
-        if current_price == target_price:
+        price = step.next_sqrt_price_x96
+        if price == target:
             if tick_table is None:
-                # Single segment cannot cross tick
-                return MultiTickHopResult(
-                    amount_in_consumed=amount_in - amount_remaining,
-                    amount_out_produced=total_out,
-                    total_fee_amount=total_fee,
-                    final_sqrt_price_x96=current_price,
-                    final_tick=current_tick,
-                    final_liquidity=current_liquidity,
-                    ticks_crossed=ticks_crossed,
-                    status=QuoteStatus.UNSUPPORTED,
-                    error="Swap crossed single-tick boundary; multi_tick coverage not active",
-                )
-
-            # Crossing into next tick
-            ticks_crossed += 1
-            if ticks_crossed > max_crossings:
-                return MultiTickHopResult(
-                    amount_in_consumed=amount_in - amount_remaining,
-                    amount_out_produced=total_out,
-                    total_fee_amount=total_fee,
-                    final_sqrt_price_x96=current_price,
-                    final_tick=current_tick,
-                    final_liquidity=current_liquidity,
-                    ticks_crossed=ticks_crossed,
-                    status=QuoteStatus.UNSUPPORTED,
-                    error=f"Exceeded max tick crossings limit ({max_crossings})",
-                )
-
-            net_liq = tick_table.initialized_ticks.get(next_tick, 0)
-            if zero_for_one:
-                current_liquidity -= net_liq
-                current_tick = next_tick - 1
-            else:
-                current_liquidity += net_liq
-                current_tick = next_tick
+                # At an unproven segment edge preserve upstream F01 fail-closed behavior.
+                return result("Swap crossed single-tick boundary; multi_tick coverage not active")
+            if not initialized:
+                if remaining:
+                    return result("Swap exceeded verified tick coverage")
+                tick = _tick_at_price(price)
+                break
+            if crossings >= max_crossings:
+                return result(f"Exceeded max tick crossings limit ({max_crossings})")
+            assert next_tick is not None
+            # Never default missing liquidityNet to zero.
+            net = tick_table.initialized_ticks[next_tick]
+            liquidity += -net if zero_for_one else net
+            if not 0 <= liquidity < 2**128:
+                return result("Liquidity overflow/underflow at tick crossing")
+            crossings += 1
+            tick = next_tick - 1 if zero_for_one else next_tick
         else:
-            break
-
-    return MultiTickHopResult(
-        amount_in_consumed=amount_in - amount_remaining,
-        amount_out_produced=total_out,
-        total_fee_amount=total_fee,
-        final_sqrt_price_x96=current_price,
-        final_tick=current_tick,
-        final_liquidity=current_liquidity,
-        ticks_crossed=ticks_crossed,
-        status=QuoteStatus.QUOTED,
-        error=None,
-    )
+            tick = _tick_at_price(price)
+            if remaining:
+                return result("Partial input consumption without a proven crossing")
+        if consumed == 0 and price == previous and not initialized:
+            return result("Swap made no progress")
+    if total_out <= 0 or remaining:
+        return result("Zero output or unconsumed input")
+    return result()

@@ -32,7 +32,7 @@ CHAIN_ARC = 5042
 CALLER = "0x1111111111111111111111111111111111111111"
 ROUTER = "0x2222222222222222222222222222222222222222"
 RECIPIENT = "0x3333333333333333333333333333333333333333"
-USDC_ADDR = "0x4444444444444444444444444444444444444444"
+USDC_ADDR = "0x3600000000000000000000000000000000000000"
 WETH_ADDR = "0x5555555555555555555555555555555555555555"
 
 
@@ -90,11 +90,11 @@ class TestArcOutputEvidence:
                 balance_after=1_006_000_000,
             )
         ]
-        # Gas attribution: 50,000 gas * 20 gwei = 1,000,000 atoms (0.001 ETH equivalent, or 100,000 usdc atoms)
+        # Gas attribution uses Arc native USDC 18-decimal units; 50,000 * 2e12 -> 100,000 canonical 6-decimal atoms.
         gas_attr = TraceGasAttribution(
             gas_payer=CALLER,
             gas_used_atoms=50_000,
-            effective_gas_price_atoms=2,
+            effective_gas_price_atoms=2_000_000_000_000,
             gas_included_in_diff=False,  # deducted separately
         )
 
@@ -160,7 +160,12 @@ class TestArcOutputEvidence:
             trace_available=True,
             is_independent_poll=False,
             diffs=diffs,
-            gas_attribution=None,
+            gas_attribution=TraceGasAttribution(
+                gas_payer=CALLER,
+                gas_used_atoms=0,
+                effective_gas_price_atoms=0,
+                gas_included_in_diff=False,
+            ),
         )
         assert evidence.is_verified is True
         # Net strategy profit is recipient's +106M plus caller's -100M = +6M

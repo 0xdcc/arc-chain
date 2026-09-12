@@ -13,7 +13,11 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import StrEnum
-from typing import Any
+
+from arbitrage_contracts.identity import validate_bytes32, validate_evm_address
+from arc_opportunities.cost_units import rescale_cost_atoms
+
+ARC_USDC_ADDRESS = "0x3600000000000000000000000000000000000000"
 
 
 class OutputVerificationStatus(StrEnum):
@@ -173,7 +177,11 @@ class OutputEvidenceVerifier:
             known_accounts.update(a.lower() for a in allowed_pollution_accounts)
 
         for d in diffs:
-            if d.account.lower() not in known_accounts and d.token_address.lower() == base_token_norm and d.delta > 0:
+            if (
+                d.account.lower() not in known_accounts
+                and d.token_address.lower() == base_token_norm
+                and d.delta > 0
+            ):
                 return OutputEvidence(
                     evidence_id=evidence_id,
                     plan_id=plan_id,
@@ -193,6 +201,49 @@ class OutputEvidenceVerifier:
                     rejection_reason=f"State pollution detected from untracked account: {d.account}",
                 )
 
+        # Absence of costs or complete controlled-account balances is not zero cost.
+        seen: set[tuple[str, str]] = set()
+        for d in diffs:
+            key = (d.account.lower(), d.token_address.lower())
+            if key in seen:
+                raise OutputVerificationError("Duplicate account/token balance diff")
+            seen.add(key)
+            validate_evm_address(d.account)
+            validate_evm_address(d.token_address)
+            if any(type(v) is not int or v < 0 for v in (d.balance_before, d.balance_after)):
+                raise OutputVerificationError("Balances must be nonnegative integer atoms")
+        validate_bytes32(state_hash)
+        missing = any((a, base_token_norm) not in seen for a in {caller_norm, recipient_norm})
+        if gas_attribution is None or missing or base_token_norm != ARC_USDC_ADDRESS:
+            return OutputEvidence(
+                evidence_id,
+                plan_id,
+                caller_norm,
+                router_norm,
+                recipient_norm,
+                base_token_norm,
+                block_number,
+                state_hash,
+                True,
+                False,
+                tuple(diffs),
+                gas_attribution,
+                False,
+                OutputVerificationStatus.INSUFFICIENT_EVIDENCE,
+                None,
+                "Missing gas/base-account coverage or unsupported base currency conversion",
+            )
+        if (
+            gas_attribution.gas_payer.lower() not in {caller_norm, recipient_norm}
+            or type(gas_attribution.gas_included_in_diff) is not bool
+        ):
+            raise OutputVerificationError("Unbound gas payer or ambiguous gas deduction")
+        # Arc receipt fee is native 18-decimal USDC; canonical ERC20 view is 6 decimals.
+        for value in (gas_attribution.gas_used_atoms, gas_attribution.effective_gas_price_atoms):
+            if type(value) is not int or value < 0:
+                raise OutputVerificationError("Gas fields must be nonnegative integer atoms")
+        fee_base_atoms = rescale_cost_atoms(gas_attribution.gas_fee_atoms, 18, 6)
+
         # Invariant 4: Reconcile recipient/caller base token net change
         # If caller and recipient are distinct, the net economic change across the strategy is caller_delta + recipient_delta.
         # If caller is recipient, it is simply caller's delta.
@@ -208,7 +259,7 @@ class OutputEvidenceVerifier:
         final_net_atoms = total_balance_delta
         if gas_attribution is not None:
             if not gas_attribution.gas_included_in_diff:
-                final_net_atoms -= gas_attribution.gas_fee_atoms
+                final_net_atoms -= fee_base_atoms
 
         return OutputEvidence(
             evidence_id=evidence_id,

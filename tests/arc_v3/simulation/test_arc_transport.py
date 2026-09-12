@@ -53,17 +53,21 @@ class MockRpcClient:
         call_response: dict | None = None,
         estimate_gas_response: int | None = 120_000,
         simulate_network_error: bool = False,
+        router_balance_response: int = 0,
     ) -> None:
         self.balance_response = balance_response
         self.call_response = call_response or {"data": "0x", "is_revert": False}
         self.estimate_gas_response = estimate_gas_response
         self.simulate_network_error = simulate_network_error
+        self.router_balance_response = router_balance_response
 
     def eth_get_balance_of(self, token: str, account: str, block: int) -> int:
         if self.simulate_network_error:
             raise ConnectionError("RPC connection timeout during balanceOf")
         if self.balance_response is None:
             raise ValueError("Null balance returned")
+        if account.lower() == ARC_ROUTER.lower():
+            return self.router_balance_response
         return self.balance_response
 
     def eth_call(self, to: str, data: str, from_addr: str, block: int) -> dict:
@@ -134,6 +138,18 @@ class TestArcSimulationTransportAndService:
                 token_address="0x" + "36" * 20,
                 account_address=CALLER_ADDR,
                 block_number=1000,
+            )
+
+    def test_router_inventory_blocks_simulation(self) -> None:
+        """Router inventory must not be allowed to subsidize the simulated route."""
+        plan, encoded = make_plan()
+        transport = ArcSimulationTransport(
+            rpc_client=MockRpcClient(balance_response=500_000_000, router_balance_response=1)
+        )
+        service = ArcSimulationService(transport=transport)
+        with pytest.raises(InventoryUnknownError, match="Router inventory may subsidize"):
+            service.simulate_plan(
+                plan=plan, encoded=encoded, caller_address=CALLER_ADDR, block_number=1000
             )
 
     def test_state_override_is_prohibited(self) -> None:

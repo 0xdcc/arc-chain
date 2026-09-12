@@ -8,12 +8,11 @@ Binds raw simulation results and trace-based OutputEvidence to produce certified
 
 from __future__ import annotations
 
-from typing import Any
-
 from arbitrage_contracts.arc_extensions import SimulationEvidenceBridge, SimulationStatus
 from atomic_execution.arc_planning import ArcExecutionPlan
 from atomic_execution.output_evidence import (
     OutputEvidence,
+    OutputEvidenceVerifier,
     OutputVerificationError,
     OutputVerificationStatus,
 )
@@ -68,13 +67,47 @@ class ArcOutputAdapter:
                 execution_revert_reason=reason,
             )
 
-        # Output is verified by real state-diff evidence
+        base = plan.base_asset.token_key.address.lower() if plan.base_asset.token_key else ""
+        if (
+            evidence.plan_id != plan.plan_id
+            or evidence.router_address.lower() != plan.target_router.lower()
+            or evidence.base_token_address.lower() != base
+            or evidence.status != OutputVerificationStatus.VERIFIED
+            or type(evidence.verified_net_atoms) is not int
+        ):
+            raise OutputVerificationError(
+                "Output evidence does not match plan/router/base or verification status"
+            )
+        # Recompute the supplied evidence, rather than trusting a mutable/caller-created
+        # is_verified flag or verified_net_atoms field. Backend authenticity remains
+        # an integration requirement; this pure adapter is not a trace provider.
+        checked = OutputEvidenceVerifier.verify_from_trace(
+            evidence_id=evidence.evidence_id,
+            plan_id=evidence.plan_id,
+            caller_address=evidence.caller_address,
+            router_address=evidence.router_address,
+            recipient_address=evidence.recipient_address,
+            base_token_address=evidence.base_token_address,
+            block_number=evidence.block_number,
+            state_hash=evidence.state_hash,
+            trace_available=evidence.trace_available,
+            is_independent_poll=evidence.is_independent_poll,
+            diffs=list(evidence.diffs),
+            gas_attribution=evidence.gas_attribution,
+        )
+        if not checked.is_verified or checked.verified_net_atoms != evidence.verified_net_atoms:
+            raise OutputVerificationError(
+                "Claimed verified output does not match recomputed evidence"
+            )
+        # Output is verified only within the provided trace-evidence scope.
         return SimulationEvidenceBridge(
             call_succeeded=True,
             output_verified=True,
             status=SimulationStatus.CALL_SUCCEEDED,
             net_output_atoms=evidence.verified_net_atoms,
-            gas_used_atoms=evidence.gas_attribution.gas_used_atoms if evidence.gas_attribution else raw_gas_used,
+            gas_used_atoms=evidence.gas_attribution.gas_used_atoms
+            if evidence.gas_attribution
+            else raw_gas_used,
             backend=backend_name,
             execution_revert_reason=None,
         )

@@ -99,11 +99,11 @@ class TestArcNonceRecovery:
             assert ctx.stage == ExecutionStage.PREFLIGHT
 
             # 3. AUTHORIZED
-            ctx = sm.transition_authorized(CONFIG_HASH)
+            ctx = sm.transition_authorized(CONFIG_HASH, now_utc=1000.0)
             assert ctx.stage == ExecutionStage.AUTHORIZED
 
             # 4. INTENT_RECORDED
-            ctx = sm.record_intent_and_reserve_nonce("int-1", ROUTER, 100_000_000, "0x" + "aa" * 32)
+            ctx = sm.record_intent_and_reserve_nonce("int-1", ROUTER, 100_000_000, "0x" + "aa" * 32, now_utc=1000.0)
             assert ctx.stage == ExecutionStage.INTENT_RECORDED
             assert ctx.intent is not None
             assert ctx.intent.nonce == 0
@@ -125,8 +125,8 @@ class TestArcNonceRecovery:
             plan2 = make_mock_plan("p-2")
             sm.transition_candidate(plan2)
             sm.transition_preflight(True)
-            sm.transition_authorized(CONFIG_HASH)
-            ctx2 = sm.record_intent_and_reserve_nonce("int-2", ROUTER, 100_000_000, "0x" + "bb" * 32)
+            sm.transition_authorized(CONFIG_HASH, now_utc=1000.0)
+            ctx2 = sm.record_intent_and_reserve_nonce("int-2", ROUTER, 100_000_000, "0x" + "bb" * 32, now_utc=1000.0)
             assert ctx2.intent is not None
             assert ctx2.intent.nonce == 1
 
@@ -141,8 +141,8 @@ class TestArcNonceRecovery:
             plan1 = make_mock_plan("p-1")
             sm.transition_candidate(plan1)
             sm.transition_preflight(True)
-            sm.transition_authorized(CONFIG_HASH)
-            sm.record_intent_and_reserve_nonce("int-1", ROUTER, 100_000_000, "0x" + "aa" * 32)
+            sm.transition_authorized(CONFIG_HASH, now_utc=1000.0)
+            sm.record_intent_and_reserve_nonce("int-1", ROUTER, 100_000_000, "0x" + "aa" * 32, now_utc=1000.0)
 
             # While int-1 is in-flight (stage=INTENT_RECORDED), try to admit plan2
             plan2 = make_mock_plan("p-2")
@@ -160,8 +160,8 @@ class TestArcNonceRecovery:
             sm1 = ArcExecutionStateMachine(journal1, card)
             sm1.transition_candidate(make_mock_plan("p-crash"))
             sm1.transition_preflight(True)
-            sm1.transition_authorized(CONFIG_HASH)
-            sm1.record_intent_and_reserve_nonce("int-crash", ROUTER, 100_000_000, "0x" + "cc" * 32)
+            sm1.transition_authorized(CONFIG_HASH, now_utc=1000.0)
+            sm1.record_intent_and_reserve_nonce("int-crash", ROUTER, 100_000_000, "0x" + "cc" * 32, now_utc=1000.0)
             sm1.mark_broadcast_pending()
 
             # Instance 2 (Reboot): reload journal from disk
