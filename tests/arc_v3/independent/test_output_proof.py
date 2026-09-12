@@ -24,6 +24,7 @@ from arbitrage_contracts.identity import (
     TokenKey,
 )
 from arbitrage_contracts.quote import HopRef, RouteRef
+from arc_opportunities.cost_units import rescale_cost_atoms
 from atomic_execution.arc_output_adapter import ArcOutputAdapter
 from atomic_execution.arc_planning import ArcExecutionPlan
 from atomic_execution.output_evidence import (
@@ -38,7 +39,7 @@ CHAIN_ARC = 5042
 CALLER = "0x1111111111111111111111111111111111111111"
 ROUTER = "0x2222222222222222222222222222222222222222"
 RECIPIENT = "0x3333333333333333333333333333333333333333"
-USDC_ADDR = "0x4444444444444444444444444444444444444444"
+USDC_ADDR = "0x3600000000000000000000000000000000000000"
 WETH_ADDR = "0x5555555555555555555555555555555555555555"
 
 
@@ -179,7 +180,7 @@ class TestOutputEvidenceVerification:
         gas_attr = TraceGasAttribution(
             gas_payer=CALLER,
             gas_used_atoms=50_000,
-            effective_gas_price_atoms=100,  # 5_000_000 atoms gas = 5 USDC
+            effective_gas_price_atoms=100_000_000,  # 5 canonical 6-decimal atoms after Arc native rescale
             gas_included_in_diff=False,
         )
 
@@ -204,7 +205,7 @@ class TestOutputEvidenceVerification:
         assert evidence.is_verified is True
         assert evidence.status == OutputVerificationStatus.VERIFIED
         # Net = (+1050 - 1000) - 5 = 45 atoms
-        assert evidence.verified_net_atoms == (1050 - 1000) - gas_attr.gas_fee_atoms
+        assert evidence.verified_net_atoms == (1050 - 1000) - rescale_cost_atoms(gas_attr.gas_fee_atoms, 18, 6)
 
 
 class TestArcOutputAdapterDecoupling:
@@ -288,7 +289,7 @@ class TestArcOutputAdapterDecoupling:
             gas_attribution=TraceGasAttribution(
                 gas_payer=CALLER,
                 gas_used_atoms=100_000,
-                effective_gas_price_atoms=10,  # 1_000_000 fee
+                effective_gas_price_atoms=10_000_000_000_000,  # 1 USDC in Arc native 18-decimal units
                 gas_included_in_diff=False,
             ),
         )
