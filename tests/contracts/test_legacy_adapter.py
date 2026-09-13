@@ -7,8 +7,9 @@ import subprocess
 import sys
 import unittest
 from pathlib import Path
+from typing import Any
 
-from arbitrage_contracts.identity import TokenKey
+from arbitrage_contracts.identity import PoolDescriptor, TokenKey
 from arbitrage_contracts.legacy_adapter import (
     AdaptationResult,
     LegacyContext,
@@ -53,8 +54,10 @@ class TestLegacyAdapter(unittest.TestCase):
         self.assertEqual(result.missing_fields, ())
         self.assertEqual(result.unresolved_reasons, ())
         self.assertIsInstance(result.record, ContractRecord)
+        assert result.record is not None
         self.assertEqual(result.record.record_type, "state_version")
         self.assertIsInstance(result.record.payload, StateVersion)
+        assert isinstance(result.record.payload, StateVersion)
         self.assertEqual(result.record.payload.block_number, 500000)
         self.assertEqual(len(result.source_hash), 64)
 
@@ -75,7 +78,9 @@ class TestLegacyAdapter(unittest.TestCase):
         self.assertTrue(result.success)
         self.assertEqual(result.status, "complete")
         self.assertIsInstance(result.record, ContractRecord)
+        assert result.record is not None
         self.assertEqual(result.record.record_type, "pool_descriptor")
+        assert isinstance(result.record.payload, PoolDescriptor)
         self.assertEqual(result.record.payload.fee_model.raw_value, 500)
         self.assertEqual(result.record.payload.tick_spacing, 10)
 
@@ -120,10 +125,15 @@ class TestLegacyAdapter(unittest.TestCase):
         self.assertTrue(result.success)
         self.assertEqual(result.status, "complete")
         self.assertIsInstance(result.record, ContractRecord)
+        assert result.record is not None
         self.assertEqual(result.record.record_type, "quote_evidence")
         self.assertIsInstance(result.record.payload, QuoteEvidence)
+        assert isinstance(result.record.payload, QuoteEvidence)
+        assert result.record.payload.amount_in is not None
+        assert result.record.payload.amount_out is not None
         self.assertEqual(result.record.payload.amount_in.atoms, 1000000)
         self.assertEqual(result.record.payload.amount_out.atoms, 1040000)
+        assert result.record.payload.gas_evidence is not None
         self.assertEqual(result.record.payload.gas_evidence.gas_units, 125000)
         self.assertEqual(result.record.payload.gas_evidence.gas_kind, GasEvidenceKind.RPC_ESTIMATE)
 
@@ -239,6 +249,8 @@ class TestLegacyAdapter(unittest.TestCase):
         }
         result = adapt_legacy_record(raw, self.context)
         self.assertTrue(result.success)
+        assert result.record is not None
+        assert isinstance(result.record.payload, QuoteEvidence)
         self.assertIsNone(result.record.payload.gas_evidence)
 
     def test_state_version_completeness_ready_barrier(self) -> None:
@@ -260,10 +272,12 @@ class TestLegacyAdapter(unittest.TestCase):
 
     def test_non_primitive_or_non_mapping_inputs_rejected(self) -> None:
         """Verify passing non-mapping or objects with custom classes raises TypeError fail-closed."""
+        bad_str: Any = "not a mapping"
+        bad_int: Any = 12345
         with self.assertRaises(TypeError):
-            adapt_legacy_record("not a mapping")
+            adapt_legacy_record(bad_str)
         with self.assertRaises(TypeError):
-            adapt_legacy_record(12345)
+            adapt_legacy_record(bad_int)
         with self.assertRaises(TypeError):
             adapt_legacy_record(
                 {"token": TokenKey(1, "0x1111111111111111111111111111111111111111")}

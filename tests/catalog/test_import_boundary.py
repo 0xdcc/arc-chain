@@ -7,17 +7,61 @@ import hashlib
 import json
 import subprocess
 import sys
+import sysconfig
 from pathlib import Path
 
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 FIXTURES = ROOT / "tests/fixtures/catalog/v1"
+
+
+def _trusted_site_packages() -> str:
+    """Resolve legitimate site-packages containing eth_abi from active interpreter sysconfig."""
+    prefix = Path(sys.prefix).resolve()
+    candidates: list[Path] = []
+    for scheme_key in ("purelib", "platlib"):
+        path_str = sysconfig.get_path(scheme_key)
+        if path_str:
+            candidates.append(Path(path_str).resolve())
+    std_site = (
+        prefix
+        / "lib"
+        / f"python{sys.version_info.major}.{sys.version_info.minor}"
+        / "site-packages"
+    ).resolve()
+    if std_site not in candidates:
+        candidates.append(std_site)
+
+    for candidate in candidates:
+        if (
+            candidate.is_dir()
+            and candidate.name == "site-packages"
+            and candidate.is_relative_to(prefix)
+            and (candidate / "eth_abi").is_dir()
+        ):
+            return str(candidate)
+
+    raise RuntimeError(
+        f"Unable to locate legitimate site-packages containing eth_abi under active prefix {prefix}; "
+        f"candidates checked: {[str(c) for c in candidates]}"
+    )
+
+
 CHILD = r"""
 import sys
 from pathlib import Path
 root = Path(sys.argv[1])
-sys.path.insert(0, str(root / "venv/lib/python3.12/site-packages"))
+if len(sys.argv) > 2:
+    site_packages = Path(sys.argv[2])
+    assert site_packages.is_dir() and site_packages.name == "site-packages"
+    assert (site_packages / "eth_abi").is_dir()
+    exe_venv = Path(sys.executable).parent.parent
+    prefix = Path(sys.prefix)
+    assert site_packages.is_relative_to(exe_venv) or site_packages.is_relative_to(prefix), (
+        f"untrusted site-packages: {site_packages}"
+    )
+    sys.path.insert(0, str(site_packages))
 sys.path.insert(0, str(root))
 forbidden = {"chains", "core", "arbitrage", "socket", "requests", "monitors", "execution", "subprocess"}
 assert not forbidden.intersection(name.split(".")[0] for name in sys.modules)
@@ -89,8 +133,9 @@ print("ABI_KECCAK_NO_NETWORK_OR_LEGACY_PASS")
 
 def child(code: str) -> subprocess.CompletedProcess[str]:
     """Run with no inherited credentials or Python startup customization."""
+    site_packages = _trusted_site_packages()
     return subprocess.run(
-        [sys.executable, "-I", "-S", "-B", "-c", code, str(ROOT)],
+        [sys.executable, "-I", "-S", "-B", "-c", code, str(ROOT), site_packages],
         env={"PATH": "/usr/bin:/bin", "LANG": "C.UTF-8"},
         cwd="/tmp",
         text=True,
@@ -116,6 +161,26 @@ def test_crypto_dependency_boundary_no_network_or_legacy() -> None:
     result = child(CHILD + CRYPTO)
     assert result.returncode == 0, result.stdout + result.stderr
     assert "ABI_KECCAK_NO_NETWORK_OR_LEGACY_PASS" in result.stdout
+
+
+def test_trusted_site_packages_resolution_and_boundary() -> None:
+    """Verify that _trusted_site_packages locates declared eth_abi under active prefix."""
+    site_path_str = _trusted_site_packages()
+    site_path = Path(site_path_str)
+    assert site_path.is_dir()
+    assert site_path.name == "site-packages"
+    assert (site_path / "eth_abi").is_dir()
+    assert site_path.is_relative_to(Path(sys.prefix).resolve())
+
+    # Boundary: path outside interpreter hierarchy must fail validation
+    fake_site = Path("/tmp/site-packages")
+    exe_venv = Path(sys.executable).parent.parent
+    try:
+        fake_site.relative_to(exe_venv)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("Foreign directory should not be relative to interpreter hierarchy")
 
 
 def test_static_import_boundary() -> None:

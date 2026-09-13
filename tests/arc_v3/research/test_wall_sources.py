@@ -11,6 +11,7 @@ Verifies:
 from __future__ import annotations
 
 import json
+
 import pytest
 
 from arbitrage_contracts.arc_extensions import OtcQuote

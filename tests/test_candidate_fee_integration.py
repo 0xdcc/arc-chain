@@ -3,9 +3,8 @@
 from unittest.mock import MagicMock
 
 import pytest
-from eth_abi import encode
-
 from arbitrage.pool_scanner import batch_read_v3_pool_fees, read_v3_pool_fee, scan_pools
+from eth_abi import encode
 
 
 @pytest.mark.parametrize("raw,bps", [(0, 0), (100, 1), (500, 5), (3000, 30), (10000, 100)])

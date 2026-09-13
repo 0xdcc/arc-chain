@@ -11,8 +11,6 @@ from types import SimpleNamespace
 from unittest.mock import MagicMock
 
 import pytest
-from web3 import Web3
-
 from core.config import load_safe_config
 from core.wallet_guard import WalletGuard
 from execution.audit_verifier import ReceiptAuditor
@@ -21,6 +19,7 @@ from execution.funds_ledger import ExecutionLatched, FundsLedger
 from execution.funds_runtime import FundsRuntime, PostBroadcastUnresolved, SettledLoss
 from execution.protocols import ROUTER, RouteVerifier
 from execution.weth_arbitrage_executor import ArbitrageLeg, ArbitragePlan, WethArbitrageExecutor
+from web3 import Web3
 
 WALLET = "0x" + "11" * 20
 BLOCK = "0x" + "44" * 32
@@ -346,9 +345,9 @@ def test_route_rejects_router_balance_subsidy():
 
 def test_daemon_rpc_latch_blocks_the_actual_execution_boundary(integration):
     import requests
-
     from arbitrage.monitor_rpc import MonitorRpcHalted
     from monitors.daemons.arbitrage_daemon import ArbitrageDaemon
+
     from tests.test_remaining_monitor_rpc import client
 
     ctx = integration

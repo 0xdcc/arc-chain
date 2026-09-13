@@ -19,9 +19,6 @@ from typing import Any
 from unittest.mock import MagicMock
 
 import pytest
-
-from apps.monitor.feed_worker import FeedEventWorker
-from apps.monitor.service import ReadOnlyMonitorService
 from arbitrage.domain.types import (
     MarketSnapshot,
     PoolIdentity,
@@ -30,6 +27,9 @@ from arbitrage.domain.types import (
 )
 from arbitrage.market_data.catalog import get_verified_token
 from arbitrage.market_data.pool_reader import SnapshotCoordinator
+
+from apps.monitor.feed_worker import FeedEventWorker
+from apps.monitor.service import ReadOnlyMonitorService
 
 _Q96 = Decimal(2**96)
 

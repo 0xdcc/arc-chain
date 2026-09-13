@@ -10,13 +10,12 @@ Enforces:
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any
 
-from atomic_execution.arc_planning import ArcExecutionPlan
 from arc_execution.authorization import (
     AuthorizationError,
     ExecutionAuthorizationCard,
 )
+from atomic_execution.arc_planning import ArcExecutionPlan
 
 
 @dataclass(frozen=True, slots=True)

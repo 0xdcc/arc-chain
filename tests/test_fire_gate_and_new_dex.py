@@ -6,8 +6,6 @@ import math
 from unittest.mock import MagicMock, patch
 
 import pytest
-from web3 import Web3
-
 from arbitrage.multicall_reader import (
     GET_RESERVES_SELECTOR,
     V3_SLOT0_SELECTOR,
@@ -34,6 +32,7 @@ from execution.weth_arbitrage_executor import (
     WethArbitrageExecutor,
 )
 from monitors.daemons.arbitrage_daemon import ArbitrageDaemon
+from web3 import Web3
 
 WETH_ADDR = "0x0bd7d308f8e1639fab988df18a8011f41eacad73"
 USDG_ADDR = "0x5fc5360d0400a0fd4f2af552add042d716f1d168"

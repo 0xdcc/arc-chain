@@ -24,9 +24,9 @@ from arbitrage_contracts.quote import HopRef, QuoteStatus, RouteRef
 from arbitrage_contracts.state import StateVersion
 from arc_opportunities.quote_bridge import ArcQuoteBridge
 from arc_opportunities.quote_capabilities import (
-    ArcCapabilityRouter,
     CAPABILITY_MULTI_TICK,
     CAPABILITY_SINGLE_SEGMENT,
+    ArcCapabilityRouter,
     CapabilityProfile,
 )
 from state_graph.clmm_math import get_sqrt_ratio_at_tick
@@ -35,7 +35,6 @@ from state_graph.multi_tick import (
     execute_multi_tick_hop,
 )
 from state_graph.types import FrozenEpoch, PoolStateSnapshot
-
 
 CHAIN_ARC = 5042
 

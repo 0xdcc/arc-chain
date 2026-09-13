@@ -13,6 +13,7 @@ from __future__ import annotations
 import tempfile
 from decimal import Decimal
 from pathlib import Path
+
 import pytest
 
 from arbitrage_contracts.arc_extensions import (
@@ -32,14 +33,13 @@ from arbitrage_contracts.identity import (
 from arbitrage_contracts.quote import DataMode, HopRef, QuoteStatus, RouteRef
 from arbitrage_contracts.state import StateVersion
 from arc_opportunities.costs import create_gas_cost_evidence
-from arc_opportunities.economics import ArcEconomicEvaluator, USDC_SHARED_BALANCE_DOMAIN
+from arc_opportunities.economics import USDC_SHARED_BALANCE_DOMAIN, ArcEconomicEvaluator
 from arc_opportunities.ledger import ArcOpportunityLedger, RecordType
 from arc_opportunities.quote_bridge import ArcQuoteBridge
 from arc_opportunities.reasons import ShadowRejectionReason
 from arc_opportunities.shadow import ArcShadowEvaluationService
 from state_graph.clmm_math import get_sqrt_ratio_at_tick
 from state_graph.types import FrozenEpoch, PoolStateSnapshot
-
 
 CHAIN_ARC = 5042
 

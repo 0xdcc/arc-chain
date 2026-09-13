@@ -6,17 +6,17 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from arbitrage.v4_reader import (
+from research.market_data.v4_reader import (
     POOL_MANAGER_ADDRESS,
     POOLS_SLOT,
     V4PoolSpec,
     V4PoolState,
     V4Reader,
+    ZeroSlippageError,
     calculate_pool_storage_slot,
     decode_slot0_data,
     decode_swap_log_data,
 )
-from core.wallet_guard import ZeroSlippageError
 
 SAMPLE_POOL_ID = "0x4b7c86491df95f366b31217b2950d2c5136a2f19b6879613eac73d0e69092a1a"
 

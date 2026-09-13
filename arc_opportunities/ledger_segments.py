@@ -12,9 +12,8 @@ import json
 from collections.abc import Iterator
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
 
-from arc_opportunities.ledger import ArcOpportunityLedger, ArcOpportunityRecord, RecordType
+from arc_opportunities.ledger import ArcOpportunityLedger, ArcOpportunityRecord
 
 
 @dataclass(frozen=True, slots=True)
@@ -128,8 +127,7 @@ class SegmentedOpportunityLedger:
             ledger_file = Path(seg.path)
             if ledger_file.exists():
                 seg_ledger = ArcOpportunityLedger(ledger_file)
-                for rec in seg_ledger.read_all():
-                    yield rec
+                yield from seg_ledger.read_all()
 
     def count_total(self) -> int:
         """Count total records across all segments."""

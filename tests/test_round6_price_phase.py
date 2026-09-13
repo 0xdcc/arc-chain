@@ -4,13 +4,13 @@ import time
 from decimal import Decimal
 
 import pytest
-
 from arbitrage.spread_monitor import PoolSpec, PriceQuote, SpreadAlert
 from arbitrage.triangular import DirectedEdge, calculate_triangular_path
 from core.wallet_guard import ExcessiveAmountError
 from execution.funds import BASES, FundsError, hex_value, validate_plan_value
 from execution.funds_ledger import ExecutionLatched, FundsLedger
 from monitors.daemons.arbitrage_daemon import ArbitrageDaemon
+
 from tests.receipt_fixture import make_receipt_fixture
 from tests.test_round4_feedback import DAEMON, PATHS
 

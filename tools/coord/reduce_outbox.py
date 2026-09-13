@@ -11,8 +11,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
-import sys
 from pathlib import Path
 from typing import Any
 
@@ -62,7 +60,6 @@ def reduce_outbox(
             if not task_id or task_id not in task_board["tasks"]:
                 raise OutboxReductionError(f"Unknown task_id in {msg_id}: {task_id}")
 
-            epoch = result_payload.get("lease_epoch")
             status = result_payload.get("status")
             changed_files = result_payload.get("changed_files", [])
 

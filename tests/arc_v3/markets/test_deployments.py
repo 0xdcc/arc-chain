@@ -10,8 +10,8 @@ import pytest
 from arc_markets.deployments import (
     ArcDeploymentRecord,
     ContractRole,
-    DeploymentStatus,
     DeploymentsRegistry,
+    DeploymentStatus,
 )
 from arc_markets.review_bridge import (
     ArcDeploymentReviewBridge,

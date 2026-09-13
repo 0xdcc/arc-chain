@@ -11,6 +11,7 @@ from pathlib import Path
 
 from scripts.test_safety_stage import (
     MANIFEST,
+    PROBE_FILE,
     PUBLIC_FILES,
     SOURCE_DIRS,
     read_source,
@@ -36,13 +37,14 @@ class TestManifestCoverage(unittest.TestCase):
             parts = path.relative_to(self.root).parts
             if (
                 rel.startswith(".git")
-                or rel.startswith("docs")
                 or rel.startswith("TASK-")
                 or rel == ".hermes.md"
                 or any(part.startswith(".") or part == "__pycache__" for part in parts)
             ):
                 continue
-            if rel in PUBLIC_FILES or (parts[0] in SOURCE_DIRS and rel.endswith(".py")):
+            if rel in PUBLIC_FILES:
+                disk_files.add(rel)
+            elif not rel.startswith("docs") and (parts[0] in SOURCE_DIRS and rel.endswith(".py")):
                 disk_files.add(rel)
         return disk_files
 
@@ -79,13 +81,33 @@ class TestManifestCoverage(unittest.TestCase):
         temp_dir = Path(tempfile.mkdtemp(prefix="dex-safety-stage-test-", dir="/tmp"))
         try:
             stage_sources(self.root, temp_dir)
-            probe = temp_dir / "sandbox_probe_fixture.txt"
+            probe = temp_dir / PROBE_FILE
             self.assertTrue(probe.is_file(), "Probe file was not staged")
-            staged_count = sum(1 for p in temp_dir.rglob("*") if p.is_file())
             self.assertEqual(
-                staged_count,
-                len(self.manifest_files),
-                "Staged file count does not match manifest count",
+                probe.read_text(encoding="utf-8"),
+                "ARTIFICIAL_READONLY_PROBE\n",
+                "Probe file content mismatch",
+            )
+            matching_probes = list(temp_dir.rglob(PROBE_FILE))
+            self.assertEqual(len(matching_probes), 1, "Expected exactly one probe file")
+            self.assertEqual(matching_probes[0], probe)
+
+            staged_files = {
+                p.relative_to(temp_dir).as_posix()
+                for p in temp_dir.rglob("*")
+                if p.is_file()
+            }
+            self.assertIn(PROBE_FILE, staged_files, "Probe file missing from staged files")
+            staged_sources = staged_files - {PROBE_FILE}
+            self.assertEqual(
+                staged_sources,
+                self.manifest_files,
+                "Staged source file set does not match manifest files exactly",
+            )
+            self.assertEqual(
+                staged_files,
+                self.manifest_files | {PROBE_FILE},
+                "Staged directory contains unexpected extra files",
             )
         finally:
             if temp_dir.is_dir():

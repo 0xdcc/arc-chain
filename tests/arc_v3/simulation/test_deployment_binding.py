@@ -10,6 +10,7 @@ Verifies:
 from __future__ import annotations
 
 from decimal import Decimal
+
 import pytest
 
 from arbitrage_contracts.identity import (

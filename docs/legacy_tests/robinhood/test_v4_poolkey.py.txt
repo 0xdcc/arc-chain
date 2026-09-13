@@ -6,10 +6,6 @@ from typing import Any
 from unittest.mock import MagicMock
 
 import pytest
-from eth_abi import encode as abi_encode
-from uniswap_universal_router_decoder import RouterCodec
-from web3 import Web3
-
 from arbitrage.pool_config import scanned_to_pool_spec
 from arbitrage.pool_scanner import ScannedPool
 from arbitrage.spread_monitor import PoolSpec
@@ -22,6 +18,7 @@ from arbitrage.v4_reader import (
     get_v4_pool_metadata,
 )
 from core.wallet_guard import WalletGuard
+from eth_abi import encode as abi_encode
 from execution.weth_arbitrage_executor import (
     CANONICAL_UNIVERSAL_ROUTER,
     CANONICAL_USDG_ADDRESS,
@@ -30,6 +27,8 @@ from execution.weth_arbitrage_executor import (
     WethArbitrageExecutor,
     resolve_token_address,
 )
+from uniswap_universal_router_decoder import RouterCodec
+from web3 import Web3
 
 # Known canonical pool test vectors
 AI_USDG_V4_POOL_ID = "0x7aebd80541bfaaf23dbb6e99ce13d4d31c1a84c91414f971eadbff7db5f85995"

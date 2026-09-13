@@ -7,6 +7,7 @@ import unittest
 from copy import deepcopy
 from decimal import Decimal
 from pathlib import Path
+from typing import Any
 
 from research.settled_cycles.models import (
     AttributionStatus,
@@ -20,6 +21,8 @@ from research.settled_cycles.models import (
 
 
 class SettledCycleRecordTests(unittest.TestCase):
+    records: list[SettledCycleRecord]
+
     @classmethod
     def setUpClass(cls) -> None:
         fixtures = Path(__file__).resolve().parent / "fixtures"
@@ -42,7 +45,7 @@ class SettledCycleRecordTests(unittest.TestCase):
         mutation_target = self.make_record()
         for name, replaced in overrides.items():
             object.__setattr__(mutation_target, name, replaced)
-        constructor_values = {
+        constructor_values: dict[str, Any] = {
             "schema_id": mutation_target.schema_id,
             "schema_version": mutation_target.schema_version,
             "tx_hash": mutation_target.tx_hash,
@@ -163,22 +166,23 @@ class SettledCycleRecordTests(unittest.TestCase):
 
         for invalid in (True, 1.0):
             action = self.make_record().actions[0]
+            action_args: dict[str, Any] = {
+                "step_id": action.step_id,
+                "action_kind": action.action_kind,
+                "pool_key": action.pool_key,
+                "asset_in": action.asset_in,
+                "asset_out": action.asset_out,
+                "amount_in_atoms": invalid,
+                "amount_out_atoms": action.amount_out_atoms,
+                "direction": action.direction,
+                "log_index": action.log_index,
+                "trace_address": action.trace_address,
+                "parent_step_id": action.parent_step_id,
+                "execution_status": action.execution_status,
+                "evidence_refs": action.evidence_refs,
+            }
             with self.assertRaises(TypeError):
-                CycleAction(
-                    step_id=action.step_id,
-                    action_kind=action.action_kind,
-                    pool_key=action.pool_key,
-                    asset_in=action.asset_in,
-                    asset_out=action.asset_out,
-                    amount_in_atoms=invalid,
-                    amount_out_atoms=action.amount_out_atoms,
-                    direction=action.direction,
-                    log_index=action.log_index,
-                    trace_address=action.trace_address,
-                    parent_step_id=action.parent_step_id,
-                    execution_status=action.execution_status,
-                    evidence_refs=action.evidence_refs,
-                )
+                CycleAction(**action_args)
 
     def test_invalid_address_is_rejected(self) -> None:
         with self.assertRaises(ValueError):
@@ -202,15 +206,16 @@ class SettledCycleRecordTests(unittest.TestCase):
 
     def test_non_identity_asset_is_rejected(self) -> None:
         value = self.make_record().subject_deltas[0]
+        delta_args: dict[str, Any] = {
+            "subject_address": value.subject_address,
+            "asset": "not-an-asset",
+            "delta_atoms": None,
+            "basis": "unknown",
+            "completeness": "unknown",
+            "reconciliation_diff_atoms": None,
+        }
         with self.assertRaises(TypeError):
-            type(value)(
-                subject_address=value.subject_address,
-                asset="not-an-asset",
-                delta_atoms=None,
-                basis="unknown",
-                completeness="unknown",
-                reconciliation_diff_atoms=None,
-            )
+            type(value)(**delta_args)
 
 
 if __name__ == "__main__":

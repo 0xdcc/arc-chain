@@ -14,7 +14,6 @@ Strict fail-closed safety guardrails:
 
 from __future__ import annotations
 
-import hashlib
 import json
 import time
 import urllib.error

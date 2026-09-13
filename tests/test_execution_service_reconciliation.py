@@ -26,8 +26,6 @@ from typing import Any
 from unittest.mock import MagicMock
 
 import pytest
-from web3.exceptions import ContractLogicError
-
 from arbitrage.domain.types import (
     ExecutionPlan,
     PoolIdentity,
@@ -58,6 +56,7 @@ from execution.service import (
     build_router_calldata,
     simulate_plan,
 )
+from web3.exceptions import ContractLogicError
 
 # Test constants
 TEST_WALLET = "0x" + "11" * 20

@@ -10,9 +10,6 @@ from typing import Any, cast
 from unittest.mock import MagicMock, patch
 
 import pytest
-from uniswap_universal_router_decoder import RouterCodec
-from web3 import Web3
-
 from arbitrage.spread_monitor import PoolSpec, SpreadAlert
 from arbitrage.triangular import SwapLeg, TriangularArbAlert
 from arbitrage.v4_reader import V4PoolSpec
@@ -42,6 +39,9 @@ from execution.weth_arbitrage_executor import (
     WethArbitrageExecutor,
     resolve_token_address,
 )
+from uniswap_universal_router_decoder import RouterCodec
+from web3 import Web3
+
 from tests.receipt_fixture import make_receipt_fixture
 
 # Test Constants

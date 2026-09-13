@@ -8,8 +8,8 @@ import pytest
 
 from arc_ingest.coverage import BlockRange, CoverageManifest
 from arc_ingest.history_scan import HistoricalBlockScanner
-from arc_ingest.recovery import GapRecoveryEngine
 from arc_ingest.recorder import RawDataRecorder
+from arc_ingest.recovery import GapRecoveryEngine
 from arc_readiness.errors import ArcValidationError
 
 
@@ -24,9 +24,9 @@ class TestGapRecoveryAndCoverage:
     def test_coverage_manifest_gap_detection_and_assertion(self) -> None:
         cov = CoverageManifest(chain_id=5042)
         for b in range(10, 16):
-            cov.add_block(b, f"0x{'%064x' % b}")
+            cov.add_block(b, f"0x{b:064x}")
         for b in range(20, 26):
-            cov.add_block(b, f"0x{'%064x' % b}")
+            cov.add_block(b, f"0x{b:064x}")
 
         assert cov.total_blocks == 12
         assert cov.is_continuous(10, 15) is True
@@ -58,7 +58,7 @@ class TestGapRecoveryAndCoverage:
         for b in (1, 2, 3, 7, 8, 9):
             header = {
                 "number": hex(b),
-                "hash": f"0x{'%064x' % b}",
+                "hash": f"0x{b:064x}",
                 "timestamp": hex(1700000000 + b),
             }
             temp_recorder.record_block(header, logs=[])
@@ -79,7 +79,7 @@ class TestGapRecoveryAndCoverage:
         for b in (1, 2, 5, 6):
             header = {
                 "number": hex(b),
-                "hash": f"0x{'%064x' % b}",
+                "hash": f"0x{b:064x}",
                 "timestamp": hex(1700000000 + b),
             }
             temp_recorder.record_block(header, logs=[])
@@ -91,7 +91,7 @@ class TestGapRecoveryAndCoverage:
                 b_num = int(params[0], 16)
                 return {
                     "number": hex(b_num),
-                    "hash": f"0x{'%064x' % b_num}",
+                    "hash": f"0x{b_num:064x}",
                     "timestamp": hex(1700000000 + b_num),
                 }
             if method == "eth_getLogs":

@@ -1,0 +1,138 @@
+{
+  "schema": "w3-manifest-submission-v1",
+  "window": "W3",
+  "description": "W3 settled cycle research deliverables and test suite",
+  "total_files": 26,
+  "files": [
+    {
+      "path": "apps/settled_cycle_research.py",
+      "sha256": "959d0afa8ef3fa7aa55be29cdc772017f48693176a6851051bde68ed0855565e",
+      "size": 6283
+    },
+    {
+      "path": "research/__init__.py",
+      "sha256": "0d9b4276824f4b26fd76a6b28fbdae40010a45e9fb56edfa1fca471aad023ece",
+      "size": 81
+    },
+    {
+      "path": "research/settled_cycles/__init__.py",
+      "sha256": "9a3d26836d4af314e43ee97c3bf64b74c03d2cd5228cfbfe97ae7a1cbcb7980a",
+      "size": 843
+    },
+    {
+      "path": "research/settled_cycles/attribution.py",
+      "sha256": "f136afabfd1e99699691148fe2393d8ea272fb4bc4067d48bccf5084c6613691",
+      "size": 18398
+    },
+    {
+      "path": "research/settled_cycles/coverage.py",
+      "sha256": "9945d9e8480dbc4081fec268547a1a65fba11d3fb6cdca70048b230c39127402",
+      "size": 10214
+    },
+    {
+      "path": "research/settled_cycles/decoders.py",
+      "sha256": "c83d371166c3fb879193d3deaca2ac8d919f2f444dc1185c26893a80c33c3c3a",
+      "size": 10265
+    },
+    {
+      "path": "research/settled_cycles/evidence.py",
+      "sha256": "4b7460ce7cd62a9cb512579cdbda5f9bfe24f1c653d93161d6a92d3055063c1d",
+      "size": 6631
+    },
+    {
+      "path": "research/settled_cycles/flows.py",
+      "sha256": "e83f5530590f2a69b93bbd5a9377fb980a635183af9416d2c478e87643568363",
+      "size": 11697
+    },
+    {
+      "path": "research/settled_cycles/models.py",
+      "sha256": "ee21b6fcc3b8aafcd9daed835472f48d84dd971bbeaff01d0c13a2f7f22bc3be",
+      "size": 29962
+    },
+    {
+      "path": "research/settled_cycles/report.py",
+      "sha256": "0fc347c8a10cf124a2fbd509fad5d2541f01a7d1583a44fa16f261d81aa0c957",
+      "size": 8190
+    },
+    {
+      "path": "research/settled_cycles/schema-v1.json",
+      "sha256": "1bf15b9879a463b48c2d4cff02418f95c16ce8bdc5ead0873247b014025a4a48",
+      "size": 9119
+    },
+    {
+      "path": "tests/settled_cycles/__init__.py",
+      "sha256": "d4bc19fa2f1c9a60cb48dac9470567558cf03eba683b68dd02448aaf012b36a8",
+      "size": 68
+    },
+    {
+      "path": "tests/settled_cycles/fixtures/expected.jsonl",
+      "sha256": "70a2a9f3217a24ede3a112bedcdfa4db1af672c7aa1455e22b53bd6126a5f8a6",
+      "size": 990
+    },
+    {
+      "path": "tests/settled_cycles/fixtures/historical-index.json",
+      "sha256": "91dfe5291da596f8f5866d655038698323d929f9dbd6603c8ceefcfb9f9ddf56",
+      "size": 198
+    },
+    {
+      "path": "tests/settled_cycles/fixtures/manifest.json",
+      "sha256": "88c266bac74464d129adb7699438e59249e3aea9712e4d3710b80ffd186a601e",
+      "size": 356
+    },
+    {
+      "path": "tests/settled_cycles/fixtures/synthetic.jsonl",
+      "sha256": "ed379935005136c65c9bccfafc70d3d83ba574a7c611aa146ef497ce9714e349",
+      "size": 17140
+    },
+    {
+      "path": "tests/settled_cycles/test_attribution.py",
+      "sha256": "4718c694046671d1f52a7178c8a464b8c0cd893659b8b3e2b0948162f423f90c",
+      "size": 14056
+    },
+    {
+      "path": "tests/settled_cycles/test_cli.py",
+      "sha256": "6fc7f5c61e31af30be1eab20127a1662403acf1978ba3fd9d51e61363e409965",
+      "size": 5622
+    },
+    {
+      "path": "tests/settled_cycles/test_coverage.py",
+      "sha256": "aa10a684e743ff6eeb77a0a90542120d8b4c99fe1c610c60810d6df88ff2ccf8",
+      "size": 2286
+    },
+    {
+      "path": "tests/settled_cycles/test_decoders.py",
+      "sha256": "737c499835da832e799aedc28d11ba3187502fbb0a87be9b6ef4fc037e6c7a47",
+      "size": 7756
+    },
+    {
+      "path": "tests/settled_cycles/test_evidence.py",
+      "sha256": "4920743da340e19a28a5b9ab121a3d6d8b17c5cd96985bc56b2913ec8eeebb7c",
+      "size": 6830
+    },
+    {
+      "path": "tests/settled_cycles/test_flows.py",
+      "sha256": "ce09c8505712cb94f4560f9adda4db4b6b0c14b2fc030269989f268e15c15b88",
+      "size": 8901
+    },
+    {
+      "path": "tests/settled_cycles/test_import_boundary.py",
+      "sha256": "09599092071fbc9e34d3016d478a3ab369259f80e089879008811a9a2424cab2",
+      "size": 2874
+    },
+    {
+      "path": "tests/settled_cycles/test_models.py",
+      "sha256": "05a91255f319f9ed5774eb9f3f62ec9064bbd21e8c3b20a0b91b23364ba00fd2",
+      "size": 9259
+    },
+    {
+      "path": "tools/w3_offline_check.py",
+      "sha256": "2b135b7f8495a9558b56fb92d63fe1b8bcbbca6a54441a1f02cc9a5b27e9e6ee",
+      "size": 6027
+    },
+    {
+      "path": "tools/w3_sabotage.py",
+      "sha256": "b863413a3772f10de43b049db256073a3f70046393196028674e8cde09a18e70",
+      "size": 6242
+    }
+  ]
+}

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from arbitrage.pool_config import (
     get_grouped_pools,
     get_overlapping_pools_config,

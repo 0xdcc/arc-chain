@@ -8,7 +8,13 @@ from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
-from arbitrage_contracts.eligibility import AssetEligibility, PoolCapability, ReviewStatus
+from arbitrage_contracts.eligibility import (
+    AssetEligibility,
+    CapabilityStatus,
+    PoolCapability,
+    RestrictionStatus,
+    ReviewStatus,
+)
 from arbitrage_contracts.identity import (
     UINT256_MAX,
     FeeModelKind,
@@ -371,6 +377,36 @@ def evaluate_candidate(
                     route_id=route_ref.route_id,
                 )
 
+            raw_restrictions = getattr(elig, "contract_restrictions", None)
+            if isinstance(raw_restrictions, Mapping):
+                restrictions_map = dict(raw_restrictions)
+            elif isinstance(raw_restrictions, (tuple, list)):
+                restrictions_map = dict(raw_restrictions)
+            else:
+                restrictions_map = {}
+
+            tax_val = restrictions_map.get("tax")
+            if tax_val != RestrictionStatus.VERIFIED_FALSE:
+                tax_status = tax_val if tax_val is not None else elig.get_restriction("tax")
+                return InputRejection(
+                    reason=InputRejectionReason.ASSET_NOT_APPROVED,
+                    message=f"Asset {asset} tax restriction is {tax_status}, expected {RestrictionStatus.VERIFIED_FALSE}",
+                    route_id=route_ref.route_id,
+                )
+
+            if (
+                "transfer_tax" in restrictions_map
+                and restrictions_map["transfer_tax"] != RestrictionStatus.VERIFIED_FALSE
+            ):
+                return InputRejection(
+                    reason=InputRejectionReason.ASSET_NOT_APPROVED,
+                    message=(
+                        f"Asset {asset} transfer_tax restriction is {restrictions_map['transfer_tax']}, "
+                        f"expected {RestrictionStatus.VERIFIED_FALSE}"
+                    ),
+                    route_id=route_ref.route_id,
+                )
+
     for hop_quote in quote_evidence.hop_quotes:
         if hop_quote.fee_model and (
             hop_quote.fee_model.kind == FeeModelKind.DYNAMIC
@@ -411,9 +447,9 @@ def evaluate_candidate(
             )
             if cap is not None:
                 if (
-                    cap.can_quote == "unsupported"
-                    or cap.can_simulate == "unsupported"
-                    or cap.can_atomic_execute == "unsupported"
+                    cap.can_quote != CapabilityStatus.SUPPORTED
+                    or cap.can_simulate == CapabilityStatus.UNSUPPORTED
+                    or cap.can_atomic_execute == CapabilityStatus.UNSUPPORTED
                 ):
                     return InputRejection(
                         reason=InputRejectionReason.POOL_CAPABILITY_UNSUPPORTED,

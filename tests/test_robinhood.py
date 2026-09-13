@@ -1,14 +1,13 @@
 """Integration and unit tests for Robinhood Chain executor and Universal Router calldata."""
 
 import pytest
-from web3 import Web3
-
 from chains import get_chain_executor, list_supported_chains
 from chains.arc import ARCChainExecutor
 from chains.bsc import BSCChainExecutor
 from chains.robinhood import CANONICAL_PERMIT2_ADDRESS, ROBINHOOD_CHAIN_ID, RobinhoodChainExecutor
 from chains.solana import SolanaChainExecutor
 from core.wallet_guard import ExcessiveAmountError, InvalidSlippageError, ZeroSlippageError
+from web3 import Web3
 
 
 @pytest.fixture

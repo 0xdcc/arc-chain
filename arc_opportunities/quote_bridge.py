@@ -24,7 +24,6 @@ from arbitrage_contracts.quote import (
     ActorScope,
     DataMode,
     EvidenceLevel,
-    HopQuote,
     QuoteEvidence,
     QuoteStatus,
     RouteRef,
@@ -34,8 +33,6 @@ from arbitrage_contracts.state import canonical_state_ref
 from state_graph.cycles import find_cycles
 from state_graph.evaluate import (
     evaluate_route_exact_input,
-    resolve_token_decimals,
-    single_segment_target,
 )
 from state_graph.graph import PoolGraph
 from state_graph.types import FrozenEpoch

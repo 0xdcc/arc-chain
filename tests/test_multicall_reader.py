@@ -11,7 +11,6 @@
 from __future__ import annotations
 
 import math
-from typing import Any
 from unittest.mock import MagicMock
 
 import pytest
@@ -19,21 +18,23 @@ from eth_abi import decode as abi_decode
 from eth_abi import encode as abi_encode
 from web3 import Web3
 
-from arbitrage.multicall_reader import (
+from research.market_data.multicall import (
     GET_BLOCK_NUMBER_SELECTOR,
     MULTICALL2_ADDRESS,
     STATE_VIEW_ADDRESS,
     STATE_VIEW_GET_SLOT0_SELECTOR,
     TRY_AGGREGATE_SELECTOR,
     V3_SLOT0_SELECTOR,
+    AnyPool,
     MulticallPoolReader,
+    PoolSpec,
+    PriceQuote,
+    V4PoolSpec,
     decode_multicall_response,
-    decode_quote_from_result,
     encode_multicall_calls,
     encode_pool_slot0_call,
 )
-from arbitrage.spread_monitor import AnyPool, PoolReader, PoolSpec, PriceQuote
-from arbitrage.v4_reader import V4PoolSpec
+from research.market_data.pool_reader import PoolReader
 
 
 def _make_v3_pool(address_suffix: str, label: str, fee_bps: float = 30.0) -> PoolSpec:
@@ -225,7 +226,7 @@ class TestMulticallBatchExecution:
             (True, expected_block.to_bytes(32, "big")),
             (True, sqrt_p1.to_bytes(32, "big") + b"\x00" * 32),
             (False, b""),  # 模拟池 2 Revert 失败
-            (True, sqrt_p3.to_bytes(32, "big") + b"\x00" * 32),
+            (True, abi_encode(["uint160", "int24", "uint24", "uint24"], [sqrt_p3, 0, 0, 0])),
         ]
         raw_result_hex = "0x" + abi_encode(["(bool,bytes)[]"], [mock_items]).hex()
 
@@ -252,7 +253,7 @@ class TestMulticallBatchExecution:
         mock_items = [
             (True, target_block.to_bytes(32, "big")),
             (True, sqrt_val.to_bytes(32, "big") + b"\x00" * 32),
-            (True, sqrt_val.to_bytes(32, "big") + b"\x00" * 32),
+            (True, abi_encode(["uint160", "int24", "uint24", "uint24"], [sqrt_val, 0, 0, 0])),
         ]
         raw_hex = "0x" + abi_encode(["(bool,bytes)[]"], [mock_items]).hex()
 

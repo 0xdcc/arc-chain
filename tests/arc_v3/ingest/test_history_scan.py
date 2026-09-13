@@ -30,7 +30,7 @@ class TestHistoricalBlockScanner:
                 b_num = int(params[0], 16)
                 return {
                     "number": hex(b_num),
-                    "hash": f"0x{'%064x' % b_num}",
+                    "hash": f"0x{b_num:064x}",
                     "timestamp": hex(1700000000 + b_num),
                 }
             if method == "eth_getLogs":

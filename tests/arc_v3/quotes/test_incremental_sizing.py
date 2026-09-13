@@ -13,6 +13,7 @@ Verifies:
 from __future__ import annotations
 
 from decimal import Decimal
+
 import pytest
 
 from arbitrage_contracts.arc_extensions import BlockDomain
@@ -27,7 +28,7 @@ from arbitrage_contracts.identity import (
 from arbitrage_contracts.quote import HopRef, RouteRef
 from arbitrage_contracts.state import StateVersion
 from arc_opportunities.costs import create_gas_cost_evidence
-from arc_opportunities.economics import ArcEconomicEvaluator, USDC_SHARED_BALANCE_DOMAIN
+from arc_opportunities.economics import USDC_SHARED_BALANCE_DOMAIN, ArcEconomicEvaluator
 from arc_opportunities.incremental import (
     IncrementalError,
     IncrementalQuoteManager,
@@ -35,13 +36,12 @@ from arc_opportunities.incremental import (
 )
 from arc_opportunities.quote_bridge import ArcQuoteBridge
 from arc_opportunities.sizing import (
-    ArcTradeSizeOptimizer,
     MAX_HARD_TRADE_USD,
+    ArcTradeSizeOptimizer,
     SizingError,
 )
 from state_graph.clmm_math import get_sqrt_ratio_at_tick
 from state_graph.types import FrozenEpoch, PoolStateSnapshot
-
 
 CHAIN_ARC = 5042
 

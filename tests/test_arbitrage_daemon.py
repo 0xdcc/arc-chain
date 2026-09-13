@@ -10,7 +10,6 @@ from typing import Any
 from unittest.mock import MagicMock, patch
 
 import pytest
-
 from arbitrage.spread_monitor import PoolSpec, PriceQuote, SpreadAlert
 from arbitrage.triangular import SwapLeg, TriangularArbAlert
 from execution.weth_arbitrage_executor import ArbitrageDataError

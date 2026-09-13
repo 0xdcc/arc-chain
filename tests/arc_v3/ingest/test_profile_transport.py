@@ -11,6 +11,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
+from arbitrage_contracts.arc_extensions import BlockDomain, NetworkProfile
 from arc_readiness.errors import (
     ArcNetworkMismatchError,
     ArcValidationError,
@@ -37,7 +38,6 @@ from arc_readiness.rpc_readonly import (
     validate_batch_methods,
     validate_rpc_method,
 )
-from arbitrage_contracts.arc_extensions import BlockDomain, NetworkProfile
 
 
 class TestArcProfileAndTransport:
@@ -179,7 +179,7 @@ class TestArcProfileAndTransport:
         # Third failure: trips breaker
         with pytest.raises(ArcCircuitBreakerTrippedError, match="Circuit Breaker TRIPPED"):
             transport.request("eth_getBlockByNumber", ["0x1", False])
-        assert transport.is_circuit_broken
+        assert bool(transport.is_circuit_broken)
 
         # Subsequent attempts are instantly halted without network calls:
         with pytest.raises(ArcCircuitBreakerTrippedError, match="Refusing to loop indefinitely"):

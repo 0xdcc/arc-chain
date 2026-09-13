@@ -3,11 +3,33 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 import pytest
+
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+CLI_SCRIPT = REPO_ROOT / "apps" / "rwa_observer.py"
+
+
+def _run_cli(args: list[str]) -> subprocess.CompletedProcess[str]:
+    """Execute real subprocess using absolute script path with clean replica env."""
+    cmd = [
+        sys.executable,
+        str(CLI_SCRIPT),
+        *args,
+    ]
+    env = {**os.environ, "PYTHONPATH": str(REPO_ROOT)}
+    return subprocess.run(
+        cmd,
+        cwd=REPO_ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
 
 
 def test_cli_e2e_normal_flow(tmp_path: Path) -> None:
@@ -17,18 +39,15 @@ def test_cli_e2e_normal_flow(tmp_path: Path) -> None:
     assert e2e_input.exists()
 
     out_dir = tmp_path / "run_success"
-    cmd = [
-        sys.executable,
-        "apps/rwa_observer.py",
+    proc = _run_cli([
         "--input",
         str(e2e_input),
         "--as-of-ms",
         "1700000005000",
         "--output",
         str(out_dir),
-    ]
+    ])
 
-    proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
     assert proc.returncode == 0
     assert "Successfully processed 1 records" in proc.stdout
 
@@ -60,18 +79,15 @@ def test_c28_empty_or_whitespace_input_rejected_with_exit_2(tmp_path: Path) -> N
     empty_file.write_text("   \n\t  ", encoding="utf-8")
 
     out_dir = tmp_path / "out_empty"
-    cmd = [
-        sys.executable,
-        "apps/rwa_observer.py",
+    proc = _run_cli([
         "--input",
         str(empty_file),
         "--as-of-ms",
         "1700000005000",
         "--output",
         str(out_dir),
-    ]
+    ])
 
-    proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
     assert proc.returncode == 2
     assert "empty or contains only whitespace" in proc.stderr
     assert not out_dir.exists() or len(list(out_dir.iterdir())) == 0
@@ -83,18 +99,15 @@ def test_c28_corrupt_json_or_invalid_format_rejected(tmp_path: Path) -> None:
     corrupt_file.write_text("{invalid_json_here", encoding="utf-8")
 
     out_dir = tmp_path / "out_corrupt"
-    cmd = [
-        sys.executable,
-        "apps/rwa_observer.py",
+    proc = _run_cli([
         "--input",
         str(corrupt_file),
         "--as-of-ms",
         "1700000005000",
         "--output",
         str(out_dir),
-    ]
+    ])
 
-    proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
     assert proc.returncode == 2
     assert "invalid JSON" in proc.stderr
 
@@ -129,17 +142,14 @@ def test_c31_as_of_future_data_rejection(tmp_path: Path) -> None:
 
     out_dir = tmp_path / "out_future"
     # Run with CLI as-of = 1700000005000 (earlier than record as-of 1700000010000)
-    cmd = [
-        sys.executable,
-        "apps/rwa_observer.py",
+    proc = _run_cli([
         "--input",
         str(future_bundle),
         "--as-of-ms",
         "1700000005000",
         "--output",
         str(out_dir),
-    ]
+    ])
 
-    proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
     assert proc.returncode == 2
     assert "in the future relative to CLI as-of" in proc.stderr

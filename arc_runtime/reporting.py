@@ -9,7 +9,6 @@ Enforces:
 
 from __future__ import annotations
 
-import json
 import time
 from dataclasses import dataclass
 from typing import Any
@@ -43,7 +42,6 @@ def generate_opportunity_json_summary(
     items_summary = []
     for r in records:
         net_atoms = r.get("net_profit_atoms", 0)
-        status = r.get("status", "unknown")
         sim_status = r.get("simulation_status")
 
         if net_atoms > 0:

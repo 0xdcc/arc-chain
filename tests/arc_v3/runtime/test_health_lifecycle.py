@@ -10,6 +10,7 @@ Covers:
 import os
 import tempfile
 from pathlib import Path
+
 import pytest
 
 from arc_runtime.health import (
@@ -65,7 +66,7 @@ class TestRuntimeHealthAndLifecycle:
         guard.assert_healthy()
 
         guard.record_failure("HTTP 503 error 3")
-        assert guard.is_tripped
+        assert bool(guard.is_tripped)
 
         with pytest.raises(RuntimeError, match="TERMINAL CIRCUIT BREAKER TRIPPED"):
             guard.assert_healthy()

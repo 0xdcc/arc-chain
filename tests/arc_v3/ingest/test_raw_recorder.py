@@ -91,7 +91,7 @@ class TestRawRecorderAndCursors:
 
         # Mock disk write failure during block 101:
         b101 = {"number": 101, "hash": _HASH_101, "timestamp": 1700000001}
-        with patch.object(SegmentManager, "append_record", side_effect=IOError("Disk full!")):
+        with patch.object(SegmentManager, "append_record", side_effect=OSError("Disk full!")):
             with pytest.raises(IOError, match="Disk full!"):
                 recorder.record_block(b101, logs=[])
 

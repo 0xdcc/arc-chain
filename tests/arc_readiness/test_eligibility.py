@@ -76,6 +76,35 @@ def test_c18_circular_usdc_domain_pair_rejection() -> None:
             quote_asset=erc20_usdc,
         )
 
+    # Calling via asset0/asset1 returns unsupported draft per dual-convention support
+    draft_m = evaluate_market_eligibility(
+        market_id="invalid_circular_pool_alias",
+        protocol_id="uniswap_v3",
+        pool_address=POOL_ADDR,
+        asset0=native_usdc,
+        asset1=erc20_usdc,
+    )
+    assert draft_m.can_quote == "unsupported"
+    assert "SELF_PAIRING_SAME_BALANCE_DOMAIN_REJECTED" in draft_m.reasons
+
+    # Conflicting parameter sets are strictly rejected
+    other_token = evaluate_asset_eligibility(
+        asset_id="arc:other",
+        symbol="OTHER",
+        decimals=18,
+        interface_kind="native",
+    )
+    with pytest.raises(ArcValidationError, match="Conflicting parameters"):
+        evaluate_market_eligibility(
+            market_id="conflict_pool",
+            protocol_id="uniswap_v3",
+            pool_address=POOL_ADDR,
+            base_asset=native_usdc,
+            quote_asset=erc20_usdc,
+            asset0=other_token,
+            asset1=erc20_usdc,
+        )
+
 
 # ==============================================================================
 # C19: Code Size and Deployment Verification
@@ -127,6 +156,7 @@ def test_c20_unverified_hooks_and_deprecated_markets() -> None:
         decimals=6,
         interface_kind="erc20",
         contract_address=ARC_CANONICAL_EURC_ADDRESS,
+        independent_audit_proof="ARC_EURC_CANONICAL_MAINNET_AUDIT_2026",
     )
 
     # Market with unverified hooks
@@ -161,12 +191,25 @@ def test_c20_unverified_hooks_and_deprecated_markets() -> None:
 
 def test_c21_eurc_and_usyc_qualification() -> None:
     """C21: EURC is recognized as Euro currency; USYC is flagged as restricted entitlement asset."""
+    # Contrast baseline: on mainnet, EURC testnet constant without independent audit proof is rejected from verified
+    eurc_unverified = evaluate_asset_eligibility(
+        asset_id="arc:eurc",
+        symbol="EURC",
+        decimals=6,
+        interface_kind="erc20",
+        contract_address=ARC_CANONICAL_EURC_ADDRESS,
+    )
+    assert eurc_unverified.review_status == "discovered"
+    assert "EURC_TESTNET_CONSTANT_REQUIRES_MAINNET_AUDIT_PROOF" in eurc_unverified.reasons
+
+    # EURC qualification with independent audit proof injected per authorization data model
     eurc = evaluate_asset_eligibility(
         asset_id="arc:eurc",
         symbol="EURC",
         decimals=6,
         interface_kind="erc20",
         contract_address=ARC_CANONICAL_EURC_ADDRESS,
+        independent_audit_proof="ARC_EURC_CANONICAL_MAINNET_AUDIT_2026",
     )
     assert eurc.is_usdc_native_domain is False
     assert "canonical_eurc_euro_stablecoin" in eurc.reasons
@@ -183,7 +226,7 @@ def test_c21_eurc_and_usyc_qualification() -> None:
     assert usyc_unapproved.review_status == "provisional"
     assert "USYC_RESTRICTED_INVESTMENT_ALLOWLIST_REQUIRED" in usyc_unapproved.reasons
 
-    # USYC with allowlist
+    # USYC with allowlist and independent audit proof
     usyc_approved = evaluate_asset_eligibility(
         asset_id="arc:usyc",
         symbol="USYC",
@@ -191,6 +234,7 @@ def test_c21_eurc_and_usyc_qualification() -> None:
         interface_kind="erc20",
         contract_address=ARC_CANONICAL_USYC_ADDRESS,
         has_entitlements=True,
+        independent_audit_proof="ARC_USYC_ALLOWLIST_AUDIT_2026",
     )
     assert usyc_approved.review_status == "verified"
 
@@ -215,6 +259,7 @@ def test_c22_stablefx_is_permissioned_rfq_not_atomic_amm() -> None:
         decimals=6,
         interface_kind="erc20",
         contract_address=ARC_CANONICAL_EURC_ADDRESS,
+        independent_audit_proof="ARC_EURC_CANONICAL_MAINNET_AUDIT_2026",
     )
 
     stablefx_market = evaluate_market_eligibility(

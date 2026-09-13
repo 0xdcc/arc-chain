@@ -8,7 +8,6 @@ from decimal import Decimal
 from pathlib import Path
 
 import pytest
-
 from arbitrage.domain.types import (
     CandidateRoute,
     ExecutionPlan,

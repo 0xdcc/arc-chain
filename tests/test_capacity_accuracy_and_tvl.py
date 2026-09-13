@@ -10,7 +10,6 @@ from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
-
 from arbitrage.spread_monitor import (
     PoolSpec,
     SpreadAlert,

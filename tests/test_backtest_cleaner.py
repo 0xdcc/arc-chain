@@ -9,8 +9,8 @@
 6. 外部代买/空投转入打标 unsolicited (保留记录但不计入胜率统计)
 """
 
-from backtest.pipeline.cleaner import Cleaner, CleanerConfig
-from backtest.pipeline.matcher import ClosedPair
+from research.cleaner import Cleaner, CleanerConfig
+from research.fifo import ClosedPair
 
 
 def _make_pair(

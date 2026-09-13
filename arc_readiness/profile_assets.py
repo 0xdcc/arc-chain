@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any
 
 from arc_readiness.errors import ArcNetworkMismatchError, ArcValidationError
 from arc_readiness.network import ARC_MAINNET_CHAIN_ID, ARC_TESTNET_CHAIN_ID

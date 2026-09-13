@@ -16,9 +16,17 @@ from __future__ import annotations
 
 import os
 import tempfile
+
 import pytest
 
-from arbitrage_contracts.identity import Amount, AssetRef, FeeModel, PoolDescriptor, PoolKey, TokenKey
+from arbitrage_contracts.identity import (
+    Amount,
+    AssetRef,
+    FeeModel,
+    PoolDescriptor,
+    PoolKey,
+    TokenKey,
+)
 from arbitrage_contracts.quote import HopRef, RouteRef
 from arc_execution.circuit_breaker import (
     CircuitBreakerOpenError,
@@ -282,7 +290,7 @@ class TestArcReconciliation:
 
         # 3rd revert -> Trips!
         breaker.record_reconciliation(make_revert_report(3))
-        assert breaker.state == CircuitBreakerState.OPEN
+        assert bool(breaker.state == CircuitBreakerState.OPEN)
         assert "Consecutive failure threshold reached" in str(breaker.trip_reason)
 
         # Future execution must be blocked
@@ -315,7 +323,7 @@ class TestArcReconciliation:
                 verdict_notes=("big loss",),
             )
             breaker.record_reconciliation(big_loss_report)
-            assert breaker.state == CircuitBreakerState.OPEN
+            assert bool(breaker.state == CircuitBreakerState.OPEN)
             assert "Cumulative daily loss ceiling breached" in str(breaker.trip_reason)
 
             # Reboot simulation: instantiate new breaker from the same state file
@@ -329,5 +337,5 @@ class TestArcReconciliation:
 
             # Manual reset clears the trip
             rebooted_breaker.reset_manual(admin_token="admin_override_token")
-            assert rebooted_breaker.state == CircuitBreakerState.CLOSED
+            assert bool(rebooted_breaker.state == CircuitBreakerState.CLOSED)
             rebooted_breaker.check_can_execute()

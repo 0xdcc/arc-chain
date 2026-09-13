@@ -32,13 +32,12 @@ from arbitrage_contracts.quote import (
 )
 from arbitrage_contracts.state import StateVersion
 from arc_opportunities.quote_bridge import (
+    CAPABILITY_SINGLE_SEGMENT,
     ArcQuoteBridge,
     ArcQuoteConfig,
-    CAPABILITY_SINGLE_SEGMENT,
 )
 from state_graph.clmm_math import get_sqrt_ratio_at_tick
 from state_graph.types import FrozenEpoch, PoolStateSnapshot
-
 
 CHAIN_ARC = 5042
 

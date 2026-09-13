@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import StrEnum
-from typing import Any
 
 from arc_readiness.errors import ArcMarketIneligibleError, ArcValidationError
 

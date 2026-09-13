@@ -6,7 +6,6 @@ from unittest.mock import MagicMock
 
 import pytest
 import requests
-
 from arbitrage.monitor_rpc import MonitorRpc, MonitorRpcHalted
 from core.rpc_policy import UnknownRpcMethodError
 from monitors.daemons.arbitrage_daemon import ArbitrageDaemon

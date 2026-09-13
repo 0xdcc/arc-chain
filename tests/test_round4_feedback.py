@@ -6,13 +6,13 @@ All transport/signing is inert fixture IO; event and notification delivery is me
 from decimal import Decimal
 
 import pytest
-
 from arbitrage.spread_monitor import PoolSpec, PriceQuote, SpreadAlert
 from arbitrage.triangular import DirectedEdge, calculate_triangular_path
 from execution.funds import BASES
 from execution.funds_ledger import ExecutionLatched, FundsLedger
 from execution.funds_runtime import PostBroadcastUnresolved, SettledLoss
 from monitors.daemons.arbitrage_daemon import ArbitrageDaemon
+
 from tests.receipt_fixture import make_receipt_fixture
 
 DAEMON = "monitors.daemons.arbitrage_daemon."

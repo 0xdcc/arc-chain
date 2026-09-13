@@ -18,7 +18,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from arbitrage.domain.types import (
+from research.market_data.types import (
     CandidateRoute,
     PoolIdentity,
     QuoteResult,
@@ -27,7 +27,7 @@ from arbitrage.domain.types import (
     TokenAmount,
     TokenIdentity,
 )
-from arbitrage.quoting import (
+from research.quoting import (
     Quoter,
     ReplayAdapter,
     build_canonical_route_a,
@@ -73,6 +73,56 @@ class TestHistoricalReplayExactParity:
         with pytest.raises(RuntimeError, match="Replay incomplete"):
             adapter.verify_complete()
 
+    def test_zero_consumed_verify_complete_rejected(self) -> None:
+        """Calling verify_complete() before consuming ANY records strictly raises RuntimeError."""
+        adapter = ReplayAdapter()
+        assert adapter.consumed_count() == 0
+        assert adapter.total_count == 30
+        assert adapter.is_finished() is False
+        with pytest.raises(
+            RuntimeError,
+            match=r"Replay incomplete: 0 of 30 records consumed",
+        ):
+            adapter.verify_complete()
+
+    def test_empty_fixture_reasonable_semantics(self) -> None:
+        """Empty fixture semantics: verify_complete passes cleanly, calls fail exhausted."""
+        empty_adapter = ReplayAdapter([])
+        assert empty_adapter.total_count == 0
+        assert empty_adapter.consumed_count() == 0
+        assert empty_adapter.remaining_count() == 0
+        assert empty_adapter.is_finished() is True
+
+        # Reasonable semantic: zero unconsumed records remain, verify_complete passes cleanly
+        empty_adapter.verify_complete()
+
+        # Any replay call on empty adapter immediately fails closed with exhausted error
+        with pytest.raises(RuntimeError, match=r"Replay exhausted at index 0"):
+            empty_adapter.call("eth_chainId")
+
+        # Historical session replay on empty adapter also fails closed at record 0
+        quoter = Quoter(rpc_client=empty_adapter)
+        with pytest.raises(RuntimeError, match=r"Replay exhausted at index 0"):
+            quoter.replay_historical_session(empty_adapter)
+
+    def test_session_mid_failure_fails_closed_without_masking(self) -> None:
+        """Exceptions midway through replay fail closed immediately without masking."""
+        adapter = ReplayAdapter()
+        records = adapter.records
+        records[5] = copy.deepcopy(records[5])
+        records[5]["params"] = ["tampered_params"]
+        tampered_adapter = ReplayAdapter(records)
+
+        quoter = Quoter(rpc_client=tampered_adapter)
+        # Session fails closed immediately with exact root cause error, never returns QuoteResults
+        with pytest.raises(RuntimeError, match="Replay params mismatch at index 5"):
+            quoter.replay_historical_session(tampered_adapter)
+
+        # Unconsumed records remain; calling verify_complete explicitly reports incomplete
+        assert tampered_adapter.consumed_count() == 5
+        with pytest.raises(RuntimeError, match=r"Replay incomplete: 5 of 30 records consumed"):
+            tampered_adapter.verify_complete()
+
 
 class TestReplayAdapterTamperDefenses:
     """Tests tamper-resistance and strict validation of ReplayAdapter."""
@@ -101,6 +151,66 @@ class TestReplayAdapterTamperDefenses:
         adapter.call("eth_blockNumber")
         with pytest.raises(RuntimeError, match="Replay params mismatch|Replay block_identifier mismatch"):
             adapter.call("eth_getBlockByNumber", ["0x9999999", False])
+
+    def test_tampered_block_identifier_isolated_rejection(self) -> None:
+        """Pure block_identifier mismatch: method & params match 100%, only block differs."""
+        adapter = ReplayAdapter()
+        adapter.call("eth_chainId")
+        adapter.call("eth_blockNumber")
+        adapter.call("eth_getBlockByNumber", ["0x378a957", False])
+        adapter.call("eth_gasPrice")
+
+        # Record 4 expects block_identifier="0x378a957"
+        rec4 = adapter.records[4]
+
+        # Case 1: method & params match 100%, wrong non-null block_identifier
+        with pytest.raises(
+            RuntimeError,
+            match=(
+                r"Replay block_identifier mismatch at index 4 for method 'eth_call': "
+                r"expected '0x378a957', got '0x9999999'"
+            ),
+        ):
+            adapter.call(
+                method=rec4["method"],
+                params=rec4["params"],
+                block_identifier="0x9999999",
+            )
+
+        # Case 2: method & params match 100%, missing block_identifier (None)
+        adapter_none = ReplayAdapter()
+        adapter_none.call("eth_chainId")
+        adapter_none.call("eth_blockNumber")
+        adapter_none.call("eth_getBlockByNumber", ["0x378a957", False])
+        adapter_none.call("eth_gasPrice")
+        with pytest.raises(
+            RuntimeError,
+            match=(
+                r"Replay block_identifier mismatch at index 4 for method 'eth_call': "
+                r"expected '0x378a957', got 'None'"
+            ),
+        ):
+            adapter_none.call(
+                method=rec4["method"],
+                params=rec4["params"],
+                block_identifier=None,
+            )
+
+        # Case 3: record 0 expects block_identifier=None, passed non-null block_identifier
+        adapter_zero = ReplayAdapter()
+        rec0 = adapter_zero.records[0]
+        with pytest.raises(
+            RuntimeError,
+            match=(
+                r"Replay block_identifier mismatch at index 0 for method 'eth_chainId': "
+                r"expected 'None', got '0x378a957'"
+            ),
+        ):
+            adapter_zero.call(
+                method=rec0["method"],
+                params=rec0.get("params"),
+                block_identifier="0x378a957",
+            )
 
     def test_out_of_order_call_rejected(self) -> None:
         """Calling methods out of order raises RuntimeError."""

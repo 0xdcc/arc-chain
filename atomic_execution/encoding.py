@@ -140,7 +140,11 @@ def resolve_v4_pool_key(hop: HopRef) -> tuple[dict[str, Any], bool]:
     if desc is None:
         raise EncodingError(f"V4 hop {hop.pool_key.pool_id} is missing required pool_descriptor")
 
-    if desc.hooks and desc.hooks != ZERO_ADDRESS:
+    if desc.hooks is None:
+        raise CommandSecurityError(
+            "V4 pool has unknown or missing hook (None): missing hooks cannot default to ZERO_ADDRESS per C12; explicit ZERO_ADDRESS required"
+        )
+    if desc.hooks != ZERO_ADDRESS:
         raise CommandSecurityError(
             f"V4 pool has non-zero hook {desc.hooks}: only zero-hook V4 pools are permitted per C12"
         )
@@ -172,7 +176,7 @@ def resolve_v4_pool_key(hop: HopRef) -> tuple[dict[str, Any], bool]:
         "currency1": currency1,
         "fee": int(desc.fee_model.raw_value),
         "tick_spacing": int(desc.tick_spacing),
-        "hooks": Web3.to_checksum_address(desc.hooks or ZERO_ADDRESS),
+        "hooks": Web3.to_checksum_address(desc.hooks),
     }
     return pool_key_dict, zero_for_one
 
@@ -913,6 +917,14 @@ def encode_execution_plan(
             desc = hop.pool_descriptor
             if desc is None or desc.fee_model.raw_value is None or desc.tick_spacing is None:
                 raise EncodingError("V4 hop missing fee or tick_spacing")
+            if desc.hooks is None:
+                raise CommandSecurityError(
+                    "V4 hop has unknown or missing hook (None): missing hooks cannot default to ZERO_ADDRESS per C12; explicit ZERO_ADDRESS required"
+                )
+            if desc.hooks != ZERO_ADDRESS:
+                raise CommandSecurityError(
+                    f"V4 pool has non-zero hook {desc.hooks}: only zero-hook V4 pools are permitted per C12"
+                )
             path_keys.append(
                 PathKey(
                     intermediate_currency=Web3.to_checksum_address(
@@ -920,7 +932,7 @@ def encode_execution_plan(
                     ),
                     fee=int(desc.fee_model.raw_value),
                     tick_spacing=int(desc.tick_spacing),
-                    hooks=Web3.to_checksum_address(desc.hooks or ZERO_ADDRESS),
+                    hooks=Web3.to_checksum_address(desc.hooks),
                     hook_data=b"",
                 )
             )

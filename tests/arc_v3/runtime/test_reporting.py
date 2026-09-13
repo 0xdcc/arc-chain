@@ -7,6 +7,7 @@ Covers:
 """
 
 import json
+
 import pytest
 
 from arc_runtime.notifications import (

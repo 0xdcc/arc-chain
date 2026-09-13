@@ -4,13 +4,12 @@ from decimal import Decimal
 from unittest.mock import MagicMock
 
 import pytest
-from eth_abi import decode, encode
-from web3 import Web3
-
 from core.config import load_safe_config
+from eth_abi import decode, encode
 from execution.funds import BASES, FundsError
 from execution.protocols import PERMIT2, ROUTER, RouteVerifier, bps_to_raw, uniswap_fee
 from execution.weth_arbitrage_executor import ArbitrageLeg, ArbitragePlan, WethArbitrageExecutor
+from web3 import Web3
 
 
 def test_explicit_fee_units_and_zero_dynamic_fees():

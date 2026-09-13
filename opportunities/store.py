@@ -134,6 +134,12 @@ def _read_snapshot(path: Path) -> LedgerSnapshot:
     return LedgerSnapshot(tuple(events), confirmed_seq, previous_hash, truncated_tail)
 
 
+def read_snapshot(path: Path) -> LedgerSnapshot:
+    """Load and validate an append-only ledger snapshot in read-only mode."""
+    ledger = AppendOnlyLedger.open_readonly(path)
+    return ledger.load()
+
+
 class AppendOnlyLedger:
     """Durable ledger; recovery, reads and appends share one process-safe lock.
 
@@ -141,8 +147,15 @@ class AppendOnlyLedger:
     recover a lagging checkpoint; never retry a partially committed append blindly.
     """
 
-    def __init__(self, path: Path, *, auto_recover: bool = True) -> None:
+    def __init__(
+        self,
+        path: Path,
+        *,
+        auto_recover: bool = True,
+        read_only: bool = False,
+    ) -> None:
         self.path = Path(path)
+        self._read_only = bool(read_only)
         self._checkpoint_path = Path(str(self.path) + ".checkpoint")
         self._lock_path = Path(str(self.path) + ".lock")
         self._sequence = -1
@@ -155,34 +168,74 @@ class AppendOnlyLedger:
             self._sequence = snapshot.confirmed_sequence
             self._head_hash = snapshot.head_hash
             self._missing_checkpoint = not self._checkpoint_path.exists()
-            self._reconcile_checkpoint(snapshot, auto_recover=auto_recover)
+            if not self._read_only:
+                self._reconcile_checkpoint(snapshot, auto_recover=auto_recover)
+            else:
+                self._verify_readonly_checkpoint(snapshot)
+
+    @classmethod
+    def open_readonly(cls, path: Path) -> AppendOnlyLedger:
+        """Explicit read-only factory for AppendOnlyLedger."""
+        return cls(path, read_only=True)
+
+    @property
+    def read_only(self) -> bool:
+        """Return True if this ledger is in read-only mode."""
+        return self._read_only
 
     @contextmanager
     def _locked(self) -> Iterator[None]:
-        for path in (self.path, self._checkpoint_path, self._lock_path):
-            _validate_relative_path(path)
-            _reject_symlink(path)
-            _validate_regular_file(path)
+        _validate_relative_path(self.path)
+        _reject_symlink(self.path)
+        _validate_regular_file(self.path)
+        for path in (self._checkpoint_path, self._lock_path):
+            if path.exists() or not self._read_only:
+                _validate_relative_path(path)
+                _reject_symlink(path)
+                _validate_regular_file(path)
         fd: int | None = None
-        try:
-            fd = os.open(self._lock_path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
-            metadata = os.fstat(fd)
-            if not stat.S_ISREG(metadata.st_mode) or metadata.st_nlink != 1:
-                raise LedgerPathError("ledger lock must be a regular file without hard links")
-            fcntl.flock(fd, fcntl.LOCK_EX)
-        except OSError as error:
-            if fd is not None:
-                os.close(fd)
-            raise LedgerWriteError(f"cannot acquire ledger lock: {error}") from error
-        except BaseException:
-            if fd is not None:
-                os.close(fd)
-            raise
+        if not self._read_only:
+            try:
+                fd = os.open(self._lock_path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
+                metadata = os.fstat(fd)
+                if not stat.S_ISREG(metadata.st_mode) or metadata.st_nlink != 1:
+                    raise LedgerPathError("ledger lock must be a regular file without hard links")
+                fcntl.flock(fd, fcntl.LOCK_EX)
+            except OSError as error:
+                if fd is not None:
+                    os.close(fd)
+                raise LedgerWriteError(f"cannot acquire ledger lock: {error}") from error
+            except BaseException:
+                if fd is not None:
+                    os.close(fd)
+                raise
+        else:
+            lock_target: Path | None = None
+            if self._lock_path.exists():
+                lock_target = self._lock_path
+            elif self.path.exists():
+                lock_target = self.path
+
+            if lock_target is not None:
+                try:
+                    fd = os.open(lock_target, os.O_RDONLY | os.O_NOFOLLOW)
+                    metadata = os.fstat(fd)
+                    if not stat.S_ISREG(metadata.st_mode) or metadata.st_nlink != 1:
+                        raise LedgerPathError("ledger lock must be a regular file without hard links")
+                    fcntl.flock(fd, fcntl.LOCK_SH)
+                except OSError as error:
+                    if fd is not None:
+                        os.close(fd)
+                    raise LedgerPathError(f"cannot acquire read-only ledger lock: {error}") from error
+                except BaseException:
+                    if fd is not None:
+                        os.close(fd)
+                    raise
         try:
             yield
         finally:
-            # Closing releases flock even if unlocking explicitly fails.
-            os.close(fd)
+            if fd is not None:
+                os.close(fd)
 
     def _snapshot(self) -> LedgerSnapshot:
         if not self.path.exists():
@@ -288,8 +341,22 @@ class AppendOnlyLedger:
             raise LedgerWriteError(str(error)) from error
         self._missing_checkpoint = False
 
+    def _verify_readonly_checkpoint(self, snapshot: LedgerSnapshot) -> None:
+        checkpoint = self._read_checkpoint()
+        if checkpoint is None:
+            if not self._missing_checkpoint:
+                raise LedgerCorruptionError("checkpoint disappeared after recovery")
+            return
+        sequence, head = checkpoint
+        if sequence != snapshot.confirmed_sequence:
+            raise LedgerCorruptionError("checkpoint does not match durable ledger")
+        if head != snapshot.head_hash:
+            raise LedgerCorruptionError("checkpoint hash does not match durable ledger head")
+
     def append(self, payload: dict[str, Any]) -> int:
         """Append once, acknowledging only after data and checkpoint durability."""
+        if self._read_only:
+            raise LedgerWriteError("cannot append to read-only ledger")
         if not isinstance(payload, dict):
             raise TypeError("payload must be a dict")
         try:
@@ -355,5 +422,8 @@ class AppendOnlyLedger:
                 or snapshot.head_hash != self._head_hash
             ):
                 raise LedgerCorruptionError("ledger changed since this process recovered")
-            self._verify_checkpoint(snapshot.confirmed_sequence, snapshot.head_hash)
+            if self._read_only:
+                self._verify_readonly_checkpoint(snapshot)
+            else:
+                self._verify_checkpoint(snapshot.confirmed_sequence, snapshot.head_hash)
             return snapshot

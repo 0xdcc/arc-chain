@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import hashlib
 import re
 from dataclasses import dataclass
 from typing import Any
@@ -74,20 +73,24 @@ class V4PoolKey:
 
     def compute_pool_id(self) -> str:
         """Derive standard keccak256(abi.encode(currency0, currency1, fee, tickSpacing, hooks))."""
-        # ABI packing: each element is padded to 32 bytes (64 hex characters)
-        c0_bytes = bytes.fromhex(self.currency0[2:].lower().zfill(64))
-        c1_bytes = bytes.fromhex(self.currency1[2:].lower().zfill(64))
-        fee_bytes = self.fee.to_bytes(32, byteorder="big")
-        ts_bytes = (self.tick_spacing if self.tick_spacing >= 0 else self.tick_spacing + 2**256).to_bytes(32, byteorder="big")
-        hooks_bytes = bytes.fromhex(self.hooks[2:].lower().zfill(64))
+        try:
+            from eth_abi.abi import encode
+            from eth_utils.crypto import keccak
+        except ImportError as exc:
+            raise RuntimeError(
+                "EVM Keccak-256 and ABI encoding dependencies (eth_abi, eth_utils) required"
+            ) from exc
 
-        packed = c0_bytes + c1_bytes + fee_bytes + ts_bytes + hooks_bytes
-        # In Python standard library without external pycryptodome, we provide hashlib.sha3_256 or hashlib keccak
-        # Python 3.12 doesn't have native keccak in hashlib (only sha3), but for offline identity, sha3/keccak is consistent
-        # For full EVM compatibility, we use standard sha3_256 or keccak
-        # If sha3_256 is used, it's deterministic and standard-library
-        h = hashlib.sha3_256(packed).hexdigest()
-        return "0x" + h
+        # Standard EVM Keccak-256 encoding for Uniswap V4 PoolKey 5-tuple (no sha3 fallback)
+        c0 = _clean_address(self.currency0)
+        c1 = _clean_address(self.currency1)
+        hooks = _clean_address(self.hooks)
+
+        encoded = encode(
+            ["address", "address", "uint24", "int24", "address"],
+            [c0, c1, self.fee, self.tick_spacing, hooks],
+        )
+        return "0x" + keccak(encoded).hex()
 
 
 @dataclass(frozen=True)

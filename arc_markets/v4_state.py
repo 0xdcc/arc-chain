@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any
 
 from arc_readiness.errors import ArcValidationError
 from arc_readiness.rpc_readonly import ReadOnlyRpcTransport

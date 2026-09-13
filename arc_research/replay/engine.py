@@ -10,7 +10,6 @@ Enforces:
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any
 
 from arc_research.replay.latency import LatencyEvaluator, TimeAnchoredSnapshot
 
@@ -103,7 +102,7 @@ class CausalReplayEngine:
                 completed_lifetimes.append(lifetime)
 
         # Finalize remaining active lifetimes at end of sequence
-        for r, obs_list in active_lifetimes.items():
+        for _r, obs_list in active_lifetimes.items():
             lifetime = self._build_lifetime(obs_list, start_block, end_block)
             completed_lifetimes.append(lifetime)
 

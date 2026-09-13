@@ -97,14 +97,20 @@ def validate_fee_calculation(gas_used: int, gas_price_wei: int, reported_total: 
 
 def atoms_to_decimal_string(atoms: int, decimals: int = 18) -> str:
     """Format an atomic integer into a human-readable decimal string without floating point rounding."""
-    if atoms < 0:
-        raise ArcValidationError(f"atoms cannot be negative: {atoms}")
+    if isinstance(atoms, bool) or not isinstance(atoms, int):
+        raise ArcValidationError(f"atoms must be an integer, got {type(atoms).__name__}")
     if decimals <= 0:
-        return str(atoms)
+        raise ArcValidationError(f"decimals must be positive, got {decimals}")
 
-    s = str(atoms).zfill(decimals + 1)
-    integer_part = s[:-decimals]
-    fractional_part = s[-decimals:].rstrip("0")
-    if fractional_part:
-        return f"{integer_part}.{fractional_part}"
-    return integer_part
+    sign = "-" if atoms < 0 else ""
+    abs_atoms = abs(atoms)
+    scale = 10**decimals
+
+    integer_part = abs_atoms // scale
+    fractional_part = abs_atoms % scale
+
+    if fractional_part == 0:
+        return f"{sign}{integer_part}.0"
+
+    frac_str = str(fractional_part).zfill(decimals).rstrip("0")
+    return f"{sign}{integer_part}.{frac_str}"

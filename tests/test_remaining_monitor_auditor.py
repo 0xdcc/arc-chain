@@ -4,7 +4,6 @@ from decimal import Decimal
 from unittest.mock import MagicMock, patch
 
 import pytest
-
 from arbitrage.feed_listener import FeedEvent, FeedListener
 from arbitrage.spread_monitor import PoolReader, PoolSpec, PriceQuote, find_spreads
 from arbitrage.v4_reader import POOL_MANAGER_ADDRESS, SWAP_EVENT_TOPIC0
@@ -12,6 +11,7 @@ from execution.audit_verifier import ReceiptAuditor
 from execution.funds import BASES, PriceEvidence
 from monitors.daemons.arbitrage_daemon import ArbitrageDaemon
 from monitors.daemons.chain_auditor_watcher import format_audit_card
+
 from tests.test_remaining_funds import BLOCK, ROUTER, TX, WALLET, receipt
 
 
@@ -206,10 +206,9 @@ def test_fake_hash_or_test_event_never_queries_chain():
 
 
 def test_real_monitor_multicall_entry_binds_hash_time_and_active_liquidity():
-    from eth_abi import encode
-
     from arbitrage.multicall_reader import MulticallPoolReader
     from arbitrage.v4_reader import V4PoolSpec
+    from eth_abi import encode
 
     pool = V4PoolSpec(
         address="0x" + "77" * 32,
@@ -257,9 +256,8 @@ def test_real_monitor_multicall_entry_binds_hash_time_and_active_liquidity():
 
 
 def test_multicall_reorg_does_not_claim_verified_quote():
-    from eth_abi import encode
-
     from arbitrage.multicall_reader import MulticallPoolReader
+    from eth_abi import encode
 
     rpc = MagicMock()
     pool = quote(1, 100).pool

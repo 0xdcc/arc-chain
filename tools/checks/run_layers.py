@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-import sys, subprocess
+import subprocess
+import sys
 from pathlib import Path
+
 
 def run_cmd(cmd):
     print(f"Running: {' '.join(cmd)}")

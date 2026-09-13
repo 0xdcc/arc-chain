@@ -13,6 +13,7 @@ from __future__ import annotations
 
 from decimal import Decimal
 from typing import Any
+
 import pytest
 
 from arbitrage_contracts.arc_extensions import SimulationEvidenceBridge, SimulationStatus
@@ -24,7 +25,14 @@ from arbitrage_contracts.identity import (
     PoolKey,
     TokenKey,
 )
-from arbitrage_contracts.quote import HopQuote, HopRef, QuoteEvidence, QuoteStatus, RouteRef, TriState
+from arbitrage_contracts.quote import (
+    HopQuote,
+    HopRef,
+    QuoteEvidence,
+    QuoteStatus,
+    RouteRef,
+    TriState,
+)
 from atomic_execution.arc_encoding import encode_arc_execution_plan
 from atomic_execution.arc_planning import ArcExecutionPlan, ArcPlanAssembler
 from atomic_execution.arc_simulation import ArcSimulationService

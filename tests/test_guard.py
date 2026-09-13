@@ -5,7 +5,6 @@ import stat
 import tempfile
 
 import pytest
-
 from core.wallet_guard import (
     DryRunInterception,
     ExcessiveAmountError,

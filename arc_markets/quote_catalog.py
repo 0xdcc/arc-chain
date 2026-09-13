@@ -3,14 +3,14 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any
 
+from arbitrage_contracts.identity import AssetRef
 from arc_markets.decimals import DecimalsRegistry
 from arc_markets.deployments import DeploymentsRegistry
 from arc_markets.v3_discovery import V3DiscoveredPool
 from arc_markets.v4_discovery import V4DiscoveredPool
+from arc_markets.v4_events import _HEX_BYTES32_RE
 from arc_readiness.errors import ArcMarketIneligibleError, ArcValidationError
-from arbitrage_contracts.identity import AssetRef
 
 FORBIDDEN_ROBINHOOD_CHAIN_ID: int = 4663
 ROBINHOOD_MARKET_SUBSTRINGS: tuple[str, ...] = ("robinhood", "4663")
@@ -126,6 +126,22 @@ class QuoteCatalogBridge:
         if rec is None or rec.role != "manager":
             raise ArcMarketIneligibleError(f"V4 PoolManager not registered or unverified: {pool.manager_address}")
 
+        # 2.5 Mathematical Keccak-256 derivation and format verification
+        if not isinstance(pool.pool_id, str) or not _HEX_BYTES32_RE.match(pool.pool_id):
+            raise ArcMarketIneligibleError(
+                f"Malformed V4 pool_id format: claimed {pool.pool_id} must be a 66-char hex bytes32 string"
+            )
+        try:
+            expected_pool_id = pool.v4_key.compute_pool_id()
+        except RuntimeError as exc:
+            raise ArcMarketIneligibleError(
+                f"V4 Keccak derivation failed closed due to missing dependency: {exc}"
+            ) from exc
+        if pool.pool_id.lower() != expected_pool_id.lower():
+            raise ArcMarketIneligibleError(
+                f"V4 pool_id keccak derivation mismatch: claimed {pool.pool_id}, expected {expected_pool_id}"
+            )
+
         # 3. Reject unverified dynamic fees or unverified hooks without approval
         if pool.is_dynamic_fee:
             raise ArcMarketIneligibleError(f"Dynamic fee hooks currently unsupported for quote engine: {pool.pool_id}")
@@ -179,11 +195,11 @@ class QuoteCatalogBridge:
             except (ArcMarketIneligibleError, ArcValidationError) as e:
                 report.rejected[p.pool_address.lower()] = str(e)
 
-        for p in v4_pools:
+        for v4_pool in v4_pools:
             try:
-                desc = self.qualify_v4_pool(p)
+                desc = self.qualify_v4_pool(v4_pool)
                 report.qualified.append(desc)
             except (ArcMarketIneligibleError, ArcValidationError) as e:
-                report.rejected[p.pool_id.lower()] = str(e)
+                report.rejected[v4_pool.pool_id.lower()] = str(e)
 
         return report

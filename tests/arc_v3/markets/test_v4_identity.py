@@ -10,7 +10,6 @@ from arc_markets.deployments import (
     DeploymentsRegistry,
 )
 from arc_markets.v4_discovery import (
-    V4DiscoveredPool,
     V4MarketDiscoveryEngine,
 )
 from arc_markets.v4_events import (
@@ -56,6 +55,12 @@ class TestV4PoolIdentity:
             hooks=_ZERO_HOOKS,
         )
         pool_id = key.compute_pool_id()
+        # Canonical EVM Keccak-256 derivation check (not just len/prefix)
+        expected_keccak = "0x06339ed6a3555ccef52e5dd5be2a590cdeaeeb7bd1e0cecee96da150ac14dc58"
+        assert pool_id == expected_keccak
+        # Strictly verify divergence from erroneous NIST SHA3-256
+        sha3_hash = "0x2782908cc9c8e7598adf4dd61af1ecabfe9271a6c8a6d6984f226837574946d4"
+        assert pool_id != sha3_hash
         assert pool_id.startswith("0x")
         assert len(pool_id) == 66
         assert key.has_hooks is False
@@ -134,8 +139,9 @@ class TestV4PoolIdentity:
 
     def test_unauthorized_manager_rejected(self, engine: V4MarketDiscoveryEngine) -> None:
         bogus_manager = "0x000000000000000000000000000000000000dead"
+        key = V4PoolKey(_CURRENCY0, _CURRENCY1, 3000, 60, _ZERO_HOOKS)
         event = V4InitializeEvent(
-            pool_id="0x" + "11" * 32,
+            pool_id=key.compute_pool_id(),
             currency0=_CURRENCY0,
             currency1=_CURRENCY1,
             fee=3000,

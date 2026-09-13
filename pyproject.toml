@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "跨链智能合约下单引擎 (Robinhood / BSC / Arc)"
 requires-python = ">=3.12"
 
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
+
 [tool.mypy]
 python_version = "3.12"
 explicit_package_bases = true

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from arbitrage.spread_monitor import PoolSpec, PriceQuote
 from arbitrage.triangular import (
     DirectedEdge,

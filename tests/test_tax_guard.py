@@ -6,7 +6,6 @@ import logging
 from unittest.mock import MagicMock
 
 import pytest
-
 from arbitrage.spread_monitor import PoolSpec, PriceQuote, find_spreads, scan_once
 from arbitrage.triangular import (
     DirectedEdge,

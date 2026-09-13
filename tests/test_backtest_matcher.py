@@ -1,7 +1,6 @@
 """测试 FIFO 撮合器与部分平仓聚合 (matcher.py)."""
 
-from backtest.data.ingesters.base import SwapRecord
-from backtest.pipeline.matcher import FIFOMatcher
+from research.fifo import FIFOMatcher, SwapRecord
 
 
 def _make_record(
@@ -133,3 +132,60 @@ def test_fifo_trader_and_token_isolation():
     assert len(open_pos) == 2
     open_traders = {op.trader for op in open_pos}
     assert open_traders == {"bob", "alice"}
+
+
+def test_fifo_same_trader_multi_token_isolation():
+    """测试负对照/边界: 同一账户多代币持仓与部分卖出相互物理隔离，互不串单."""
+    matcher = FIFOMatcher(merge_partial=True)
+    records = [
+        _make_record(trader="carol", token="tok_a", side="buy", ts=100.0, usd=1000.0, qty=100.0),
+        _make_record(trader="carol", token="tok_b", side="buy", ts=110.0, usd=2000.0, qty=200.0),
+        _make_record(trader="carol", token="tok_a", side="sell", ts=150.0, usd=450.0, qty=30.0),
+        _make_record(trader="carol", token="tok_b", side="sell", ts=160.0, usd=2200.0, qty=200.0),
+    ]
+    closed, open_pos = matcher.match(records)
+
+    # 验证 closed 结果: tok_a 卖出 30，tok_b 卖出 200
+    assert len(closed) == 2
+    assert closed[0].trader == "carol"
+    assert closed[0].token == "tok_a"
+    assert closed[0].token_amount == 30.0
+    assert closed[0].entry_usd == 300.0
+    assert closed[0].exit_usd == 450.0
+
+    assert closed[1].trader == "carol"
+    assert closed[1].token == "tok_b"
+    assert closed[1].token_amount == 200.0
+    assert closed[1].entry_usd == 2000.0
+    assert closed[1].exit_usd == 2200.0
+
+    # 验证 open_pos 结果: tok_a 剩余 70，tok_b 剩余 0 (完全平仓)
+    assert len(open_pos) == 1
+    assert open_pos[0].trader == "carol"
+    assert open_pos[0].token == "tok_a"
+    assert open_pos[0].token_amount == 70.0
+    assert open_pos[0].entry_usd == 700.0
+
+
+def test_fifo_negative_control_orphan_sell_and_exceeding_sell():
+    """测试负对照: 无前置买单的孤立卖单以及卖单数量超过持仓时的安全容错."""
+    matcher = FIFOMatcher(merge_partial=True)
+    # 场景 1: 纯孤立卖单 (买单为 0)
+    orphan_records = [
+        _make_record(trader="dave", token="tok_x", side="sell", ts=100.0, usd=500.0, qty=50.0),
+    ]
+    closed, open_pos = matcher.match(orphan_records)
+    assert len(closed) == 0
+    assert len(open_pos) == 0
+
+    # 场景 2: 卖单数量大于历史买单 (买 10，卖 25)
+    exceed_records = [
+        _make_record(trader="dave", token="tok_y", side="buy", ts=100.0, usd=100.0, qty=10.0),
+        _make_record(trader="dave", token="tok_y", side="sell", ts=200.0, usd=250.0, qty=25.0),
+    ]
+    closed_ex, open_pos_ex = matcher.match(exceed_records)
+    assert len(closed_ex) == 1
+    assert len(open_pos_ex) == 0
+    assert closed_ex[0].token_amount == 10.0
+    assert closed_ex[0].entry_usd == 100.0
+    assert closed_ex[0].exit_usd == 100.0

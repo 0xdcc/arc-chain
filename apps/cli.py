@@ -137,9 +137,10 @@ def _resolve_rpc_client(rpc_arg: Any) -> Any:
 
 def cmd_monitor(args: argparse.Namespace) -> int:
     """Execute read-only market monitor service."""
-    from apps.monitor.service import ReadOnlyMonitorService
     from arbitrage.market_data.catalog import get_verified_token, list_pools
     from arbitrage.market_data.pool_reader import SnapshotCoordinator
+
+    from apps.monitor.service import ReadOnlyMonitorService
 
     rpc_client = getattr(args, "rpc", None)
     if isinstance(rpc_client, str) and rpc_client.startswith(("http://", "https://")):

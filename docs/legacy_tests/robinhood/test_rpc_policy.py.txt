@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import Any
 
 import pytest
-
 from backtest.data.rpc_client import RobinhoodRpc
 from core.rpc_policy import (
     DEFAULT_MANIFEST_PATH,

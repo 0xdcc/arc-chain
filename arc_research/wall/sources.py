@@ -14,7 +14,6 @@ import hashlib
 import json
 import time
 from dataclasses import dataclass
-from typing import Any
 
 from arbitrage_contracts.arc_extensions import OtcQuote
 
