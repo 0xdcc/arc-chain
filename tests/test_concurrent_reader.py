@@ -6,7 +6,6 @@ import time
 from unittest.mock import MagicMock, patch
 
 import pytest
-
 from arbitrage.spread_monitor import AnyPool, PoolReader, PoolSpec, PriceQuote, probe_proxy
 from arbitrage.triangular import (
     DirectedEdge,

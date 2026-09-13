@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import ast
 import json
-import os
 import shutil
 import subprocess
 import sys
@@ -22,7 +21,7 @@ ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from scripts.test_safety_stage import (
+from scripts.test_safety_stage import (  # noqa: E402
     MANIFEST,
     PUBLIC_FILES,
     SOURCE_DIRS,
@@ -32,7 +31,7 @@ from scripts.test_safety_stage import (
 
 
 def verify_manifest_coverage(root: Path) -> dict:
-    with open(root / MANIFEST, "r", encoding="utf-8") as f:
+    with open(root / MANIFEST, encoding="utf-8") as f:
         mf = json.load(f)
     manifest_files = set(mf["files"])
 
@@ -80,7 +79,7 @@ def verify_staging_and_isolation(root: Path) -> dict:
         temp_sabotage = Path(tempfile.mkdtemp(prefix="dex-gate-sabotage-", dir="/tmp"))
         try:
             (temp_sabotage / "scripts").mkdir(parents=True)
-            with open(root / MANIFEST, "r", encoding="utf-8") as f:
+            with open(root / MANIFEST, encoding="utf-8") as f:
                 bad_mf = json.load(f)
             bad_mf["files"].append("arbitrage/unapproved_hack.sh")
             (temp_sabotage / MANIFEST).write_text(json.dumps(bad_mf), encoding="utf-8")

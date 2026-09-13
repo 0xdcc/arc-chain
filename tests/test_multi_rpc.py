@@ -18,7 +18,6 @@ from typing import Any
 
 import pytest
 import requests
-
 from backtest.data.rpc_client import RobinhoodRpc
 
 

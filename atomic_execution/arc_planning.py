@@ -13,7 +13,6 @@ import time
 import uuid
 from dataclasses import dataclass
 from decimal import Decimal
-from typing import Any
 
 from arbitrage_contracts.identity import Amount, AssetRef
 from arbitrage_contracts.quote import QuoteEvidence, QuoteStatus, RouteRef

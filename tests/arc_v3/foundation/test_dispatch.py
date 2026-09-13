@@ -9,6 +9,8 @@ Verifies:
 import json
 import tempfile
 from pathlib import Path
+from typing import Any
+
 import pytest
 
 from tools.coord.reduce_outbox import OutboxReductionError, reduce_outbox
@@ -125,7 +127,7 @@ class TestCoordinationDispatch:
             }
             (c_root / "LEASES.json").write_text(json.dumps(leases))
 
-            merge_queue = {"queue": [], "processed_messages": []}
+            merge_queue: dict[str, list[Any]] = {"queue": [], "processed_messages": []}
             (c_root / "MERGE_QUEUE.json").write_text(json.dumps(merge_queue))
 
             result_payload = {
@@ -175,7 +177,7 @@ class TestCoordinationDispatch:
             }
             (c_root / "LEASES.json").write_text(json.dumps(leases))
 
-            merge_queue = {"queue": [], "processed_messages": []}
+            merge_queue: dict[str, list[Any]] = {"queue": [], "processed_messages": []}
             (c_root / "MERGE_QUEUE.json").write_text(json.dumps(merge_queue))
 
             result_payload = {

@@ -10,12 +10,11 @@ Enforces:
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
-from enum import StrEnum
 import json
 import os
 import time
-from typing import Any
+from dataclasses import asdict, dataclass
+from enum import StrEnum
 
 from arc_execution.reconcile import ReconciliationCategory, ReconciliationReport
 
@@ -149,7 +148,7 @@ class FinancialCircuitBreaker:
 
     def load_from_disk(self, file_path: str) -> None:
         """Load state snapshot from disk to restore loss totals and circuit trip state."""
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             data = json.load(f)
         self.state = CircuitBreakerState(data["state"])
         self.consecutive_reverts = data["consecutive_reverts"]

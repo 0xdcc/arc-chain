@@ -18,6 +18,7 @@ import sys
 import threading
 from decimal import Decimal
 from pathlib import Path
+from typing import Any
 from unittest.mock import MagicMock
 
 # Defensive workspace resolution: ensures backtest dependency in parent repo does not block domain loading
@@ -30,7 +31,7 @@ for mod_name in ("backtest", "backtest.data", "backtest.data.rpc_client"):
 
 import pytest
 
-from arbitrage.domain.types import (
+from research.market_data.types import (
     CandidateRoute,
     ExecutionPlan,
     MarketSnapshot,
@@ -152,8 +153,9 @@ class TestTokenAmountPrecision:
             TokenAmount(token=token_usdg, atoms=-1)
 
         # Float atoms must be rejected (type check)
+        bad_float_atoms: Any = 100.5
         with pytest.raises(TypeError, match="atoms must be an integer"):
-            TokenAmount(token=token_usdg, atoms=100.5)  # type: ignore
+            TokenAmount(token=token_usdg, atoms=bad_float_atoms)
 
         # Boolean atoms must be rejected
         with pytest.raises(TypeError, match="atoms must be an integer"):
@@ -189,7 +191,7 @@ class TestIdentityValidation:
             )
 
     @pytest.mark.parametrize("invalid_decimals_type", ["18", 18.0, None, True])
-    def test_invalid_decimals_type(self, invalid_decimals_type):
+    def test_invalid_decimals_type(self, invalid_decimals_type: Any) -> None:
         with pytest.raises(TypeError, match="decimals must be an integer"):
             TokenIdentity(
                 chain_id=4663,
@@ -685,7 +687,7 @@ class TestDomainModulePurity:
     def test_pure_standard_library_ast_audit(self):
         """Perform strict AST audit to verify arbitrage/domain only imports standard library."""
         domain_types_path = (
-            Path(__file__).resolve().parent.parent / "arbitrage" / "domain" / "types.py"
+            Path(__file__).resolve().parent.parent / "research" / "market_data" / "types.py"
         )
         assert domain_types_path.exists(), f"File {domain_types_path} does not exist"
 
@@ -704,14 +706,14 @@ class TestDomainModulePurity:
 
         forbidden = imported_modules - allowed_modules
         assert not forbidden, (
-            f"arbitrage/domain/types.py imports forbidden non-stdlib modules: {forbidden}"
+            f"research/market_data/types.py imports forbidden non-stdlib modules: {forbidden}"
         )
 
     def test_no_circular_imports_on_reload(self):
         """Verify module reloads cleanly without circular import deadlock."""
         from pathlib import Path
 
-        types_path = Path(__file__).resolve().parents[1] / "arbitrage" / "domain" / "types.py"
+        types_path = Path(__file__).resolve().parents[1] / "research" / "market_data" / "types.py"
         code = types_path.read_text(encoding="utf-8")
         namespace: dict[str, object] = {"__name__": "isolated_types"}
         exec(code, namespace)
@@ -721,8 +723,7 @@ class TestDomainModulePurity:
     def test_zero_thread_side_effects(self):
         """Verify importing domain models does not spawn threads or background tasks."""
         initial_threads = threading.active_count()
-        import arbitrage.domain
-        import arbitrage.domain.types
+        import research.market_data
 
         after_threads = threading.active_count()
         assert initial_threads == after_threads

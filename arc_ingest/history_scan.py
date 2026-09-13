@@ -6,12 +6,12 @@ import json
 import time
 from typing import Any
 
+from arbitrage_contracts.arc_extensions import BlockDomain, RawEnvelope
 from arc_ingest.coverage import CoverageManifest
 from arc_ingest.recorder import RawDataRecorder
 from arc_readiness.errors import ArcValidationError
 from arc_readiness.http_readonly import ArcCircuitBreakerTrippedError
 from arc_readiness.rpc_readonly import ReadOnlyRpcTransport
-from arbitrage_contracts.arc_extensions import BlockDomain, RawEnvelope
 
 MAX_BATCH_BLOCKS: int = 100
 MAX_CONSECUTIVE_FAILURES: int = 3

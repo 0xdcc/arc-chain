@@ -17,8 +17,6 @@ from typing import Any
 from unittest.mock import MagicMock, patch
 
 import pytest
-from web3 import Web3
-
 from core.config import Config, load_safe_config
 from execution.weth_arbitrage_executor import (
     CANONICAL_USDG_ADDRESS,
@@ -34,6 +32,7 @@ from monitors.daemons.arbitrage_daemon import (
     main,
     notify_chain_auditor,
 )
+from web3 import Web3
 
 
 def _build_test_cli_parser() -> argparse.ArgumentParser:

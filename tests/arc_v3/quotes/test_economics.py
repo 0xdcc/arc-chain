@@ -13,6 +13,7 @@ Verifies:
 from __future__ import annotations
 
 from decimal import Decimal
+
 import pytest
 
 from arbitrage_contracts.arc_extensions import CostEvidence
@@ -38,9 +39,9 @@ from arc_opportunities.costs import (
     create_otc_cost_evidence,
 )
 from arc_opportunities.economics import (
+    USDC_SHARED_BALANCE_DOMAIN,
     ArcEconomicEvaluator,
     EconomicsError,
-    USDC_SHARED_BALANCE_DOMAIN,
     validate_positive_decimal,
 )
 

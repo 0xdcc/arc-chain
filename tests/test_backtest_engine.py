@@ -3,14 +3,14 @@
 import json
 from pathlib import Path
 
-from backtest.config import BacktestConfig
-from backtest.data.ingesters.fomo import FomoIngester
-from backtest.data.ingesters.generic_csv import GenericCSVIngester
-from backtest.data.price_cache import PriceCache
-from backtest.engine import BacktestEngine
-from backtest.pipeline.impact import FrictionModel
-from backtest.pipeline.matcher import ClosedPair
-from backtest.reporter import MarkdownReporter
+from research.backtest.config import BacktestConfig
+from research.backtest.engine import BacktestEngine
+from research.backtest.impact import FrictionModel
+from research.backtest.ingesters.fomo import FomoIngester
+from research.backtest.ingesters.generic_csv import GenericCSVIngester
+from research.backtest.price_cache import PriceCache
+from research.backtest.reporter import MarkdownReporter
+from research.fifo import ClosedPair
 
 
 def test_fomo_ingester_direction_rules():
@@ -230,7 +230,7 @@ def test_matrix_backtest_engine_and_reporter(tmp_path: Path):
 
 def test_trader_sample_size_protection(tmp_path: Path):
     """小样本交易员不应被下『可跟/别跟』结论（防 unipcs 13 对误判）."""
-    from backtest.engine import MIN_TRADER_SAMPLE
+    from research.backtest.engine import MIN_TRADER_SAMPLE
 
     cache_dir = tmp_path / "cache2"
     cache_dir.mkdir()

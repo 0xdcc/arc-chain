@@ -9,8 +9,8 @@ from typing import Any
 from arc_markets.deployments import (
     ArcDeploymentRecord,
     ContractRole,
-    DeploymentStatus,
     DeploymentsRegistry,
+    DeploymentStatus,
 )
 from arc_readiness.errors import ArcNetworkMismatchError, ArcValidationError
 

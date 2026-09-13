@@ -6,12 +6,12 @@ from unittest.mock import MagicMock
 
 import pytest
 import requests
-from web3.exceptions import ContractLogicError
-
 from arbitrage.monitor_rpc import MonitorRpc, MonitorRpcHalted
 from execution.funds_ledger import FundsLedger
 from execution.protocols import ROUTER, V3_QUOTER
 from execution.public_runtime import build_public_runtime
+from web3.exceptions import ContractLogicError
+
 from tests.test_round4_feedback import PATHS, invoke, setup_case
 
 

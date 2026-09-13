@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import pytest
 
+from arbitrage_contracts.identity import AssetRef, FeeModel, PoolKey, TokenKey
 from arc_markets.decimals import DecimalsEntry, DecimalsRegistry
 from arc_markets.deployments import (
     ArcDeploymentRecord,
@@ -21,7 +22,6 @@ from arc_markets.v3_discovery import V3DiscoveredPool
 from arc_markets.v4_discovery import V4DiscoveredPool
 from arc_markets.v4_events import V4PoolKey
 from arc_readiness.errors import ArcMarketIneligibleError, ArcValidationError
-from arbitrage_contracts.identity import AssetRef, FeeModel, PoolKey, TokenKey
 
 _VALID_FACTORY = "0x1111111111111111111111111111111111115042"
 _VALID_MANAGER_A = "0x2222222222222222222222222222222222225042"
@@ -105,17 +105,18 @@ class TestQuoteCatalogBridge:
         )
 
         # V4 pool mock
-        v4_id = "0x" + "77" * 32
+        v4_key = V4PoolKey(
+            currency0=_NATIVE_CURRENCY,
+            currency1=_TOKEN_USDC,
+            fee=500,
+            tick_spacing=10,
+            hooks=_ZERO_HOOKS,
+        )
+        v4_id = v4_key.compute_pool_id()
         v4_pool = V4DiscoveredPool(
             pool_id=v4_id,
             manager_address=_VALID_MANAGER_A,
-            v4_key=V4PoolKey(
-                currency0=_NATIVE_CURRENCY,
-                currency1=_TOKEN_USDC,
-                fee=500,
-                tick_spacing=10,
-                hooks=_ZERO_HOOKS,
-            ),
+            v4_key=v4_key,
             chain_id=5042,
             created_at_block=1000,
         )
@@ -142,19 +143,20 @@ class TestQuoteCatalogBridge:
         dep_reg, dec_reg = test_registries
         bridge = QuoteCatalogBridge(deployments=dep_reg, decimals=dec_reg, chain_id=5042)
 
-        identical_pool_id = "0x" + "88" * 32
+        v4_key = V4PoolKey(_NATIVE_CURRENCY, _TOKEN_USDC, 500, 10, _ZERO_HOOKS)
+        identical_pool_id = v4_key.compute_pool_id()
 
         pool_a = V4DiscoveredPool(
             pool_id=identical_pool_id,
             manager_address=_VALID_MANAGER_A,
-            v4_key=V4PoolKey(_NATIVE_CURRENCY, _TOKEN_USDC, 500, 10, _ZERO_HOOKS),
+            v4_key=v4_key,
             chain_id=5042,
             created_at_block=1000,
         )
         pool_b = V4DiscoveredPool(
             pool_id=identical_pool_id,
             manager_address=_VALID_MANAGER_B,
-            v4_key=V4PoolKey(_NATIVE_CURRENCY, _TOKEN_USDC, 500, 10, _ZERO_HOOKS),
+            v4_key=v4_key,
             chain_id=5042,
             created_at_block=1000,
         )

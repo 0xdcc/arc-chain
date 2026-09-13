@@ -31,7 +31,6 @@ for mod_name in (
         sys.modules[mod_name] = MagicMock()
 
 import pytest
-
 from arbitrage.domain.types import (
     CandidateRoute,
     ExecutionPlan,

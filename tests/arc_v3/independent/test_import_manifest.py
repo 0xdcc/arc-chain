@@ -14,6 +14,7 @@ from tools.qa.upstream_obligations import (
     audit_imported_files,
     compute_sha256,
     get_repo_root,
+    resolve_imported_file_path,
     verify_exclusions,
 )
 
@@ -44,7 +45,7 @@ class TestImportManifestParity:
             manifest = json.load(f)
 
         imported = manifest.get("imported_files", {})
-        missing = [p for p in imported if not (REPO_ROOT / p).exists()]
+        missing = [p for p in imported if not resolve_imported_file_path(p, REPO_ROOT).exists()]
         assert missing == [], f"Missing files from manifest: {missing}"
 
     def test_imported_files_non_empty_except_upstream_zero_byte(self) -> None:
@@ -57,7 +58,7 @@ class TestImportManifestParity:
         empty_violations = []
         for rel_path, meta in imported.items():
             expected_size = meta.get("size", 0)
-            actual_size = (REPO_ROOT / rel_path).stat().st_size
+            actual_size = resolve_imported_file_path(rel_path, REPO_ROOT).stat().st_size
             if expected_size > 0 and actual_size == 0:
                 empty_violations.append(rel_path)
 

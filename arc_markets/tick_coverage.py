@@ -4,10 +4,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import StrEnum
-from typing import Any
 
-from arc_readiness.errors import ArcMarketIneligibleError, ArcValidationError
 from arbitrage_contracts.arc_extensions import TickCoverage
+from arc_readiness.errors import ArcMarketIneligibleError, ArcValidationError
 
 
 class TickWordStatus(StrEnum):

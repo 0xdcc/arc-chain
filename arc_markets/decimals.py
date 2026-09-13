@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
-from typing import Any
 
 from arc_readiness.errors import ArcNetworkMismatchError, ArcValidationError
 

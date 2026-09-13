@@ -17,9 +17,8 @@ from unittest.mock import MagicMock
 import pytest
 from eth_abi import encode as abi_encode
 
-from arbitrage.domain.types import MarketSnapshot, PoolIdentity, PoolStateSnapshot
-from arbitrage.market_data.catalog import ROBINHOOD_CHAIN_ID
-from arbitrage.market_data.pool_reader import (
+from research.market_data.catalog import ROBINHOOD_CHAIN_ID
+from research.market_data.pool_reader import (
     MULTICALL2_ADDRESS,
     STATE_VIEW_ADDRESS,
     SnapshotCoordinator,
@@ -30,6 +29,7 @@ from arbitrage.market_data.pool_reader import (
     is_v4_pool,
     read_market_snapshot,
 )
+from research.market_data.types import MarketSnapshot, PoolIdentity
 
 
 def _make_v3_pool(

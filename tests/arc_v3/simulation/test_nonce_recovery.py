@@ -12,9 +12,17 @@ from __future__ import annotations
 
 import os
 import tempfile
+
 import pytest
 
-from arbitrage_contracts.identity import Amount, AssetRef, FeeModel, PoolDescriptor, PoolKey, TokenKey
+from arbitrage_contracts.identity import (
+    Amount,
+    AssetRef,
+    FeeModel,
+    PoolDescriptor,
+    PoolKey,
+    TokenKey,
+)
 from arbitrage_contracts.quote import HopRef, RouteRef
 from arc_execution.authorization import ExecutionAuthorizationCard
 from arc_execution.nonce_journal import (

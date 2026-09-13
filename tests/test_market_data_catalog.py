@@ -1,4 +1,4 @@
-"""Contract and unit tests for arbitrage/market_data/catalog.py.
+"""Contract and unit tests for research/market_data/catalog.py.
 
 Verifies:
 1. WETH (18 decimals), USDG (6 decimals), and USDC (6 decimals) address and precision resolution.
@@ -17,8 +17,7 @@ from pathlib import Path
 
 import pytest
 
-from arbitrage.domain.types import PoolIdentity, TokenIdentity
-from arbitrage.market_data.catalog import (
+from research.market_data.catalog import (
     ROBINHOOD_CHAIN_ID,
     VERIFIED_DEX_FACTORIES,
     VERIFIED_TOKENS,
@@ -29,6 +28,7 @@ from arbitrage.market_data.catalog import (
     list_pools,
     register_pool,
 )
+from research.market_data.types import PoolIdentity, TokenIdentity
 
 
 @pytest.fixture(autouse=True)
@@ -252,7 +252,7 @@ class TestArchitecturePurity:
     def test_catalog_ast_audit(self) -> None:
         """Parse catalog.py AST to enforce zero network/subprocess calls."""
         catalog_path = (
-            Path(__file__).resolve().parent.parent / "arbitrage" / "market_data" / "catalog.py"
+            Path(__file__).resolve().parent.parent / "research" / "market_data" / "catalog.py"
         )
         tree = ast.parse(catalog_path.read_text(encoding="utf-8"))
 

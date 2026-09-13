@@ -8,7 +8,6 @@ import time
 from unittest.mock import MagicMock, patch
 
 import pytest
-
 from arbitrage.feed_listener import FeedEvent, FeedListener
 from arbitrage.spread_monitor import PoolSpec, PriceQuote
 from core.wallet_guard import KNOWN_TAX_TOKENS

@@ -14,7 +14,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 from backtest.config import BacktestConfig
 from backtest.data.rpc_client import RobinhoodRpc
 from backtest.data.swap_decoder import (

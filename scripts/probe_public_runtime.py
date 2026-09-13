@@ -5,10 +5,9 @@ import json
 from typing import Any
 
 import requests
+from core.rpc_policy import RpcPolicy
 from eth_abi import decode
 from web3 import Web3
-
-from core.rpc_policy import RpcPolicy
 
 ENDPOINT = "https://rpc.mainnet.chain.robinhood.com"
 READS = {"eth_chainId", "eth_getBlockByNumber", "eth_getCode", "eth_call"}

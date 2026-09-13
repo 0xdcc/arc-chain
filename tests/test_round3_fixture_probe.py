@@ -5,6 +5,7 @@ import time
 from decimal import ROUND_CEILING, Decimal
 
 from arbitrage.spread_monitor import SpreadAlert
+
 from tests.receipt_fixture import make_receipt_fixture
 
 

@@ -8,6 +8,7 @@ Covers:
 """
 
 from dataclasses import FrozenInstanceError
+
 import pytest
 
 from arbitrage_contracts.arc_extensions import (
@@ -60,7 +61,7 @@ class TestArcContractExtensions:
             NetworkProfile(
                 chain_id=5042,
                 name="arc-mainnet-bad",
-                block_domain=BlockDomain.L2,  # type: ignore[arg-type]
+                block_domain=BlockDomain.L2,
                 rpc_endpoints=("https://rpc.arc.network",),
                 native_asset_domain="arc:native:usdc:18",
             )

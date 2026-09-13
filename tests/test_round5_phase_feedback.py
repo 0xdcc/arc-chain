@@ -3,9 +3,9 @@
 from decimal import Decimal
 
 import pytest
+from execution.protocols import ROUTER, V3_QUOTER, RouterSimulationRevertError
 from web3.exceptions import ContractLogicError
 
-from execution.protocols import ROUTER, V3_QUOTER, RouterSimulationRevertError
 from tests.test_round4_feedback import DAEMON, PATHS, invoke, setup_case
 
 

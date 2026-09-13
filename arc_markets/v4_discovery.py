@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any
 
 from arc_markets.deployments import DeploymentsRegistry
 from arc_markets.v4_events import V4InitializeEvent, V4PoolKey
@@ -75,6 +74,18 @@ class V4MarketDiscoveryEngine:
             tick_spacing=event.tick_spacing,
             hooks=event.hooks,
         )
+
+        # 2. Mathematical Keccak-256 derivation verification (before state write)
+        try:
+            expected_pool_id = v4_key.compute_pool_id()
+        except RuntimeError as exc:
+            raise ArcValidationError(
+                f"V4 Initialize failed closed: missing keccak derivation dependency: {exc}"
+            ) from exc
+        if event.pool_id.lower() != expected_pool_id.lower():
+            raise ArcValidationError(
+                f"V4 Initialize pool_id mismatch: event={event.pool_id}, computed={expected_pool_id}"
+            )
 
         composite_key = (event.manager_address.lower(), event.pool_id.lower())
         if composite_key in self._pools_by_manager_and_id:

@@ -6,8 +6,6 @@ import logging
 from unittest.mock import MagicMock
 
 import pytest
-from web3 import Web3
-
 from arbitrage.spread_monitor import PoolSpec, PriceQuote
 from arbitrage.triangular import (
     DirectedEdge,
@@ -24,6 +22,7 @@ from execution.weth_arbitrage_executor import (
     WethArbitrageExecutor,
 )
 from monitors.daemons.arbitrage_daemon import ArbitrageDaemon
+from web3 import Web3
 
 WETH_ADDR = CANONICAL_WETH_ADDRESS
 USDG_ADDR = CANONICAL_USDG_ADDRESS
@@ -51,9 +50,9 @@ def mock_w3() -> MagicMock:
 @pytest.fixture
 def executor(mock_w3: MagicMock) -> WethArbitrageExecutor:
     exec_inst = WethArbitrageExecutor(w3=mock_w3)
-    exec_inst.get_weth_balance = MagicMock(return_value=10**18)  # type: ignore[method-assign]
-    exec_inst.get_eth_balance = MagicMock(return_value=10**18)  # type: ignore[method-assign]
-    exec_inst.get_weth_allowance = MagicMock(return_value=2**256 - 1)  # type: ignore[method-assign]
+    exec_inst.get_weth_balance = MagicMock(return_value=10**18)
+    exec_inst.get_eth_balance = MagicMock(return_value=10**18)
+    exec_inst.get_weth_allowance = MagicMock(return_value=2**256 - 1)
     return exec_inst
 
 
@@ -377,8 +376,8 @@ class TestProfitAnomalyProtection:
     ) -> None:
         """Verify daemon handle_triangle_alert drops alerts with max_profit_usd > 1000."""
         daemon = ArbitrageDaemon()
-        daemon.record_opportunity = MagicMock()  # type: ignore[method-assign]
-        daemon._try_auto_snipe_triangle = MagicMock()  # type: ignore[method-assign]
+        daemon.record_opportunity = MagicMock()
+        daemon._try_auto_snipe_triangle = MagicMock()
 
         anomaly_alert = TriangularArbAlert(
             start_token=WETH_ADDR,

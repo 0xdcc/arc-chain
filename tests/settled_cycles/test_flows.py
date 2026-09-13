@@ -84,6 +84,10 @@ class FlowReconstructionTests(unittest.TestCase):
             [item.action_kind for item in actions],
         )
         self.assertEqual([1, 2, 3, 4, 5], [item.step_id for item in actions])
+        assert actions[1].pool_key is not None
+        assert actions[3].pool_key is not None
+        assert actions[0].asset_in is not None
+        assert actions[0].asset_out is not None
         self.assertEqual(POOL_A.lower(), actions[1].pool_key.pool_id.lower())
         self.assertEqual(POOL_A.lower(), actions[3].pool_key.pool_id.lower())
         self.assertEqual("native", actions[0].asset_in.interface_kind)
@@ -100,6 +104,7 @@ class FlowReconstructionTests(unittest.TestCase):
         }
         actions, _ = reconstruct_actions_and_flows(bundle([log]))
         self.assertEqual(ActionKind.SWAP, actions[0].action_kind)
+        assert actions[0].pool_key is not None
         self.assertEqual("manager", actions[0].pool_key.venue_kind)
         self.assertEqual(POOL_ID.lower(), actions[0].pool_key.pool_id.lower())
 
@@ -181,6 +186,7 @@ class FlowReconstructionTests(unittest.TestCase):
         grouped: dict[tuple[str, str], int] = {}
         for item in deltas:
             assert item.asset.token_key is not None
+            assert item.delta_atoms is not None
             token = item.asset.token_key.address.lower()
             grouped[(item.subject_address, token)] = grouped.get((item.subject_address, token), 0) + item.delta_atoms
         self.assertEqual(-100, grouped[(USER_A, USDC)])

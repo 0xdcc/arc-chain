@@ -7,8 +7,6 @@ from typing import Any, cast
 from unittest.mock import MagicMock, patch
 
 import pytest
-from web3 import Web3
-
 from arbitrage.spread_monitor import PoolSpec, SpreadAlert
 from arbitrage.triangular import SwapLeg, TriangularArbAlert
 from core.config import Config, load_safe_config
@@ -22,6 +20,8 @@ from execution.weth_arbitrage_executor import (
     WethArbitrageExecutor,
     resolve_token_address,
 )
+from web3 import Web3
+
 from tests.receipt_fixture import make_receipt_fixture
 
 MOCK_WALLET = "0x23989C17bD91b8E4EA06254D9cA002DF5EF6a83f"

@@ -88,6 +88,7 @@ class TestV4PipelineDecoupling:
         # Even a catalog with 1 pool is structurally valid for Arc testing
         assert len(arc_v4_sample) == 1
         assert arc_v4_sample[0]["chain_id"] == 5042
+        assert isinstance(arc_v4_sample[0]["pool_id"], str)
         assert len(arc_v4_sample[0]["pool_id"]) == 66
 
     def test_no_fixed_tmp_ledger_conflict(self, tmp_path: Path) -> None:

@@ -146,7 +146,7 @@ def test_single_hop_model_validation_failures() -> None:
         SingleHopQuoteRequest(
             quote_id="q1",
             pool_key=POOL_KEY,
-            direction="three_way_cycle",  # type: ignore[arg-type]
+            direction="three_way_cycle",
             asset_in=ASSET0,
             asset_out=ASSET1,
             amount_in=Amount(asset_ref=ASSET0, atoms=100, decimals=6),

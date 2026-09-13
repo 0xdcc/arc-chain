@@ -3,13 +3,13 @@
 from decimal import Decimal
 
 import pytest
-from eth_abi import encode
-from web3 import Web3
-
 from arbitrage.monitor_rpc import MonitorRpc
+from eth_abi import encode
 from execution.funds import FundsError
 from execution.funds_runtime import SettledLoss
 from monitors.daemons.arbitrage_daemon import ArbitrageDaemon
+from web3 import Web3
+
 from tests.receipt_fixture import make_receipt_fixture
 
 

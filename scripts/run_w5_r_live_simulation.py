@@ -255,7 +255,7 @@ def run_w5_r_simulation(
 
         for amt_in_wei, amt_out_min_wei, label in test_amounts:
             amt_in = Amount(weth_asset, amt_in_wei, 18)
-            amt_out_min = Amount(weth_asset, amt_out_min_wei, 18)
+            _amt_out_min = Amount(weth_asset, amt_out_min_wei, 18)
             # Placeholder expected output based on conservative 1% pool loss
             expected_out_wei = int(amt_in_wei * 0.99)
             amt_out_expected = Amount(weth_asset, expected_out_wei, 18)

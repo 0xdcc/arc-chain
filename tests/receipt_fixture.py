@@ -11,15 +11,14 @@ from fractions import Fraction
 from types import SimpleNamespace
 from unittest.mock import MagicMock
 
-from eth_abi import decode, encode
-from web3 import Web3
-
 from core.config import load_safe_config
 from core.wallet_guard import WalletGuard
+from eth_abi import decode, encode
 from execution.funds import BASES, TRANSFER_TOPIC, hex_value
 from execution.protocols import PERMIT2, ROUTER, V3_FACTORY, V3_QUOTER
 from execution.public_runtime import build_public_runtime
 from execution.weth_arbitrage_executor import ArbitrageLeg, ArbitragePlan, WethArbitrageExecutor
+from web3 import Web3
 
 
 def make_receipt_fixture(

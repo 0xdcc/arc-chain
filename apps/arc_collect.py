@@ -16,8 +16,8 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-from arc_runtime.collect import CollectorConfig, execute_collection  # noqa: E402
 from arbitrage_contracts.arc_extensions import BlockDomain  # noqa: E402
+from arc_runtime.collect import CollectorConfig, execute_collection  # noqa: E402
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -25,12 +25,27 @@ def build_parser() -> argparse.ArgumentParser:
         description="Record-only ingest CLI for Arc chain block data.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument("--chain-id", type=int, default=5042, help="Target Arc chain ID (5042=mainnet, 5042002=testnet)")
-    parser.add_argument("--from-block", type=int, required=True, help="Starting block number (inclusive)")
-    parser.add_argument("--to-block", type=int, required=True, help="Ending block number (inclusive)")
-    parser.add_argument("--output-dir", type=Path, required=True, help="Directory to store JSONL and manifests")
-    parser.add_argument("--fixture-mode", action="store_true", help="Run in deterministic offline fixture mode")
-    parser.add_argument("--rpc-endpoint", type=str, default=None, help="Readonly RPC URL for live mode")
+    parser.add_argument(
+        "--chain-id",
+        type=int,
+        default=5042,
+        help="Target Arc chain ID (5042=mainnet, 5042002=testnet)",
+    )
+    parser.add_argument(
+        "--from-block", type=int, required=True, help="Starting block number (inclusive)"
+    )
+    parser.add_argument(
+        "--to-block", type=int, required=True, help="Ending block number (inclusive)"
+    )
+    parser.add_argument(
+        "--output-dir", type=Path, required=True, help="Directory to store JSONL and manifests"
+    )
+    parser.add_argument(
+        "--fixture-mode", action="store_true", help="Run in deterministic offline fixture mode"
+    )
+    parser.add_argument(
+        "--rpc-endpoint", type=str, default=None, help="Readonly RPC URL for live mode"
+    )
     return parser
 
 

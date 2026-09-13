@@ -18,8 +18,6 @@ from typing import Any
 
 from opportunities.store import (
     AppendOnlyLedger,
-    LedgerError,
-    LedgerSnapshot,
     _read_snapshot,
 )
 

@@ -13,10 +13,15 @@ from __future__ import annotations
 
 import pytest
 
-from arbitrage_contracts.identity import Amount, AssetRef, FeeModel, PoolDescriptor, PoolKey, TokenKey
+from arbitrage_contracts.identity import (
+    Amount,
+    AssetRef,
+    FeeModel,
+    PoolDescriptor,
+    PoolKey,
+    TokenKey,
+)
 from arbitrage_contracts.quote import HopRef, RouteRef
-from atomic_execution.arc_planning import ArcExecutionPlan
-from atomic_execution.policy import ExecutionPolicy
 from arc_execution.authorization import (
     AuthorizationBudgetExceededError,
     AuthorizationError,
@@ -24,6 +29,8 @@ from arc_execution.authorization import (
     ExecutionAuthorizationCard,
 )
 from arc_execution.policy import ArcRestrictedPolicyEngine
+from atomic_execution.arc_planning import ArcExecutionPlan
+from atomic_execution.policy import ExecutionPolicy
 
 CHAIN_ARC = 5042
 WALLET = "0x" + "11" * 20

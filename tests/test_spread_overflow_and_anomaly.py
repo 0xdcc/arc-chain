@@ -6,8 +6,6 @@ import logging
 from unittest.mock import MagicMock, patch
 
 import pytest
-from web3 import Web3
-
 from arbitrage.spread_monitor import PoolSpec, PriceQuote, SpreadAlert, find_spreads
 from execution.weth_arbitrage_executor import (
     CANONICAL_USDG_ADDRESS,
@@ -16,6 +14,7 @@ from execution.weth_arbitrage_executor import (
     WethArbitrageExecutor,
 )
 from monitors.daemons.arbitrage_daemon import ArbitrageDaemon
+from web3 import Web3
 
 USDG_ADDR = CANONICAL_USDG_ADDRESS
 WETH_ADDR = CANONICAL_WETH_ADDRESS
@@ -62,9 +61,9 @@ def mock_w3() -> MagicMock:
 def executor(mock_w3: MagicMock) -> WethArbitrageExecutor:
     """Fixture providing a WethArbitrageExecutor with mocked balance checks."""
     exec_inst = WethArbitrageExecutor(w3=mock_w3)
-    exec_inst.get_weth_balance = MagicMock(return_value=10**18)  # type: ignore[method-assign]
-    exec_inst.get_eth_balance = MagicMock(return_value=10**18)  # type: ignore[method-assign]
-    exec_inst.get_weth_allowance = MagicMock(return_value=2**256 - 1)  # type: ignore[method-assign]
+    exec_inst.get_weth_balance = MagicMock(return_value=10**18)
+    exec_inst.get_eth_balance = MagicMock(return_value=10**18)
+    exec_inst.get_weth_allowance = MagicMock(return_value=2**256 - 1)
     return exec_inst
 
 
@@ -197,8 +196,8 @@ class TestDaemonSpreadProfitAnomalyAndCeiling:
         )
 
         daemon = ArbitrageDaemon(mode="spread", auto_execute=True)
-        daemon.record_opportunity = MagicMock()  # type: ignore[method-assign]
-        daemon._try_auto_snipe_spread = MagicMock()  # type: ignore[method-assign]
+        daemon.record_opportunity = MagicMock()
+        daemon._try_auto_snipe_spread = MagicMock()
 
         with (
             patch("monitors.daemons.arbitrage_daemon.send_qq_notification") as mock_qq,
@@ -266,8 +265,8 @@ class TestDaemonSpreadProfitAnomalyAndCeiling:
         )
 
         daemon = ArbitrageDaemon(mode="spread", auto_execute=True)
-        daemon.record_opportunity = MagicMock()  # type: ignore[method-assign]
-        daemon._try_auto_snipe_spread = MagicMock()  # type: ignore[method-assign]
+        daemon.record_opportunity = MagicMock()
+        daemon._try_auto_snipe_spread = MagicMock()
 
         with (
             patch("monitors.daemons.arbitrage_daemon.send_qq_notification") as mock_qq,
@@ -302,8 +301,8 @@ class TestDaemonSpreadProfitAnomalyAndCeiling:
         )
 
         daemon = ArbitrageDaemon(mode="spread", auto_execute=True)
-        daemon.record_opportunity = MagicMock()  # type: ignore[method-assign]
-        daemon._try_auto_snipe_spread = MagicMock()  # type: ignore[method-assign]
+        daemon.record_opportunity = MagicMock()
+        daemon._try_auto_snipe_spread = MagicMock()
 
         with (
             patch("monitors.daemons.arbitrage_daemon.send_qq_notification") as mock_qq,

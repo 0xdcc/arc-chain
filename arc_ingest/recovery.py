@@ -3,8 +3,6 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
-from typing import Any
 
 from arc_ingest.coverage import BlockRange, CoverageManifest
 from arc_ingest.history_scan import HistoricalBlockScanner

@@ -7,10 +7,10 @@ from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
+from arbitrage_contracts.arc_extensions import BlockDomain, RawEnvelope
 from arc_ingest.cursors import CursorStore, DurableCursor
 from arc_ingest.segments import SegmentManager
 from arc_readiness.errors import ArcValidationError
-from arbitrage_contracts.arc_extensions import BlockDomain, RawEnvelope
 
 
 class RawDataRecorder:
@@ -110,7 +110,7 @@ class RawDataRecorder:
         self.segment_manager.verify_segment_integrity(seg_id)
         file_path = self.base_dir / "segments" / f"{seg_id}.jsonl"
         records = []
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             for line in f:
                 stripped = line.strip()
                 if stripped:

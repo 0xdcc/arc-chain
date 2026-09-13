@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "target_evaluations": 10000,
+  "total_duration_seconds": 5.36,
+  "evaluations_per_second": 1865.5,
+  "latency_us": {
+    "p50_us": 461.08,
+    "p90_us": 686.28,
+    "p95_us": 700.0,
+    "p99_us": 758.13
+  },
+  "latency_ms": {
+    "p95_ms": 0.7,
+    "p99_ms": 0.758
+  },
+  "memory": {
+    "baseline_rss_kib": 19804,
+    "final_rss_kib": 21724,
+    "rss_delta_mib": 1.88,
+    "peak_rss_mib": 21.21,
+    "peak_tracemalloc_bytes": 327094,
+    "rss_delta_limit_mib": 256.0,
+    "rss_delta_within_budget": true
+  },
+  "network": {
+    "external_rpc_calls": 0,
+    "socket_connections": 0,
+    "zero_network_verified": true
+  }
+}

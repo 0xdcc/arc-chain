@@ -143,7 +143,7 @@ def _make_v4_hop(
     asset_out: AssetRef,
     fee_raw: int = 500,
     tick_spacing: int = 10,
-    hooks: str = ZERO_ADDRESS,
+    hooks: str | None = ZERO_ADDRESS,
     fee_model: FeeModel | None = None,
     pool_id: str | None = None,
     chain_id: int = ROBINHOOD_CHAIN_ID,
@@ -748,6 +748,28 @@ def test_c12_v4_nonzero_hook_rejected() -> None:
 
     with pytest.raises(CommandSecurityError, match="only zero-hook V4 pools are permitted"):
         encode_execution_plan(plan)
+
+
+def test_c12_v4_unknown_hook_none_rejected() -> None:
+    weth = _make_asset(WETH_ADDRESS_4663)
+    usdg = _make_asset(USDG_ADDRESS_4663)
+    hop_none_hook = _make_v4_hop(weth, usdg, fee_raw=500, tick_spacing=10, hooks=None)
+    hop_ok = _make_v4_hop(usdg, weth, fee_raw=500, tick_spacing=10)
+
+    # 1. resolve_v4_pool_key rejects None hook fail-closed
+    with pytest.raises(CommandSecurityError, match="unknown or missing hook"):
+        resolve_v4_pool_key(hop_none_hook)
+
+    # 2. Sequential mixed plan rejects None hook fail-closed
+    plan_mixed = _make_plan([hop_none_hook, hop_ok])
+    with pytest.raises(CommandSecurityError, match="unknown or missing hook"):
+        encode_execution_plan(plan_mixed)
+
+    # 3. Pure V4 plan rejects None hook fail-closed
+    hop_none_rev = _make_v4_hop(usdg, weth, fee_raw=500, tick_spacing=10, hooks=None)
+    plan_pure = _make_plan([hop_none_hook, hop_none_rev])
+    with pytest.raises(CommandSecurityError, match="unknown or missing hook"):
+        encode_execution_plan(plan_pure)
 
 
 def test_c12_v4_dynamic_fee_rejected() -> None:

@@ -6,9 +6,9 @@ import json
 from pathlib import Path
 from typing import Any
 
+from arbitrage_contracts.arc_extensions import BlockDomain, NetworkProfile
 from arc_readiness.errors import ArcNetworkMismatchError, ArcValidationError
 from arc_readiness.network import ARC_MAINNET_CHAIN_ID, ARC_TESTNET_CHAIN_ID
-from arbitrage_contracts.arc_extensions import BlockDomain, NetworkProfile
 
 
 def get_mainnet_profile(

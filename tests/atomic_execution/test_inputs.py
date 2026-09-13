@@ -15,6 +15,7 @@ from arbitrage_contracts.eligibility import (
     AssetEligibility,
     CapabilityStatus,
     PoolCapability,
+    RestrictionStatus,
     ReviewStatus,
 )
 from arbitrage_contracts.identity import (
@@ -495,6 +496,7 @@ def test_c04_approved_assets_pass() -> None:
     eligibility_map = {
         route.base_asset: AssetEligibility(
             asset_ref=route.base_asset,
+            contract_restrictions={"tax": RestrictionStatus.VERIFIED_FALSE},
             review_status=ReviewStatus.APPROVED,
             reviewer_ref="reviewer:audit",
             reviewed_at_ms=1000,
@@ -502,6 +504,7 @@ def test_c04_approved_assets_pass() -> None:
         ),
         route.hops[0].asset_out: AssetEligibility(
             asset_ref=route.hops[0].asset_out,
+            contract_restrictions={"tax": RestrictionStatus.VERIFIED_FALSE},
             review_status=ReviewStatus.APPROVED,
             reviewer_ref="reviewer:audit",
             reviewed_at_ms=1000,

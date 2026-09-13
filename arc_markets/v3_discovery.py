@@ -5,6 +5,12 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
+from arbitrage_contracts.identity import (
+    AssetRef,
+    FeeModel,
+    PoolKey,
+    TokenKey,
+)
 from arc_markets.decimals import DecimalsRegistry
 from arc_markets.deployments import DeploymentsRegistry
 from arc_markets.v3_events import (
@@ -18,12 +24,6 @@ from arc_markets.v3_events import (
     V3SwapEvent,
 )
 from arc_readiness.errors import ArcMarketIneligibleError, ArcValidationError
-from arbitrage_contracts.identity import (
-    AssetRef,
-    FeeModel,
-    PoolKey,
-    TokenKey,
-)
 
 
 @dataclass

@@ -503,10 +503,10 @@ class TestSerializationAndHashing(unittest.TestCase):
                 "payload": "string_payload_is_illegal",
             }
         )
-        with self.assertRaises(TypeError) as ctx:
+        with self.assertRaises(TypeError) as type_ctx:
             decode_record_json(bad_payload_type_json)
         self.assertIn(
-            "payload for asset_eligibility must be Mapping or AssetEligibility", str(ctx.exception)
+            "payload for asset_eligibility must be Mapping or AssetEligibility", str(type_ctx.exception)
         )
 
     def test_state_version_with_applied_cursor_roundtrip(self) -> None:

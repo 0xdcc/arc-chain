@@ -16,7 +16,6 @@ Strictly decoupled from business logic and calculators. Standard library only.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from decimal import Decimal
 from enum import StrEnum
 from typing import Any
 

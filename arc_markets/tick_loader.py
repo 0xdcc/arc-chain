@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Any
-
 from arc_markets.tick_coverage import (
     TickCoverageSnapshot,
     TickData,

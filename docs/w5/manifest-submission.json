@@ -1,0 +1,157 @@
+{
+  "format": "w5-manifest-submission-v1",
+  "window": "W5",
+  "total_files": 30,
+  "files": [
+    {
+      "path": "apps/atomic_simulate.py",
+      "sha256": "202f8a29a3be50c9a2dc981ca23a51fc08237c31fe18a66be9944587d023e6ce",
+      "size_bytes": 6719
+    },
+    {
+      "path": "atomic_execution/__init__.py",
+      "sha256": "34ca31a900f612c5d587b02eb2fc992628dbb7cc8edbf9762abf54f5a0e81461",
+      "size_bytes": 1120
+    },
+    {
+      "path": "atomic_execution/encoding.py",
+      "sha256": "90f1245a5cbbbbb01e9e95db006a9fc7c82874fd6500ec716d3d86214cb6ea35",
+      "size_bytes": 46879
+    },
+    {
+      "path": "atomic_execution/export.py",
+      "sha256": "7613546f4669e5c3a21e4e75f6fd0b132c83502952679fc63f0cd93f9df9b8d1",
+      "size_bytes": 7876
+    },
+    {
+      "path": "atomic_execution/inputs.py",
+      "sha256": "e1586e875382e459badfe26b57a6e31626c54ab87b6e95a128f91ddb3ed4c7c2",
+      "size_bytes": 27570
+    },
+    {
+      "path": "atomic_execution/models.py",
+      "sha256": "6d1d886c1f0f038e23eac755b90a965fa08bbb5020d80a4cf3ab085dda9b5149",
+      "size_bytes": 17256
+    },
+    {
+      "path": "atomic_execution/pipeline.py",
+      "sha256": "a846e6762751925e04d26f43db2ae8fbfb5749551b7ea22443bdff1d6a8ef7f7",
+      "size_bytes": 22278
+    },
+    {
+      "path": "atomic_execution/planning.py",
+      "sha256": "2eadb0f4ebcfff675157161150ce10ac49e375f1ab1ab501f4bede7ea3c772c3",
+      "size_bytes": 19535
+    },
+    {
+      "path": "atomic_execution/policy.py",
+      "sha256": "ec6996b535f2ae0daf8e0968c81eac221f00d62bf70c9a3ac1236ea1dff1ec8a",
+      "size_bytes": 28937
+    },
+    {
+      "path": "atomic_execution/reconciliation.py",
+      "sha256": "7ded848b7cdba5aaecbd060cbaf7b0bdb274536f70143ea7eaf5b2d22797a993",
+      "size_bytes": 54562
+    },
+    {
+      "path": "atomic_execution/simulation.py",
+      "sha256": "d00dc7149adc31c92ef8e6c4f7480af1cecf115845c593f7fa752eb32c6c0a79",
+      "size_bytes": 24800
+    },
+    {
+      "path": "atomic_execution/transport.py",
+      "sha256": "bc36ab8702e26e143267ae0288353bd9a5ceb005c005ad7d384ddd18656a749d",
+      "size_bytes": 21337
+    },
+    {
+      "path": "tests/atomic_execution/test_boundary.py",
+      "sha256": "47ed3efeb1b6bd79dd4055d8e7c1288d136db40e7af00fa25485c30ebaa60905",
+      "size_bytes": 9224
+    },
+    {
+      "path": "tests/atomic_execution/test_cli.py",
+      "sha256": "97e01e1c5d4b787088ef23d07e4d8ede6177a2731805bfe40c5799999291f356",
+      "size_bytes": 7775
+    },
+    {
+      "path": "tests/atomic_execution/test_encoding.py",
+      "sha256": "8041a0b071f2b74d932377cdaeb6b5138e416db6641f0b92d70c76101fa0a5de",
+      "size_bytes": 32527
+    },
+    {
+      "path": "tests/atomic_execution/test_inputs.py",
+      "sha256": "f754a2ce7abbbb92be53726f4e4be0530f22ff02719f487377d72e03b8c6e8aa",
+      "size_bytes": 32559
+    },
+    {
+      "path": "tests/atomic_execution/test_pipeline.py",
+      "sha256": "1715f9a15babd1f50638ff9d3e0cb3bd195d2c422941891ce8f90c2c51cf72de",
+      "size_bytes": 11971
+    },
+    {
+      "path": "tests/atomic_execution/test_policy.py",
+      "sha256": "844f4b5466ddadf34e7076849f4d6ec89b49db76ac83fce2fed570888f2972de",
+      "size_bytes": 34538
+    },
+    {
+      "path": "tests/atomic_execution/test_reconciliation.py",
+      "sha256": "8a44aa11421730b9b9deb682e1113b0331d2d23e0c367452854cfd336226066c",
+      "size_bytes": 41772
+    },
+    {
+      "path": "tests/atomic_execution/test_simulation.py",
+      "sha256": "043c4e1fec805b68acfeee559c7a324742cee3d6ac2c53e2c829c8d9faf1f97c",
+      "size_bytes": 72848
+    },
+    {
+      "path": "tests/fixtures/atomic_execution/v1/README.md",
+      "sha256": "8d4138cc4f7c7779f244c6e5bd8eb6e291a11dd718df640bb4c88ef80eb1c2b8",
+      "size_bytes": 1431
+    },
+    {
+      "path": "tests/fixtures/atomic_execution/v1/e2e-stream.jsonl",
+      "sha256": "e26b220bfd31b7d7d848c1a611a79dd5a143e6cb7397fdb119c3db4f7cdd6899",
+      "size_bytes": 94055
+    },
+    {
+      "path": "tests/fixtures/atomic_execution/v1/encoding-cases.jsonl",
+      "sha256": "70bffe203e48710c1854bd2a387d154658a91d84ad3db29b1a25701c494567aa",
+      "size_bytes": 9165
+    },
+    {
+      "path": "tests/fixtures/atomic_execution/v1/input-cases.jsonl",
+      "sha256": "17abb6995758f81598043310299c9c7491e93d6ae3778c6de549d6b38dc1f6ef",
+      "size_bytes": 126748
+    },
+    {
+      "path": "tests/fixtures/atomic_execution/v1/manifest.json",
+      "sha256": "5237e957d97f745a0c337da79fd7ac74d804eef421388f105057c798588161f6",
+      "size_bytes": 485
+    },
+    {
+      "path": "tests/fixtures/atomic_execution/v1/policy-cases.jsonl",
+      "sha256": "71b4bf2ca3169dc86cd7dbfa780a5ac3ebd6f0e301fb63d8ab679593159d2d0b",
+      "size_bytes": 17614
+    },
+    {
+      "path": "tests/fixtures/atomic_execution/v1/receipt-cases.jsonl",
+      "sha256": "5dde4b624bc3b24d7f6f4e1619a958be39c558ddeb7ef0986817bc070b99b0c3",
+      "size_bytes": 38953
+    },
+    {
+      "path": "tests/fixtures/atomic_execution/v1/simulation-cases.jsonl",
+      "sha256": "a4cf91d5ec73889d6f10df5b6c85731615fe111f145caaa3e0a7eb9de6b0a317",
+      "size_bytes": 33562
+    },
+    {
+      "path": "tools/w5_offline_check.py",
+      "sha256": "298629508b8b7f53a8ff6e6a82a3f9ee8fbb3b9ed0482b636fcc7e95c38f0eaa",
+      "size_bytes": 7934
+    },
+    {
+      "path": "tools/w5_sabotage.py",
+      "sha256": "dbd575b55a708c50fc230184816339a469b8e9d80deb2379309eb27bb1662fbe",
+      "size_bytes": 9598
+    }
+  ]
+}

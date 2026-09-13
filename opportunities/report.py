@@ -420,7 +420,7 @@ def _build_report(
 def build_report_from_ledger(ledger_path: Path) -> ReportPayload:
     """Load and independently reconcile one append-only ledger into a report."""
     file_bytes = ledger_path.read_bytes()
-    ledger = AppendOnlyLedger(ledger_path)
+    ledger = AppendOnlyLedger.open_readonly(ledger_path)
     snapshot = ledger.load()
     if snapshot.truncated_tail is not None:
         raise LedgerCorruptionError("ledger tail is truncated")

@@ -78,8 +78,8 @@ def reconcile_dual_interface_balance(
     elif valid_native is None and valid_erc20 is not None:
         # N is unknown; only bounded to [E * S, (E + 1) * S - 1]
         dust_atoms = None  # Crucial: dust cannot be assumed 0!
-        verified_consistency = True
-        reasons.append("bounded_native_from_erc20")
+        verified_consistency = False
+        reasons.append("native_atoms_unknown_range_bounded")
     else:
         verified_consistency = False
         reasons.append("no_balance_observed")

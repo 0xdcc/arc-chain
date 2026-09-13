@@ -3,7 +3,6 @@
 import time
 
 import pytest
-
 from arbitrage.spread_monitor import estimate_realized_profit_usd
 
 

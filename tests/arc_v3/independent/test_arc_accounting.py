@@ -149,14 +149,77 @@ class TestDualInterfaceBalanceReconciliation:
             native_atoms=None,
             erc20_atoms=erc20,
         )
-        assert obs.verified_consistency is True
+        assert obs.verified_consistency is False
         assert obs.dust_atoms is None  # Must NOT assume 0
-        assert "bounded_native_from_erc20" in obs.stale_or_incomplete_reasons
+        assert "native_atoms_unknown_range_bounded" in obs.stale_or_incomplete_reasons
 
         # Verify bounds calculation
         min_n, max_n = calculate_native_bounds_from_erc20(erc20)
         assert min_n == 5_000_000 * SCALE_FACTOR
         assert max_n == (5_000_001 * SCALE_FACTOR) - 1
+
+    def test_negative_control_erc20_unknown_vs_native_derivation(self) -> None:
+        """Negative control: Single-side ERC20 leaves dust unknown (consistency unverified False),
+
+        in direct contrast with single-side Native which deterministically derives ERC20 and dust (True).
+        Clarifies that verified_consistency=False for ERC20-only is due to sub-micro resolution loss,
+        NOT a blanket rule that 'all single-sided observations are False'.
+        """
+        erc20_val = 10_000_000
+        dust_val = 123
+        native_val = (erc20_val * SCALE_FACTOR) + dust_val
+
+        # Positive Control A: Dual-interface matched observation -> True, exact dust
+        obs_dual = reconcile_dual_interface_balance(
+            account=self.ACCOUNT,
+            chain_id=ARC_MAINNET_CHAIN_ID,
+            block_number=1000,
+            block_hash=self.BLOCK_HASH,
+            native_atoms=native_val,
+            erc20_atoms=erc20_val,
+        )
+        assert obs_dual.verified_consistency is True
+        assert obs_dual.dust_atoms == dust_val
+        assert len(obs_dual.stale_or_incomplete_reasons) == 0
+
+        # Positive Control B: Single-side Native observation -> True, deterministic derivation
+        obs_native = reconcile_dual_interface_balance(
+            account=self.ACCOUNT,
+            chain_id=ARC_MAINNET_CHAIN_ID,
+            block_number=1000,
+            block_hash=self.BLOCK_HASH,
+            native_atoms=native_val,
+            erc20_atoms=None,
+        )
+        assert obs_native.verified_consistency is True
+        assert obs_native.dust_atoms == dust_val
+        assert "derived_erc20_from_native" in obs_native.stale_or_incomplete_reasons
+
+        # Negative Control 1: Single-side ERC20 observation -> False, dust is unknown None
+        obs_erc20 = reconcile_dual_interface_balance(
+            account=self.ACCOUNT,
+            chain_id=ARC_MAINNET_CHAIN_ID,
+            block_number=1000,
+            block_hash=self.BLOCK_HASH,
+            native_atoms=None,
+            erc20_atoms=erc20_val,
+        )
+        assert obs_erc20.verified_consistency is False
+        assert obs_erc20.dust_atoms is None
+        assert "native_atoms_unknown_range_bounded" in obs_erc20.stale_or_incomplete_reasons
+
+        # Negative Control 2: Dual-interface mismatch -> False, mismatch detected
+        obs_mismatch = reconcile_dual_interface_balance(
+            account=self.ACCOUNT,
+            chain_id=ARC_MAINNET_CHAIN_ID,
+            block_number=1000,
+            block_hash=self.BLOCK_HASH,
+            native_atoms=native_val,
+            erc20_atoms=erc20_val + 1,
+            strict_raise=False,
+        )
+        assert obs_mismatch.verified_consistency is False
+        assert any("mismatch" in r.lower() for r in obs_mismatch.stale_or_incomplete_reasons)
 
     def test_spending_permission_native_vs_erc20(self) -> None:
         target = "0x" + "22" * 20

@@ -5,7 +5,6 @@ from types import SimpleNamespace
 from unittest.mock import MagicMock
 
 import pytest
-
 from core.config import load_safe_config
 from core.wallet_guard import ExcessiveAmountError, InvalidSlippageError, WalletGuard
 from execution.funds import (

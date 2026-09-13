@@ -16,7 +16,7 @@ from decimal import Decimal
 from typing import Any
 
 from arbitrage_contracts.arc_extensions import CostEvidence
-from arbitrage_contracts.identity import Amount, AssetRef
+from arbitrage_contracts.identity import Amount
 from arbitrage_contracts.quote import (
     QuoteEvidence,
     QuoteStatus,
@@ -25,7 +25,6 @@ from arbitrage_contracts.quote import (
 from arc_opportunities.costs import ArcCostBreakdown
 from arc_opportunities.economics import (
     ArcEconomicEvaluator,
-    EconomicsError,
     validate_positive_decimal,
 )
 from arc_opportunities.quote_bridge import ArcQuoteBridge

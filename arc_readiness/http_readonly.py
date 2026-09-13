@@ -7,10 +7,10 @@ import urllib.error
 import urllib.request
 from collections.abc import Sequence
 from typing import Any
+from urllib.parse import urlsplit, urlunsplit
 
 from arc_readiness.errors import ArcValidationError
 from arc_readiness.rpc_readonly import (
-    ALLOWED_READONLY_METHODS,
     ReadOnlyRpcTransport,
     validate_batch_methods,
     validate_rpc_method,
@@ -73,6 +73,36 @@ class HttpReadOnlyRpcTransport(ReadOnlyRpcTransport):
         self._consecutive_failures = 0
         self._is_tripped = False
 
+    def _sanitize_error(self, err: Any) -> str:
+        """Sanitize error message to ensure endpoint credentials/secrets are not leaked."""
+        err_msg = str(err)
+        if not self.endpoint_url:
+            return err_msg
+
+        try:
+            parsed = urlsplit(self.endpoint_url)
+            if parsed.password:
+                err_msg = err_msg.replace(parsed.password, "<REDACTED>")
+            if parsed.username and parsed.username not in ("http", "https"):
+                if parsed.password and f"{parsed.username}:{parsed.password}" in err_msg:
+                    err_msg = err_msg.replace(f"{parsed.username}:{parsed.password}", "<REDACTED>")
+                elif f"{parsed.username}:<REDACTED>" in err_msg:
+                    pass
+                else:
+                    err_msg = err_msg.replace(parsed.username, "<REDACTED>")
+
+            if parsed.netloc and "@" in parsed.netloc:
+                netloc_user, netloc_host = parsed.netloc.rsplit("@", 1)
+                safe_netloc = f"<REDACTED>@{netloc_host}"
+                safe_url = urlunsplit(
+                    (parsed.scheme, safe_netloc, parsed.path, parsed.query, parsed.fragment)
+                )
+                err_msg = err_msg.replace(self.endpoint_url, safe_url)
+        except Exception:
+            pass
+
+        return err_msg
+
     def request(self, method: str, params: Sequence[Any] | None = None) -> Any:
         """Execute a single JSON-RPC read-only request."""
         validate_rpc_method(method)
@@ -117,13 +147,14 @@ class HttpReadOnlyRpcTransport(ReadOnlyRpcTransport):
             return resp_data.get("result")
         except Exception as e:
             self._consecutive_failures += 1
+            safe_err = self._sanitize_error(e)
             if self._consecutive_failures >= self.max_consecutive_failures:
                 self._is_tripped = True
                 raise ArcCircuitBreakerTrippedError(
-                    f"RPC failure {self._consecutive_failures}/{self.max_consecutive_failures}: {e}. "
+                    f"RPC failure {self._consecutive_failures}/{self.max_consecutive_failures}: {safe_err}. "
                     "Circuit Breaker TRIPPED. Halting repeated requests."
                 ) from e
-            raise ArcValidationError(f"RPC request failed: {e}") from e
+            raise ArcValidationError(f"RPC request failed: {safe_err}") from e
 
     def request_batch(
         self,
@@ -132,6 +163,12 @@ class HttpReadOnlyRpcTransport(ReadOnlyRpcTransport):
         """Execute a batch of read-only calls, rejecting the entire batch if any method is prohibited."""
         if not calls:
             raise ArcValidationError("Batch calls list cannot be empty")
+
+        for idx, call in enumerate(calls):
+            if not isinstance(call, (tuple, list)) or len(call) < 2:
+                raise ArcValidationError(
+                    f"Invalid batch call format at index {idx}: expected (method, params) sequence"
+                )
 
         methods = [call[0] for call in calls]
         validate_batch_methods(methods)
@@ -167,17 +204,71 @@ class HttpReadOnlyRpcTransport(ReadOnlyRpcTransport):
         try:
             with self._opener.open(req, timeout=self.timeout_seconds) as resp:
                 resp_data = json.loads(resp.read().decode("utf-8"))
-            self._consecutive_failures = 0
+
             if not isinstance(resp_data, list):
                 raise ArcValidationError("Unexpected batch response format: expected list")
-            # Map results by ID
-            sorted_resps = sorted(resp_data, key=lambda r: r.get("id", 0))
-            return [r.get("result") for r in sorted_resps]
+
+            expected_ids = set(range(1, len(calls) + 1))
+            responses_by_id: dict[int, dict[str, Any]] = {}
+
+            for elem in resp_data:
+                if not isinstance(elem, dict):
+                    raise ArcValidationError(
+                        f"Malformed batch response element: expected JSON-RPC object, got {type(elem).__name__}"
+                    )
+
+                if "id" not in elem:
+                    raise ArcValidationError("Malformed batch response element: missing 'id' field")
+
+                elem_id = elem["id"]
+                # Guard against bool being treated as int in Python (isinstance(True, int) is True)
+                if isinstance(elem_id, bool) or not isinstance(elem_id, int):
+                    raise ArcValidationError(
+                        f"Invalid batch response id type: expected int, got {type(elem_id).__name__}"
+                    )
+
+                if elem_id not in expected_ids:
+                    raise ArcValidationError(f"Unknown batch response id: {elem_id}")
+
+                if elem_id in responses_by_id:
+                    raise ArcValidationError(f"Duplicate batch response id: {elem_id}")
+
+                responses_by_id[elem_id] = elem
+
+            missing_ids = expected_ids - set(responses_by_id.keys())
+            if missing_ids:
+                raise ArcValidationError(
+                    f"Missing batch response for ids: {sorted(missing_ids)}"
+                )
+
+            # Reconstruct responses in the exact original request order
+            results: list[Any] = []
+            for idx in range(len(calls)):
+                req_id = idx + 1
+                item = responses_by_id[req_id]
+
+                # Fail-closed on error sub-item according to single request contract
+                if "error" in item:
+                    err = item["error"]
+                    raise ArcValidationError(f"RPC server returned error: {err}")
+
+                # Distinguish legal result: null from missing result field
+                if "result" not in item:
+                    raise ArcValidationError(
+                        f"Batch response missing 'result' field for id {req_id}"
+                    )
+
+                results.append(item["result"])
+
+            self._consecutive_failures = 0
+            return results
         except Exception as e:
             self._consecutive_failures += 1
+            safe_err = self._sanitize_error(e)
             if self._consecutive_failures >= self.max_consecutive_failures:
                 self._is_tripped = True
                 raise ArcCircuitBreakerTrippedError(
-                    f"Batch RPC failure {self._consecutive_failures}/{self.max_consecutive_failures}: {e}."
+                    f"Batch RPC failure {self._consecutive_failures}/{self.max_consecutive_failures}: {safe_err}. "
+                    "Circuit Breaker TRIPPED. Halting repeated requests."
                 ) from e
-            raise ArcValidationError(f"Batch RPC request failed: {e}") from e
+            raise ArcValidationError(f"Batch RPC request failed: {safe_err}") from e

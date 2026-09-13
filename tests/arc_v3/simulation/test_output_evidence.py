@@ -14,7 +14,14 @@ from __future__ import annotations
 import pytest
 
 from arbitrage_contracts.arc_extensions import SimulationEvidenceBridge, SimulationStatus
-from arbitrage_contracts.identity import Amount, AssetRef, FeeModel, PoolDescriptor, PoolKey, TokenKey
+from arbitrage_contracts.identity import (
+    Amount,
+    AssetRef,
+    FeeModel,
+    PoolDescriptor,
+    PoolKey,
+    TokenKey,
+)
 from arbitrage_contracts.quote import HopRef, RouteRef
 from atomic_execution.arc_output_adapter import ArcOutputAdapter
 from atomic_execution.arc_planning import ArcExecutionPlan

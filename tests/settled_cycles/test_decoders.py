@@ -84,6 +84,7 @@ class DecoderTests(unittest.TestCase):
         }
         decoded = decode_log(log)
         self.assertIsInstance(decoded, DecodedSwapV3)
+        assert isinstance(decoded, DecodedSwapV3)
         self.assertEqual(-100, decoded.amount0_atoms)
         self.assertEqual(700, decoded.amount1_atoms)
         self.assertEqual(-5, decoded.tick)
@@ -99,10 +100,15 @@ class DecoderTests(unittest.TestCase):
         ):
             decoded = decode_log({**base, "data": data})
             self.assertIsInstance(decoded, UnsupportedLog)
+            assert isinstance(decoded, UnsupportedLog)
             self.assertEqual(reason, decoded.reason)
         decoded = decode_log({**base, "topics": base["topics"][:2], "data": valid_data})
+        self.assertIsInstance(decoded, UnsupportedLog)
+        assert isinstance(decoded, UnsupportedLog)
         self.assertEqual("v3_bad_data_length", decoded.reason)
         decoded = decode_log({**base, "topics": [*base["topics"], address_topic(POOL)], "data": valid_data})
+        self.assertIsInstance(decoded, UnsupportedLog)
+        assert isinstance(decoded, UnsupportedLog)
         self.assertEqual("v3_bad_data_length", decoded.reason)
 
     def test_decode_uniswap_v4_swap_success(self) -> None:
@@ -123,6 +129,7 @@ class DecoderTests(unittest.TestCase):
         }
         decoded = decode_log(log)
         self.assertIsInstance(decoded, DecodedSwapV4)
+        assert isinstance(decoded, DecodedSwapV4)
         self.assertEqual(POOL_ID, decoded.pool_id)
         self.assertEqual((1 << 127) - 1, decoded.amount0_atoms)
         self.assertEqual(-(1 << 127), decoded.amount1_atoms)
@@ -146,6 +153,7 @@ class DecoderTests(unittest.TestCase):
         }
         decoded = decode_log(log)
         self.assertIsInstance(decoded, UnsupportedLog)
+        assert isinstance(decoded, UnsupportedLog)
         self.assertEqual("v4_out_of_bounds", decoded.reason)
 
     def test_decode_transfer_success_and_malformed(self) -> None:
@@ -157,6 +165,7 @@ class DecoderTests(unittest.TestCase):
         }
         decoded = decode_log(log)
         self.assertIsInstance(decoded, DecodedTransfer)
+        assert isinstance(decoded, DecodedTransfer)
         self.assertEqual((TOKEN, SENDER, RECIPIENT, 123, 2), (
             decoded.token_address,
             decoded.from_address,
@@ -170,8 +179,11 @@ class DecoderTests(unittest.TestCase):
         }
         decoded = decode_log(malformed)
         self.assertIsInstance(decoded, UnsupportedLog)
+        assert isinstance(decoded, UnsupportedLog)
         self.assertEqual("malformed_log", decoded.reason)
         decoded = decode_log({**log, "data": "0x" + "0" * 63})
+        self.assertIsInstance(decoded, UnsupportedLog)
+        assert isinstance(decoded, UnsupportedLog)
         self.assertEqual("transfer_bad_data_length", decoded.reason)
 
     def test_decode_wrap_unwrap(self) -> None:
@@ -184,6 +196,7 @@ class DecoderTests(unittest.TestCase):
             }
         )
         self.assertIsInstance(deposit, DecodedWrap)
+        assert isinstance(deposit, DecodedWrap)
         self.assertEqual((TOKEN, RECIPIENT, 9, 0), (deposit.token_address, deposit.dst, deposit.wad_atoms, deposit.log_index))
         withdrawal = decode_log(
             {
@@ -194,12 +207,14 @@ class DecoderTests(unittest.TestCase):
             }
         )
         self.assertIsInstance(withdrawal, DecodedUnwrap)
+        assert isinstance(withdrawal, DecodedUnwrap)
         self.assertEqual((TOKEN, SENDER, 8, 1), (withdrawal.token_address, withdrawal.src, withdrawal.wad_atoms, withdrawal.log_index))
 
     def test_decode_unknown_and_missing_topics_preserve_original(self) -> None:
         unknown = {"address": TOKEN, "topics": ["0x" + "f" * 64], "data": "0x01", "logIndex": 4}
         decoded = decode_log(unknown)
         self.assertIsInstance(decoded, UnsupportedLog)
+        assert isinstance(decoded, UnsupportedLog)
         self.assertEqual(("unsupported_topic", TOKEN, ("0x" + "f" * 64,), "0x01", 4), (
             decoded.reason,
             decoded.address,
@@ -209,6 +224,7 @@ class DecoderTests(unittest.TestCase):
         ))
         decoded = decode_log({"address": TOKEN, "topics": [], "data": "0x"})
         self.assertIsInstance(decoded, UnsupportedLog)
+        assert isinstance(decoded, UnsupportedLog)
         self.assertEqual("missing_topics", decoded.reason)
 
 
