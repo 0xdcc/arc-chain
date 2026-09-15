@@ -12,6 +12,7 @@ Verifies:
 from __future__ import annotations
 
 import ast
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -69,7 +70,7 @@ class TestCliMonitorPrivilegeIsolation:
         }
 
         with patch("apps.monitor.service.ReadOnlyMonitorService", return_value=mock_service):
-            exit_code = main(["monitor", "--once"])
+            exit_code = main(["monitor", "--once", "--rpc", "http://127.0.0.1:1"])
             assert exit_code == 0
             mock_service.poll_once.assert_called_once()
 
@@ -101,11 +102,16 @@ class TestCliSimulateAndTradeGuardrails:
     """Tests simulation execution and mandatory trade guardrails."""
 
     def test_simulate_subcommand_dry_run(self, capsys: pytest.CaptureFixture) -> None:
-        """cli.py simulate runs simulation on dummy RPC and handles result."""
-        exit_code = main(["simulate", "--base", "WETH"])
+        """cli.py simulate runs the explicit synthetic stream through the offline pipeline."""
+        exit_code = main(["simulate", "--base", "WETH", "--input", str(Path(__file__).resolve().parent / "fixtures/atomic_execution/v1/e2e-stream.jsonl")])
         assert exit_code == 0
         captured = capsys.readouterr()
-        assert "[SIMULATE]" in captured.out
+        summary = json.loads(captured.out)
+        assert summary["total_processed"] == 12
+        assert summary["simulated_success_count"] == 3
+        assert summary["rejected_count"] == 9
+        assert summary["profitable_count"] == 0
+        assert summary["is_conserved"] is True
 
     def test_trade_without_dry_run_flag_strictly_blocked(self) -> None:
         """cli.py trade without --dry-run is intercepted with exit code 1."""
@@ -119,7 +125,12 @@ class TestCliSimulateAndTradeGuardrails:
 
     def test_trade_with_dry_run_flag_allowed(self, capsys: pytest.CaptureFixture) -> None:
         """cli.py trade --dry-run completes dry-run dispatch."""
-        exit_code = main(["trade", "--dry-run"])
+        exit_code = main(["trade", "--dry-run", "--input", str(Path(__file__).resolve().parent / "fixtures/atomic_execution/v1/e2e-stream.jsonl")])
         assert exit_code == 0
         captured = capsys.readouterr()
-        assert "[TRADE DRY-RUN]" in captured.out
+        summary = json.loads(captured.out)
+        assert summary["total_processed"] == 12
+        assert summary["simulated_success_count"] == 3
+        assert summary["rejected_count"] == 9
+        assert summary["profitable_count"] == 0
+        assert summary["is_conserved"] is True

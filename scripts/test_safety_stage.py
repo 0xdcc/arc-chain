@@ -14,6 +14,8 @@ MANIFEST = "scripts/test_safety_source_manifest.json"
 PROBE_FILE = "sandbox_probe_fixture.txt"
 PUBLIC_FILES = {
     "AGENTS.md",
+    "tests/fixtures/historical/robinhood/v3_pools_live_catalog.json",
+    "tests/fixtures/historical/robinhood/v4_pools_live_catalog.json",
     "check.sh",
     "docs/legacy_tests/robinhood/test_rpc_policy.py.txt",
     "docs/legacy_tests/robinhood/test_v4_poolkey.py.txt",

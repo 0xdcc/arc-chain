@@ -8,10 +8,11 @@ import time
 from unittest.mock import MagicMock, patch
 
 import pytest
-from arbitrage.feed_listener import FeedEvent, FeedListener
-from arbitrage.spread_monitor import PoolSpec, PriceQuote
-from core.wallet_guard import KNOWN_TAX_TOKENS
-from monitors.daemons.arbitrage_daemon import ArbitrageDaemon
+
+from research.market_data.feed_coordinator import FeedCoordinator as ArbitrageDaemon
+from research.market_data.feed_listener import FeedEvent, FeedListener
+from research.market_data.multicall import PoolSpec, PriceQuote
+from research.market_data.token_policy import KNOWN_TAX_TOKENS
 
 INDEX_ADDRESS = "0x56910d4409f3a0c78c64dd8d0545ff0705389870"
 SAMPLE_POOL = "0x1111111111111111111111111111111111111111"

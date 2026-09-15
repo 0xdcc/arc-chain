@@ -19,17 +19,17 @@ from typing import Any
 from unittest.mock import MagicMock
 
 import pytest
-from arbitrage.domain.types import (
+
+from apps.monitor.feed_worker import FeedEventWorker
+from apps.monitor.service import ReadOnlyMonitorService
+from research.market_data.catalog import get_verified_token
+from research.market_data.pool_reader import SnapshotCoordinator
+from research.market_data.types import (
     MarketSnapshot,
     PoolIdentity,
     PoolStateSnapshot,
     TokenIdentity,
 )
-from arbitrage.market_data.catalog import get_verified_token
-from arbitrage.market_data.pool_reader import SnapshotCoordinator
-
-from apps.monitor.feed_worker import FeedEventWorker
-from apps.monitor.service import ReadOnlyMonitorService
 
 _Q96 = Decimal(2**96)
 
@@ -118,6 +118,14 @@ class TestPhysicalIsolationStaticAST:
 # ==============================================================================
 
 
+def _minimal_slot0(block):
+    p = PoolIdentity(chain_id=4663, protocol="uniswap_v3", pool_id="0x" + "01" * 20,
+                     token0="0x" + "11" * 20, token1="0x" + "22" * 20, fee_bps=5.0, tick_spacing=10)
+    state = PoolStateSnapshot(pool=p, block_number=block, block_timestamp=1,
+                              sqrt_price_x96=2**96, tick=0, liquidity=None)
+    return p, {p.pool_id: state}
+
+
 class TestPhysicalIsolationDynamicRuntime:
     """Dynamic runtime assertion verifying poll_once does not load execution or broadcasting components."""
 
@@ -132,16 +140,17 @@ class TestPhysicalIsolationDynamicRuntime:
 
         before_modules = set(sys.modules.keys())
 
+        slot0_pool, slot0_states = _minimal_slot0(9999)
         dummy_coordinator = MagicMock(spec=SnapshotCoordinator)
         dummy_coordinator.read_market_snapshot.return_value = MarketSnapshot(
             chain_id=4663,
             block_number=9999,
             captured_at=1000.0,
-            pools={},
+            pools=slot0_states,
         )
 
         service = ReadOnlyMonitorService(coordinator=dummy_coordinator)
-        result = service.poll_once(pools=[])
+        result = service.poll_once(pools=[slot0_pool])
 
         assert result["status"] == "success"
 
@@ -186,12 +195,13 @@ class TestNegativeControl:
 
         exploding_target = ExplodingTradeExecutor()
 
+        slot0_pool, slot0_states = _minimal_slot0(10001)
         dummy_coordinator = MagicMock(spec=SnapshotCoordinator)
         dummy_coordinator.read_market_snapshot.return_value = MarketSnapshot(
             chain_id=4663,
             block_number=10001,
             captured_at=2000.0,
-            pools={},
+            pools=slot0_states,
         )
 
         # Inject exploding executor into the service
@@ -201,7 +211,7 @@ class TestNegativeControl:
         )
 
         # Execution should succeed without any interaction with exploding_target
-        result = service.poll_once(pools=[])
+        result = service.poll_once(pools=[slot0_pool])
         assert result["status"] == "success"
         assert result["block_number"] == 10001
         assert result["candidates"] == []

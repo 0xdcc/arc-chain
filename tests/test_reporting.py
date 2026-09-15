@@ -1,4 +1,3 @@
-# ruff: noqa: E402
 """Comprehensive unit and security invariant tests for arbitrage reporting and events.
 
 Covers:
@@ -9,29 +8,17 @@ Covers:
 5. Observability event model (schema_version 1.0.0, strict is_authoritative_funds=False invariant).
 """
 
+from __future__ import annotations
+
 import ast
 import json
-import sys
 from decimal import Decimal
 from pathlib import Path
 from unittest.mock import MagicMock
 
-# Defensive workspace resolution: ensures backtest/execution imports do not block testing
-_repair_root = Path("/root/projects/crypto/dex-sniper-engine-repair")
-if _repair_root.exists() and str(_repair_root) not in sys.path:
-    sys.path.append(str(_repair_root))
-for mod_name in (
-    "backtest",
-    "backtest.data",
-    "backtest.data.rpc_client",
-    "execution",
-    "execution.funds",
-):
-    if mod_name not in sys.modules:
-        sys.modules[mod_name] = MagicMock()
-
 import pytest
-from arbitrage.domain.types import (
+
+from research.market_data.types import (
     CandidateRoute,
     ExecutionPlan,
     PoolIdentity,
@@ -41,7 +28,7 @@ from arbitrage.domain.types import (
     TokenAmount,
     TokenIdentity,
 )
-from arbitrage.reporting import (
+from research.reporting import (
     ALLOWED_MODES,
     AUTHORITATIVE_FUNDS_DISCLAIMER,
     SCHEMA_VERSION,
@@ -438,10 +425,11 @@ class TestPhysicalSideEffectIsolation:
 
     def test_ast_source_audit_zero_subprocess(self) -> None:
         """Statically inspect AST to guarantee zero subprocess or shell execution."""
+        repo_root = Path(__file__).resolve().parent.parent
         paths_to_audit = [
-            Path("/tmp/modular-m5-workspace/arbitrage/reporting/__init__.py"),
-            Path("/tmp/modular-m5-workspace/arbitrage/reporting/events.py"),
-            Path("/tmp/modular-m5-workspace/arbitrage/reporting/formatters.py"),
+            repo_root / "research" / "reporting" / "__init__.py",
+            repo_root / "research" / "reporting" / "events.py",
+            repo_root / "research" / "reporting" / "formatters.py",
         ]
 
         forbidden_names = {"subprocess", "os.system", "popen", "spawn", "shlex"}

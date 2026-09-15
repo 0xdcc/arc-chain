@@ -14,19 +14,20 @@ import json
 from pathlib import Path
 
 import pytest
-from backtest.config import BacktestConfig
-from backtest.data.rpc_client import RobinhoodRpc
-from backtest.data.swap_decoder import (
+
+from research.backtest.config import BacktestConfig
+from research.backtest.engine import BacktestEngine
+from research.backtest.reporter import MarkdownReporter
+from research.backtest.rpc_client import RobinhoodRpc
+from research.backtest.swap_decoder import (
     SWAP_TOPIC,
     Tick,
     decode_swap_log,
     price_from_sqrt,
     to_int256,
 )
-from backtest.data.tick_cache import TickCache
-from backtest.engine import BacktestEngine
-from backtest.pipeline.matcher import ClosedPair
-from backtest.reporter import MarkdownReporter
+from research.backtest.tick_cache import TickCache
+from research.fifo.models import ClosedPair
 
 
 def test_price_from_sqrt_math():
@@ -328,7 +329,7 @@ def test_live_robinhood_decode_pons_pool():
 
 def test_rpc_adaptive_bisection_on_limit_overflow():
     """测试 get_logs 收到 -32000 错误或条数达 10000 时自动对半二分递归重试与合并去重."""
-    from backtest.data.rpc_client import RpcError
+    from research.backtest.rpc_client import RpcError
 
     rpc = RobinhoodRpc()
     call_records: list[tuple[int, int]] = []
@@ -412,7 +413,7 @@ def test_rpc_adaptive_bisection_on_limit_overflow():
 
 def test_overflow_semantics_timeout_not_overflow():
     """超时绝不能被当作 overflow（否则触发二分递归爆炸卡死）."""
-    from backtest.data.rpc_client import RobinhoodRpc, RpcError
+    from research.backtest.rpc_client import RobinhoodRpc, RpcError
 
     rpc = RobinhoodRpc()
     # overflow：-32000 / exceeds limit
@@ -426,7 +427,7 @@ def test_overflow_semantics_timeout_not_overflow():
 
 def test_get_logs_skips_bytes32_poolid():
     """66字符 bytes32 PoolId 不能作为 getLogs address，必须返回空而不是炸 RPC."""
-    from backtest.data.rpc_client import RobinhoodRpc
+    from research.backtest.rpc_client import RobinhoodRpc
 
     rpc = RobinhoodRpc()
     b32 = "0x" + "a" * 64  # 66 字符

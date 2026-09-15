@@ -66,6 +66,18 @@ LEGACY_TEST_MIGRATION_REGISTRY: dict[str, dict[str, Any]] = {
 
 # Known intentional Arc adaptations from upstream Robinhood baseline (13817f4)
 KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
+    "tests/test_cli_assembly.py": {
+        "reason": "Independently reviewed explicit synthetic JSONL simulation; preserves successful dispatch and live-trade denial, verifies full outcome counts rather than fabricated defaults",
+        "expected_sha256": "687ba06b331918f5f0c1d41767e5faa5300dcdb64dae567a6995491adb80fdad",
+    },
+    "apps/cli.py": {
+        "reason": "Reviewed explicit offline candidate stream delegation; missing input fails closed; original two no-input success expectations remain unresolved",
+        "expected_sha256": "604e77ce3c0490a6567964f91bdc706b150cc21068170d2a06ed854b55f2ef1e",
+    },
+    "tests/test_v4_pipeline_integration.py": {
+        "reason": "Frozen 13817f4 historical catalog topology initialization preserves schema, pool-count and cycle-count assertions without restoring live transport or ledger",
+        "expected_sha256": "213018c9505b5854fdc76c94da3cc79e22d21f65e51e3bc8fcfb9e772d94418f",
+    },
     "tests/settled_cycles/test_decoders.py": {
         "reason": "QUALITY-STATIC-R1 explicit decoded-result narrowing with original assertions preserved",
         "expected_sha256": "50973fdd48c0fac8e0d9218ef63d69d690af9de4bcf97af41efa314c642a3a59",
@@ -159,8 +171,8 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
         "expected_sha256": "d783591c01780ad1caa46e7bcd43bcf5c256ad574c0c7317725a8e721a609f70",
     },
     "tests/test_domain_contracts.py": {
-        "reason": "QUALITY-TYPES-R2 cleanup obsolete type-ignore annotations with original domain contract assertions preserved",
-        "expected_sha256": "d7685eefbc3538c160b7b08b41bdb64cc2a0111f56cc33e9fb5055c88d645108",
+        "reason": "QUALITY-TYPES-R2 ast purity predicate allowing types and collections.abc with negative controls, original domain contract assertions preserved",
+        "expected_sha256": "446458e41f4bb6a957c0e862bb1599a555dbe28de546be48d0e9808bc468c76e",
     },
     "tests/test_fix_cycle_and_profit_anomaly.py": {
         "reason": "QUALITY-TYPES-R2 cleanup obsolete type-ignore annotations and import ordering with original profit assertions preserved",
@@ -187,8 +199,8 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
         "expected_sha256": "8265015f59b8eb5fed7d04ef6c07ee4d8f3d5d734b1c5a790118be4e6751b1d8",
     },
     "tests/test_candidate_fee_integration.py": {
-        "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "7f211fbfbeb662cf5d80226f4c493b0de5bdc1c00ef6f2aef79d7a9f6ccd5195",
+        "reason": "显式合成adapter非链实测",
+        "expected_sha256": "5dd9a25b07a7a1d332904bf582837fb833e2b78203b2996eebac49d3cef71858",
     },
     "tests/test_capacity_accuracy_and_tvl.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
@@ -196,15 +208,15 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
     },
     "tests/test_concurrent_reader.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "ea0648b37be3ccf276f3070d8486f53120383da27d813ab755dd9f5dada2c71a",
+        "expected_sha256": "9653cc962e0573ad59786d2d72ce3a51155793e44ee5713ff162d45b87b1f34b",
     },
     "tests/test_execution_service_reconciliation.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
         "expected_sha256": "ce96e96ba7d86e9883c0f7a15aa727b5b856b8d64865441834d9ddf52f5422dc",
     },
     "tests/test_feed_listener.py": {
-        "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "0657af45551c631245482fd55384139869b9e69453c2add03a6a5126c796e42d",
+        "reason": "Original ten feed tests and 36 assertions preserved by research import migration; read-only callback adapter is not full daemon/trading compatibility",
+        "expected_sha256": "fbb6d06cd54c29e3a0007deb5b27a18a928b1fc4e4d0a70abfa551341ab272fc",
     },
     "tests/test_fire_gate_and_new_dex.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
@@ -215,16 +227,16 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
         "expected_sha256": "dd868d482b336963c60052c2bbd89bbe2054d844450e2099773fa023fb246426",
     },
     "tests/test_guard.py": {
-        "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "1cc1e4a2eb2b3ad06a955a6cbdfef7ece975817b24bb848a174362cdc39d456b",
+        "reason": "Research-only policy migration; original 15 tests and 24 assertions preserved; precise integer discount and metadata-only file validation, not execution authorization",
+        "expected_sha256": "e25cbec46eea95edac40ee578cbebf5c27c4e7330723f5f0f3be20bb5cc5f41e",
     },
     "tests/test_market_data_pool_reader.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
         "expected_sha256": "5f277cc6199a4a1b518845fd15279a43d79c1d50f20930be2eaa15645df4e1b7",
     },
     "tests/test_multi_rpc.py": {
-        "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "937e5539c817e221a61a390bf58f2e9d81d3c509210a38193bde5158ebc0688f",
+        "reason": "Reviewed explicit-session read-only RPC pool migration; historical default endpoints isolated in test fixture; original failover assertions preserved with valid response IDs",
+        "expected_sha256": "c40bab07372f4fe6d7dff54d9098bfe83e96f94142361317c47747030e5d0b35",
     },
     "tests/test_multicall_reader.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
@@ -232,15 +244,15 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
     },
     "tests/test_planning.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "db9a04ecd5d51d308254f45d071a48a1c1c812ca75df34f45714defb629bbff1",
+        "expected_sha256": "feddeb93859fa5dc6e4c3269464458bf2809c5e3484e1b0e3ce4355b454089d7",
     },
     "tests/test_pool_fee_verification.py": {
-        "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "107f4dd5be46d0390056b4bca2f2e7bfe2d192b904be56270bacc36d8b860ceb",
+        "reason": "显式合成adapter非链实测",
+        "expected_sha256": "4c4ba4a6417c1a55f770a2646d85884a9fefc4a1a151d2f3b3a21c28d04c7345",
     },
     "tests/test_pool_scanner.py": {
-        "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "d924fd2db5dac7b2b700ed43320904bd246d392bc9d29b74ddec0d94f1e1028d",
+        "reason": "RESEARCH-SCANNER-R2 modular fee scanner adaptation with cross-pool metadata isolation regression suite and original assertions preserved",
+        "expected_sha256": "b6eda3c3e7cbabd8fa0decc27eaec84ad20c873435ab4bfff386011e776ebd74",
     },
     "tests/test_public_runtime_binding.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
@@ -252,7 +264,7 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
     },
     "tests/test_readonly_monitor_app.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "1b38ee41170e6776c789df7dc4a12a0f1445d08234cd3840d34408e5ef438e71",
+        "expected_sha256": "50065e3c453d0b6329a5129290e0955efa8e96c4ac82ecc156894a8d80e8aff9",
     },
     "tests/test_remaining_funds.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
@@ -267,12 +279,12 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
         "expected_sha256": "e219c01248080e0d18471d0425b0265baf1dc487b911574e97be485c9fc5f395",
     },
     "tests/test_remaining_protocols.py": {
-        "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "ea40356c8ab7a707660f73b32c34c2a51739cc955f1830a2fd8f1238d46f652d",
+        "reason": "Offline protocol contract migration: exact fee units, V4 calldata, Permit2 digest binding and fork-label rejection; retired planner replaced only for explicit unit assertions",
+        "expected_sha256": "19c05b800b70aa0b974736fadd8b534908284fd79b3445c496273b1ae3d6d94c",
     },
     "tests/test_reporting.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "c50c9d221e03e5b7b62a8dca25f14b2e2c7082a41fefba4417f9155850a927e9",
+        "expected_sha256": "e442dd7939703b8d1d6b70a96dfbf3704723c979b0519af8999cd249dc96d28f",
     },
     "tests/test_robinhood.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
@@ -280,7 +292,7 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
     },
     "tests/test_round2_regressions.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "e5cd2b3d6f86e29f170dd7ce7f41f3145775026ecb70de30f0dec6e13ead130a",
+        "expected_sha256": "d51ee99ffde8a5b2f2301c82e4e0485c8d62520b2846377b251d8ccc233ce0b2",
     },
     "tests/test_round3_fixture_probe.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
@@ -311,24 +323,24 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
         "expected_sha256": "cce82561053099a1ac59eb4302a30881628de5187c2ad0f7584a09374d1a7968",
     },
     "tests/test_spread_monitor.py": {
-        "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "53150c05f1cdd6c111ccac7172169bb22703ce88d1e4387586e20aa23b899137",
+        "reason": "Research spread migration preserves original 17 tests and 26 assertions; fixed historical pool fixtures separate from Arc registry; negative fees and system halt protected",
+        "expected_sha256": "16bcf4426826d0810468a492c6374138c4b75291b5966b2b824a641bde9b4062",
     },
     "tests/test_strategies.py": {
-        "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "3b5c034f1cbe9c7b287f028d064c6ebade6ac380893f1e3e96e5096219a7e21b",
+        "reason": "LINT-REMAINING-R1 equivalent specification cleanup and I001 import format with original assertions preserved",
+        "expected_sha256": "c6c80f3fed1db7bca4746e112ead931f34dc12e711e392c744ae3be75e8db94f",
     },
     "tests/test_tax_guard.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
         "expected_sha256": "4c8a5df88cbc841d6faf3db4bbbf3e5d0c5fc15e8aa4b85bd9770c0e4a1d75eb",
     },
     "tests/test_tick_cache.py": {
-        "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "441afbdc0eeab90939b5358cdaade766bcf1a49b4796350d6d500510fb559893",
+        "reason": "Research namespace import migration; all 10 functions and 73 assertions preserved; nine offline scenarios verified, live RPC remains unverified and failing",
+        "expected_sha256": "6fec4eb0586804b6c0d5c2e0408b81d2589efc9d93df9b7ef99f6e1a1c8c6c6f",
     },
     "tests/test_triangular_arb.py": {
-        "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
-        "expected_sha256": "b2cd458f898d672e9cd390eac8d2da3f30e1087f05b9fb5a458c716d243a13eb",
+        "reason": "RESEARCH-GRAPH-R2 legacy triangular arbitrage adaptation with research.graph module redirection and original assertions preserved",
+        "expected_sha256": "5232ec53952402548135fabebd4df4045eec1092cad4718be8c96249bfcb3703",
     },
     "tests/test_usdg_arbitrage_executor.py": {
         "reason": "LINT-REMAINING-R1 equivalent specification cleanup with original assertions preserved",
@@ -347,8 +359,8 @@ KNOWN_ARC_ADAPTATIONS: dict[str, dict[str, str]] = {
         "expected_sha256": "c65fd44a3c8d8d8e1b6124e3fb13278996ca68fba6309df51eb3f48d44bfe482",
     },
     "atomic_execution/encoding.py": {
-        "reason": "TASK-V4-UNKNOWN-HOOK-R1 fail-closed rejection for unknown/missing V4 hooks without zero-hook fallback per C12 and T15",
-        "expected_sha256": "de72d0157477c81c56899c73eeb3c70af9c1b8ee1b327e900f13efb174cdfeb6",
+        "reason": "V4 unknown hooks fail closed without zero fallback; independently verified C12 exact Uniswap V3/V4 protocol identifiers replace substring and case-folded admission",
+        "expected_sha256": "88aa0b79c75d6bdc61cad15d487a18c1a2cc1e5cef985863f3e854c17648f639",
     },
     "tests/atomic_execution/test_encoding.py": {
         "reason": "TASK-V4-UNKNOWN-HOOK-R1 negative test coverage for unknown/missing V4 hook fail-closed rejection per C12",
