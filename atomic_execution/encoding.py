@@ -399,19 +399,19 @@ def _inspect_hop_protocols(hops: Sequence[HopRef]) -> tuple[bool, bool]:
     v3_count = 0
     v4_count = 0
     for hop_index, hop in enumerate(hops):
-        protocol = hop.pool_key.protocol_id.lower()
+        protocol = hop.pool_key.protocol_id
         if "v2" in protocol:
             raise UnsupportedProtocolError(
                 f"Hop {hop_index} specifies unsupported protocol {hop.pool_key.protocol_id}. "
                 "Uniswap V2 is strictly unsupported on Robinhood 4663 per C12"
             )
-        if "v3" in protocol:
+        if protocol in ("uniswap-v3", "uniswap_v3"):
             v3_count += 1
             if hop.pool_descriptor is None or hop.pool_descriptor.fee_model.raw_value is None:
                 raise EncodingError(
                     f"Hop {hop_index} (V3) requires pool_descriptor with raw_value fee"
                 )
-        elif "v4" in protocol:
+        elif protocol in ("uniswap-v4", "uniswap_v4"):
             v4_count += 1
             resolve_v4_pool_key(hop)
         else:
@@ -669,8 +669,8 @@ def verify_dual_decoded_calldata(
                     f"Bit 7 (allow_revert) detected on command index {hop_index}"
                 )
 
-            protocol = hop.pool_key.protocol_id.lower()
-            if "v3" in protocol:
+            protocol = hop.pool_key.protocol_id
+            if protocol in ("uniswap-v3", "uniswap_v3"):
                 if cmd_fn.fn_name != "V3_SWAP_EXACT_IN":
                     raise DualVerificationError(
                         f"Hop {hop_index} expected V3_SWAP_EXACT_IN, got {cmd_fn.fn_name}"
@@ -710,7 +710,7 @@ def verify_dual_decoded_calldata(
                         f"Hop {hop_index} output {decoded_path[2]} != {hop_out}"
                     )
 
-            elif "v4" in protocol:
+            elif protocol in ("uniswap-v4", "uniswap_v4"):
                 if cmd_fn.fn_name != "V4_SWAP":
                     raise DualVerificationError(
                         f"Hop {hop_index} expected V4_SWAP, got {cmd_fn.fn_name}"
@@ -977,10 +977,10 @@ def encode_execution_plan(
             hop_recipient_addr = final_recipient if is_last else ADDRESS_THIS
             hop_min_out = plan.min_amount_out.atoms if is_last else 1
 
-            protocol = hop.pool_key.protocol_id.lower()
+            protocol = hop.pool_key.protocol_id
             desc = hop.pool_descriptor
 
-            if "v3" in protocol:
+            if protocol in ("uniswap-v3", "uniswap_v3"):
                 if desc is None or desc.fee_model.raw_value is None:
                     raise EncodingError("V3 hop missing fee")
                 v3_hop_path: list[int | ChecksumAddress] = [
@@ -1005,7 +1005,7 @@ def encode_execution_plan(
                         custom_recipient=hop_custom_recip,
                     )
 
-            elif "v4" in protocol:
+            elif protocol in ("uniswap-v4", "uniswap_v4"):
                 pool_key_dict, zero_for_one = resolve_v4_pool_key(hop)
                 v4_pk = resolved_codec.encode.v4_pool_key(
                     pool_key_dict["currency0"],

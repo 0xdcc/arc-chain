@@ -8,17 +8,69 @@
 5. JSON-RPC -32005 节点限流响应触发漂移;
 6. call_batch 批量调用时同样享有节点故障漂移;
 7. 全部节点轮换与重试耗尽保护;
-8. 成功请求后节点连续失败计数与冷却状态重置.
+8. 成功请求后节点连续失败计数与冷却状态重置;
+9. 新增: 只读方法白名单检查与写操作请求前拦截拒发;
+10. 新增: 批量调用响应 ID 精确对齐, 拒绝混乱/重复/未知/缺失 ID;
+11. 新增: 业务合约 revert 不做无意义重试与跨节点漂移;
+12. 新增: 单节点 3 次连续失败触发熔断器隔离;
+13. 新增: 生产 RpcPoolClient 强制显式注入 urls 与 session.
 """
 
 from __future__ import annotations
 
 import time
+from collections.abc import Sequence
 from typing import Any
 
 import pytest
 import requests
-from backtest.data.rpc_client import RobinhoodRpc
+
+from arc_readiness.errors import ArcValidationError
+from research.market_data.rpc_pool import (
+    ArcCircuitBreakerTrippedError,
+    RpcPoolClient,
+)
+
+# Historical Robinhood 6-node endpoints used strictly for backward compatibility test fixture
+HISTORICAL_ROBINHOOD_URLS: list[str] = [
+    "https://rpc.mainnet.chain.robinhood.com",
+    "https://rpc.secondary.chain.robinhood.com",
+    "https://rpc.backup1.chain.robinhood.com",
+    "https://rpc.backup2.chain.robinhood.com",
+    "https://rpc.backup3.chain.robinhood.com",
+    "https://rpc.backup4.chain.robinhood.com",
+]
+
+
+class RobinhoodRpc(RpcPoolClient):
+    """Test fixture factory providing historical Robinhood defaults to real RpcPoolClient.
+
+    Does NOT implement any failover algorithm; delegates 100% to production RpcPoolClient.
+    """
+
+    DEFAULT_URLS: list[str] = list(HISTORICAL_ROBINHOOD_URLS)
+
+    def __init__(
+        self,
+        urls: Sequence[str] | None = None,
+        url: str | None = None,
+        session: Any | None = None,
+        timeout: float = 10.0,
+        throttle: float = 0.0,
+        max_retries: int | None = None,
+    ) -> None:
+        if urls is None and url is None:
+            urls = list(self.DEFAULT_URLS)
+        if session is None:
+            session = requests.Session()
+        super().__init__(
+            urls=urls,
+            url=url,
+            session=session,
+            timeout=timeout,
+            throttle=throttle,
+            max_retries=max_retries,
+        )
 
 
 class FakeResponse:
@@ -269,3 +321,218 @@ class TestMultiRpcFailover:
         rpc.call("eth_blockNumber", [])
         assert rpc.active_url == "https://node2.test"
         assert rpc.health_status["https://node2.test"]["consecutive_fails"] == 0
+
+
+class TestMultiRpcSecurityAndIntegrity:
+    """新增安全白名单、批处理 ID 完整性与熔断控制断言."""
+
+    def test_write_method_rejection_before_post(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        """验证状态修改型 RPC 请求在 session.post 之前被严格阻断."""
+        nodes = ["https://node1.test"]
+        rpc = RobinhoodRpc(urls=nodes)
+
+        post_called = False
+
+        def fake_post(url: str, **kwargs: Any) -> FakeResponse:
+            nonlocal post_called
+            post_called = True
+            return FakeResponse(
+                status_code=200,
+                json_data={"jsonrpc": "2.0", "result": "0x1", "id": 1},
+            )
+
+        monkeypatch.setattr(rpc._session, "post", fake_post)
+
+        with pytest.raises(ArcValidationError, match="Write operations strictly forbidden"):
+            rpc.call("eth_sendRawTransaction", ["0x123456"])
+
+        assert not post_called
+
+    def test_batch_write_method_rejection_before_post(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """验证批处理中若掺杂写操作请求，在 session.post 之前整批阻断."""
+        nodes = ["https://node1.test"]
+        rpc = RobinhoodRpc(urls=nodes)
+
+        post_called = False
+
+        def fake_post(url: str, **kwargs: Any) -> FakeResponse:
+            nonlocal post_called
+            post_called = True
+            return FakeResponse(status_code=200, json_data=[])
+
+        monkeypatch.setattr(rpc._session, "post", fake_post)
+
+        batch = [
+            {"jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 1},
+            {"jsonrpc": "2.0", "method": "eth_sendTransaction", "params": [{}], "id": 2},
+        ]
+        with pytest.raises(ArcValidationError, match="Write operations strictly forbidden"):
+            rpc.call_batch(batch)
+
+        assert not post_called
+
+    def test_batch_out_of_order_responses_matched_by_id(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """验证服务器乱序返回批量响应时，客户端精确根据 ID 对齐而非盲目 zip 猜测."""
+        nodes = ["https://node1.test"]
+        rpc = RobinhoodRpc(urls=nodes)
+
+        def fake_post(url: str, **kwargs: Any) -> FakeResponse:
+            # Server returns id 2 first, then id 1
+            return FakeResponse(
+                json_data=[
+                    {"jsonrpc": "2.0", "result": "resp_for_2", "id": 2},
+                    {"jsonrpc": "2.0", "result": "resp_for_1", "id": 1},
+                ],
+                status_code=200,
+            )
+
+        monkeypatch.setattr(rpc._session, "post", fake_post)
+
+        batch = [
+            {"jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 1},
+            {"jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 2},
+        ]
+        res = rpc.call_batch(batch)
+        assert len(res) == 2
+        assert res[0]["id"] == 1
+        assert res[0]["result"] == "resp_for_1"
+        assert res[1]["id"] == 2
+        assert res[1]["result"] == "resp_for_2"
+
+    def test_batch_duplicate_request_id_rejected(self) -> None:
+        """验证请求批处理中包含重复 ID 时直接拒绝."""
+        rpc = RobinhoodRpc(urls=["https://node1.test"])
+        batch = [
+            {"jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 1},
+            {"jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 1},
+        ]
+        with pytest.raises(ValueError, match="Duplicate request ID in batch"):
+            rpc.call_batch(batch)
+
+    def test_batch_duplicate_response_id_rejected(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """验证服务端返回重复 ID 时抛出错误."""
+        rpc = RobinhoodRpc(urls=["https://node1.test"])
+
+        def fake_post(url: str, **kwargs: Any) -> FakeResponse:
+            return FakeResponse(
+                json_data=[
+                    {"jsonrpc": "2.0", "result": "0x1", "id": 1},
+                    {"jsonrpc": "2.0", "result": "0x2", "id": 1},
+                ],
+                status_code=200,
+            )
+
+        monkeypatch.setattr(rpc._session, "post", fake_post)
+
+        batch = [
+            {"jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 1},
+            {"jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 2},
+        ]
+        with pytest.raises(RuntimeError, match="Duplicate response ID in batch"):
+            rpc.call_batch(batch)
+
+    def test_batch_unknown_or_missing_response_id_rejected(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """验证服务端返回未知 ID 或丢失预期 ID 时抛错."""
+        rpc = RobinhoodRpc(urls=["https://node1.test"])
+
+        def fake_post(url: str, **kwargs: Any) -> FakeResponse:
+            return FakeResponse(
+                json_data=[
+                    {"jsonrpc": "2.0", "result": "0x1", "id": 1},
+                    {"jsonrpc": "2.0", "result": "0x99", "id": 99},  # Unknown ID
+                ],
+                status_code=200,
+            )
+
+        monkeypatch.setattr(rpc._session, "post", fake_post)
+
+        batch = [
+            {"jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 1},
+            {"jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 2},
+        ]
+        with pytest.raises(RuntimeError, match="Unknown response ID in batch"):
+            rpc.call_batch(batch)
+
+    def test_business_revert_not_retried_on_other_nodes(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """验证业务合约 revert (如余额不足或执行失败) 不触发节点漂移与重试."""
+        nodes = ["https://node1.test", "https://node2.test"]
+        rpc = RobinhoodRpc(urls=nodes)
+
+        attempted_urls: list[str] = []
+
+        def fake_post(url: str, **kwargs: Any) -> FakeResponse:
+            attempted_urls.append(url)
+            return FakeResponse(
+                json_data={
+                    "jsonrpc": "2.0",
+                    "error": {"code": 3, "message": "execution reverted: custom revert"},
+                    "id": 1,
+                },
+                status_code=200,
+            )
+
+        monkeypatch.setattr(rpc._session, "post", fake_post)
+
+        res = rpc.call("eth_call", [{"to": "0x123"}, "latest"])
+        assert "error" in res
+        assert res["error"]["message"] == "execution reverted: custom revert"
+        # 绝不漂移到 node2
+        assert attempted_urls == ["https://node1.test"]
+        assert rpc.active_url == "https://node1.test"
+        assert rpc.health_status["https://node1.test"]["fail_count"] == 0
+
+    def test_single_node_consecutive_failures_circuit_breaker(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """验证单节点在连续 3 次失败后触发熔断器阻断后续请求."""
+        nodes = ["https://node1.test"]
+        rpc = RobinhoodRpc(urls=nodes)
+
+        def fake_post(url: str, **kwargs: Any) -> FakeResponse:
+            return FakeResponse(status_code=500, text="Internal Server Error")
+
+        monkeypatch.setattr(rpc._session, "post", fake_post)
+
+        # First call fails (consecutive_fails = 1)
+        with pytest.raises(RuntimeError, match="RPC call failed after"):
+            rpc.call("eth_blockNumber", [])
+        assert rpc.health_status["https://node1.test"]["consecutive_fails"] == 1
+
+        # Second call fails (consecutive_fails = 2)
+        with pytest.raises(RuntimeError, match="RPC call failed after"):
+            rpc.call("eth_blockNumber", [])
+        assert rpc.health_status["https://node1.test"]["consecutive_fails"] == 2
+
+        # Third call fails (consecutive_fails = 3, trips circuit breaker)
+        with pytest.raises(RuntimeError, match="RPC call failed after"):
+            rpc.call("eth_blockNumber", [])
+        assert rpc.health_status["https://node1.test"]["consecutive_fails"] == 3
+
+        # Fourth call is blocked immediately by circuit breaker before network dispatch
+        with pytest.raises(ArcCircuitBreakerTrippedError, match="Circuit breaker tripped"):
+            rpc.call("eth_blockNumber", [])
+
+    def test_rpc_pool_client_requires_explicit_urls_and_session(self) -> None:
+        """验证生产 RpcPoolClient 类严格要求显式传入 urls 与 session, 拒绝默认生产端点."""
+        # 1. Reject missing URLs
+        with pytest.raises(ValueError, match="Explicit urls or url must be provided"):
+            RpcPoolClient(session=requests.Session())
+
+        with pytest.raises(ValueError, match="urls must be a non-empty sequence"):
+            RpcPoolClient(urls=[], session=requests.Session())
+
+        # 2. Reject missing session
+        with pytest.raises(
+            ValueError, match="Explicit session or read-only transport must be injected"
+        ):
+            RpcPoolClient(urls=["https://rpc.example.com"], session=None)

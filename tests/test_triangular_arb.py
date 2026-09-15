@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import pytest
-from arbitrage.spread_monitor import PoolSpec, PriceQuote
-from arbitrage.triangular import (
+
+from research.graph import (
     DirectedEdge,
     SwapLeg,
     TokenGraph,
@@ -13,7 +13,7 @@ from arbitrage.triangular import (
     calculate_triangular_path,
     find_triangular_opportunities,
 )
-from arbitrage.v4_reader import V4PoolSpec
+from research.market_data.multicall import PoolSpec, PriceQuote, V4PoolSpec
 
 
 def make_v3_pool(suffix: str, label: str, fee_bps: float) -> PoolSpec:

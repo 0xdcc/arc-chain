@@ -19,10 +19,13 @@ import logging
 import sys
 from collections.abc import Sequence
 from decimal import Decimal
-from pathlib import Path
 from typing import Any
 
 logger = logging.getLogger(__name__)
+
+
+class AuthorizationBlockedError(RuntimeError):
+    """Raised when live trade execution or unauthorized dispatch is blocked by security guardrails."""
 
 
 # -----------------------------------------------------------------------------
@@ -137,12 +140,14 @@ def _resolve_rpc_client(rpc_arg: Any) -> Any:
 
 def cmd_monitor(args: argparse.Namespace) -> int:
     """Execute read-only market monitor service."""
-    from arbitrage.market_data.catalog import get_verified_token, list_pools
-    from arbitrage.market_data.pool_reader import SnapshotCoordinator
-
     from apps.monitor.service import ReadOnlyMonitorService
+    from research.market_data.catalog import get_verified_token, list_pools
+    from research.market_data.pool_reader import SnapshotCoordinator
 
     rpc_client = getattr(args, "rpc", None)
+    if not rpc_client:
+        sys.stderr.write("[INPUT_INSUFFICIENT] Explicit --rpc is required; no live result was obtained.\n")
+        return 1
     if isinstance(rpc_client, str) and rpc_client.startswith(("http://", "https://")):
         from web3 import Web3
 
@@ -178,20 +183,23 @@ def cmd_monitor(args: argparse.Namespace) -> int:
         f"[MONITOR] Poll completed: status={status}, "
         f"block={block_num}, candidates={len(cands)}, reports={len(reports)}"
     )
-    return 0
+    return 0 if status == "success" and type(block_num) is int and block_num > 0 else 1
 
 
 def cmd_quote(args: argparse.Namespace) -> int:
     """Assemble Quoter and MarketSnapshot to query DEX quotes."""
-    from arbitrage.market_data.catalog import list_pools
-    from arbitrage.market_data.pool_reader import SnapshotCoordinator
-    from arbitrage.quoting.quoter import (
+    from research.market_data.catalog import list_pools
+    from research.market_data.pool_reader import SnapshotCoordinator
+    from research.quoting.quoter import (
         Quoter,
         build_canonical_route_a,
         build_canonical_route_b,
     )
 
     rpc_client = getattr(args, "rpc", None)
+    if not rpc_client:
+        sys.stderr.write("[INPUT_INSUFFICIENT] Explicit --rpc is required; no live result was obtained.\n")
+        return 1
     if isinstance(rpc_client, str) and rpc_client.startswith(("http://", "https://")):
         from web3 import Web3
 
@@ -226,15 +234,16 @@ def cmd_quote(args: argparse.Namespace) -> int:
         f"in={quote_res.amount_in.atoms} {quote_res.amount_in.token.symbol}, "
         f"out={out_atoms}, hops={len(route.hops)}"
     )
-    return 0
+    return 0 if quote_res.status.value == "QUOTED" and out_atoms is not None else 1
 
 
 def cmd_replay(args: argparse.Namespace) -> int:
     """Replay historical RPC trace through ReplayAdapter and output 8 tiers."""
-    from arbitrage.quoting.quoter import run_historical_replay
-    from arbitrage.quoting.replay_adapter import ReplayAdapter
+    from research.quoting.quoter import run_historical_replay
+    from research.quoting.replay_adapter import ReplayAdapter
 
     rpc_file = getattr(args, "rpc_file", None)
+    print("[REPLAY] Source: explicit historical file" if rpc_file else "[REPLAY] Source: bundled historical fixture; offline, not live market data")
     adapter = ReplayAdapter(records_or_path=rpc_file)
     results = run_historical_replay(adapter)
 
@@ -253,45 +262,35 @@ def cmd_replay(args: argparse.Namespace) -> int:
         f"[REPLAY] Consumed: {adapter.consumed_count()}/{adapter.total_count} records. "
         f"Finished: {adapter.is_finished()}"
     )
-    return 0
+    return 0 if adapter.is_finished() and results and all(res.status.value != "RPC_ERROR" for res in results) else 1
+
+
+def _run_explicit_simulation(args: argparse.Namespace) -> int:
+    """Delegate explicit offline input to the existing simulation pipeline."""
+    source = getattr(args, "input", None)
+    if not source:
+        sys.stderr.write("[INPUT_INSUFFICIENT] Explicit --input JSONL is required; no default plan is fabricated.\n")
+        return 1
+    if getattr(args, "rpc", None) or getattr(args, "private_key", None):
+        sys.stderr.write("[SECURITY INTERCEPT] Offline simulation does not accept RPC endpoints or private keys.\n")
+        return 1
+    from apps.atomic_simulate import main as simulate_main
+
+    forwarded = ["--mode", "offline", "--input", source]
+    for option, attr in (("--output", "output"), ("--summary-output", "summary_output"), ("--caller", "caller")):
+        value = getattr(args, attr, None)
+        if value is not None:
+            forwarded.extend([option, value])
+    return simulate_main(forwarded)
 
 
 def cmd_simulate(args: argparse.Namespace) -> int:
-    """Assemble ExecutionPlan and run simulation via eth_call."""
-    from execution.coordinator import ExecutionCoordinator
-    from execution.funds_ledger import FundsLedger
-    from execution.service import ExecutionService
-
-    rpc_client = _resolve_rpc_client(getattr(args, "rpc", None))
-    plan = _build_default_execution_plan(
-        base=getattr(args, "base", "WETH"),
-        amount_in=getattr(args, "amount", 10**16),
-        plan_id=getattr(args, "plan_id", "sim_plan_01"),
-    )
-
-    ledger_path = Path(getattr(args, "ledger_db", "/tmp/cli_execution_ledger.sqlite"))
-    ledger = FundsLedger(ledger_path)
-    coordinator = ExecutionCoordinator(ledger=ledger)
-    wallet = getattr(args, "wallet", "0x1111111111111111111111111111111111111111")
-
-    service = ExecutionService(coordinator=coordinator, rpc=rpc_client, wallet_address=wallet)
-    sim_res = service.simulate_plan(plan, rpc=rpc_client, wallet=wallet)
-
-    sim_status_str = getattr(sim_res.status, "value", str(sim_res.status))
-    print(
-        f"[SIMULATE] plan_id={plan.plan_id}, status={sim_status_str}, "
-        f"success={sim_res.success}, gas_estimate={sim_res.gas_estimate}, "
-        f"revert_reason={sim_res.revert_reason}"
-    )
-    return 0
+    """Evaluate an explicit offline candidate stream without creating a trade."""
+    return _run_explicit_simulation(args)
 
 
 def cmd_trade(args: argparse.Namespace) -> int:
     """Dispatch trade plan with mandatory --dry-run security guardrails."""
-    from execution.coordinator import ExecutionCoordinator
-    from execution.funds_ledger import FundsLedger
-    from execution.service import AuthorizationBlockedError, ExecutionService
-
     # Mandatory Safety Gate 1: dry-run must be explicitly active
     if not getattr(args, "dry_run", False):
         sys.stderr.write(
@@ -312,32 +311,7 @@ def cmd_trade(args: argparse.Namespace) -> int:
             "Live trade execution blocked: no authorized private key credentials provided."
         )
 
-    rpc_client = _resolve_rpc_client(getattr(args, "rpc", None))
-    plan = _build_default_execution_plan(
-        base=getattr(args, "base", "WETH"),
-        amount_in=getattr(args, "amount", 10**16),
-        plan_id=getattr(args, "plan_id", "trade_dry_run_01"),
-    )
-
-    ledger_path = Path(getattr(args, "ledger_db", "/tmp/cli_execution_ledger.sqlite"))
-    ledger = FundsLedger(ledger_path)
-    coordinator = ExecutionCoordinator(ledger=ledger)
-    wallet = getattr(args, "wallet", "0x1111111111111111111111111111111111111111")
-
-    service = ExecutionService(coordinator=coordinator, rpc=rpc_client, wallet_address=wallet)
-    exec_res = service.execute_plan(
-        plan,
-        dry_run=True,
-        rpc=rpc_client,
-        wallet_address=wallet,
-    )
-
-    trade_sim_status = getattr(exec_res.simulation.status, "value", str(exec_res.simulation.status))
-    print(
-        f"[TRADE DRY-RUN] plan_id={exec_res.plan_id}, dry_run={exec_res.dry_run}, "
-        f"success={exec_res.success}, sim_status={trade_sim_status}"
-    )
-    return 0
+    return _run_explicit_simulation(args)
 
 
 # -----------------------------------------------------------------------------
@@ -431,7 +405,7 @@ def build_parser() -> argparse.ArgumentParser:
     # 4. simulate
     p_simulate = subparsers.add_parser(
         "simulate",
-        help="Assemble ExecutionPlan and run simulation via eth_call",
+        help="Evaluate explicit offline JSONL input; no live RPC or broadcasting",
     )
     p_simulate.add_argument("--plan-id", type=str, default="sim_plan_01", help="Plan identifier")
     p_simulate.add_argument(
@@ -459,6 +433,10 @@ def build_parser() -> argparse.ArgumentParser:
         default="/tmp/cli_execution_ledger.sqlite",
         help="SQLite ledger path",
     )
+    p_simulate.add_argument("--input", default=None, help="Explicit offline simulation input")
+    p_simulate.add_argument("--output", default=None, help="Explicit offline simulation output")
+    p_simulate.add_argument("--summary-output", default=None, help="Explicit offline simulation summary-output")
+    p_simulate.add_argument("--caller", default=None, help="Explicit offline simulation caller")
     p_simulate.set_defaults(func=cmd_simulate)
 
     # 5. trade
@@ -515,6 +493,10 @@ def build_parser() -> argparse.ArgumentParser:
         default="/tmp/cli_execution_ledger.sqlite",
         help="SQLite ledger path",
     )
+    p_trade.add_argument("--input", default=None, help="Explicit offline simulation input")
+    p_trade.add_argument("--output", default=None, help="Explicit offline simulation output")
+    p_trade.add_argument("--summary-output", default=None, help="Explicit offline simulation summary-output")
+    p_trade.add_argument("--caller", default=None, help="Explicit offline simulation caller")
     p_trade.set_defaults(func=cmd_trade)
 
     return parser

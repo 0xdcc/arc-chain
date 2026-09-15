@@ -18,8 +18,9 @@ from __future__ import annotations
 
 import concurrent.futures
 import logging
+import os
 import time
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
 from typing import Any
 
 from eth_abi.abi import decode as abi_decode
@@ -80,6 +81,7 @@ __all__ = [
     "TokenIdentity",
     "UnifiedPoolReader",
     "V4PoolSpec",
+    "_is_proxy_reachable",
     "adapt_pool_identity",
     "decode_multicall_response",
     "decode_quote_from_result",
@@ -91,6 +93,7 @@ __all__ = [
     "get_verified_token",
     "is_v3_pool",
     "is_v4_pool",
+    "probe_proxy",
     "read_market_snapshot",
 ]
 
@@ -590,8 +593,127 @@ def read_market_snapshot(
     )
 
 
+def _is_proxy_reachable(proxy_url: str, timeout: float = 0.2) -> bool:
+    """Check whether a proxy endpoint is reachable without performing live network IO.
+
+    Safe offline default returning False. Real network sockets are never opened
+    unless explicitly configured via transport/reachable callbacks.
+    """
+    return False
+
+
+def probe_proxy(
+    proxy_url: str | None = None,
+    candidate_urls: Sequence[str] | None = None,
+    reachable_check: Callable[[str], bool] | None = None,
+) -> str | None:
+    """Select active proxy URL by explicit configuration or injected reachability check.
+
+    - If explicit `proxy_url` is passed, it is directly returned (passthrough).
+    - If `proxy_url` is None, checks environment variables or candidate URLs using
+      the injected reachability check (defaulting to _is_proxy_reachable).
+    - If none reachable, returns None.
+    """
+    if proxy_url:
+        return proxy_url
+
+    is_reachable = reachable_check if reachable_check is not None else _is_proxy_reachable
+
+    env_proxy = os.environ.get("HTTP_PROXY") or os.environ.get("http_proxy")
+    if env_proxy and is_reachable(env_proxy):
+        return env_proxy
+
+    candidates = candidate_urls if candidate_urls is not None else ("http://127.0.0.1:7890",)
+    for cand in candidates:
+        if cand and is_reachable(cand):
+            return cand
+
+    return None
+
+
 class PoolReader:
     """Spot price reader with priority Multicall2 batching and per-pool fallback."""
+
+    @staticmethod
+    def _decode_string(hexdata: str) -> str:
+        """Decode ERC20 symbol/name return data from ABI hex payload.
+
+        Handles:
+        1. Standard ABI dynamic string: [offset 32B][length 32B][data bytes].
+        2. Non-standard / unpadded ABI dynamic string (data truncated to length bytes).
+        3. bytes32 string layout with trailing null bytes (left-aligned ASCII).
+        4. Historical fixture compatibility: right-aligned in 32-byte word with leading nulls and 1-byte length prefix.
+        5. bytes32 right-aligned ASCII string with leading null bytes.
+
+        Safety & Failclosed Policy:
+        - Fails closed on invalid hex formatting (raises ValueError).
+        - Fails closed on truncated dynamic ABI string data or invalid utf-8 (raises ValueError).
+        - Returns empty string ("") on empty input, 0x, or all-null bytes (preserves original contract).
+        - Strictly never returns synthetic dummy symbols (e.g. "UNKNOWN") to mask decoding errors.
+        """
+        if not isinstance(hexdata, str):
+            raise TypeError(f"Expected str, got {type(hexdata).__name__}")
+
+        clean = hexdata.strip()
+        if clean.startswith(("0x", "0X")):
+            clean = clean[2:]
+
+        if not clean:
+            return ""
+
+        try:
+            raw = bytes.fromhex(clean)
+        except ValueError as e:
+            raise ValueError(f"Invalid hex string for ABI decoding: {e}") from e
+
+        if not raw:
+            return ""
+
+        # 1. Standard ABI dynamic string: [32B offset][32B length][data...]
+        if len(raw) >= 64:
+            offset = int.from_bytes(raw[:32], "big")
+            if offset == 32 or (32 <= offset <= len(raw) - 32 and offset % 32 == 0):
+                length = int.from_bytes(raw[offset : offset + 32], "big")
+                if offset + 32 + length > len(raw):
+                    raise ValueError(
+                        f"ABI dynamic string truncated or out of bounds: offset={offset}, "
+                        f"length={length}, total_bytes={len(raw)}"
+                    )
+                data = raw[offset + 32 : offset + 32 + length]
+                try:
+                    return data.decode("utf-8").strip("\x00").strip()
+                except UnicodeDecodeError as e:
+                    raise ValueError(f"ABI dynamic string has invalid utf-8: {e}") from e
+
+        # 2. bytes32 layout or unformatted raw bytes
+        body = raw.rstrip(b"\x00")
+        if not body:
+            return ""
+
+        candidate = body.lstrip(b"\x00")
+        if not candidate:
+            return ""
+
+        # Historical fixture compatibility: strictly 32-byte raw with real leading nulls,
+        # no trailing nulls, and a 1-byte length prefix in [1, 31] matching remaining payload length.
+        if (
+            len(raw) == 32
+            and raw.startswith(b"\x00")
+            and 1 <= candidate[0] <= 31
+            and candidate[0] == len(candidate) - 1
+            and raw == b"\x00" * (32 - len(candidate)) + candidate
+        ):
+            stripped = candidate[1:]
+            try:
+                return stripped.decode("utf-8").strip("\x00").strip()
+            except UnicodeDecodeError as e:
+                raise ValueError(f"Historical fixture string has invalid utf-8: {e}") from e
+
+        # General bytes32 (left- or right-padded with nulls)
+        try:
+            return candidate.decode("utf-8").strip("\x00").strip()
+        except UnicodeDecodeError as e:
+            raise ValueError(f"String has invalid utf-8: {e}") from e
 
     def __init__(
         self,
@@ -599,15 +721,28 @@ class PoolReader:
         proxy_url: str | None = None,
         multicall_reader: MulticallPoolReader | None = None,
         token_catalog: Any = None,
+        batch_strategy: str = "multicall",
     ) -> None:
         self._rpc = rpc
         self.proxy_url = proxy_url
         self.token_catalog = token_catalog
+        self.batch_strategy = batch_strategy
         self._multicall_reader: MulticallPoolReader | None = None
         if multicall_reader is not None:
             self._multicall_reader = multicall_reader
         elif rpc is not None:
             self._multicall_reader = MulticallPoolReader(rpc=rpc, token_catalog=token_catalog)
+
+        # Transparent proxy configuration onto transport if supported
+        if proxy_url is not None and rpc is not None:
+            session = getattr(rpc, "_session", None)
+            if session is not None:
+                proxies = getattr(session, "proxies", None)
+                if isinstance(proxies, dict):
+                    proxies["http"] = proxy_url
+                    proxies["https"] = proxy_url
+            if hasattr(rpc, "proxy_url"):
+                rpc.proxy_url = proxy_url
 
     def get_latest_block_number(self) -> int:
         """Fetch latest block number from injected RPC."""
@@ -661,6 +796,7 @@ class PoolReader:
         pools: Sequence[AnyPool],
         max_workers: int = 15,
         proxy_url: str | None = None,
+        strategy: str | None = None,
     ) -> list[PriceQuote]:
         """Batch read pool quotes with Multicall priority and fallback.
 
@@ -671,24 +807,32 @@ class PoolReader:
         if not pools:
             return []
 
-        # 1. Multicall2 priority
-        try:
-            mc_reader = getattr(self, "_multicall_reader", None)
-            if mc_reader is None:
-                mc_reader = MulticallPoolReader(
-                    rpc=getattr(self, "_rpc", None),
-                    token_catalog=getattr(self, "token_catalog", None),
-                )
-                self._multicall_reader = mc_reader
-            quotes = mc_reader.batch_quote_multicall(pools)
-            return quotes
-        except Exception as mc_exc:
-            logger.warning(
-                "Multicall batch quote failed (%s), falling back to per-pool read",
-                mc_exc,
-            )
+        effective_strategy = (
+            strategy
+            or getattr(self, "batch_strategy", None)
+            or getattr(self, "strategy", None)
+            or "multicall"
+        )
 
-        # 2. Graceful fallback at identical block height to prevent block skew
+        # 1. Multicall2 priority (unless explicit thread mode configured)
+        if effective_strategy != "thread":
+            try:
+                mc_reader = getattr(self, "_multicall_reader", None)
+                if mc_reader is None:
+                    mc_reader = MulticallPoolReader(
+                        rpc=getattr(self, "_rpc", None),
+                        token_catalog=getattr(self, "token_catalog", None),
+                    )
+                    self._multicall_reader = mc_reader
+                quotes = mc_reader.batch_quote_multicall(pools)
+                return quotes
+            except Exception as mc_exc:
+                logger.warning(
+                    "Multicall batch quote failed (%s), falling back to per-pool read",
+                    mc_exc,
+                )
+
+        # 2. Graceful fallback (or explicit thread mode) at identical block height to prevent block skew
         current_block = self.get_latest_block_number()
         rpc = getattr(self, "_rpc", None)
         prev_throttle = getattr(rpc, "throttle", None) if rpc is not None else None

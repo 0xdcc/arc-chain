@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 import pytest
-from arbitrage.pool_config import MONITOR_POOLS, get_pools
-from arbitrage.spread_monitor import (
+
+from research.historical_pool_config import MONITOR_POOLS, get_pools
+from research.spread_monitor import (
     PoolReader,
     PoolSpec,
     PriceQuote,

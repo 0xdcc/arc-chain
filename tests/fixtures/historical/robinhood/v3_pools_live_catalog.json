@@ -1,0 +1,3290 @@
+[
+  {
+    "address": "0xed50bdeea8adc232f159486192a4157281d722ff",
+    "label": "WETH / PONS 0.3% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "PONS",
+    "symbol": "WETH/PONS",
+    "symbols": [
+      "WETH",
+      "PONS"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "tvl_usd": 4240764.3029
+  },
+  {
+    "address": "0x10cc6bd38112cac182db90b6a71d8bb5939526ba",
+    "label": "WETH / PONS 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "PONS",
+    "symbol": "WETH/PONS",
+    "symbols": [
+      "WETH",
+      "PONS"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 7641479.9576
+  },
+  {
+    "address": "0x7a192e71564ec66ee0763e328a3ac274942de4e1",
+    "label": "PONS / USDG 1.0% (uniswap-v3)",
+    "token0": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "PONS",
+    "symbol1": "USDG",
+    "symbol": "PONS/USDG",
+    "symbols": [
+      "PONS",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 4755832.4859
+  },
+  {
+    "address": "0xf2a0be59ab76b96f957bd5e5b967f2b75e8db269",
+    "label": "PONS / USDG 0.1% (ramses-v3)",
+    "token0": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "PONS",
+    "symbol1": "USDG",
+    "symbol": "PONS/USDG",
+    "symbols": [
+      "PONS",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 1000,
+    "tick_spacing": 50,
+    "tvl_usd": 645554.1667
+  },
+  {
+    "address": "0x2f393b60ef0cfaf669af63284e5592dc3a657b73",
+    "label": "PONS / USDG 0.2516% (up-v3)",
+    "token0": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "up-v3",
+    "symbol0": "PONS",
+    "symbol1": "USDG",
+    "symbol": "PONS/USDG",
+    "symbols": [
+      "PONS",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 2516,
+    "tick_spacing": 60,
+    "tvl_usd": 759252.1155
+  },
+  {
+    "address": "0x51b6ca77deae9f17c1d89edfb301ae50053c57a5",
+    "label": "WETH / PONS 0.1% (ramses-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "WETH",
+    "symbol1": "PONS",
+    "symbol": "WETH/PONS",
+    "symbols": [
+      "WETH",
+      "PONS"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 1000,
+    "tick_spacing": 100,
+    "tvl_usd": 650756.9776
+  },
+  {
+    "address": "0xc4fcee01a13776514cabe4dc589c9971cdeb5d2b",
+    "label": "AI / PONS 0.3% (uniswap-v3)",
+    "token0": "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+    "token1": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "AI",
+    "symbol1": "PONS",
+    "symbol": "AI/PONS",
+    "symbols": [
+      "AI",
+      "PONS"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "tvl_usd": 369780.8515
+  },
+  {
+    "address": "0x50e43b43a8ee1e07e0ac978e92adff7dfbfb88e7",
+    "label": "WETH / PONS 0.2% (giga-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "giga-v3",
+    "symbol0": "WETH",
+    "symbol1": "PONS",
+    "symbol": "WETH/PONS",
+    "symbols": [
+      "WETH",
+      "PONS"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 2000,
+    "tick_spacing": 40,
+    "tvl_usd": 134876.3814
+  },
+  {
+    "address": "0x25c93dac3a72e48e67314709f058ccf56c0cf43a",
+    "label": "WETH / PONS 1.0% (up-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "WETH",
+    "symbol1": "PONS",
+    "symbol": "WETH/PONS",
+    "symbols": [
+      "WETH",
+      "PONS"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 189957.3577
+  },
+  {
+    "address": "0x643232e1064eae522a615108ef1158f9c9f43ece",
+    "label": "WETH / PONS 0.3% (up-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "WETH",
+    "symbol1": "PONS",
+    "symbol": "WETH/PONS",
+    "symbols": [
+      "WETH",
+      "PONS"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "tvl_usd": 187658.4964
+  },
+  {
+    "address": "0xc4a21f9d6485fc5893dd4a491b320a83daf4da1d",
+    "label": "WETH / AI 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "AI",
+    "symbol": "WETH/AI",
+    "symbols": [
+      "WETH",
+      "AI"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 3468014.3188
+  },
+  {
+    "address": "0xd78480cafef722d75519e13b9f516e5704d0d659",
+    "label": "WETH / AI 0.3% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "AI",
+    "symbol": "WETH/AI",
+    "symbols": [
+      "WETH",
+      "AI"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "tvl_usd": 484732.2503
+  },
+  {
+    "address": "0x1e49a549e9fbbc09e95f7126dce2071511868ade",
+    "label": "WETH / AI 1.0% (up-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "WETH",
+    "symbol1": "AI",
+    "symbol": "WETH/AI",
+    "symbols": [
+      "WETH",
+      "AI"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 366539.0084
+  },
+  {
+    "address": "0x682051ca28e43ec3a9f3b07b9a851860148c643d",
+    "label": "CASHCAT / AI 0.05% (uniswap-v3)",
+    "token0": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "token1": "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "CASHCAT",
+    "symbol1": "AI",
+    "symbol": "CASHCAT/AI",
+    "symbols": [
+      "CASHCAT",
+      "AI"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 500,
+    "tick_spacing": 10,
+    "tvl_usd": 19039.8862
+  },
+  {
+    "address": "0x237609918f330add285b8bc5f8f2922283d1c4c5",
+    "label": "WETH / TENDIES 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x45242320dbb855eea8fd36804c6487e10e97fcf9",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "TENDIES",
+    "symbol": "WETH/TENDIES",
+    "symbols": [
+      "WETH",
+      "TENDIES"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 1091762.0891
+  },
+  {
+    "address": "0xd53a623c17a5853838fa140ce5706ea008565da8",
+    "label": "WETH / TENDIES 1.0% (up-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x45242320dbb855eea8fd36804c6487e10e97fcf9",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "WETH",
+    "symbol1": "TENDIES",
+    "symbol": "WETH/TENDIES",
+    "symbols": [
+      "WETH",
+      "TENDIES"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 74899.8813
+  },
+  {
+    "address": "0x57ef4615c14d84079c1f807f3503ed3f42fefe36",
+    "label": "WETH / TENDIES 1.0% (giga-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x45242320dbb855eea8fd36804c6487e10e97fcf9",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "giga-v3",
+    "symbol0": "WETH",
+    "symbol1": "TENDIES",
+    "symbol": "WETH/TENDIES",
+    "symbols": [
+      "WETH",
+      "TENDIES"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 63931.0557
+  },
+  {
+    "address": "0x9036a9406dac1c252c364d037f489e5f0a752f54",
+    "label": "WETH / MOO 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xd9db30bb0d2b8d2eae3826a1372117e058791e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "MOO",
+    "symbol": "WETH/MOO",
+    "symbols": [
+      "WETH",
+      "MOO"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 115343.2125
+  },
+  {
+    "address": "0x543127d6a1932689faacc1afad4a81146d9ccf54",
+    "label": "WETH / MANCER 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xc72f232a6869e6cf34dc06129affd07f8a2a246a",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "MANCER",
+    "symbol": "WETH/MANCER",
+    "symbols": [
+      "WETH",
+      "MANCER"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 495476.8465
+  },
+  {
+    "address": "0x9ada4a825d224fbdad2fac6c3e9bcbcc7169ca79",
+    "label": "MANCER / STONKBROKER 1.0% (uniswap-v3)",
+    "token0": "0xc72f232a6869e6cf34dc06129affd07f8a2a246a",
+    "token1": "0xe934e36a439c94017b64a3fece66af12099abf50",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "MANCER",
+    "symbol1": "STONKBROKER",
+    "symbol": "MANCER/STONKBROKER",
+    "symbols": [
+      "MANCER",
+      "STONKBROKER"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 352747.1381
+  },
+  {
+    "address": "0x252e55ab67e3cb212d83f9e9a2b1a6db98e03cb3",
+    "label": "SPCX / MANCER 1.0% (uniswap-v3)",
+    "token0": "0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea",
+    "token1": "0xc72f232a6869e6cf34dc06129affd07f8a2a246a",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "SPCX",
+    "symbol1": "MANCER",
+    "symbol": "SPCX/MANCER",
+    "symbols": [
+      "SPCX",
+      "MANCER"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 29959.0742
+  },
+  {
+    "address": "0xc8618fca214817f5c7a9c6a852b73ab7f2c865fc",
+    "label": "MANCER / STONKBROKER 1.0% (up-v3)",
+    "token0": "0xc72f232a6869e6cf34dc06129affd07f8a2a246a",
+    "token1": "0xe934e36a439c94017b64a3fece66af12099abf50",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "MANCER",
+    "symbol1": "STONKBROKER",
+    "symbol": "MANCER/STONKBROKER",
+    "symbols": [
+      "MANCER",
+      "STONKBROKER"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 2000,
+    "tvl_usd": 43533.9566
+  },
+  {
+    "address": "0x5c4ca790d5944e0d5eb46456fd1b700bf6040849",
+    "label": "USDG / GME 1.0029% (up-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xc2362aff2a2a4cc1f48cf3dab2c4e2605eb94ba3",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "USDG",
+    "symbol1": "GME",
+    "symbol": "USDG/GME",
+    "symbols": [
+      "USDG",
+      "GME"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10029,
+    "tick_spacing": 2000,
+    "tvl_usd": 65438.5981
+  },
+  {
+    "address": "0xd29893ffac8b29ec4db2cfe0cdb3fe1377c028ff",
+    "label": "WETH / Index 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x56910d4409f3a0c78c64dd8d0545ff0705389870",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "Index",
+    "symbol": "WETH/Index",
+    "symbols": [
+      "WETH",
+      "Index"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 1168067.5739
+  },
+  {
+    "address": "0x2a55f1415a26b5612e7c9a401a862d0692f3d1db",
+    "label": "WETH / Index 1.0% (up-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x56910d4409f3a0c78c64dd8d0545ff0705389870",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "WETH",
+    "symbol1": "Index",
+    "symbol": "WETH/Index",
+    "symbols": [
+      "WETH",
+      "Index"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 2000,
+    "tvl_usd": 12741.1803
+  },
+  {
+    "address": "0x4a569beaef7c908c11a3ca108d3c7ba7b2e68af0",
+    "label": "WETH / ICOIN 2.0% (ramses-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x5d6ef090a1461b11c9427ac319260122d1c61e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "WETH",
+    "symbol1": "ICOIN",
+    "symbol": "WETH/ICOIN",
+    "symbols": [
+      "WETH",
+      "ICOIN"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 20000,
+    "tick_spacing": 200,
+    "tvl_usd": 75970.1952
+  },
+  {
+    "address": "0x0b9dbf6d3dd850e5616ba260ada82b06e8c5d5c0",
+    "label": "USDG / LIGMA 1.0% (uniswap-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x9f2c82a2b5c40472a3c6aa3d678c5858345ec71e",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "USDG",
+    "symbol1": "LIGMA",
+    "symbol": "USDG/LIGMA",
+    "symbols": [
+      "USDG",
+      "LIGMA"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 48300.4111
+  },
+  {
+    "address": "0xbc278d068192ef078b6025e8e4a771c1ff4dd789",
+    "label": "WETH / PROLOGUE 0.25% (up-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xb9972ca7188e511174947e3936a5315ac7073277",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "WETH",
+    "symbol1": "PROLOGUE",
+    "symbol": "WETH/PROLOGUE",
+    "symbols": [
+      "WETH",
+      "PROLOGUE"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 2500,
+    "tick_spacing": 10,
+    "tvl_usd": 23030.3028
+  },
+  {
+    "address": "0xa427ad72db4227910805162ffae9d9b0c87bd1b5",
+    "label": "WETH / 4663 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xd4052415613b34af236024b895574c467f65b6dd",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "4663",
+    "symbol": "WETH/4663",
+    "symbols": [
+      "WETH",
+      "4663"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 61369.0961
+  },
+  {
+    "address": "0xc641a0dc848e7aadd7c69d800bae2fea9b258610",
+    "label": "WETH / SHROOM 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "SHROOM",
+    "symbol": "WETH/SHROOM",
+    "symbols": [
+      "WETH",
+      "SHROOM"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 88066.3213
+  },
+  {
+    "address": "0x52e65b17fb6e5ba00ed806f37afcd2daa50271ca",
+    "label": "WETH / USDG 0.01% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "USDG",
+    "symbol": "WETH/USDG",
+    "symbols": [
+      "WETH",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 100,
+    "tick_spacing": 1,
+    "tvl_usd": 29323087.6904
+  },
+  {
+    "address": "0x8a899a3c1ca2557abb36dfd44eceb303290b75c7",
+    "label": "WETH / LIT 0.3% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xf6b983a2cae178575edb0c585f6496246875a38e",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "LIT",
+    "symbol": "WETH/LIT",
+    "symbols": [
+      "WETH",
+      "LIT"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "tvl_usd": 687936583.1749
+  },
+  {
+    "address": "0x69bfaf19c9f377bb306a89aed9f6b07e2c1a8d9a",
+    "label": "WETH / USDG 0.05% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "USDG",
+    "symbol": "WETH/USDG",
+    "symbols": [
+      "WETH",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 500,
+    "tick_spacing": 10,
+    "tvl_usd": 5136420.8177
+  },
+  {
+    "address": "0xd42a491087a15e5afd51feb3606066cc152d2b09",
+    "label": "CASHCAT / WETH 0.3% (uniswap-v3)",
+    "token0": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "token1": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "CASHCAT",
+    "symbol1": "WETH",
+    "symbol": "CASHCAT/WETH",
+    "symbols": [
+      "CASHCAT",
+      "WETH"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "tvl_usd": 3517141.2245
+  },
+  {
+    "address": "0xa70fc67c9f69da90b63a0e4c05d229954574e313",
+    "label": "CASHCAT / WETH 1.0% (uniswap-v3)",
+    "token0": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "token1": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "CASHCAT",
+    "symbol1": "WETH",
+    "symbol": "CASHCAT/WETH",
+    "symbols": [
+      "CASHCAT",
+      "WETH"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 5664269.6326
+  },
+  {
+    "address": "0xfae65eaa11943f45e83d5b45dc7a7c801c51bfb0",
+    "label": "WETH / USDG 0.01% (ramses-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "WETH",
+    "symbol1": "USDG",
+    "symbol": "WETH/USDG",
+    "symbols": [
+      "WETH",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 100,
+    "tick_spacing": 1,
+    "tvl_usd": 910665.3269
+  },
+  {
+    "address": "0x16679e2ac1a798865ecf1c1639e67693ddb1c220",
+    "label": "WETH / USDG 0.0052% (up-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "up-v3",
+    "symbol0": "WETH",
+    "symbol1": "USDG",
+    "symbol": "WETH/USDG",
+    "symbols": [
+      "WETH",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 52,
+    "tick_spacing": 10,
+    "tvl_usd": 424515.4288
+  },
+  {
+    "address": "0xb7f10f74b39291b9290b779978e19a7637c742d6",
+    "label": "WETH / PIPEDOG 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x5cb6f181081301b44905f3ae15419112ecabd8a6",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "PIPEDOG",
+    "symbol": "WETH/PIPEDOG",
+    "symbols": [
+      "WETH",
+      "PIPEDOG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 9347337.748
+  },
+  {
+    "address": "0xddcbba3666f578e3f09516f21ff85bfee859ab5e",
+    "label": "WETH / SPY 0.05% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "SPY",
+    "symbol": "WETH/SPY",
+    "symbols": [
+      "WETH",
+      "SPY"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 500,
+    "tick_spacing": 10,
+    "tvl_usd": 1339626.5482
+  },
+  {
+    "address": "0xb2a6ad51b3ea3cdc8d3508cca147a43471382e53",
+    "label": "WETH / USDG 0.01% (giga-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "giga-v3",
+    "symbol0": "WETH",
+    "symbol1": "USDG",
+    "symbol": "WETH/USDG",
+    "symbols": [
+      "WETH",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 100,
+    "tick_spacing": 1,
+    "tvl_usd": 546632.5029
+  },
+  {
+    "address": "0x62ab521f71431f78ac374cdbadc6cda3c8916b6c",
+    "label": "WETH / NVDA 0.05% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "NVDA",
+    "symbol": "WETH/NVDA",
+    "symbols": [
+      "WETH",
+      "NVDA"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 500,
+    "tick_spacing": 10,
+    "tvl_usd": 1062777.3696
+  },
+  {
+    "address": "0x98ee4aa349d837961abede0ed2aa121f161668b6",
+    "label": "WETH / DELTA 1.0% (up-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xe8ffd7e24187f72afb08d75b1bb13088a989a791",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "WETH",
+    "symbol1": "DELTA",
+    "symbol": "WETH/DELTA",
+    "symbols": [
+      "WETH",
+      "DELTA"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 17277.4592
+  },
+  {
+    "address": "0xd4eb21209c4d6093f80b5b84f5c45cc093ea14a3",
+    "label": "USDG / NVDA 0.05% (uniswap-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "USDG",
+    "symbol1": "NVDA",
+    "symbol": "USDG/NVDA",
+    "symbols": [
+      "USDG",
+      "NVDA"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 500,
+    "tick_spacing": 10,
+    "tvl_usd": 7406028.3812
+  },
+  {
+    "address": "0x18a5af4e442f8be68968cc1f00d537f8af2d12cd",
+    "label": "USDG / NVDA 0.0114% (up-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "USDG",
+    "symbol1": "NVDA",
+    "symbol": "USDG/NVDA",
+    "symbols": [
+      "USDG",
+      "NVDA"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 114,
+    "tick_spacing": 60,
+    "tvl_usd": 105119.0106
+  },
+  {
+    "address": "0xc0be1cb0f674d9737c72b2a63fc542361185b807",
+    "label": "WETH / NVDA 0.3% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "NVDA",
+    "symbol": "WETH/NVDA",
+    "symbols": [
+      "WETH",
+      "NVDA"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "tvl_usd": 224990.4659
+  },
+  {
+    "address": "0xdac1904d823f7d6bcaaf431ceee40c934fed321b",
+    "label": "USDG / NVDA 0.025% (ramses-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "USDG",
+    "symbol1": "NVDA",
+    "symbol": "USDG/NVDA",
+    "symbols": [
+      "USDG",
+      "NVDA"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 250,
+    "tick_spacing": 10,
+    "tvl_usd": 94839.7101
+  },
+  {
+    "address": "0xf8996e22ac7a67fae741830ad83b3b4d5e5de203",
+    "label": "WETH / NVDA 0.05% (ramses-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "WETH",
+    "symbol1": "NVDA",
+    "symbol": "WETH/NVDA",
+    "symbols": [
+      "WETH",
+      "NVDA"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 500,
+    "tick_spacing": 50,
+    "tvl_usd": 84601.4973
+  },
+  {
+    "address": "0xec6a2662de42da97b338430a0c51dd8774bd8969",
+    "label": "WETH / CLIPPY 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x85856f025bf13b8fd2aae2f6da458318744f1e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "CLIPPY",
+    "symbol": "WETH/CLIPPY",
+    "symbols": [
+      "WETH",
+      "CLIPPY"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 32187.9408
+  },
+  {
+    "address": "0xe3b608eec422701e07c5c16995fe9e30fff93fd0",
+    "label": "USDG / CLIPPY 1.0% (uniswap-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x85856f025bf13b8fd2aae2f6da458318744f1e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "USDG",
+    "symbol1": "CLIPPY",
+    "symbol": "USDG/CLIPPY",
+    "symbols": [
+      "USDG",
+      "CLIPPY"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 11631.3613
+  },
+  {
+    "address": "0x882c7c5b9176da92a65ff671bff8d359690219a8",
+    "label": "INJOH / USDG 2.0% (ramses-v3)",
+    "token0": "0x2cc0fac44b8252f6b10208b091aff2c94b4da77d",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "INJOH",
+    "symbol1": "USDG",
+    "symbol": "INJOH/USDG",
+    "symbols": [
+      "INJOH",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 20000,
+    "tick_spacing": 200,
+    "tvl_usd": 12129.434
+  },
+  {
+    "address": "0xc61284332117c3fb23a2a56cceffd07f7af60029",
+    "label": "SPCX / USDG 0.05% (uniswap-v3)",
+    "token0": "0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "SPCX",
+    "symbol1": "USDG",
+    "symbol": "SPCX/USDG",
+    "symbols": [
+      "SPCX",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 500,
+    "tick_spacing": 10,
+    "tvl_usd": 2621905.2192
+  },
+  {
+    "address": "0xc3c9f0171490ef0f4536fe493f3b0ebb5ee0cb5e",
+    "label": "WETH / SPCX 0.05% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "SPCX",
+    "symbol": "WETH/SPCX",
+    "symbols": [
+      "WETH",
+      "SPCX"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 500,
+    "tick_spacing": 10,
+    "tvl_usd": 522305.5448
+  },
+  {
+    "address": "0xeb07d9587efd1778dfb9c385ec43ef6d5f9fe401",
+    "label": "SPCX / USDG 0.3% (uniswap-v3)",
+    "token0": "0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "SPCX",
+    "symbol1": "USDG",
+    "symbol": "SPCX/USDG",
+    "symbols": [
+      "SPCX",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "tvl_usd": 506038.1156
+  },
+  {
+    "address": "0x9d590437abaae12cf9fe0627caf4cfd633152599",
+    "label": "SPCX / USDG 0.05% (up-v3)",
+    "token0": "0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "up-v3",
+    "symbol0": "SPCX",
+    "symbol1": "USDG",
+    "symbol": "SPCX/USDG",
+    "symbols": [
+      "SPCX",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 500,
+    "tick_spacing": 10,
+    "tvl_usd": 74088.9602
+  },
+  {
+    "address": "0x97bcdd384fc144899545deb749b6daf2aa52a2c5",
+    "label": "WETH / MEME 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "MEME",
+    "symbol": "WETH/MEME",
+    "symbols": [
+      "WETH",
+      "MEME"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 298652.4047
+  },
+  {
+    "address": "0x538557cb827c97b28f0733b097e8d5bce5f2d263",
+    "label": "MEME / USDG 1.0% (uniswap-v3)",
+    "token0": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "MEME",
+    "symbol1": "USDG",
+    "symbol": "MEME/USDG",
+    "symbols": [
+      "MEME",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 49718.8974
+  },
+  {
+    "address": "0x5d37b1d887b502594414a82d2cf7d4ef774a8027",
+    "label": "MEME / USDG 0.3% (uniswap-v3)",
+    "token0": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "MEME",
+    "symbol1": "USDG",
+    "symbol": "MEME/USDG",
+    "symbols": [
+      "MEME",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "tvl_usd": 13553.612
+  },
+  {
+    "address": "0x5ca68142c214d630fce32288730ff08de74510f0",
+    "label": "WETH / MEME 0.3% (up-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "WETH",
+    "symbol1": "MEME",
+    "symbol": "WETH/MEME",
+    "symbols": [
+      "WETH",
+      "MEME"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 200,
+    "tvl_usd": 20626.6733
+  },
+  {
+    "address": "0x5860dd468b4fc1740eaf80a3b7f22e78d70a076a",
+    "label": "WETH / RAM 1.0% (ramses-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x5173d45a1191ee33cbb7d8c7e65f21b04ed54802",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "WETH",
+    "symbol1": "RAM",
+    "symbol": "WETH/RAM",
+    "symbols": [
+      "WETH",
+      "RAM"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 100,
+    "tvl_usd": 488267.5031
+  },
+  {
+    "address": "0xe8bcb3243c79d313f6d6f168f4237989b1648f5c",
+    "label": "r33 / RAM 2.0% (ramses-v3)",
+    "token0": "0x4e5195469a0360f5dfe811730c9ccacff0a0feee",
+    "token1": "0x5173d45a1191ee33cbb7d8c7e65f21b04ed54802",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "r33",
+    "symbol1": "RAM",
+    "symbol": "r33/RAM",
+    "symbols": [
+      "r33",
+      "RAM"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 20000,
+    "tick_spacing": 200,
+    "tvl_usd": 82168.5964
+  },
+  {
+    "address": "0x37998858ccbe5ce53f70f7a6ffd979f5670c32d8",
+    "label": "WETH / RAM 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x5173d45a1191ee33cbb7d8c7e65f21b04ed54802",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "RAM",
+    "symbol": "WETH/RAM",
+    "symbols": [
+      "WETH",
+      "RAM"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 37642.0007
+  },
+  {
+    "address": "0x0115835755ad4354104a0eefd5defea94312b1c6",
+    "label": "RAM / USDG 2.0% (giga-v3)",
+    "token0": "0x5173d45a1191ee33cbb7d8c7e65f21b04ed54802",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "giga-v3",
+    "symbol0": "RAM",
+    "symbol1": "USDG",
+    "symbol": "RAM/USDG",
+    "symbols": [
+      "RAM",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 20000,
+    "tick_spacing": 400,
+    "tvl_usd": 10491.8397
+  },
+  {
+    "address": "0x38453c115607463ac284820ce959831042f3df4e",
+    "label": "SPY / USDG 0.01% (ramses-v3)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "SPY",
+    "symbol1": "USDG",
+    "symbol": "SPY/USDG",
+    "symbols": [
+      "SPY",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 100,
+    "tick_spacing": 1,
+    "tvl_usd": 682396.1066
+  },
+  {
+    "address": "0x3e1afde90341f843c941ff4077d915bde3008c7e",
+    "label": "WETH / SPY 0.01% (ramses-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "WETH",
+    "symbol1": "SPY",
+    "symbol": "WETH/SPY",
+    "symbols": [
+      "WETH",
+      "SPY"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 100,
+    "tick_spacing": 1,
+    "tvl_usd": 281387.6947
+  },
+  {
+    "address": "0x5ad1a528cd9de3962cb6c75ff250e434887479c1",
+    "label": "SPY / USDG 0.005% (up-v3)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "up-v3",
+    "symbol0": "SPY",
+    "symbol1": "USDG",
+    "symbol": "SPY/USDG",
+    "symbols": [
+      "SPY",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 50,
+    "tick_spacing": 60,
+    "tvl_usd": 168375.2426
+  },
+  {
+    "address": "0xd89cac2dd5ce9f8d655d9f6e20eeed18efc9daef",
+    "label": "SPY / USDG 0.01% (giga-v3)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "giga-v3",
+    "symbol0": "SPY",
+    "symbol1": "USDG",
+    "symbol": "SPY/USDG",
+    "symbols": [
+      "SPY",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 100,
+    "tick_spacing": 1,
+    "tvl_usd": 71648.8213
+  },
+  {
+    "address": "0xa7bb1ac63bbab0c44316e6c8c455213441689167",
+    "label": "SPY / USDG 0.05% (uniswap-v3)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "SPY",
+    "symbol1": "USDG",
+    "symbol": "SPY/USDG",
+    "symbols": [
+      "SPY",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 500,
+    "tick_spacing": 10,
+    "tvl_usd": 203464.6864
+  },
+  {
+    "address": "0xeb60bcd1d920ad6e102690ccfc6fb488899e1510",
+    "label": "USDG / MSFT 0.3% (uniswap-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xe93237c50d904957cf27e7b1133b510c669c2e74",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "USDG",
+    "symbol1": "MSFT",
+    "symbol": "USDG/MSFT",
+    "symbols": [
+      "USDG",
+      "MSFT"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "tvl_usd": 362653.6884
+  },
+  {
+    "address": "0x4230750b3c69ae6054a3f778d75adc2e9a27d70f",
+    "label": "USDG / MSFT 0.05% (up-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xe93237c50d904957cf27e7b1133b510c669c2e74",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "USDG",
+    "symbol1": "MSFT",
+    "symbol": "USDG/MSFT",
+    "symbols": [
+      "USDG",
+      "MSFT"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 500,
+    "tick_spacing": 60,
+    "tvl_usd": 68793.3001
+  },
+  {
+    "address": "0x191ae9cde295b1a568164a078bcd8ce8d338fe6d",
+    "label": "WETH / worth 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xfb1bcb6817f7b8fa86896d3253b16aeb7bd6a5a8",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "worth",
+    "symbol": "WETH/worth",
+    "symbols": [
+      "WETH",
+      "worth"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 127673.4192
+  },
+  {
+    "address": "0x00edb65ec69faac60edfd333e4e6d161bb788e08",
+    "label": "WETH / uhood 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xbd433ecab074ae6a740959fb5e7bf1d02f6f57f6",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "uhood",
+    "symbol": "WETH/uhood",
+    "symbols": [
+      "WETH",
+      "uhood"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 12427.0803
+  },
+  {
+    "address": "0xf189024531ed94825b59b0b992241bdaa5fe815f",
+    "label": "DENNYS / NVDA 1.0% (uniswap-v3)",
+    "token0": "0xc1a0d2607cb47ac45cef88014964234a2d86d956",
+    "token1": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "DENNYS",
+    "symbol1": "NVDA",
+    "symbol": "DENNYS/NVDA",
+    "symbols": [
+      "DENNYS",
+      "NVDA"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 77159.3025
+  },
+  {
+    "address": "0xfd8fc2e89c99d9b09097c84f4cd6d1f906073801",
+    "label": "COPPERINU / USDG 1.0% (uniswap-v3)",
+    "token0": "0x5317c0d077d2eeb639448939b930d49c4984b63b",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "COPPERINU",
+    "symbol1": "USDG",
+    "symbol": "COPPERINU/USDG",
+    "symbols": [
+      "COPPERINU",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 54392.5636
+  },
+  {
+    "address": "0xe39078fc024188927e10b26d91e4720a600fba85",
+    "label": "WETH / 530A 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x6e47d95928cb39b5e51be425aab2a5190418e943",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "530A",
+    "symbol": "WETH/530A",
+    "symbols": [
+      "WETH",
+      "530A"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 20801.6638
+  },
+  {
+    "address": "0xfad9b1829634afa6e7dc92beb432ef415d7ac90c",
+    "label": "WETH / PENNEY 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xdd55a041e316f79c4acf95918e3fa7be2bb2ebfe",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "PENNEY",
+    "symbol": "WETH/PENNEY",
+    "symbols": [
+      "WETH",
+      "PENNEY"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 10466.8341
+  },
+  {
+    "address": "0x95d1b62891531b9207ad9c79a021bdf6be452920",
+    "label": "BOW / USDG 2.0% (ramses-v3)",
+    "token0": "0x451b42a15100c340ca12f7c66de06fac5ea2d751",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "BOW",
+    "symbol1": "USDG",
+    "symbol": "BOW/USDG",
+    "symbols": [
+      "BOW",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 20000,
+    "tick_spacing": 200,
+    "tvl_usd": 72675.6362
+  },
+  {
+    "address": "0x06b6024281cba79309026285c912ec3912671392",
+    "label": "WORTHLESS / WETH 1.0% (uniswap-v3)",
+    "token0": "0x018493d3439a538ed7985eb14084414db58c9576",
+    "token1": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WORTHLESS",
+    "symbol1": "WETH",
+    "symbol": "WORTHLESS/WETH",
+    "symbols": [
+      "WORTHLESS",
+      "WETH"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 95793.8096
+  },
+  {
+    "address": "0xa1ad01da59552689835902b878ce6f5ea37f2b0b",
+    "label": "WETH / PONSHOOD 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x432c99bbd9dc1d9040087598d7cf40502d7cc20b",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "PONSHOOD",
+    "symbol": "WETH/PONSHOOD",
+    "symbols": [
+      "WETH",
+      "PONSHOOD"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 51705.396
+  },
+  {
+    "address": "0xaa1e9066bf0a21aaa865dd5be1188a9978faf82e",
+    "label": "WETH / Guy 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x51b57d1157975756c156ee28e3e167718792b665",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "Guy",
+    "symbol": "WETH/Guy",
+    "symbols": [
+      "WETH",
+      "Guy"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 40438.7167
+  },
+  {
+    "address": "0x23d641feccd207e8794c593e8240444a0674c4ba",
+    "label": "WETH / UP 1.0135% (up-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x57c0e45cb534413d1c20a4240955d6bb250bb4f1",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "WETH",
+    "symbol1": "UP",
+    "symbol": "WETH/UP",
+    "symbols": [
+      "WETH",
+      "UP"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10135,
+    "tick_spacing": 200,
+    "tvl_usd": 2237607.0598
+  },
+  {
+    "address": "0x73ef7245b40392ae8710dfb5398f270b07e20d1d",
+    "label": "UP / STONKBROKER 1.016% (up-v3)",
+    "token0": "0x57c0e45cb534413d1c20a4240955d6bb250bb4f1",
+    "token1": "0xe934e36a439c94017b64a3fece66af12099abf50",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "UP",
+    "symbol1": "STONKBROKER",
+    "symbol": "UP/STONKBROKER",
+    "symbols": [
+      "UP",
+      "STONKBROKER"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10160,
+    "tick_spacing": 200,
+    "tvl_usd": 1558421.8469
+  },
+  {
+    "address": "0x4ef94cd1ab45ebbb50f9e73cd6e45c5027caa3f7",
+    "label": "WETH / UP 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x57c0e45cb534413d1c20a4240955d6bb250bb4f1",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "UP",
+    "symbol": "WETH/UP",
+    "symbols": [
+      "WETH",
+      "UP"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 147936.1379
+  },
+  {
+    "address": "0x47ce15a46bab9a6b0318f10504849b581346ef9a",
+    "label": "UP / USDG 1.0% (up-v3)",
+    "token0": "0x57c0e45cb534413d1c20a4240955d6bb250bb4f1",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "up-v3",
+    "symbol0": "UP",
+    "symbol1": "USDG",
+    "symbol": "UP/USDG",
+    "symbols": [
+      "UP",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 2000,
+    "tvl_usd": 13017.2421
+  },
+  {
+    "address": "0xb51d3b81eb40f233919af58bf8bca4a57e07192b",
+    "label": "UP / USDG 1.0% (uniswap-v3)",
+    "token0": "0x57c0e45cb534413d1c20a4240955d6bb250bb4f1",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "UP",
+    "symbol1": "USDG",
+    "symbol": "UP/USDG",
+    "symbols": [
+      "UP",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 12006.5463
+  },
+  {
+    "address": "0x621bd80612cce26d3a5963a4fd0cd07acae45d6f",
+    "label": "WETH / BEBEH 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xacb168d5517f58808ca8f1974724d69220e38826",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "BEBEH",
+    "symbol": "WETH/BEBEH",
+    "symbols": [
+      "WETH",
+      "BEBEH"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 11232.2886
+  },
+  {
+    "address": "0xa19494e36b8e69ebd18bd67aa7dbcc25c3fcce78",
+    "label": "USDG / CLAN 3.0% (ramses-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xcebc0cfbc5dd0893a9e3b9d0f75b211ddf5934a0",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "USDG",
+    "symbol1": "CLAN",
+    "symbol": "USDG/CLAN",
+    "symbols": [
+      "USDG",
+      "CLAN"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 30000,
+    "tick_spacing": 300,
+    "tvl_usd": 33678.5109
+  },
+  {
+    "address": "0x67e405959fe30793d59bc69745c015a4a4736ea5",
+    "label": "USDG / CHILL 2.5% (ramses-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xbbf2c91fdcc488ba736e0c38adc82c9a92597deb",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "USDG",
+    "symbol1": "CHILL",
+    "symbol": "USDG/CHILL",
+    "symbols": [
+      "USDG",
+      "CHILL"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 25000,
+    "tick_spacing": 200,
+    "tvl_usd": 24636.3234
+  },
+  {
+    "address": "0xd55246642dd114bc21db98c6f2261161a6158388",
+    "label": "WETH / wire 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x8ecea3d0e648db646d824aa51eedeb16ac3d6878",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "wire",
+    "symbol": "WETH/wire",
+    "symbols": [
+      "WETH",
+      "wire"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 121048.7628
+  },
+  {
+    "address": "0x52fcb1d83191e06ef2d2d9f460609ca22a923558",
+    "label": "WETH / YOLO 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x62c71cd34a52c30d894419cbcc55db2afa8032ea",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "YOLO",
+    "symbol": "WETH/YOLO",
+    "symbols": [
+      "WETH",
+      "YOLO"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 468709.3947
+  },
+  {
+    "address": "0x2c7069de0777beca812e4a20ad522f08e1585f7f",
+    "label": "WETH / STOCKCOIN 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x5bd252b4d7aa573813d1c6a4888f778790583667",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "STOCKCOIN",
+    "symbol": "WETH/STOCKCOIN",
+    "symbols": [
+      "WETH",
+      "STOCKCOIN"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 12628.7733
+  },
+  {
+    "address": "0xdd839007f5a548c57a0acaa64642be8bf10f2a33",
+    "label": "WETH / HODL 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xf4c450c1570c2dbda91de1ed2e39995a15028c97",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "HODL",
+    "symbol": "WETH/HODL",
+    "symbols": [
+      "WETH",
+      "HODL"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 50397.9838
+  },
+  {
+    "address": "0xc6d686a71e819a75652cb863d89b03387d98393b",
+    "label": "WETH / YORO 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x64abfc878dc340bbf33bae4aaf39ed33fb1828c0",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "YORO",
+    "symbol": "WETH/YORO",
+    "symbols": [
+      "WETH",
+      "YORO"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 15072.9362
+  },
+  {
+    "address": "0xeda0866d88999e4edf36b9c4c97b609e1cd5211e",
+    "label": "WETH / TNOXA 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xdd4cb9fc35388c756f2948b7388ac3aeb0fa77cb",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "TNOXA",
+    "symbol": "WETH/TNOXA",
+    "symbols": [
+      "WETH",
+      "TNOXA"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 15680.1445
+  },
+  {
+    "address": "0xbd5cd6515ca6285941fbc177381dc8ed4844e6b8",
+    "label": "WETH / BONER 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x98096d17e191b3da1d5f99a6d7b3584351b11e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "BONER",
+    "symbol": "WETH/BONER",
+    "symbols": [
+      "WETH",
+      "BONER"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 320592.8089
+  },
+  {
+    "address": "0xefcfb363e19b3656e3f0f6f56f2e6078e73b89f8",
+    "label": "USDG / BONER 2.0% (ramses-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x98096d17e191b3da1d5f99a6d7b3584351b11e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "USDG",
+    "symbol1": "BONER",
+    "symbol": "USDG/BONER",
+    "symbols": [
+      "USDG",
+      "BONER"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 20000,
+    "tick_spacing": 200,
+    "tvl_usd": 27521.9002
+  },
+  {
+    "address": "0xc54c8ba6439ab4f5fb734779f83d00185b1ca4ee",
+    "label": "WETH / PAIR 0.3% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x6b1d42927b1a84ec28fa88d4fc6fa7af404966be",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "PAIR",
+    "symbol": "WETH/PAIR",
+    "symbols": [
+      "WETH",
+      "PAIR"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "tvl_usd": 30685.1959
+  },
+  {
+    "address": "0xca192fe1897a3bbdadb82d97adcfa2536aaceccb",
+    "label": "WETH / COOKWARE 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xdcc34bdd5d3c30237303b95d2f59cc29437b5c74",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "COOKWARE",
+    "symbol": "WETH/COOKWARE",
+    "symbols": [
+      "WETH",
+      "COOKWARE"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 27583.5547
+  },
+  {
+    "address": "0x6e31e066aa531bcb11133b4e7fe95a1a1ed50daa",
+    "label": "WETH / BLINK 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x7b630f080807df83908b4ade46ba6396ee66b098",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "BLINK",
+    "symbol": "WETH/BLINK",
+    "symbols": [
+      "WETH",
+      "BLINK"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 587852.4761
+  },
+  {
+    "address": "0x581fd5d5deb2488c2b3afe444e52dd9e7c8513c1",
+    "label": "Hoodog / HOODon 1.0% (uniswap-v3)",
+    "token0": "0x13369c9c1cf3a3472beb4a85d048043b99f392de",
+    "token1": "0xfb5b5778d45ae47f15323fb59b666c655174a79c",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "Hoodog",
+    "symbol1": "HOODon",
+    "symbol": "Hoodog/HOODon",
+    "symbols": [
+      "Hoodog",
+      "HOODon"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 15003.6831
+  },
+  {
+    "address": "0x42b19e5e3f28c4148c518444546f102f6ba87ab1",
+    "label": "WETH / HOOKR 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x18e674231a58c239dc7daedcffe15ec3a24cff5c",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "HOOKR",
+    "symbol": "WETH/HOOKR",
+    "symbols": [
+      "WETH",
+      "HOOKR"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 148621.7288
+  },
+  {
+    "address": "0xd75a3f0ce28c54ccfdbf0a1c54d5297750bd97e6",
+    "label": "HOOKR / USDG 1.0% (uniswap-v3)",
+    "token0": "0x18e674231a58c239dc7daedcffe15ec3a24cff5c",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "HOOKR",
+    "symbol1": "USDG",
+    "symbol": "HOOKR/USDG",
+    "symbols": [
+      "HOOKR",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 11064.2975
+  },
+  {
+    "address": "0x0f2ca1d996224a0c9dd140b865142aad381a4287",
+    "label": "WETH / DTF 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xee5576fa1bcaa380e591d01245f406f3f384eb01",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "DTF",
+    "symbol": "WETH/DTF",
+    "symbols": [
+      "WETH",
+      "DTF"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 245724.6335
+  },
+  {
+    "address": "0x18c346687de02ee8814364148f0825eb7f674d44",
+    "label": "WETH / POOLS 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x385b36ff682ab4c76e7c37a66b96aabc466471d5",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "POOLS",
+    "symbol": "WETH/POOLS",
+    "symbols": [
+      "WETH",
+      "POOLS"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 17448.3319
+  },
+  {
+    "address": "0x6c80f51b59b00f1e72a06c3a381739e09e528ed5",
+    "label": "WETH / CASHCAT 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x71d6a215344b61f36514214d9cbace82643f066d",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "CASHCAT",
+    "symbol": "WETH/CASHCAT",
+    "symbols": [
+      "WETH",
+      "CASHCAT"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 17035.4344
+  },
+  {
+    "address": "0xf2128ea369a5b7752ce6260fe929eb5b03d7b034",
+    "label": "WETH / GOAT 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x58261fb11654c5df9b47eb31db919c94bda34e31",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "GOAT",
+    "symbol": "WETH/GOAT",
+    "symbols": [
+      "WETH",
+      "GOAT"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 14594.8335
+  },
+  {
+    "address": "0xd618eac29dde96dd7cc76ed24bbfea0368cd5c15",
+    "label": "WETH / HMM 0.8% (ramses-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x7fe995a80075df3dc8ae11a9b82c7fe4202cd87f",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "WETH",
+    "symbol1": "HMM",
+    "symbol": "WETH/HMM",
+    "symbols": [
+      "WETH",
+      "HMM"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 8000,
+    "tick_spacing": 200,
+    "tvl_usd": 73996.8748
+  },
+  {
+    "address": "0xf8e06b2f7a360b029c86ae867101d3ac6d35b00f",
+    "label": "PONS / HMM 3.0% (ramses-v3)",
+    "token0": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "token1": "0x7fe995a80075df3dc8ae11a9b82c7fe4202cd87f",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "PONS",
+    "symbol1": "HMM",
+    "symbol": "PONS/HMM",
+    "symbols": [
+      "PONS",
+      "HMM"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 30000,
+    "tick_spacing": 300,
+    "tvl_usd": 15247.7679
+  },
+  {
+    "address": "0xee68c2a28834d653f6f5e64473893fb8f5a82ac2",
+    "label": "WETH / BRODIE 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xc9d915979684cddd9ab4d0980f914edd6d8d928f",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "BRODIE",
+    "symbol": "WETH/BRODIE",
+    "symbols": [
+      "WETH",
+      "BRODIE"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 22854.1133
+  },
+  {
+    "address": "0xd43499bbe3150f7e888a0c5f08d6214c34e38fd2",
+    "label": "WETH / WOJAK 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xace55fe98bab14366dd49ab5aa5df76aa11a3c6f",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "WOJAK",
+    "symbol": "WETH/WOJAK",
+    "symbols": [
+      "WETH",
+      "WOJAK"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 158931.7909
+  },
+  {
+    "address": "0x85d9067a2877474163fbf92583771001c2412571",
+    "label": "WETH / SPACEHOOD 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xfe7e19cbce2f896c6c528bc355baf5a768291e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "SPACEHOOD",
+    "symbol": "WETH/SPACEHOOD",
+    "symbols": [
+      "WETH",
+      "SPACEHOOD"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 23718.582
+  },
+  {
+    "address": "0x09a431261e3d0f1dc2f7e0b14718dbbbcbe19ae4",
+    "label": "WETH / FRONG 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x6245e67affa44a23077f0ea7f981a8dc743a0c47",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "FRONG",
+    "symbol": "WETH/FRONG",
+    "symbols": [
+      "WETH",
+      "FRONG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 132663.0306
+  },
+  {
+    "address": "0x989fea930cc3f396fab991ee13cb3981d39b443b",
+    "label": "USDG / FRONG 1.0% (uniswap-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x6245e67affa44a23077f0ea7f981a8dc743a0c47",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "USDG",
+    "symbol1": "FRONG",
+    "symbol": "USDG/FRONG",
+    "symbols": [
+      "USDG",
+      "FRONG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 48777.7601
+  },
+  {
+    "address": "0x2be1906d50dd8f1108f701b34cc18729be5083ff",
+    "label": "USDG / FRONG 1.0% (ramses-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x6245e67affa44a23077f0ea7f981a8dc743a0c47",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "ramses-v3",
+    "symbol0": "USDG",
+    "symbol1": "FRONG",
+    "symbol": "USDG/FRONG",
+    "symbols": [
+      "USDG",
+      "FRONG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 100,
+    "tvl_usd": 17639.7747
+  },
+  {
+    "address": "0x72678b2e8ddedad5865272a857733d8dc98eb771",
+    "label": "WETH / GWOOD 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x24d8657e10af588b12de3e102a116f77b9e35ee8",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "GWOOD",
+    "symbol": "WETH/GWOOD",
+    "symbols": [
+      "WETH",
+      "GWOOD"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 159290.8881
+  },
+  {
+    "address": "0x9ada6e13dda4aff0dc68eb822cccb74582d8c56a",
+    "label": "WETH / HOODRAT 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x8e62f281f282686fca6dcb39288069a93fc23f1c",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "HOODRAT",
+    "symbol": "WETH/HOODRAT",
+    "symbols": [
+      "WETH",
+      "HOODRAT"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 46525.7399
+  },
+  {
+    "address": "0x8aac0c4c9236096aa79262b0a53a683979ed8c7a",
+    "label": "WETH / ROBINHOOD 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x79fe86b963255ce884bdcac6388c50a599ba277f",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "ROBINHOOD",
+    "symbol": "WETH/ROBINHOOD",
+    "symbols": [
+      "WETH",
+      "ROBINHOOD"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 27751.3495
+  },
+  {
+    "address": "0xb95956e052653fd5ab039babd71f108728859af5",
+    "label": "WETH / CashDog 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x473c2d32e28c66d7ef55a9c9f392325007366ddf",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "CashDog",
+    "symbol": "WETH/CashDog",
+    "symbols": [
+      "WETH",
+      "CashDog"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 31919.2804
+  },
+  {
+    "address": "0x5ccf5e630c47a58f9d84a2c02a3200020e4386eb",
+    "label": "WETH / kirkhood 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xb314d5c8047975a140cf01bb5327c46f0bd59b65",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "kirkhood",
+    "symbol": "WETH/kirkhood",
+    "symbols": [
+      "WETH",
+      "kirkhood"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 16501.2848
+  },
+  {
+    "address": "0x078649f7f58e2477386691a894ae52252a7aa49a",
+    "label": "WETH / PONSTAR 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xa737df5de18e3aa6b0bf8c2e9846ed699f6f2aeb",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "PONSTAR",
+    "symbol": "WETH/PONSTAR",
+    "symbols": [
+      "WETH",
+      "PONSTAR"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 83388.3513
+  },
+  {
+    "address": "0xebc250ae14467403029d4943ca4ad4b53b511f34",
+    "label": "WETH / YARD 1.0% (up-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xe3fa12da7fa026b21817f16622e8ae48fa785166",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "WETH",
+    "symbol1": "YARD",
+    "symbol": "WETH/YARD",
+    "symbols": [
+      "WETH",
+      "YARD"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 2000,
+    "tvl_usd": 774703.2271
+  },
+  {
+    "address": "0x1bd5b5315e5350836bd033ef8c0679e5840e5740",
+    "label": "YARD / STONKBROKER 1.0% (up-v3)",
+    "token0": "0xe3fa12da7fa026b21817f16622e8ae48fa785166",
+    "token1": "0xe934e36a439c94017b64a3fece66af12099abf50",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "YARD",
+    "symbol1": "STONKBROKER",
+    "symbol": "YARD/STONKBROKER",
+    "symbols": [
+      "YARD",
+      "STONKBROKER"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 2000,
+    "tvl_usd": 609184.777
+  },
+  {
+    "address": "0xb0c724e6c234a08add4b7697138f667c97dee5aa",
+    "label": "WETH / WIF 1.0% (up-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x5173b8ea6923c2d40267890d45c46a3480954773",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "WETH",
+    "symbol1": "WIF",
+    "symbol": "WETH/WIF",
+    "symbols": [
+      "WETH",
+      "WIF"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 2000,
+    "tvl_usd": 13399.1309
+  },
+  {
+    "address": "0x17128f728f0c440779fed428988d2cf49d9a0fd7",
+    "label": "WETH / BEGGAR 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xa15e8847389baf535307b1c185429b6b80296c21",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "BEGGAR",
+    "symbol": "WETH/BEGGAR",
+    "symbols": [
+      "WETH",
+      "BEGGAR"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 18504.3222
+  },
+  {
+    "address": "0x99e70a5b06215e5d2f3bec773b4f59c008fc1673",
+    "label": "USDG / NET 1.0% (up-v3)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xca9c78dd337a67f6e0077f65f5e9218719d30edf",
+    "dec0": 6,
+    "dec1": 9,
+    "decimals": [
+      6,
+      9
+    ],
+    "dex": "up-v3",
+    "symbol0": "USDG",
+    "symbol1": "NET",
+    "symbol": "USDG/NET",
+    "symbols": [
+      "USDG",
+      "NET"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 115669.0596
+  },
+  {
+    "address": "0x2d71816d8c5017524051f9b7ccf4ed0eae620383",
+    "label": "WETH / VIBE CAT 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x2355431b83b1a8e40172d099d90243d8d666b56b",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "VIBE CAT",
+    "symbol": "WETH/VIBE CAT",
+    "symbols": [
+      "WETH",
+      "VIBE CAT"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 64576.1883
+  },
+  {
+    "address": "0xd3809a151f64f42b3e32ceaf0730976f9802b0dc",
+    "label": "WETH / ZA 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x493398f141781670506ba543f3c7db9755a67afc",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "ZA",
+    "symbol": "WETH/ZA",
+    "symbols": [
+      "WETH",
+      "ZA"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 41948.8043
+  },
+  {
+    "address": "0x4e8649be40ae67ebbcff99c291b92ee03015917b",
+    "label": "CASHCAT / WETH 1.0% (up-v3)",
+    "token0": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "token1": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "CASHCAT",
+    "symbol1": "WETH",
+    "symbol": "CASHCAT/WETH",
+    "symbols": [
+      "CASHCAT",
+      "WETH"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 318080.6038
+  },
+  {
+    "address": "0x43781f7ae77d99df3a52095c0b7d162828467a6e",
+    "label": "CASHCAT / USDG 0.2% (giga-v3)",
+    "token0": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "giga-v3",
+    "symbol0": "CASHCAT",
+    "symbol1": "USDG",
+    "symbol": "CASHCAT/USDG",
+    "symbols": [
+      "CASHCAT",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 2000,
+    "tick_spacing": 40,
+    "tvl_usd": 161665.4606
+  },
+  {
+    "address": "0x3986840e83e64c113b4ebeeed6b3223528e06ed9",
+    "label": "CASHCAT / USDG 0.25% (up-v3)",
+    "token0": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "up-v3",
+    "symbol0": "CASHCAT",
+    "symbol1": "USDG",
+    "symbol": "CASHCAT/USDG",
+    "symbols": [
+      "CASHCAT",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 2500,
+    "tick_spacing": 60,
+    "tvl_usd": 133344.6409
+  },
+  {
+    "address": "0x1b619a121d6c5bfd10d149e7246da3c838a66b48",
+    "label": "CASHCAT / WETH 0.3% (up-v3)",
+    "token0": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "token1": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "up-v3",
+    "symbol0": "CASHCAT",
+    "symbol1": "WETH",
+    "symbol": "CASHCAT/WETH",
+    "symbols": [
+      "CASHCAT",
+      "WETH"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "tvl_usd": 146865.4537
+  },
+  {
+    "address": "0x4b0c312ffbb068f6a0bea128759e35d94b94d0e1",
+    "label": "CASHCAT / USDG 1.0% (uniswap-v3)",
+    "token0": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "CASHCAT",
+    "symbol1": "USDG",
+    "symbol": "CASHCAT/USDG",
+    "symbols": [
+      "CASHCAT",
+      "USDG"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 105460.354
+  },
+  {
+    "address": "0xacc66e5ef6641c726c35175c95eae274b43d682a",
+    "label": "WETH / REGARDS 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x2020c71b119bf0a9118fd2b341dfe828a7f10965",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "REGARDS",
+    "symbol": "WETH/REGARDS",
+    "symbols": [
+      "WETH",
+      "REGARDS"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 11611.8275
+  },
+  {
+    "address": "0xf57b61e25e339adcdaffe9d6d07536b726b8fecf",
+    "label": "SPY / $USA 1.0% (uniswap-v3)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0x6786d47c04f6a92a6eb64cf847d0227b300996ff",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "SPY",
+    "symbol1": "$USA",
+    "symbol": "SPY/$USA",
+    "symbols": [
+      "SPY",
+      "$USA"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 54630.5169
+  },
+  {
+    "address": "0xc246b088646869d57bbe483968b05d6dcdb8eb59",
+    "label": "WETH / OZZY 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xd3ca926df830941d22c6d8aa83f7bd0a7031480d",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "OZZY",
+    "symbol": "WETH/OZZY",
+    "symbols": [
+      "WETH",
+      "OZZY"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 41503.5875
+  },
+  {
+    "address": "0xe1424d7e37457787974aac4523050431f36be6a4",
+    "label": "WETH / WOLVES 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x0e07565159b1e40caa71d4edf2547cc042014523",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "WOLVES",
+    "symbol": "WETH/WOLVES",
+    "symbols": [
+      "WETH",
+      "WOLVES"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 17202.6737
+  },
+  {
+    "address": "0x24403b354137b79d1e357db92691514b6967e45a",
+    "label": "WETH / NUDES 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0xbe98b75361935b18d688409424a869a4c3dc7401",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "NUDES",
+    "symbol": "WETH/NUDES",
+    "symbols": [
+      "WETH",
+      "NUDES"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 136431.6044
+  },
+  {
+    "address": "0xfad2403a6d394803bdd4c008c3cecc9be7d40989",
+    "label": "WETH / ROBINHOOD 1.0% (uniswap-v3)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x8f100e99ddf699320724e37cb866770381d47382",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v3",
+    "symbol0": "WETH",
+    "symbol1": "ROBINHOOD",
+    "symbol": "WETH/ROBINHOOD",
+    "symbols": [
+      "WETH",
+      "ROBINHOOD"
+    ],
+    "updated_at": 1789106688.6483707,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "tvl_usd": 29141.8655
+  }
+]
