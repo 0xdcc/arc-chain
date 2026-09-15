@@ -9,9 +9,11 @@ Constraints:
 - Offline data structures for modeling and contract validation.
 """
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from decimal import Decimal
 from enum import StrEnum
+from types import MappingProxyType
 from typing import Any
 
 
@@ -315,7 +317,7 @@ class MarketSnapshot:
     chain_id: int
     block_number: int
     captured_at: float
-    pools: dict[str, PoolStateSnapshot]  # key: pool_id
+    pools: Mapping[str, PoolStateSnapshot]  # key: pool_id
 
     def __post_init__(self) -> None:
         if (
@@ -330,11 +332,12 @@ class MarketSnapshot:
             or self.block_number < 0
         ):
             raise ValueError("block_number must be non-negative integer")
-        if not isinstance(self.pools, dict):
+        if not isinstance(self.pools, (dict, Mapping)):
             raise TypeError("pools must be a dict")
         for k, v in self.pools.items():
             if not isinstance(v, PoolStateSnapshot):
                 raise TypeError(f"pools['{k}'] must be PoolStateSnapshot")
+        object.__setattr__(self, "pools", MappingProxyType(dict(self.pools)))
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -681,7 +684,7 @@ def to_dict(obj: Any) -> Any:
         return obj.value
     if isinstance(obj, (list, tuple)):
         return [to_dict(x) for x in obj]
-    if isinstance(obj, dict):
+    if isinstance(obj, (dict, Mapping)):
         return {k: to_dict(v) for k, v in obj.items()}
     return obj
 

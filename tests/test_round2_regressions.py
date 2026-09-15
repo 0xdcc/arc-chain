@@ -3,7 +3,8 @@
 import time
 
 import pytest
-from arbitrage.spread_monitor import estimate_realized_profit_usd
+
+from research.quote_capacity import estimate_realized_profit_usd
 
 
 def quoted_estimate(**overrides):

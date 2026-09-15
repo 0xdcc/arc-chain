@@ -6,15 +6,22 @@ import time
 from unittest.mock import MagicMock, patch
 
 import pytest
-from arbitrage.spread_monitor import AnyPool, PoolReader, PoolSpec, PriceQuote, probe_proxy
-from arbitrage.triangular import (
+
+from research.graph import (
     DirectedEdge,
     TokenGraph,
     calculate_triangular_path,
     find_triangular_opportunities,
 )
-from arbitrage.v4_reader import V4PoolSpec
-from monitors.daemons.arbitrage_daemon import ArbitrageDaemon
+from research.market_data.pool_reader import (
+    AnyPool,
+    PoolReader,
+    PoolSpec,
+    PriceQuote,
+    V4PoolSpec,
+    probe_proxy,
+)
+from research.market_data.read_round import ArbitrageRoundCoordinator as ArbitrageDaemon
 
 
 def make_v3_pool(suffix: str, label: str = "test-v3", fee_bps: float = 30.0) -> PoolSpec:
@@ -54,6 +61,7 @@ class TestConcurrentPoolReader:
 
         reader = PoolReader.__new__(PoolReader)
         reader.proxy_url = None
+        reader.batch_strategy = "thread"
         mock_rpc = MagicMock()
         mock_rpc.block_number.return_value = 12345
         mock_rpc.throttle = 0.0
@@ -89,6 +97,7 @@ class TestConcurrentPoolReader:
 
         reader = PoolReader.__new__(PoolReader)
         reader.proxy_url = None
+        reader.batch_strategy = "thread"
         mock_rpc = MagicMock()
         mock_rpc.block_number.return_value = 20000
         mock_rpc.throttle = 0.0
@@ -120,6 +129,7 @@ class TestConcurrentPoolReader:
         """测试空池列表输入返回空列表."""
         reader = PoolReader.__new__(PoolReader)
         reader.proxy_url = None
+        reader.batch_strategy = "thread"
         mock_rpc = MagicMock()
         reader._rpc = mock_rpc
         assert reader.batch_quote([]) == []
@@ -128,6 +138,7 @@ class TestConcurrentPoolReader:
         """测试并发读池执行完后恢复原本的节流参数."""
         reader = PoolReader.__new__(PoolReader)
         reader.proxy_url = None
+        reader.batch_strategy = "thread"
         mock_rpc = MagicMock()
         mock_rpc.throttle = 0.6
         mock_rpc.block_number.return_value = 100
@@ -173,7 +184,7 @@ class TestConcurrentPoolReader:
         with (
             patch("os.environ.get", return_value=""),
             patch(
-                "arbitrage.spread_monitor._is_proxy_reachable",
+                "research.market_data.pool_reader._is_proxy_reachable",
                 return_value=False,
             ),
         ):

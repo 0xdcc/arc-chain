@@ -11,20 +11,20 @@ import uuid
 from collections.abc import Mapping, Sequence
 from typing import Any
 
-from arbitrage.domain.types import (
+from research.market_data.pool_reader import SnapshotCoordinator
+from research.market_data.types import (
     CandidateRoute,
     PoolIdentity,
     TokenIdentity,
 )
-from arbitrage.market_data.pool_reader import SnapshotCoordinator
-from arbitrage.reporting.formatters import (
+from research.reporting.formatters import (
     ArbitrageReport,
     ExecutionMode,
     format_report_json,
     format_report_text,
 )
-from arbitrage.strategies.spread import find_spread_candidates
-from arbitrage.strategies.triangular import find_triangular_candidates
+from research.strategies.spread import find_spread_candidates
+from research.strategies.triangular import find_triangular_candidates
 
 logger = logging.getLogger(__name__)
 
@@ -71,6 +71,27 @@ class ReadOnlyMonitorService:
             rpc=self.rpc,
             block_number=block_number,
         )
+
+        # A requested block is not evidence that any pool read succeeded.
+        if (
+            not pools
+            or set(snapshot.pools) != {pool.pool_id for pool in pools}
+            or any(
+                state.sqrt_price_x96 is None or state.tick is None
+                or state.block_number != snapshot.block_number
+                or state.pool != pool
+                or bool((state.raw_response or {}).get("error"))
+                for pool in pools
+                for state in (snapshot.pools[pool.pool_id],)
+            )
+        ):
+            return {
+                "status": "data_unavailable",
+                "block_number": snapshot.block_number,
+                "snapshot": snapshot,
+                "candidates": [],
+                "reports": [],
+            }
 
         spread_candidates = find_spread_candidates(
             snapshot=snapshot,

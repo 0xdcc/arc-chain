@@ -1,0 +1,5227 @@
+[
+  {
+    "address": "0x4be9657ec9002e528f4f17a5c43edc525a07f888f7b180c2afbf75e096c4f38a",
+    "label": "PONS / USDG 0.3% (uniswap-v4)",
+    "token0": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PONS",
+    "symbol1": "USDG",
+    "symbol": "PONS/USDG",
+    "symbols": [
+      "PONS",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 7059641.3651
+  },
+  {
+    "address": "0x13f9ab4e07b7f222cf49ff8ae9d7cdd2f749546eb3f83bdd84b884e27dd5e49d",
+    "label": "PONS / USDG 0.7% (uniswap-v4)",
+    "token0": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PONS",
+    "symbol1": "USDG",
+    "symbol": "PONS/USDG",
+    "symbols": [
+      "PONS",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 7000,
+    "tick_spacing": 140,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 3500364.5415
+  },
+  {
+    "address": "0x34e7c4657937632cbe3181a7aa635b7acb537b05357aff2c5527822082292943",
+    "label": "ETH / PONS 1.0072% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "PONS",
+    "symbol": "ETH/PONS",
+    "symbols": [
+      "ETH",
+      "PONS"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10072,
+    "tick_spacing": 201,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 919404.5006
+  },
+  {
+    "address": "0x548ae8c6751c5c7b5d3cf53f41a54e602263e7c688bd1070dede7fdb71878cbd",
+    "label": "PACK / PONS 1.0% (uniswap-v4)",
+    "token0": "0x0145acbccefbed6f303c420beeaaac72e905430b",
+    "token1": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PACK",
+    "symbol1": "PONS",
+    "symbol": "PACK/PONS",
+    "symbols": [
+      "PACK",
+      "PONS"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 235159.9245
+  },
+  {
+    "address": "0xc9894772d16be9b11e2aa7509dff40c5838ba4bd3c23e52257cfffa53a264495",
+    "label": "PONS / SHROOM 1.0% (uniswap-v4)",
+    "token0": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PONS",
+    "symbol1": "SHROOM",
+    "symbol": "PONS/SHROOM",
+    "symbols": [
+      "PONS",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 100,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 122790.8877
+  },
+  {
+    "address": "0x83fb2cee2333d667b80b331ba849e53215bb5b260c90c18db04e4056c69e569e",
+    "label": "PONS / SHROOM 0.9% (uniswap-v4)",
+    "token0": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PONS",
+    "symbol1": "SHROOM",
+    "symbol": "PONS/SHROOM",
+    "symbols": [
+      "PONS",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 68234.3002
+  },
+  {
+    "address": "0xc4db99050d1f8749fbd20721da135af1753bb0e8d79b098e2de13ce79c945a7f",
+    "label": "PONS / TENDIES 1.0% (uniswap-v4)",
+    "token0": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "token1": "0x45242320dbb855eea8fd36804c6487e10e97fcf9",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PONS",
+    "symbol1": "TENDIES",
+    "symbol": "PONS/TENDIES",
+    "symbols": [
+      "PONS",
+      "TENDIES"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 322724.2653
+  },
+  {
+    "address": "0x2e7ba084e848fb5af806efaeccfc9676a1a4c459f696e852b53c1a4f650c39b6",
+    "label": "PONS / USDG 3.0% (uniswap-v4)",
+    "token0": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PONS",
+    "symbol1": "USDG",
+    "symbol": "PONS/USDG",
+    "symbols": [
+      "PONS",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 30000,
+    "tick_spacing": 600,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 4212508.0865
+  },
+  {
+    "address": "0x3ee7a201318a8b5dfeafdb8a6d1e80d8a1909858d9d2ce10c79ea3b315731f32",
+    "label": "CASHCAT / PONS 0.125% (uniswap-v4)",
+    "token0": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "token1": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "CASHCAT",
+    "symbol1": "PONS",
+    "symbol": "CASHCAT/PONS",
+    "symbols": [
+      "CASHCAT",
+      "PONS"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 1250,
+    "tick_spacing": 13,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 63525.363
+  },
+  {
+    "address": "0x1f1778596d8c1ee3e1eaf64ea83a5e77063b142fa3ef59a7c81e520c516379bc",
+    "label": "AI / BONER 0.9% (uniswap-v4)",
+    "token0": "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+    "token1": "0x98096d17e191b3da1d5f99a6d7b3584351b11e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "AI",
+    "symbol1": "BONER",
+    "symbol": "AI/BONER",
+    "symbols": [
+      "AI",
+      "BONER"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 2475540.6956
+  },
+  {
+    "address": "0x0ff2e264ba5a85052e0ba970365fbce49a7bf426c78ee15fefc51077cd377355",
+    "label": "AI / USDG 1.0% (uniswap-v4)",
+    "token0": "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "AI",
+    "symbol1": "USDG",
+    "symbol": "AI/USDG",
+    "symbols": [
+      "AI",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 2034007.8848
+  },
+  {
+    "address": "0x7aebd80541bfaaf23dbb6e99ce13d4d31c1a84c91414f971eadbff7db5f85995",
+    "label": "AI / USDG 0.23% (uniswap-v4)",
+    "token0": "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "AI",
+    "symbol1": "USDG",
+    "symbol": "AI/USDG",
+    "symbols": [
+      "AI",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 2300,
+    "tick_spacing": 23,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 279014.4062
+  },
+  {
+    "address": "0x508ab5b7a7b447598017eba58530c2a2a5d647b8074a2dc85aa533dfbed4d543",
+    "label": "AI / USDG 2.5% (uniswap-v4)",
+    "token0": "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "AI",
+    "symbol1": "USDG",
+    "symbol": "AI/USDG",
+    "symbols": [
+      "AI",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 25000,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 2266236.6521
+  },
+  {
+    "address": "0x887c1c1e1a55ff3fd803a4544ab11253fe9c84b1b20625932091aedd344a64b5",
+    "label": "ETH / AI 1.0042% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "AI",
+    "symbol": "ETH/AI",
+    "symbols": [
+      "ETH",
+      "AI"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10042,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 168598.9825
+  },
+  {
+    "address": "0xb0bbb28a1fecc987695209ee0213e5484e058c7042df1a5dae2ac420353d8d41",
+    "label": "AI / USDG 0.7% (uniswap-v4)",
+    "token0": "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "AI",
+    "symbol1": "USDG",
+    "symbol": "AI/USDG",
+    "symbols": [
+      "AI",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 7000,
+    "tick_spacing": 100,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 35670.1934
+  },
+  {
+    "address": "0xfee96a0e7cf4a544f2b42a163eee51be5cb0920f04099ab41662f6d33419a6ab",
+    "label": "TENDIES / USDG 1.5% (uniswap-v4)",
+    "token0": "0x45242320dbb855eea8fd36804c6487e10e97fcf9",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "TENDIES",
+    "symbol1": "USDG",
+    "symbol": "TENDIES/USDG",
+    "symbols": [
+      "TENDIES",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 15000,
+    "tick_spacing": 300,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 192168.9275
+  },
+  {
+    "address": "0xbf7fa772f9e6c7a6fe0c30672dbe9a20dde8bef27d5e441fee4f781a6583db5d",
+    "label": "ETH / TENDIES 1.0032% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x45242320dbb855eea8fd36804c6487e10e97fcf9",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "TENDIES",
+    "symbol": "ETH/TENDIES",
+    "symbols": [
+      "ETH",
+      "TENDIES"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10032,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 57254.618
+  },
+  {
+    "address": "0x9aa51eba6bd5bd2131e601777bd3dda84d6c1c4677e23127a2afa0f7291269bf",
+    "label": "TENDIES / DIP 1.0% (uniswap-v4)",
+    "token0": "0x45242320dbb855eea8fd36804c6487e10e97fcf9",
+    "token1": "0xe8d7ea99561871600c9679667e3a7513971dc278",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "TENDIES",
+    "symbol1": "DIP",
+    "symbol": "TENDIES/DIP",
+    "symbols": [
+      "TENDIES",
+      "DIP"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 10,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 26724.7121
+  },
+  {
+    "address": "0xbb061ffe27facf06aaff43a94cb04fb612c990afe2dc402e5c25753ce0b8aa35",
+    "label": "PACK / TENDIES 1.0% (uniswap-v4)",
+    "token0": "0x0145acbccefbed6f303c420beeaaac72e905430b",
+    "token1": "0x45242320dbb855eea8fd36804c6487e10e97fcf9",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PACK",
+    "symbol1": "TENDIES",
+    "symbol": "PACK/TENDIES",
+    "symbols": [
+      "PACK",
+      "TENDIES"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 31802.7813
+  },
+  {
+    "address": "0x590649e15f644f0ff620bff03bfed433ae30390145626d9b816c56a454479fbf",
+    "label": "CASHCAT / TENDIES 3.32% (uniswap-v4)",
+    "token0": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "token1": "0x45242320dbb855eea8fd36804c6487e10e97fcf9",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "CASHCAT",
+    "symbol1": "TENDIES",
+    "symbol": "CASHCAT/TENDIES",
+    "symbols": [
+      "CASHCAT",
+      "TENDIES"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 33200,
+    "tick_spacing": 332,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 56666.4547
+  },
+  {
+    "address": "0x9ce47988f23c15b4922c8015fdca777329de3b2687bbaccde03fbf88a679827e",
+    "label": "ETH / TENDIES 1.0031% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x45242320dbb855eea8fd36804c6487e10e97fcf9",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "TENDIES",
+    "symbol": "ETH/TENDIES",
+    "symbols": [
+      "ETH",
+      "TENDIES"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10031,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 79714.228
+  },
+  {
+    "address": "0xb88dfb184602b74bee9c325a2b2dabdd6886ec6a995ac2fe8ec351804df00604",
+    "label": "ETH / TENDIES 2.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x45242320dbb855eea8fd36804c6487e10e97fcf9",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "TENDIES",
+    "symbol": "ETH/TENDIES",
+    "symbols": [
+      "ETH",
+      "TENDIES"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 20000,
+    "tick_spacing": 400,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 62214.3402
+  },
+  {
+    "address": "0x50b29d336ff8c80656c9c2e811a82779f8b8064b46c99799cf61d20d096765c8",
+    "label": "USDG / MOO 3.94% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xd9db30bb0d2b8d2eae3826a1372117e058791e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "MOO",
+    "symbol": "USDG/MOO",
+    "symbols": [
+      "USDG",
+      "MOO"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 39400,
+    "tick_spacing": 394,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 811182.3672
+  },
+  {
+    "address": "0x85a3cd053eecbcf2a67fd2c391479a2267e237edcea3acf19609b329e3a482fa",
+    "label": "USDG / MOO 2.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xd9db30bb0d2b8d2eae3826a1372117e058791e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "MOO",
+    "symbol": "USDG/MOO",
+    "symbols": [
+      "USDG",
+      "MOO"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 20000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 248579.4725
+  },
+  {
+    "address": "0xd82f5b21f36ed6d1c46b1b0946953831bb85a5e1ff6cab9ffed7f8c91d5af197",
+    "label": "USDG / MOO 8.92% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xd9db30bb0d2b8d2eae3826a1372117e058791e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "MOO",
+    "symbol": "USDG/MOO",
+    "symbols": [
+      "USDG",
+      "MOO"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 89200,
+    "tick_spacing": 892,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 46577.8724
+  },
+  {
+    "address": "0x76b380d6980152f80eb9fbc087d023612346ce87e5a02088f05060315dce43be",
+    "label": "USDG / MOO 10.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xd9db30bb0d2b8d2eae3826a1372117e058791e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "MOO",
+    "symbol": "USDG/MOO",
+    "symbols": [
+      "USDG",
+      "MOO"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 100000,
+    "tick_spacing": 1000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 129829.8526
+  },
+  {
+    "address": "0x53b3b99586372f5198b5412229d4a571923d8358a347ac3fe627f34efd7589f4",
+    "label": "ETH / MANCER 1.002% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xc72f232a6869e6cf34dc06129affd07f8a2a246a",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "MANCER",
+    "symbol": "ETH/MANCER",
+    "symbols": [
+      "ETH",
+      "MANCER"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10020,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 44415.2432
+  },
+  {
+    "address": "0x4240227225bf6704bac7e25264d6c495268462c597d2f3bb45eab93e868f2d58",
+    "label": "USDG / MANCER 3.9999% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xc72f232a6869e6cf34dc06129affd07f8a2a246a",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "MANCER",
+    "symbol": "USDG/MANCER",
+    "symbols": [
+      "USDG",
+      "MANCER"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 39999,
+    "tick_spacing": 400,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 33913.1631
+  },
+  {
+    "address": "0x9ea928cbc27ad84846d4b85407334350cfb3ec74790366a8deeb70b419c77509",
+    "label": "SPY / MANCER 0.9% (uniswap-v4)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0xc72f232a6869e6cf34dc06129affd07f8a2a246a",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPY",
+    "symbol1": "MANCER",
+    "symbol": "SPY/MANCER",
+    "symbols": [
+      "SPY",
+      "MANCER"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 22944.4434
+  },
+  {
+    "address": "0x2a616d6ada9f9603addce05c2d048dc73a73aa10ba7e195dcd2f71500b13dcdc",
+    "label": "ETH / MANCER 1.0005% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xc72f232a6869e6cf34dc06129affd07f8a2a246a",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "MANCER",
+    "symbol": "ETH/MANCER",
+    "symbols": [
+      "ETH",
+      "MANCER"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10005,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 25568.0871
+  },
+  {
+    "address": "0x0a9c28f389e46cd3a52f1084359f72b7c85f80ba283dce64d34ccb5a213e0ff3",
+    "label": "USDG / GME 0.7% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xc2362aff2a2a4cc1f48cf3dab2c4e2605eb94ba3",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "GME",
+    "symbol": "USDG/GME",
+    "symbols": [
+      "USDG",
+      "GME"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 7000,
+    "tick_spacing": 140,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 251443.945
+  },
+  {
+    "address": "0x1a342620f43fe2a82444cbc363f2185c8a7bd44131269ef215d845e5ee84d6cf",
+    "label": "USDG / GME 4.9921% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xc2362aff2a2a4cc1f48cf3dab2c4e2605eb94ba3",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "GME",
+    "symbol": "USDG/GME",
+    "symbols": [
+      "USDG",
+      "GME"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 49921,
+    "tick_spacing": 998,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 186817.9368
+  },
+  {
+    "address": "0x227c74b4c187335bc914b7d951ac795617e9ee2f753f68a974c111655df47354",
+    "label": "ETH / GME 1.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xc2362aff2a2a4cc1f48cf3dab2c4e2605eb94ba3",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "GME",
+    "symbol": "ETH/GME",
+    "symbols": [
+      "ETH",
+      "GME"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 116285.0585
+  },
+  {
+    "address": "0x51d1a40389e7fe42bd4f3d4c3c901ec8846d8d6e051d7375b65782f340898d58",
+    "label": "Index / USDG 0.95% (uniswap-v4)",
+    "token0": "0x56910d4409f3a0c78c64dd8d0545ff0705389870",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "Index",
+    "symbol1": "USDG",
+    "symbol": "Index/USDG",
+    "symbols": [
+      "Index",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9500,
+    "tick_spacing": 190,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 974727.9864
+  },
+  {
+    "address": "0x2500e77b68040591e0e75acaa612616fa6b4eaa33423ce35add57413c63ffa67",
+    "label": "Index / USDG 0.7% (uniswap-v4)",
+    "token0": "0x56910d4409f3a0c78c64dd8d0545ff0705389870",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "Index",
+    "symbol1": "USDG",
+    "symbol": "Index/USDG",
+    "symbols": [
+      "Index",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 7000,
+    "tick_spacing": 100,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 66950.8114
+  },
+  {
+    "address": "0x1883efafdbc8620604f7d0e83a37a381606ea8c22b62db96f295cabb9c2f0dbf",
+    "label": "Index / USDG 2.5866% (uniswap-v4)",
+    "token0": "0x56910d4409f3a0c78c64dd8d0545ff0705389870",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "Index",
+    "symbol1": "USDG",
+    "symbol": "Index/USDG",
+    "symbols": [
+      "Index",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 25866,
+    "tick_spacing": 517,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 118918.3203
+  },
+  {
+    "address": "0x0d0bcef5e77bc4dddca11964f58481f6d810b7ab4be1035b31de30eb41c4abc8",
+    "label": "Index / USDG 3.0% (uniswap-v4)",
+    "token0": "0x56910d4409f3a0c78c64dd8d0545ff0705389870",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "Index",
+    "symbol1": "USDG",
+    "symbol": "Index/USDG",
+    "symbols": [
+      "Index",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 30000,
+    "tick_spacing": 600,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 582338.0297
+  },
+  {
+    "address": "0x13045b3d9ae57a091ab93a8e5528f3463f8435b47b746869686418f0cc6e4ea8",
+    "label": "ETH / Index 9.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x56910d4409f3a0c78c64dd8d0545ff0705389870",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "Index",
+    "symbol": "ETH/Index",
+    "symbols": [
+      "ETH",
+      "Index"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 90000,
+    "tick_spacing": 1800,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 34146.5361
+  },
+  {
+    "address": "0xcca8a63e1d448091715c1644769bc8a40e6bc2f0805747feb53112396b0e480c",
+    "label": "ICOIN / USDG 5.0% (uniswap-v4)",
+    "token0": "0x5d6ef090a1461b11c9427ac319260122d1c61e18",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ICOIN",
+    "symbol1": "USDG",
+    "symbol": "ICOIN/USDG",
+    "symbols": [
+      "ICOIN",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 108256.4554
+  },
+  {
+    "address": "0x957fd0426540b6fef34dd6728ed26ea75f2a91612567e33ed950db4a3de69602",
+    "label": "ETH / ICOIN 4.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x5d6ef090a1461b11c9427ac319260122d1c61e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "ICOIN",
+    "symbol": "ETH/ICOIN",
+    "symbols": [
+      "ETH",
+      "ICOIN"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 40000,
+    "tick_spacing": 400,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 34690.8533
+  },
+  {
+    "address": "0xe49787db40b23478bd1c2210d81cc80f87d271adbe25e5e1b5a10ed83d988ad6",
+    "label": "USDG / PROLOGUE 5.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xb9972ca7188e511174947e3936a5315ac7073277",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "PROLOGUE",
+    "symbol": "USDG/PROLOGUE",
+    "symbols": [
+      "USDG",
+      "PROLOGUE"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 406360.9374
+  },
+  {
+    "address": "0x341443c3b31edb1e146e4bd400e8cb12cde5bd25c349d640eb610cf163c50971",
+    "label": "USDG / PROLOGUE 1.9999% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xb9972ca7188e511174947e3936a5315ac7073277",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "PROLOGUE",
+    "symbol": "USDG/PROLOGUE",
+    "symbols": [
+      "USDG",
+      "PROLOGUE"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 19999,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 161136.2223
+  },
+  {
+    "address": "0xdc6dfb873d01eb7e214977753704fc4814103281d4e72ddc9acee466577a8c67",
+    "label": "USDG / PROLOGUE 3.33% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xb9972ca7188e511174947e3936a5315ac7073277",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "PROLOGUE",
+    "symbol": "USDG/PROLOGUE",
+    "symbols": [
+      "USDG",
+      "PROLOGUE"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 33300,
+    "tick_spacing": 100,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 29611.004
+  },
+  {
+    "address": "0x4182cbdfdade3a5a366bd8812c82419aa818affd1e4ae88109e385d0e34de9f7",
+    "label": "SIT / PONGO 3.0% (uniswap-v4)",
+    "token0": "0x89da5167eb1a0067f9b3e39a544ef8d4b9c41e18",
+    "token1": "0xedaee44320107caa714baaec486261a87f27022d",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SIT",
+    "symbol1": "PONGO",
+    "symbol": "SIT/PONGO",
+    "symbols": [
+      "SIT",
+      "PONGO"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 30000,
+    "tick_spacing": 300,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 22473.7385
+  },
+  {
+    "address": "0x22195865486a41098333aa670868dcba72eb12008b4fbd3d391af28e8879bc20",
+    "label": "USDG / SIT 5.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x89da5167eb1a0067f9b3e39a544ef8d4b9c41e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "SIT",
+    "symbol": "USDG/SIT",
+    "symbols": [
+      "USDG",
+      "SIT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 57835.1247
+  },
+  {
+    "address": "0x778a632fdd85577efe9cfce4a2c9ac91b9decdb24c351f9b56e25d38fbe587b4",
+    "label": "USDG / SHROOM 0.9% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "SHROOM",
+    "symbol": "USDG/SHROOM",
+    "symbols": [
+      "USDG",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 1671220.7371
+  },
+  {
+    "address": "0x1fb7fc8f1c926dd3a491601a624ab35ab7110c0e42b0484d07f224d6f7eef284",
+    "label": "USDG / SHROOM 5.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "SHROOM",
+    "symbol": "USDG/SHROOM",
+    "symbols": [
+      "USDG",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 880241.8396
+  },
+  {
+    "address": "0x55e8a24fbe5309af830d40b5787aa95dce3b5776384ccc51fbeabed5924719c0",
+    "label": "USDG / SHROOM 0.6% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "SHROOM",
+    "symbol": "USDG/SHROOM",
+    "symbols": [
+      "USDG",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 6000,
+    "tick_spacing": 60,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 212135.8887
+  },
+  {
+    "address": "0x08092a7f28aafca7d6b651ed9b05a238ff7f179715f64f04f793d60beb5d24de",
+    "label": "ETH / SHROOM 0.9% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "SHROOM",
+    "symbol": "ETH/SHROOM",
+    "symbols": [
+      "ETH",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 106345.9224
+  },
+  {
+    "address": "0x52633d55ebe07d302d0baadbaad8cabe1c6c2c31ffa32dd4943033dcdbe91257",
+    "label": "SHROOM / MSTR 20.0% (uniswap-v4)",
+    "token0": "0xab093def657f15df31b33922a95e047add645b29",
+    "token1": "0xec262a75e413fafd0df80480274532c79d42da09",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SHROOM",
+    "symbol1": "MSTR",
+    "symbol": "SHROOM/MSTR",
+    "symbols": [
+      "SHROOM",
+      "MSTR"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 200000,
+    "tick_spacing": 2000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 176101.0908
+  },
+  {
+    "address": "0xa799286683f0be4c21b28e072496f1e1a2998b42685fa573d2f5009d10ef10bf",
+    "label": "GME / SHROOM 20.0% (uniswap-v4)",
+    "token0": "0x1b0e319c6a659f002271b69db8a7df2f911c153e",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "GME",
+    "symbol1": "SHROOM",
+    "symbol": "GME/SHROOM",
+    "symbols": [
+      "GME",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 200000,
+    "tick_spacing": 2000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 174356.8583
+  },
+  {
+    "address": "0xff1e45c750af0a96a5841470f4a35f132b1bc64569a208214a90b24a35bf6630",
+    "label": "SHROOM / QQQ 20.0% (uniswap-v4)",
+    "token0": "0xab093def657f15df31b33922a95e047add645b29",
+    "token1": "0xd5f3879160bc7c32ebb4dc785f8a4f505888de68",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SHROOM",
+    "symbol1": "QQQ",
+    "symbol": "SHROOM/QQQ",
+    "symbols": [
+      "SHROOM",
+      "QQQ"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 200000,
+    "tick_spacing": 2000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 174245.4615
+  },
+  {
+    "address": "0x64127ce14f035d85c8902c114eaf264e32caef0778392f41317e2627ff9f57bf",
+    "label": "COIN / SHROOM 20.0% (uniswap-v4)",
+    "token0": "0x6330d8c3178a418788df01a47479c0ce7ccf450b",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "COIN",
+    "symbol1": "SHROOM",
+    "symbol": "COIN/SHROOM",
+    "symbols": [
+      "COIN",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 200000,
+    "tick_spacing": 2000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 165418.0661
+  },
+  {
+    "address": "0xc4c874974910f9bd738ebee59127dba52bee1b2c515628717e58a54c6b07e3fe",
+    "label": "SHROOM / HIMS 20.0% (uniswap-v4)",
+    "token0": "0xab093def657f15df31b33922a95e047add645b29",
+    "token1": "0xccee82fe024c36fa15e1005ede3e9e4787e23d09",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SHROOM",
+    "symbol1": "HIMS",
+    "symbol": "SHROOM/HIMS",
+    "symbols": [
+      "SHROOM",
+      "HIMS"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 200000,
+    "tick_spacing": 2000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 168152.5742
+  },
+  {
+    "address": "0x9c61aae850281604759181d2809eeb118d93b52dbf441c31526ebca5dad0b336",
+    "label": "SHROOM / CRCL 20.0% (uniswap-v4)",
+    "token0": "0xab093def657f15df31b33922a95e047add645b29",
+    "token1": "0xdf0992e440dd0be65bd8439b609d6d4366bf1cb5",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SHROOM",
+    "symbol1": "CRCL",
+    "symbol": "SHROOM/CRCL",
+    "symbols": [
+      "SHROOM",
+      "CRCL"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 200000,
+    "tick_spacing": 2000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 173277.8096
+  },
+  {
+    "address": "0x07d0145314a4ae1a68daba53ac1096dc09f15473a96bc165dc85f428ffd11883",
+    "label": "PFE / SHROOM 20.0% (uniswap-v4)",
+    "token0": "0x7066a64c24e4206cd62e83bf198c1e7eb361f51e",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PFE",
+    "symbol1": "SHROOM",
+    "symbol": "PFE/SHROOM",
+    "symbols": [
+      "PFE",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 200000,
+    "tick_spacing": 2000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 176711.191
+  },
+  {
+    "address": "0xcb6d33f02b4234719918670703c70d841fbeb00b2189032dec484c1bf1b93811",
+    "label": "AMC / SHROOM 20.0% (uniswap-v4)",
+    "token0": "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "AMC",
+    "symbol1": "SHROOM",
+    "symbol": "AMC/SHROOM",
+    "symbols": [
+      "AMC",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 200000,
+    "tick_spacing": 2000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 157686.1953
+  },
+  {
+    "address": "0xbf8dc013ceebdf5f83c236bf332601862085d588e53b5a5e85f99a7eeac93591",
+    "label": "MRNA / SHROOM 20.0% (uniswap-v4)",
+    "token0": "0x43b07d15ce533bec5476d70c22a78a1b2b662155",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "MRNA",
+    "symbol1": "SHROOM",
+    "symbol": "MRNA/SHROOM",
+    "symbols": [
+      "MRNA",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 200000,
+    "tick_spacing": 2000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 160488.5743
+  },
+  {
+    "address": "0x57a275b86f94356a40ef2ac874316f16de3e36b69216ba5aba06a01d0c88e1d5",
+    "label": "SHROOM / NVDA 0.9% (uniswap-v4)",
+    "token0": "0xab093def657f15df31b33922a95e047add645b29",
+    "token1": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SHROOM",
+    "symbol1": "NVDA",
+    "symbol": "SHROOM/NVDA",
+    "symbols": [
+      "SHROOM",
+      "NVDA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 50022.4454
+  },
+  {
+    "address": "0x2c33db3df1b0abc488c299cd03d565bb0f9450a9d6c7a8aaedd4cf3c6a1d4521",
+    "label": "COST / SHROOM 10.0% (uniswap-v4)",
+    "token0": "0x4ea005168d7f09a7a0ba9d1def21a479950e44c2",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "COST",
+    "symbol1": "SHROOM",
+    "symbol": "COST/SHROOM",
+    "symbols": [
+      "COST",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 100000,
+    "tick_spacing": 1000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 114156.8596
+  },
+  {
+    "address": "0xe4e725108317939c985943920dbd58830e74facd79b0dedaf66ea56363ef9245",
+    "label": "JNJ / SHROOM 20.0% (uniswap-v4)",
+    "token0": "0x03dfbbe0ac4e7bcdafd08ed41a400326b77d8c80",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "JNJ",
+    "symbol1": "SHROOM",
+    "symbol": "JNJ/SHROOM",
+    "symbols": [
+      "JNJ",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 200000,
+    "tick_spacing": 2000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 161951.7329
+  },
+  {
+    "address": "0xaa94ace280c3d7f6ccb842758ef44fcc03a841783ff17d8c20cd10d95f07ceaa",
+    "label": "USDG / CINEMA 4.21% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x9936403a9cc72cf306063e3496ea387428a3aecd",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "CINEMA",
+    "symbol": "USDG/CINEMA",
+    "symbols": [
+      "USDG",
+      "CINEMA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 42100,
+    "tick_spacing": 421,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 295953.2872
+  },
+  {
+    "address": "0xd058cf54658fc558e6484a1909caaffc9a37c1b9bc6b172af34a496bd619874f",
+    "label": "USDG / CINEMA 5.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x9936403a9cc72cf306063e3496ea387428a3aecd",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "CINEMA",
+    "symbol": "USDG/CINEMA",
+    "symbols": [
+      "USDG",
+      "CINEMA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 172580.9338
+  },
+  {
+    "address": "0x84bd4e2d8be11aeb0afc1195b38f587b61e90068548f1063fdbe448fb8cad0b6",
+    "label": "WETH / USDG 0.02% (uniswap-v4)",
+    "token0": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "WETH",
+    "symbol1": "USDG",
+    "symbol": "WETH/USDG",
+    "symbols": [
+      "WETH",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 200,
+    "tick_spacing": 4,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 603720.9356
+  },
+  {
+    "address": "0x6de01c8319a5de1d5ee08b5d032fee29ab17aa6b9491f1c0829b74e018e87502",
+    "label": "ETH / DELTA 1.002% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xe8ffd7e24187f72afb08d75b1bb13088a989a791",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "DELTA",
+    "symbol": "ETH/DELTA",
+    "symbols": [
+      "ETH",
+      "DELTA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10020,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 70310.7914
+  },
+  {
+    "address": "0x4a8f8b7004eba71adca088a8c903a8930f60024e5045300ab9ad22948397e91a",
+    "label": "USDG / DELTA 4.778% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xe8ffd7e24187f72afb08d75b1bb13088a989a791",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "DELTA",
+    "symbol": "USDG/DELTA",
+    "symbols": [
+      "USDG",
+      "DELTA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 47780,
+    "tick_spacing": 478,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 260283.4149
+  },
+  {
+    "address": "0x585fc59131ec4b433bbddf0ccb635b862b1c8e9301e0c41bbb9bedf44b08a269",
+    "label": "USDG / DELTA 2.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xe8ffd7e24187f72afb08d75b1bb13088a989a791",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "DELTA",
+    "symbol": "USDG/DELTA",
+    "symbols": [
+      "USDG",
+      "DELTA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 20000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 71539.599
+  },
+  {
+    "address": "0xebd2fbb46948c5b21ca32dcd0be5ae851fed99362cfcf198d060a63a8689cd66",
+    "label": "USDG / DELTA 1.99% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xe8ffd7e24187f72afb08d75b1bb13088a989a791",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "DELTA",
+    "symbol": "USDG/DELTA",
+    "symbols": [
+      "USDG",
+      "DELTA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 19900,
+    "tick_spacing": 199,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 35041.1359
+  },
+  {
+    "address": "0xc9d7417fd5390e133c21e6183fa958ca3815eefb8c70b3ca42d49fff67d3ea3a",
+    "label": "ETH / DELTA 1.0012% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xe8ffd7e24187f72afb08d75b1bb13088a989a791",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "DELTA",
+    "symbol": "ETH/DELTA",
+    "symbols": [
+      "ETH",
+      "DELTA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10012,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 20828.3362
+  },
+  {
+    "address": "0x678d97f7e7c923734383f4c69b2406952ce389512a91d3862abb667ec2b7c6d3",
+    "label": "BOW / DELTA 0.9% (uniswap-v4)",
+    "token0": "0x451b42a15100c340ca12f7c66de06fac5ea2d751",
+    "token1": "0xe8ffd7e24187f72afb08d75b1bb13088a989a791",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "BOW",
+    "symbol1": "DELTA",
+    "symbol": "BOW/DELTA",
+    "symbols": [
+      "BOW",
+      "DELTA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 46904.4249
+  },
+  {
+    "address": "0xbc732a1a0baabce2574ec2bca24fccad8e2c38a061a37cefc17a2fd12809394f",
+    "label": "SPY / NVDA 0.05% (uniswap-v4)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPY",
+    "symbol1": "NVDA",
+    "symbol": "SPY/NVDA",
+    "symbols": [
+      "SPY",
+      "NVDA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 500,
+    "tick_spacing": 5,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 928358.8906
+  },
+  {
+    "address": "0x3bb34a44f1b2b5f32c034c38a53065a521a47b199700fa9bd19d60985ff24bf1",
+    "label": "USDG / NVDA 0.3% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "NVDA",
+    "symbol": "USDG/NVDA",
+    "symbols": [
+      "USDG",
+      "NVDA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 1108732.6755
+  },
+  {
+    "address": "0x9f07ef9fa97791b29762ec32af8d4c9db2cd0a04e5ea0d8c2ffd87738ff4574c",
+    "label": "FLOCK / NVDA 0.25% (uniswap-v4)",
+    "token0": "0x5ab3d4c385b400f3abb49e80de2faf6a88a7b691",
+    "token1": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "FLOCK",
+    "symbol1": "NVDA",
+    "symbol": "FLOCK/NVDA",
+    "symbols": [
+      "FLOCK",
+      "NVDA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 2500,
+    "tick_spacing": 25,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 117528.515
+  },
+  {
+    "address": "0x4900c6d3f31ff1e1545a487469c134cdbd9f1499f938054c0c77a14728b3f150",
+    "label": "PACK / NVDA 1.0% (uniswap-v4)",
+    "token0": "0x0145acbccefbed6f303c420beeaaac72e905430b",
+    "token1": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PACK",
+    "symbol1": "NVDA",
+    "symbol": "PACK/NVDA",
+    "symbols": [
+      "PACK",
+      "NVDA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 101449.5798
+  },
+  {
+    "address": "0x2a8a2e8480560dfbd7cbcae4af8628f5a0f6fdd93e8bce6435bb4dc8d7811f25",
+    "label": "FIRE / USDG 4.5% (uniswap-v4)",
+    "token0": "0x43eea882b845a8493152ebc55cf30ae9281b02d5",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "FIRE",
+    "symbol1": "USDG",
+    "symbol": "FIRE/USDG",
+    "symbols": [
+      "FIRE",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 45000,
+    "tick_spacing": 450,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 38333.9997
+  },
+  {
+    "address": "0xb1be03638b2cbae6364fef15128dc5d8950fc07606f5f2f0e12a6c9ec7d9db46",
+    "label": "HOOD10 / USDG 2.0% (uniswap-v4)",
+    "token0": "0x0d257ca40d40090be60c2d2ed5bb3535392838cc",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "HOOD10",
+    "symbol1": "USDG",
+    "symbol": "HOOD10/USDG",
+    "symbols": [
+      "HOOD10",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 20000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 196557.0446
+  },
+  {
+    "address": "0xa56de32da0cdc196adcc9b745dbfeab2bbb3021d5c21d233b24a266a8d0e2093",
+    "label": "HOOD10 / USDG 4.51% (uniswap-v4)",
+    "token0": "0x0d257ca40d40090be60c2d2ed5bb3535392838cc",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "HOOD10",
+    "symbol1": "USDG",
+    "symbol": "HOOD10/USDG",
+    "symbols": [
+      "HOOD10",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 45100,
+    "tick_spacing": 902,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 140015.013
+  },
+  {
+    "address": "0xa276e85a7503edcf873661d13026945a624bceab408d313fde7f9dc211013d26",
+    "label": "HOOD10 / USDG 2.6551% (uniswap-v4)",
+    "token0": "0x0d257ca40d40090be60c2d2ed5bb3535392838cc",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "HOOD10",
+    "symbol1": "USDG",
+    "symbol": "HOOD10/USDG",
+    "symbols": [
+      "HOOD10",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 26551,
+    "tick_spacing": 531,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 63906.0116
+  },
+  {
+    "address": "0xe1f933a0c400979caadc5f6a66d184b526b2823552e9c362721242180bfa320f",
+    "label": "INJOH / USDG 2.0% (uniswap-v4)",
+    "token0": "0x2cc0fac44b8252f6b10208b091aff2c94b4da77d",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "INJOH",
+    "symbol1": "USDG",
+    "symbol": "INJOH/USDG",
+    "symbols": [
+      "INJOH",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 20000,
+    "tick_spacing": 300,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 44773.4289
+  },
+  {
+    "address": "0xcb6ffbcc84359535c2cc0a5688c0a76520ea6e0a4820fddd3ac8d7880e576370",
+    "label": "SPCX / USDG 1.0% (uniswap-v4)",
+    "token0": "0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPCX",
+    "symbol1": "USDG",
+    "symbol": "SPCX/USDG",
+    "symbols": [
+      "SPCX",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 3038933.6829
+  },
+  {
+    "address": "0x541942afd092e6c18ccd56bb3d9205f80a2adce77edf260c464c5f9919f37168",
+    "label": "ETH / SPCX 0.3% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "SPCX",
+    "symbol": "ETH/SPCX",
+    "symbols": [
+      "ETH",
+      "SPCX"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 3000,
+    "tick_spacing": 30,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 340905.9406
+  },
+  {
+    "address": "0xcfa4f4a01e55653acaaf013d2f77acf2813424a4785b0c0b3d757738edc574f9",
+    "label": "MEME / USDG 0.7776% (uniswap-v4)",
+    "token0": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "MEME",
+    "symbol1": "USDG",
+    "symbol": "MEME/USDG",
+    "symbols": [
+      "MEME",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 7776,
+    "tick_spacing": 78,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 1148498.669
+  },
+  {
+    "address": "0x161610470ba69ac0ae86724efa3a379cfbeb81a5efcea1eacac4a3cddd230b93",
+    "label": "MEME / USDG 1.37% (uniswap-v4)",
+    "token0": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "MEME",
+    "symbol1": "USDG",
+    "symbol": "MEME/USDG",
+    "symbols": [
+      "MEME",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 13700,
+    "tick_spacing": 137,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 691971.8763
+  },
+  {
+    "address": "0x3253d38dbea126ba40d5a4d72c3505c5d3f714a7ae1fce5eac5b091447cc57ce",
+    "label": "ETH / MEME 1.0003% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "MEME",
+    "symbol": "ETH/MEME",
+    "symbols": [
+      "ETH",
+      "MEME"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10003,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 480670.4865
+  },
+  {
+    "address": "0x4b7c86491df95f366b31217b2950d2c5136a2f19b6879613eac73d0e69092a1a",
+    "label": "MEME / USDG 0.6999% (uniswap-v4)",
+    "token0": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "MEME",
+    "symbol1": "USDG",
+    "symbol": "MEME/USDG",
+    "symbols": [
+      "MEME",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 6999,
+    "tick_spacing": 70,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 670489.9987
+  },
+  {
+    "address": "0xc6e298e137f2905398db87e6eae49ede64d231fee37330fa433fec917f4618b6",
+    "label": "MEME / USDG 5.0% (uniswap-v4)",
+    "token0": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "MEME",
+    "symbol1": "USDG",
+    "symbol": "MEME/USDG",
+    "symbols": [
+      "MEME",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 1155057.6043
+  },
+  {
+    "address": "0x3cfd56783ecb18ea1838dd70095880aac3f5de2bc68fe2884f0796931809b74a",
+    "label": "ETH / MEME 2.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "MEME",
+    "symbol": "ETH/MEME",
+    "symbols": [
+      "ETH",
+      "MEME"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 20000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 259952.1489
+  },
+  {
+    "address": "0x39ed5eeb3957fd8d3f211b1dc11026023aa420da9355bb3c563f871ee479f111",
+    "label": "MEME / USDG 1.41% (uniswap-v4)",
+    "token0": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "MEME",
+    "symbol1": "USDG",
+    "symbol": "MEME/USDG",
+    "symbols": [
+      "MEME",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 14100,
+    "tick_spacing": 141,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 23309.306
+  },
+  {
+    "address": "0x35af9bf7e0d6e627a6d1c93003610a6c40fdddd3609f24623070e541fc3355a6",
+    "label": "ETH / MEME 10.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "MEME",
+    "symbol": "ETH/MEME",
+    "symbols": [
+      "ETH",
+      "MEME"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 100000,
+    "tick_spacing": 1000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 42798.7066
+  },
+  {
+    "address": "0x3dee6a51c5bf382649ba86bf41e54506223070a9558f8e88dc4fdd4417c07536",
+    "label": "USDG / TA 3.04% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x9ca1cc0c90d97b4f36c5e2232d4fbd705a73c65d",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "TA",
+    "symbol": "USDG/TA",
+    "symbols": [
+      "USDG",
+      "TA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 30400,
+    "tick_spacing": 304,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 122904.8601
+  },
+  {
+    "address": "0x680eb556f5d466e1fee8468b93cbdd6c426e2136c369a6ab70ca36a5204cd471",
+    "label": "RAM / USDG 0.9506% (uniswap-v4)",
+    "token0": "0x5173d45a1191ee33cbb7d8c7e65f21b04ed54802",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "RAM",
+    "symbol1": "USDG",
+    "symbol": "RAM/USDG",
+    "symbols": [
+      "RAM",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9506,
+    "tick_spacing": 95,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 429869.2413
+  },
+  {
+    "address": "0x869f9515aab75505a9ab29bbc33002c4e958ea76bc596ea2f8af006814323aeb",
+    "label": "RAM / USDG 3.0% (uniswap-v4)",
+    "token0": "0x5173d45a1191ee33cbb7d8c7e65f21b04ed54802",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "RAM",
+    "symbol1": "USDG",
+    "symbol": "RAM/USDG",
+    "symbols": [
+      "RAM",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 30000,
+    "tick_spacing": 300,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 75822.4893
+  },
+  {
+    "address": "0xfe2a80bb5618fd14984b92ca6d45bf5ba67443ddb1435e28b2e48df2fc1526cd",
+    "label": "SPY / USDG 0.3% (uniswap-v4)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPY",
+    "symbol1": "USDG",
+    "symbol": "SPY/USDG",
+    "symbols": [
+      "SPY",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 9745531.6801
+  },
+  {
+    "address": "0xe5923c8a8be481ec89a2ca784a2bbfa4235de6d88f92260fd66b660c4babf907",
+    "label": "SPY / USDG 0.05% (uniswap-v4)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPY",
+    "symbol1": "USDG",
+    "symbol": "SPY/USDG",
+    "symbols": [
+      "SPY",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 500,
+    "tick_spacing": 5,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 1632665.0044
+  },
+  {
+    "address": "0xcc2a903a8744a65258bb07fbeea553a25410f731c9fef306321d0c176a09542c",
+    "label": "SPY / MU 0.05% (uniswap-v4)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0xff080c8ce2e5feadaca0da81314ae59d232d4afd",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPY",
+    "symbol1": "MU",
+    "symbol": "SPY/MU",
+    "symbols": [
+      "SPY",
+      "MU"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 500,
+    "tick_spacing": 5,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 486383.3713
+  },
+  {
+    "address": "0xf38009b348295f907c1f2e22aba84d731de3b7360d312881df1c206e85ea3b0b",
+    "label": "SPY / QQQ 0.05% (uniswap-v4)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0xd5f3879160bc7c32ebb4dc785f8a4f505888de68",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPY",
+    "symbol1": "QQQ",
+    "symbol": "SPY/QQQ",
+    "symbols": [
+      "SPY",
+      "QQQ"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 500,
+    "tick_spacing": 5,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 1784660.3523
+  },
+  {
+    "address": "0x68beff3b4270ffbbb78a48d7670648909b9de6736456b0f450fee242e1d10a8b",
+    "label": "SPY / AMZN 0.05% (uniswap-v4)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0x12f190a9f9d7d37a250758b26824b97ce941bf54",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPY",
+    "symbol1": "AMZN",
+    "symbol": "SPY/AMZN",
+    "symbols": [
+      "SPY",
+      "AMZN"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 500,
+    "tick_spacing": 5,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 565641.7256
+  },
+  {
+    "address": "0x4c862e5846659b086fe73896bbb9058513417e4e6938a1be93aeb7a768fa5754",
+    "label": "SPY / TSM 0.05% (uniswap-v4)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0x58ffe4a942d3885baa22d7520691f611ef09e7aa",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPY",
+    "symbol1": "TSM",
+    "symbol": "SPY/TSM",
+    "symbols": [
+      "SPY",
+      "TSM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 500,
+    "tick_spacing": 5,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 550776.5369
+  },
+  {
+    "address": "0xaef5609ceaf79abbd244bcd5198723bf34c50b33136ff3dca52dd559d9554741",
+    "label": "SPY / MSFT 0.05% (uniswap-v4)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0xe93237c50d904957cf27e7b1133b510c669c2e74",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPY",
+    "symbol1": "MSFT",
+    "symbol": "SPY/MSFT",
+    "symbols": [
+      "SPY",
+      "MSFT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 500,
+    "tick_spacing": 5,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 429293.2529
+  },
+  {
+    "address": "0xa821b3724b451b22476c5347471b2a96d185b86af8760f226273e34ab4b2b8a0",
+    "label": "SPY / TSLA 0.05% (uniswap-v4)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0x322f0929c4625ed5bad873c95208d54e1c003b2d",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPY",
+    "symbol1": "TSLA",
+    "symbol": "SPY/TSLA",
+    "symbols": [
+      "SPY",
+      "TSLA"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 500,
+    "tick_spacing": 5,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 313658.4746
+  },
+  {
+    "address": "0xe6b713cf680868a40aafca45810b0c894eb5c696f5a2230d4816e6695e90e681",
+    "label": "SPY / META 0.05% (uniswap-v4)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0xc0d6457c16cc70d6790dd43521c899c87ce02f35",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPY",
+    "symbol1": "META",
+    "symbol": "SPY/META",
+    "symbols": [
+      "SPY",
+      "META"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 500,
+    "tick_spacing": 5,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 362531.8371
+  },
+  {
+    "address": "0x9194a557b6a6bb2236b49ea7e2bbccec5d3eeb705aef00903be4b3de1d949579",
+    "label": "USDG / MSFT 0.3% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xe93237c50d904957cf27e7b1133b510c669c2e74",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "MSFT",
+    "symbol": "USDG/MSFT",
+    "symbols": [
+      "USDG",
+      "MSFT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 337031.8858
+  },
+  {
+    "address": "0xdd04fe28b7f5fcb07b492cfd434286ff1a54b12eaa69ff00a2807fa1f2adc6a8",
+    "label": "USDG / MSFT 0.09% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xe93237c50d904957cf27e7b1133b510c669c2e74",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "MSFT",
+    "symbol": "USDG/MSFT",
+    "symbols": [
+      "USDG",
+      "MSFT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 900,
+    "tick_spacing": 9,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 68888.3062
+  },
+  {
+    "address": "0x0aba92f531d81711316c3cec22eb368f9e153e396006725692132394e4c48594",
+    "label": "SHROOM / MSFT 0.9% (uniswap-v4)",
+    "token0": "0xab093def657f15df31b33922a95e047add645b29",
+    "token1": "0xe93237c50d904957cf27e7b1133b510c669c2e74",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SHROOM",
+    "symbol1": "MSFT",
+    "symbol": "SHROOM/MSFT",
+    "symbols": [
+      "SHROOM",
+      "MSFT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 42986.332
+  },
+  {
+    "address": "0x5ecdeabbf5448615109e2a2423bfb151062d849a23819b66e5a42bfcb2aea131",
+    "label": "PACK / MSFT 1.0% (uniswap-v4)",
+    "token0": "0x0145acbccefbed6f303c420beeaaac72e905430b",
+    "token1": "0xe93237c50d904957cf27e7b1133b510c669c2e74",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PACK",
+    "symbol1": "MSFT",
+    "symbol": "PACK/MSFT",
+    "symbols": [
+      "PACK",
+      "MSFT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 50453.9023
+  },
+  {
+    "address": "0x34147f36f89c42a67f77601e612abdb1bd40869e53e8d0edd19705ae0499192d",
+    "label": "ETH / MSFT 1.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xe93237c50d904957cf27e7b1133b510c669c2e74",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "MSFT",
+    "symbol": "ETH/MSFT",
+    "symbols": [
+      "ETH",
+      "MSFT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 53334.9872
+  },
+  {
+    "address": "0xc38ad275369425047272f9b96f87c564005f2e1935ea89dfbce361b325fda901",
+    "label": "ETH / UNICASH 0.3% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xff0a037e3ecd3560b93e6b2163fea48b81feefd1",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "UNICASH",
+    "symbol": "ETH/UNICASH",
+    "symbols": [
+      "ETH",
+      "UNICASH"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 22358.6288
+  },
+  {
+    "address": "0x7da8a482bd2f43e72c7cd51f98732e3543dbb0903f4058861c05ae241a1ef836",
+    "label": "COPPERINU / USDG 5.0% (uniswap-v4)",
+    "token0": "0x5317c0d077d2eeb639448939b930d49c4984b63b",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "COPPERINU",
+    "symbol1": "USDG",
+    "symbol": "COPPERINU/USDG",
+    "symbols": [
+      "COPPERINU",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 51815.9627
+  },
+  {
+    "address": "0x1e8089d78238d4fff6a8448d0987e8d678bf4953b832fcfc4fd030f81a4df273",
+    "label": "COPPERINU / USDG 3.7826% (uniswap-v4)",
+    "token0": "0x5317c0d077d2eeb639448939b930d49c4984b63b",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "COPPERINU",
+    "symbol1": "USDG",
+    "symbol": "COPPERINU/USDG",
+    "symbols": [
+      "COPPERINU",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 37826,
+    "tick_spacing": 378,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 26414.6487
+  },
+  {
+    "address": "0x508dc4bc75a0c77b2d4354cd8aa3be0ed0b7e531496d64dea35908554b075d51",
+    "label": "FOMO / MISS 1.0% (uniswap-v4)",
+    "token0": "0x7cd3c3c6e7a509421cd956d4bed11acfb935f75d",
+    "token1": "0xa9024ec3823902366e7e65edc685a488530dc3bf",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "FOMO",
+    "symbol1": "MISS",
+    "symbol": "FOMO/MISS",
+    "symbols": [
+      "FOMO",
+      "MISS"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 10,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 35248.8295
+  },
+  {
+    "address": "0xd80658c99853f6543c6e3e0a3456a5bedf47ff5a3e9c85b95fe561d4f7798eae",
+    "label": "BOW / USDG 2.8% (uniswap-v4)",
+    "token0": "0x451b42a15100c340ca12f7c66de06fac5ea2d751",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "BOW",
+    "symbol1": "USDG",
+    "symbol": "BOW/USDG",
+    "symbols": [
+      "BOW",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 28000,
+    "tick_spacing": 280,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 427459.7211
+  },
+  {
+    "address": "0xb5a2e44d7af38b0dfb3d393a0840fd8862683f7a9605551fc2004119553ec8d9",
+    "label": "BOW / USDG 0.9% (uniswap-v4)",
+    "token0": "0x451b42a15100c340ca12f7c66de06fac5ea2d751",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "BOW",
+    "symbol1": "USDG",
+    "symbol": "BOW/USDG",
+    "symbols": [
+      "BOW",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 63049.1203
+  },
+  {
+    "address": "0x6300950a78db2ff7259b5ea29f43fc5563084d81175f1aa87306f4fbb9e56ebc",
+    "label": "NASDANQ / USDG 4.9% (uniswap-v4)",
+    "token0": "0x51fb76be80ab6daaa345d818f4e06441816b4fea",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "NASDANQ",
+    "symbol1": "USDG",
+    "symbol": "NASDANQ/USDG",
+    "symbols": [
+      "NASDANQ",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 49000,
+    "tick_spacing": 490,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 46549.6029
+  },
+  {
+    "address": "0xa52ffe83c10fc682681a842504a5cff9973b11382b88cecdb04005bde4c055f6",
+    "label": "SPACETIME / USDG 6.28% (uniswap-v4)",
+    "token0": "0x18878347b7b5b1ca325a4b6a3b5bc921b4de7d3c",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPACETIME",
+    "symbol1": "USDG",
+    "symbol": "SPACETIME/USDG",
+    "symbols": [
+      "SPACETIME",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 62800,
+    "tick_spacing": 1256,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 4185293.5005
+  },
+  {
+    "address": "0x6dbc403a0afed02fe5d180476257ed9b88c3a50d0ba48435af9fde2a4bcb018a",
+    "label": "USDG / VLAD 3.1% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x92d176ccbeeffecd8089e841d09ea17b6c22d969",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "VLAD",
+    "symbol": "USDG/VLAD",
+    "symbols": [
+      "USDG",
+      "VLAD"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 31000,
+    "tick_spacing": 620,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 34259.0831
+  },
+  {
+    "address": "0x52bd744ffe58cb13b92d4b4564b860614d569ddad1b980fc503e42ca67347711",
+    "label": "ETH / UP 1.0032% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x57c0e45cb534413d1c20a4240955d6bb250bb4f1",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "UP",
+    "symbol": "ETH/UP",
+    "symbols": [
+      "ETH",
+      "UP"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10032,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 121282.1019
+  },
+  {
+    "address": "0x0c10c21c919e4459c5646ea9dd0a03a026b0c63aa139bd872c82a00a89ac28ea",
+    "label": "ETH / UP 1.0002% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x57c0e45cb534413d1c20a4240955d6bb250bb4f1",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "UP",
+    "symbol": "ETH/UP",
+    "symbols": [
+      "ETH",
+      "UP"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10002,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 41099.4046
+  },
+  {
+    "address": "0x501eb7d12cc3a36e16b20099f5387cb0d982670eed77d1ac93583a09124b7a44",
+    "label": "USDG / CLAN 5.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xcebc0cfbc5dd0893a9e3b9d0f75b211ddf5934a0",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "CLAN",
+    "symbol": "USDG/CLAN",
+    "symbols": [
+      "USDG",
+      "CLAN"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 155845.4005
+  },
+  {
+    "address": "0xfb4fff2131535fa0be5115605bee1e1420fe908bfebbab5a7e8787d4bd2602ac",
+    "label": "USDG / CLAN 0.9% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xcebc0cfbc5dd0893a9e3b9d0f75b211ddf5934a0",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "CLAN",
+    "symbol": "USDG/CLAN",
+    "symbols": [
+      "USDG",
+      "CLAN"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 21150.7276
+  },
+  {
+    "address": "0x002223e1140baf5579955c66a91a32283d896d4af8cde9e97528abcb0ddb8fea",
+    "label": "USDG / CLAN 3.325% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xcebc0cfbc5dd0893a9e3b9d0f75b211ddf5934a0",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "CLAN",
+    "symbol": "USDG/CLAN",
+    "symbols": [
+      "USDG",
+      "CLAN"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 33250,
+    "tick_spacing": 100,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 23352.316
+  },
+  {
+    "address": "0xd3d4ae00a7a06c2266dbfddedd3fb9e0a579c8b5373b79071943c3bf6b5a966f",
+    "label": "ETH / CLAN 0.9% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xcebc0cfbc5dd0893a9e3b9d0f75b211ddf5934a0",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "CLAN",
+    "symbol": "ETH/CLAN",
+    "symbols": [
+      "ETH",
+      "CLAN"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 21525.6299
+  },
+  {
+    "address": "0x3a800f99f379007be765fca6f019525aef1fe8d646a0598aa511d282602ada8b",
+    "label": "USDG / DEMOTHREE 4.3% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xcc3dc6fc9918b9846d1ad5aaea740f8bed9a1e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "DEMOTHREE",
+    "symbol": "USDG/DEMOTHREE",
+    "symbols": [
+      "USDG",
+      "DEMOTHREE"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 43000,
+    "tick_spacing": 430,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 96843.6413
+  },
+  {
+    "address": "0xdf88e741c95a548e31c975eedc2d332b1c15412dd25f27119c7f460b4b103220",
+    "label": "USDG / DEMOTHREE 8.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xcc3dc6fc9918b9846d1ad5aaea740f8bed9a1e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "DEMOTHREE",
+    "symbol": "USDG/DEMOTHREE",
+    "symbols": [
+      "USDG",
+      "DEMOTHREE"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 80000,
+    "tick_spacing": 234,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 46648.2627
+  },
+  {
+    "address": "0x959f21035e1736df3a978822253383be276bd77e26140501750e3b06947308f2",
+    "label": "USDG / DEMOTHREE 11.01% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xcc3dc6fc9918b9846d1ad5aaea740f8bed9a1e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "DEMOTHREE",
+    "symbol": "USDG/DEMOTHREE",
+    "symbols": [
+      "USDG",
+      "DEMOTHREE"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 110100,
+    "tick_spacing": 1101,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 98405.3991
+  },
+  {
+    "address": "0xbd8907ccc300c55e98a270a11b2abde3624f211f241c5715fc01e619484bc8aa",
+    "label": "ETH / DEMOTHREE 9.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xcc3dc6fc9918b9846d1ad5aaea740f8bed9a1e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "DEMOTHREE",
+    "symbol": "ETH/DEMOTHREE",
+    "symbols": [
+      "ETH",
+      "DEMOTHREE"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 90000,
+    "tick_spacing": 900,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 31527.5129
+  },
+  {
+    "address": "0x1365d52316207aa6460d64b321f2c86ebec0c0ff1cba3f0c4ac763310b5ee985",
+    "label": "USDG / wire 4.6% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x8ecea3d0e648db646d824aa51eedeb16ac3d6878",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "wire",
+    "symbol": "USDG/wire",
+    "symbols": [
+      "USDG",
+      "wire"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 46000,
+    "tick_spacing": 920,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 27135.6771
+  },
+  {
+    "address": "0x977a1ab226bba4bc21951a54e56addfad6f22968fd4a8ae2889ba26e6bfeaea2",
+    "label": "USDG / YOLO 2.555% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x62c71cd34a52c30d894419cbcc55db2afa8032ea",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "YOLO",
+    "symbol": "USDG/YOLO",
+    "symbols": [
+      "USDG",
+      "YOLO"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 25550,
+    "tick_spacing": 256,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 182202.6645
+  },
+  {
+    "address": "0x590f5cdcadc06b4942d7c40ac81d43e33d700832102bea9f15e5736235fe44a6",
+    "label": "ETH / YOLO 1.0032% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x62c71cd34a52c30d894419cbcc55db2afa8032ea",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "YOLO",
+    "symbol": "ETH/YOLO",
+    "symbols": [
+      "ETH",
+      "YOLO"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10032,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 25810.1453
+  },
+  {
+    "address": "0x4f251398988c2117d48d583c2e87a0fba428f1c01b64bda238fa515da3f69f23",
+    "label": "USDG / YOLO 1.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x62c71cd34a52c30d894419cbcc55db2afa8032ea",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "YOLO",
+    "symbol": "USDG/YOLO",
+    "symbols": [
+      "USDG",
+      "YOLO"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 30002.5267
+  },
+  {
+    "address": "0xfa305cb8e3f8a65c81dffb433f3e2fdc42b49a01d0781a56b728db81a2332c0b",
+    "label": "ETH / SCOPL 0.9% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xaa40e79e987517f7462bf79315b8a118799b04e3",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "SCOPL",
+    "symbol": "ETH/SCOPL",
+    "symbols": [
+      "ETH",
+      "SCOPL"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 33330.6482
+  },
+  {
+    "address": "0xd9a0bf75a5f17b83ef48627b61cd523b678bacdbdd6e6c585d74ffdf3e5895d7",
+    "label": "USDG / AU 3.3333% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xd4aae326ddd1a2537a92c00e6576e4605e5d1e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "AU",
+    "symbol": "USDG/AU",
+    "symbols": [
+      "USDG",
+      "AU"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 33333,
+    "tick_spacing": 333,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 220741.5827
+  },
+  {
+    "address": "0x5eda246e539d06375c8827c8e296fd01a09ebde2facd0817213a0cc90f3843a3",
+    "label": "USDG / AU 4.6666% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xd4aae326ddd1a2537a92c00e6576e4605e5d1e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "AU",
+    "symbol": "USDG/AU",
+    "symbols": [
+      "USDG",
+      "AU"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 46666,
+    "tick_spacing": 467,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 150452.3453
+  },
+  {
+    "address": "0xbebac86c8e5396a0990da587474c28f4c8def27dc5b5088d7e4a7e923608e9eb",
+    "label": "USDG / AU 15.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xd4aae326ddd1a2537a92c00e6576e4605e5d1e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "AU",
+    "symbol": "USDG/AU",
+    "symbols": [
+      "USDG",
+      "AU"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 150000,
+    "tick_spacing": 1500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 54392.0884
+  },
+  {
+    "address": "0xaa440abaa5d4517181a783a76ef2d4e1466e454422cbada099c107720b01d13f",
+    "label": "ETH / UNIFROG 0.25% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x8750da3e48345ec0c5aaaacfcda2a004da3b60c2",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "UNIFROG",
+    "symbol": "ETH/UNIFROG",
+    "symbols": [
+      "ETH",
+      "UNIFROG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 2500,
+    "tick_spacing": 60,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 53998.0169
+  },
+  {
+    "address": "0xfec7b1efe77aa60887986db5bcbfff39ca40b56d964bb8ce3d9dd0d9baaca4d4",
+    "label": "USDG / BONER 0.9% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x98096d17e191b3da1d5f99a6d7b3584351b11e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "BONER",
+    "symbol": "USDG/BONER",
+    "symbols": [
+      "USDG",
+      "BONER"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 830157.2807
+  },
+  {
+    "address": "0x3ad56d205f5c676445d6a449bb91217b9e2dacd168290173fd4451c2b2e401e3",
+    "label": "ETH / BONER 1.0004% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x98096d17e191b3da1d5f99a6d7b3584351b11e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "BONER",
+    "symbol": "ETH/BONER",
+    "symbols": [
+      "ETH",
+      "BONER"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10004,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 92582.2657
+  },
+  {
+    "address": "0xc4ca6dd96d40582a2da4bfcbcfaae3818a8522005dd32fb8584e33c5a344356c",
+    "label": "Viagra / BONER 1.0% (uniswap-v4)",
+    "token0": "0x48dd1b2058b0fdb1e21ce2f46c9d52079c6bf311",
+    "token1": "0x98096d17e191b3da1d5f99a6d7b3584351b11e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "Viagra",
+    "symbol1": "BONER",
+    "symbol": "Viagra/BONER",
+    "symbols": [
+      "Viagra",
+      "BONER"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 10,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 37803.3831
+  },
+  {
+    "address": "0xfa09c17e5864244b212b38c3ccd9f0f644b7e212d5ba0168c15eb585337db9ac",
+    "label": "ETH / BONER 1.0003% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x98096d17e191b3da1d5f99a6d7b3584351b11e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "BONER",
+    "symbol": "ETH/BONER",
+    "symbols": [
+      "ETH",
+      "BONER"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10003,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 57373.4909
+  },
+  {
+    "address": "0xe6e9a919cb07370f02690b40073dee88c2d6afc2d660faa9ab27ea30fac9b40a",
+    "label": "USDG / BONER 3.0333% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x98096d17e191b3da1d5f99a6d7b3584351b11e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "BONER",
+    "symbol": "USDG/BONER",
+    "symbols": [
+      "USDG",
+      "BONER"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 30333,
+    "tick_spacing": 303,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 80419.8977
+  },
+  {
+    "address": "0x9c0dc58351b32e8e6b220b70a18df39d2eda6092e5c8d700c3f1f2345501adc5",
+    "label": "BONER / SHROOM 0.9% (uniswap-v4)",
+    "token0": "0x98096d17e191b3da1d5f99a6d7b3584351b11e18",
+    "token1": "0xab093def657f15df31b33922a95e047add645b29",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "BONER",
+    "symbol1": "SHROOM",
+    "symbol": "BONER/SHROOM",
+    "symbols": [
+      "BONER",
+      "SHROOM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 46302.1361
+  },
+  {
+    "address": "0x25779a6de9bc9f244211c4eeabca191966d4a18e97bbe690a4af91a29e65ec86",
+    "label": "USDG / PAIR 3.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x6b1d42927b1a84ec28fa88d4fc6fa7af404966be",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "PAIR",
+    "symbol": "USDG/PAIR",
+    "symbols": [
+      "USDG",
+      "PAIR"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 30000,
+    "tick_spacing": 300,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 1190539.5537
+  },
+  {
+    "address": "0x97f48c8d9639b7940874b6c6a43b3d606d070a694920b545acff9c35926593a6",
+    "label": "USDG / PAIR 1.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x6b1d42927b1a84ec28fa88d4fc6fa7af404966be",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "PAIR",
+    "symbol": "USDG/PAIR",
+    "symbols": [
+      "USDG",
+      "PAIR"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 100,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 340804.727
+  },
+  {
+    "address": "0xb6574f5802889203ad2da2499e83cab5d16eb8584a49f1ce2fb8044a80eba40a",
+    "label": "USDG / PAIR 4.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x6b1d42927b1a84ec28fa88d4fc6fa7af404966be",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "PAIR",
+    "symbol": "USDG/PAIR",
+    "symbols": [
+      "USDG",
+      "PAIR"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 40000,
+    "tick_spacing": 400,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 448036.3607
+  },
+  {
+    "address": "0xf6b1947978e853e36bbc923de3f06b75213e080bf1280a69efb038dc79d846c6",
+    "label": "SPY / PAIR 3.0% (uniswap-v4)",
+    "token0": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+    "token1": "0x6b1d42927b1a84ec28fa88d4fc6fa7af404966be",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "SPY",
+    "symbol1": "PAIR",
+    "symbol": "SPY/PAIR",
+    "symbols": [
+      "SPY",
+      "PAIR"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 30000,
+    "tick_spacing": 300,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 85281.0021
+  },
+  {
+    "address": "0x2e6f35077e5dfd8ae0d014caffbfbf8d72332adce8ea0c6b7b74e19197493ecd",
+    "label": "USDG / BLINK 3.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x7b630f080807df83908b4ade46ba6396ee66b098",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "BLINK",
+    "symbol": "USDG/BLINK",
+    "symbols": [
+      "USDG",
+      "BLINK"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 30000,
+    "tick_spacing": 300,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 71616.1373
+  },
+  {
+    "address": "0xd98c53cc8c314066c56226f2e8dbf1c1ed05dedccb4241b7900b058c4f2e7a35",
+    "label": "USDG / BLINK 2.8% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x7b630f080807df83908b4ade46ba6396ee66b098",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "BLINK",
+    "symbol": "USDG/BLINK",
+    "symbols": [
+      "USDG",
+      "BLINK"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 28000,
+    "tick_spacing": 280,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 91072.7607
+  },
+  {
+    "address": "0xca24901b220e08fd08dc282495381ce2eb5eb49225e53a99d4d106bd1842e60f",
+    "label": "USDG / BLINK 5.8% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x7b630f080807df83908b4ade46ba6396ee66b098",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "BLINK",
+    "symbol": "USDG/BLINK",
+    "symbols": [
+      "USDG",
+      "BLINK"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 58000,
+    "tick_spacing": 580,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 97697.5042
+  },
+  {
+    "address": "0x4c49c29dae2723926c7f5ce0e0d3b0f066c9b8c05d33963e5642f7bd8b1ff9c6",
+    "label": "ETH / SZR 4.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xbed7c1660a01dbeee225bd893ac31727a91a5773",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "SZR",
+    "symbol": "ETH/SZR",
+    "symbols": [
+      "ETH",
+      "SZR"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 40000,
+    "tick_spacing": 400,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 28130.7765
+  },
+  {
+    "address": "0x862c5d0d851c11602746c64ef9232a79c711622771ff48dacd2234e38255c0d3",
+    "label": "USDG / PONSBOT 4.9999% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xb1e9b822b81bbbdab375f7f4d86e44fa04d12b07",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "PONSBOT",
+    "symbol": "USDG/PONSBOT",
+    "symbols": [
+      "USDG",
+      "PONSBOT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 49999,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 34912.0465
+  },
+  {
+    "address": "0x9d30491d9a8baeb587b847ea20aa4013e8664d21e30c5bbd624b6c10d44daf32",
+    "label": "HOOKR / USDG 5.5% (uniswap-v4)",
+    "token0": "0x18e674231a58c239dc7daedcffe15ec3a24cff5c",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "HOOKR",
+    "symbol1": "USDG",
+    "symbol": "HOOKR/USDG",
+    "symbols": [
+      "HOOKR",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 55000,
+    "tick_spacing": 550,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 643379.354
+  },
+  {
+    "address": "0xe9e93bd1fa0f05fcce035e0f4b456f7f8079e8da9a3dceefb0cc89607dfdaa6a",
+    "label": "HOOKR / USDG 3.04% (uniswap-v4)",
+    "token0": "0x18e674231a58c239dc7daedcffe15ec3a24cff5c",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "HOOKR",
+    "symbol1": "USDG",
+    "symbol": "HOOKR/USDG",
+    "symbols": [
+      "HOOKR",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 30400,
+    "tick_spacing": 100,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 161143.0677
+  },
+  {
+    "address": "0x1eeb0d83ac3f1e4300065e0f59654cc30332e8956d63b0358d99172bad2eb703",
+    "label": "USDG / DTF 4.5464% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xee5576fa1bcaa380e591d01245f406f3f384eb01",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "DTF",
+    "symbol": "USDG/DTF",
+    "symbols": [
+      "USDG",
+      "DTF"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 45464,
+    "tick_spacing": 909,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 211278.4415
+  },
+  {
+    "address": "0x8787957a1c3559270fa429730c68610b6d783ad95a51c17533080ea43c866b14",
+    "label": "USDG / DTF 0.9% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xee5576fa1bcaa380e591d01245f406f3f384eb01",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "DTF",
+    "symbol": "USDG/DTF",
+    "symbols": [
+      "USDG",
+      "DTF"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 32787.7838
+  },
+  {
+    "address": "0xdd69407719023147a262a34ed84e34bc1c563640b1a22207eb24926049dace7d",
+    "label": "USDG / DTF 10.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xee5576fa1bcaa380e591d01245f406f3f384eb01",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "DTF",
+    "symbol": "USDG/DTF",
+    "symbols": [
+      "USDG",
+      "DTF"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 100000,
+    "tick_spacing": 1000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 44408.9748
+  },
+  {
+    "address": "0xa659efd0442e9bb12f94193422d29bce5799225fca316ea8dd59f98afaaa90e1",
+    "label": "FATCOIN / USDG 4.0122% (uniswap-v4)",
+    "token0": "0x12d5ee7917ca430073c3a638ee1e6f0648a98a01",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "FATCOIN",
+    "symbol1": "USDG",
+    "symbol": "FATCOIN/USDG",
+    "symbols": [
+      "FATCOIN",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 40122,
+    "tick_spacing": 401,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 4587823.6718
+  },
+  {
+    "address": "0x02cb4415278e0dde5fd5864045d439684a17cdc5e72e6366846118f533a8e923",
+    "label": "FATCOIN / USDG 3.0111% (uniswap-v4)",
+    "token0": "0x12d5ee7917ca430073c3a638ee1e6f0648a98a01",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "FATCOIN",
+    "symbol1": "USDG",
+    "symbol": "FATCOIN/USDG",
+    "symbols": [
+      "FATCOIN",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 30111,
+    "tick_spacing": 301,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 442729.5569
+  },
+  {
+    "address": "0x70b5b746dc36c648893dafdf4b98d708a07673dfc1b3a0bb9dd70e36c0569f68",
+    "label": "ETH / FATCOIN 0.9% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x12d5ee7917ca430073c3a638ee1e6f0648a98a01",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "FATCOIN",
+    "symbol": "ETH/FATCOIN",
+    "symbols": [
+      "ETH",
+      "FATCOIN"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 211231.109
+  },
+  {
+    "address": "0xd85f836e55ae614b814d8c0d823058378b73da820e089a974f1fbe2b1c8ca555",
+    "label": "ETH / FATCOIN 1.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x12d5ee7917ca430073c3a638ee1e6f0648a98a01",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "FATCOIN",
+    "symbol": "ETH/FATCOIN",
+    "symbols": [
+      "ETH",
+      "FATCOIN"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 100,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 94082.4354
+  },
+  {
+    "address": "0xc73b839b60693bfdad8db6db3f758ed036ad4786a44806d995a5fa606fa148c1",
+    "label": "FATCOIN / USDG 3.87% (uniswap-v4)",
+    "token0": "0x12d5ee7917ca430073c3a638ee1e6f0648a98a01",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "FATCOIN",
+    "symbol1": "USDG",
+    "symbol": "FATCOIN/USDG",
+    "symbols": [
+      "FATCOIN",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 38700,
+    "tick_spacing": 387,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 208621.9206
+  },
+  {
+    "address": "0x15bd7f5478727b6f3a1b66efed0c65eecad44c239d6f665792469db2a2eb6450",
+    "label": "FATCOIN / OZEMPIC 1.0% (uniswap-v4)",
+    "token0": "0x12d5ee7917ca430073c3a638ee1e6f0648a98a01",
+    "token1": "0xc3f073c141a21c668abebbcf495c0a2f2ba0fc8e",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "FATCOIN",
+    "symbol1": "OZEMPIC",
+    "symbol": "FATCOIN/OZEMPIC",
+    "symbols": [
+      "FATCOIN",
+      "OZEMPIC"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 10,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 22611.7757
+  },
+  {
+    "address": "0xf3ec15170cd3504095c43d36ba7f495bddd92083f7e2ee87d68cb4cf0f3d6caf",
+    "label": "FATCOIN / USDG 5.0% (uniswap-v4)",
+    "token0": "0x12d5ee7917ca430073c3a638ee1e6f0648a98a01",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "FATCOIN",
+    "symbol1": "USDG",
+    "symbol": "FATCOIN/USDG",
+    "symbols": [
+      "FATCOIN",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 803308.7054
+  },
+  {
+    "address": "0x30de1b526dfb08eadf709f63ff2244afeda5d7741b83853ec7bb1606890b823d",
+    "label": "FATCOIN / USDG 6.0% (uniswap-v4)",
+    "token0": "0x12d5ee7917ca430073c3a638ee1e6f0648a98a01",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "FATCOIN",
+    "symbol1": "USDG",
+    "symbol": "FATCOIN/USDG",
+    "symbols": [
+      "FATCOIN",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 60000,
+    "tick_spacing": 600,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 121852.3578
+  },
+  {
+    "address": "0x45f98e95721bb201566698191301940ed670f70d50e625ec37e7b67d73fc6189",
+    "label": "ETH / FATCOIN 4.9% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x12d5ee7917ca430073c3a638ee1e6f0648a98a01",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "FATCOIN",
+    "symbol": "ETH/FATCOIN",
+    "symbols": [
+      "ETH",
+      "FATCOIN"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 49000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 911448.6357
+  },
+  {
+    "address": "0x88fbd9768ccf1bf77d6946afa1b2f3ce79e02a4566ca8a3d5ba78ab04e8ef27f",
+    "label": "ETH / POOLS 0.25% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x385b36ff682ab4c76e7c37a66b96aabc466471d5",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "POOLS",
+    "symbol": "ETH/POOLS",
+    "symbols": [
+      "ETH",
+      "POOLS"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 2500,
+    "tick_spacing": 60,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 369789.2738
+  },
+  {
+    "address": "0x65371a062c55cae1d22a165e5a949288a6124e92b80db7aa7470d1df5d566e08",
+    "label": "POOLS / USDG 4.0% (uniswap-v4)",
+    "token0": "0x385b36ff682ab4c76e7c37a66b96aabc466471d5",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "POOLS",
+    "symbol1": "USDG",
+    "symbol": "POOLS/USDG",
+    "symbols": [
+      "POOLS",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 40000,
+    "tick_spacing": 400,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 75441.3883
+  },
+  {
+    "address": "0xaceb741859f4c47d339f339550effdcd0ca685e7f364c382b6ba18d051bd3632",
+    "label": "USDG / BISCOTTI 2.2% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x7cd7073a71eaf5f6e4febfa98460ee66cd97deb1",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "BISCOTTI",
+    "symbol": "USDG/BISCOTTI",
+    "symbols": [
+      "USDG",
+      "BISCOTTI"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 22000,
+    "tick_spacing": 440,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 79700.7443
+  },
+  {
+    "address": "0x0aa0a74e4e1af3a4e57b6c6908fec79dd8caa4c1bef7ab75b1182452f5486d74",
+    "label": "ETH / HMM 1.003% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x7fe995a80075df3dc8ae11a9b82c7fe4202cd87f",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "HMM",
+    "symbol": "ETH/HMM",
+    "symbols": [
+      "ETH",
+      "HMM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10030,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 100689.4113
+  },
+  {
+    "address": "0xbe59bf5d48335718349b76aaba718fd677ce10a7c2ecec2f2b96bc8b6ed81e53",
+    "label": "USDG / HMM 3.4267% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x7fe995a80075df3dc8ae11a9b82c7fe4202cd87f",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "HMM",
+    "symbol": "USDG/HMM",
+    "symbols": [
+      "USDG",
+      "HMM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 34267,
+    "tick_spacing": 666,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 123098.7035
+  },
+  {
+    "address": "0x48e59b6e75199928eb3c5e4516134375e02a44190edfc1dc14dfb958f45c6e6c",
+    "label": "PONS / HMM 0.9% (uniswap-v4)",
+    "token0": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+    "token1": "0x7fe995a80075df3dc8ae11a9b82c7fe4202cd87f",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PONS",
+    "symbol1": "HMM",
+    "symbol": "PONS/HMM",
+    "symbols": [
+      "PONS",
+      "HMM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 63558.8925
+  },
+  {
+    "address": "0xbd7365563cf1aff595b785bed911680cd5aac946644a88ebbdb14877f00f8f62",
+    "label": "ETH / HMM 4.5% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x7fe995a80075df3dc8ae11a9b82c7fe4202cd87f",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "HMM",
+    "symbol": "ETH/HMM",
+    "symbols": [
+      "ETH",
+      "HMM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 45000,
+    "tick_spacing": 900,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 254872.7117
+  },
+  {
+    "address": "0x9fb480b4a57ed5198862d12d7a9a80d5d8bcceaceca3325e5e17b195c13a72a8",
+    "label": "USDG / HMM 3.33% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x7fe995a80075df3dc8ae11a9b82c7fe4202cd87f",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "HMM",
+    "symbol": "USDG/HMM",
+    "symbols": [
+      "USDG",
+      "HMM"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 33300,
+    "tick_spacing": 666,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 252907.6944
+  },
+  {
+    "address": "0x6e86de9bc15593da7b4c01964612225a72068f9e39cb2abd5d659df1ef16599b",
+    "label": "USDG / QC 5.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xa802332f6c9daf2146a61c51876d180b1a4a9901",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "QC",
+    "symbol": "USDG/QC",
+    "symbols": [
+      "USDG",
+      "QC"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 23488.4445
+  },
+  {
+    "address": "0xc0e8fcdebc55f4135b4ae5f277c4ea6a9c34f186ad6a211c5599aa933b4e6ce8",
+    "label": "ETH / WOJAK 2.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xace55fe98bab14366dd49ab5aa5df76aa11a3c6f",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "WOJAK",
+    "symbol": "ETH/WOJAK",
+    "symbols": [
+      "ETH",
+      "WOJAK"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 20000,
+    "tick_spacing": 400,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 45025.1172
+  },
+  {
+    "address": "0x9581326c2e25a34f51a1a72005db125a2de04a39aed50c6b78241d77e16ae937",
+    "label": "HUD / pHOOD3x 0.3% (uniswap-v4)",
+    "token0": "0x5756bb35d240ead6c5a58c45bc17463ef4fbf778",
+    "token1": "0xe24cabdf76dd1c2576049167eb1755c84b985c36",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "HUD",
+    "symbol1": "pHOOD3x",
+    "symbol": "HUD/pHOOD3x",
+    "symbols": [
+      "HUD",
+      "pHOOD3x"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 26706.472
+  },
+  {
+    "address": "0x8c2619ffd578a8b78db3fcd6e3d7370296be705e4334c07fd56014e46f6ece89",
+    "label": "USDG / SPACEHOOD 4.92% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xfe7e19cbce2f896c6c528bc355baf5a768291e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "SPACEHOOD",
+    "symbol": "USDG/SPACEHOOD",
+    "symbols": [
+      "USDG",
+      "SPACEHOOD"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 49200,
+    "tick_spacing": 984,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 221862.6729
+  },
+  {
+    "address": "0xf3cb19b3acde01ce49c240493af6344ffd8b73bd09431a46b3d36da979188ce0",
+    "label": "ETH / SPACEHOOD 1.0005% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xfe7e19cbce2f896c6c528bc355baf5a768291e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "SPACEHOOD",
+    "symbol": "ETH/SPACEHOOD",
+    "symbols": [
+      "ETH",
+      "SPACEHOOD"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10005,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 29785.7341
+  },
+  {
+    "address": "0x63e8192b4da8573a7d2f90dd46ca25260a210ddc54b960cea652bef1c5efabfa",
+    "label": "ETH / SPACEHOOD 1.0003% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xfe7e19cbce2f896c6c528bc355baf5a768291e18",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "SPACEHOOD",
+    "symbol": "ETH/SPACEHOOD",
+    "symbols": [
+      "ETH",
+      "SPACEHOOD"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10003,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 20248.072
+  },
+  {
+    "address": "0x3f3aa01dc9ec41141eefba396053a003b7362417cd6419c838cd0eccfa35336f",
+    "label": "USDG / SPACEHOOD 5.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xfe7e19cbce2f896c6c528bc355baf5a768291e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "SPACEHOOD",
+    "symbol": "USDG/SPACEHOOD",
+    "symbols": [
+      "USDG",
+      "SPACEHOOD"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 1000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 58314.1944
+  },
+  {
+    "address": "0x20d317b609c9a9af863d0dd6cd95953f8c209f775cd148171e9566b86cc6bc7f",
+    "label": "USDG / FRONG 2.1% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x6245e67affa44a23077f0ea7f981a8dc743a0c47",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "FRONG",
+    "symbol": "USDG/FRONG",
+    "symbols": [
+      "USDG",
+      "FRONG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 21000,
+    "tick_spacing": 210,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 230601.1276
+  },
+  {
+    "address": "0x28880151b0d7ac46fdef2983d719582965819fa7374eac8ae256880d7c8f2839",
+    "label": "DATFRONG / FRONG 1.0% (uniswap-v4)",
+    "token0": "0x352a746f58fd970358593b8f60d1283a46f90528",
+    "token1": "0x6245e67affa44a23077f0ea7f981a8dc743a0c47",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "DATFRONG",
+    "symbol1": "FRONG",
+    "symbol": "DATFRONG/FRONG",
+    "symbols": [
+      "DATFRONG",
+      "FRONG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 130828.8873
+  },
+  {
+    "address": "0x33a282d29be9edc51ae99c1ecba70ed3056fbf457a75701f23f7dd32d2e79960",
+    "label": "USDG / VOXEL 2.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xa01bc586cd5f4f253bfab4e44400c52dbc18bc50",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "VOXEL",
+    "symbol": "USDG/VOXEL",
+    "symbols": [
+      "USDG",
+      "VOXEL"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 20000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 80063.584
+  },
+  {
+    "address": "0xfa01b561a9b50da25eaffe18772f4af12fed0cfa576286e6c57e86f7e73d8d0d",
+    "label": "USDG / VOXEL 5.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xa01bc586cd5f4f253bfab4e44400c52dbc18bc50",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "VOXEL",
+    "symbol": "USDG/VOXEL",
+    "symbols": [
+      "USDG",
+      "VOXEL"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 46736.7506
+  },
+  {
+    "address": "0x8bbaaa6fff1a0f8a375e9a5eaf78010a71ad5d9d380aaa22fa9ae9a6b516c40d",
+    "label": "USDG / SLINK 5.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xfa89ed9d12bf74add8253ddfaa426c4d8a0fa603",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "SLINK",
+    "symbol": "USDG/SLINK",
+    "symbols": [
+      "USDG",
+      "SLINK"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 1000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 373259.6436
+  },
+  {
+    "address": "0x927fe32bbd662c182c14dda94118a64aad81b7847007c55f7d64084a81c0b644",
+    "label": "ETH / SLINK 5.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xfa89ed9d12bf74add8253ddfaa426c4d8a0fa603",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "SLINK",
+    "symbol": "ETH/SLINK",
+    "symbols": [
+      "ETH",
+      "SLINK"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 244334.2032
+  },
+  {
+    "address": "0x3f2c7752f003eb5740eba0db2e17defda64342c76cd248a7f7e5fd64b7df4dbc",
+    "label": "USDG / SLINK 3.981% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xfa89ed9d12bf74add8253ddfaa426c4d8a0fa603",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "SLINK",
+    "symbol": "USDG/SLINK",
+    "symbols": [
+      "USDG",
+      "SLINK"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 39810,
+    "tick_spacing": 796,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 121073.117
+  },
+  {
+    "address": "0xbd40c8921ac0b08d731eb31c04c7e69d372f28c22695281b19e2258dcd05a248",
+    "label": "USDG / SLINK 10.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xfa89ed9d12bf74add8253ddfaa426c4d8a0fa603",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "SLINK",
+    "symbol": "USDG/SLINK",
+    "symbols": [
+      "USDG",
+      "SLINK"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 100000,
+    "tick_spacing": 1000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 46559.6616
+  },
+  {
+    "address": "0xaea1c7ceb6687d4d5ed8ed364a7de97947a8abf326f0aba0984d76797316c5f1",
+    "label": "ETH / HOODRAT 1.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x8e62f281f282686fca6dcb39288069a93fc23f1c",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "HOODRAT",
+    "symbol": "ETH/HOODRAT",
+    "symbols": [
+      "ETH",
+      "HOODRAT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 52541.7475
+  },
+  {
+    "address": "0x6edabde31bed02bfd31a1e2b2babca2c9f8b1fcf189a0dd6ddf09e028c97f03b",
+    "label": "USDG / HOODRAT 3.64% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0x8e62f281f282686fca6dcb39288069a93fc23f1c",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "HOODRAT",
+    "symbol": "USDG/HOODRAT",
+    "symbols": [
+      "USDG",
+      "HOODRAT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 36400,
+    "tick_spacing": 728,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 40543.848
+  },
+  {
+    "address": "0x9838ae2dad525d037b57b33725346d94bd5203a6eab50ffa05dc11f509e349a3",
+    "label": "ETH / TBILL 5.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x00f0b7b5111ee8fa10f803d5f489842066d46ed6",
+    "dec0": 18,
+    "dec1": 9,
+    "decimals": [
+      18,
+      9
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "TBILL",
+    "symbol": "ETH/TBILL",
+    "symbols": [
+      "ETH",
+      "TBILL"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 20301.8997
+  },
+  {
+    "address": "0x2b75b7f27eb2813df366c798e31dac982e6c651b57ff1af6bd360cb81e04efd0",
+    "label": "YARD / STONKBROKER 0.9% (uniswap-v4)",
+    "token0": "0xe3fa12da7fa026b21817f16622e8ae48fa785166",
+    "token1": "0xe934e36a439c94017b64a3fece66af12099abf50",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "YARD",
+    "symbol1": "STONKBROKER",
+    "symbol": "YARD/STONKBROKER",
+    "symbols": [
+      "YARD",
+      "STONKBROKER"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 42915.2923
+  },
+  {
+    "address": "0x45f5b7cdf6fbf73e44cef1cab878a5e604cb435f0f2c9eb4a665495fae38b9d0",
+    "label": "ETH / BULL 1.5% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x49bac47750f3dcdba49350b5d74fd399e90f97c6",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "BULL",
+    "symbol": "ETH/BULL",
+    "symbols": [
+      "ETH",
+      "BULL"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 15000,
+    "tick_spacing": 150,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 36555.0437
+  },
+  {
+    "address": "0xa0fd7e0c12294c9e10b5d806a1214145fe42982cdb973366a22b90621bd56207",
+    "label": "BULL / USDG 2.88% (uniswap-v4)",
+    "token0": "0x49bac47750f3dcdba49350b5d74fd399e90f97c6",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "BULL",
+    "symbol1": "USDG",
+    "symbol": "BULL/USDG",
+    "symbols": [
+      "BULL",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 28800,
+    "tick_spacing": 288,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 29217.5474
+  },
+  {
+    "address": "0x10ed9a764fdca9ec41c05364acb3676a8c756fe1082e41f64e836fef2e8beac7",
+    "label": "BULL / USDG 5.0% (uniswap-v4)",
+    "token0": "0x49bac47750f3dcdba49350b5d74fd399e90f97c6",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "BULL",
+    "symbol1": "USDG",
+    "symbol": "BULL/USDG",
+    "symbols": [
+      "BULL",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 1000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 24508.8988
+  },
+  {
+    "address": "0x0d662a58507a46cd6a22632228306dc0d9c26f5fce90c37ced3b8358db33deb3",
+    "label": "USDG / NET 0.9% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xca9c78dd337a67f6e0077f65f5e9218719d30edf",
+    "dec0": 6,
+    "dec1": 9,
+    "decimals": [
+      6,
+      9
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "NET",
+    "symbol": "USDG/NET",
+    "symbols": [
+      "USDG",
+      "NET"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 1286880.7975
+  },
+  {
+    "address": "0x04263541986025755033c507d2c02863354abe64236878f3455b7d72ad9cce27",
+    "label": "USDG / NET 1.5% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xca9c78dd337a67f6e0077f65f5e9218719d30edf",
+    "dec0": 6,
+    "dec1": 9,
+    "decimals": [
+      6,
+      9
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "NET",
+    "symbol": "USDG/NET",
+    "symbols": [
+      "USDG",
+      "NET"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 15000,
+    "tick_spacing": 150,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 564134.4516
+  },
+  {
+    "address": "0xd5866ecf2733446c41e31ea04b504b0f99b9a61463c53434336e3565857aa481",
+    "label": "ETH / NET 1.5% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0xca9c78dd337a67f6e0077f65f5e9218719d30edf",
+    "dec0": 18,
+    "dec1": 9,
+    "decimals": [
+      18,
+      9
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "NET",
+    "symbol": "ETH/NET",
+    "symbols": [
+      "ETH",
+      "NET"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 15000,
+    "tick_spacing": 150,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 354869.1252
+  },
+  {
+    "address": "0x68f861ec91b9e5e35c98777bc31a8a3161a5ce998c76b63211b688b810ec2c2e",
+    "label": "USDG / NET 4.01% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xca9c78dd337a67f6e0077f65f5e9218719d30edf",
+    "dec0": 6,
+    "dec1": 9,
+    "decimals": [
+      6,
+      9
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "NET",
+    "symbol": "USDG/NET",
+    "symbols": [
+      "USDG",
+      "NET"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 40100,
+    "tick_spacing": 100,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 164835.5909
+  },
+  {
+    "address": "0x4bc14d481a712bb89a1ed43580934304829bdc4e79336998f99a3a126746ccf9",
+    "label": "USDG / CACHE 10.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xafe41f4356c24f716111de1fbbc84e061d291e18",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "CACHE",
+    "symbol": "USDG/CACHE",
+    "symbols": [
+      "USDG",
+      "CACHE"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 100000,
+    "tick_spacing": 1000,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 47923.4948
+  },
+  {
+    "address": "0xa92a3df27a00a276183ff7265fd8affa11df1fe8bb23ddfaf13f6c879a3f818b",
+    "label": "CASHCAT / USDG 0.269% (uniswap-v4)",
+    "token0": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "CASHCAT",
+    "symbol1": "USDG",
+    "symbol": "CASHCAT/USDG",
+    "symbols": [
+      "CASHCAT",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 2690,
+    "tick_spacing": 54,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 4047608.7293
+  },
+  {
+    "address": "0xf7dc0af99fce7169eb76854c0b39beb9915526894d42229946e5cb469cab50b1",
+    "label": "ETH / CASHCAT 2.0% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "CASHCAT",
+    "symbol": "ETH/CASHCAT",
+    "symbols": [
+      "ETH",
+      "CASHCAT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 20000,
+    "tick_spacing": 400,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 1493173.8485
+  },
+  {
+    "address": "0x7bbdf0dfe88b325edf2059be7aa9411d42fb25c3dbbcfcd6800b549b63a3b112",
+    "label": "ETH / CASHCAT 0.069% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "CASHCAT",
+    "symbol": "ETH/CASHCAT",
+    "symbols": [
+      "ETH",
+      "CASHCAT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 690,
+    "tick_spacing": 7,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 27703.5227
+  },
+  {
+    "address": "0xdaf72ad25a49219177665853a41c10020d63252a3d5bf782cc61373fcc9b6557",
+    "label": "ETH / CASHCAT 1.0077% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "CASHCAT",
+    "symbol": "ETH/CASHCAT",
+    "symbols": [
+      "ETH",
+      "CASHCAT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10077,
+    "tick_spacing": 201,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 73940.1167
+  },
+  {
+    "address": "0x404c8eb258ece3c428a6ac879854488b103f4fd33058df3af17cd5d641fa3be1",
+    "label": "ETH / CASHCAT 0.2925% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "CASHCAT",
+    "symbol": "ETH/CASHCAT",
+    "symbols": [
+      "ETH",
+      "CASHCAT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 2925,
+    "tick_spacing": 29,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 342133.654
+  },
+  {
+    "address": "0x74739c7ee5dda3695d01575c32371eff16e7b831e37517d1a99b568749143e7a",
+    "label": "ETH / CASHCAT 0.3% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "CASHCAT",
+    "symbol": "ETH/CASHCAT",
+    "symbols": [
+      "ETH",
+      "CASHCAT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 3000,
+    "tick_spacing": 60,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 65650.6003
+  },
+  {
+    "address": "0xa0e3293bb948a13f5dad3f2a8aa40e9d839bcb9a84bfaf80b78f920221d7396b",
+    "label": "PACK / CASHCAT 1.0% (uniswap-v4)",
+    "token0": "0x0145acbccefbed6f303c420beeaaac72e905430b",
+    "token1": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "PACK",
+    "symbol1": "CASHCAT",
+    "symbol": "PACK/CASHCAT",
+    "symbols": [
+      "PACK",
+      "CASHCAT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10000,
+    "tick_spacing": 200,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 64445.9521
+  },
+  {
+    "address": "0xa2a8b872de9a817eb3ebee0706693143b687c25606a15ec12ec0b859f8b90036",
+    "label": "ETH / CASHCAT 1.0075% (uniswap-v4)",
+    "token0": "0x0000000000000000000000000000000000000000",
+    "token1": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "dec0": 18,
+    "dec1": 18,
+    "decimals": [
+      18,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "ETH",
+    "symbol1": "CASHCAT",
+    "symbol": "ETH/CASHCAT",
+    "symbols": [
+      "ETH",
+      "CASHCAT"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 10075,
+    "tick_spacing": 201,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 50805.2477
+  },
+  {
+    "address": "0x1ceb0611b95db35c2385f827681eeb250dcc4fd0f3070d264255bd5c1db029ab",
+    "label": "CASHCAT / USDG 5.1% (uniswap-v4)",
+    "token0": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+    "token1": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "dec0": 18,
+    "dec1": 6,
+    "decimals": [
+      18,
+      6
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "CASHCAT",
+    "symbol1": "USDG",
+    "symbol": "CASHCAT/USDG",
+    "symbols": [
+      "CASHCAT",
+      "USDG"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 51000,
+    "tick_spacing": 510,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 63516.355
+  },
+  {
+    "address": "0x0019150f6efdc622d69d1edc697dc79da477c232159e5b9e761aa1d08a1d4172",
+    "label": "USDG / NUDES 0.9% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xbe98b75361935b18d688409424a869a4c3dc7401",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "NUDES",
+    "symbol": "USDG/NUDES",
+    "symbols": [
+      "USDG",
+      "NUDES"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 9000,
+    "tick_spacing": 90,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 834138.5391
+  },
+  {
+    "address": "0xd5a33fb9a41b92e66ae26d2ae9a0c7809eb69638e16a18e42a388adfc3f81be6",
+    "label": "USDG / NUDES 5.0% (uniswap-v4)",
+    "token0": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+    "token1": "0xbe98b75361935b18d688409424a869a4c3dc7401",
+    "dec0": 6,
+    "dec1": 18,
+    "decimals": [
+      6,
+      18
+    ],
+    "dex": "uniswap-v4",
+    "symbol0": "USDG",
+    "symbol1": "NUDES",
+    "symbol": "USDG/NUDES",
+    "symbols": [
+      "USDG",
+      "NUDES"
+    ],
+    "updated_at": 1789108383.600436,
+    "fee_pips": 50000,
+    "tick_spacing": 500,
+    "hooks": "0x0000000000000000000000000000000000000000",
+    "tvl_usd": 1615115.3214
+  }
+]

@@ -1,4 +1,3 @@
-# ruff: noqa: E402
 """Boundary and contract tests for arbitrage domain types.
 
 Verifies:
@@ -14,20 +13,10 @@ Verifies:
 import ast
 import importlib
 import json
-import sys
 import threading
 from decimal import Decimal
 from pathlib import Path
 from typing import Any
-from unittest.mock import MagicMock
-
-# Defensive workspace resolution: ensures backtest dependency in parent repo does not block domain loading
-_repair_root = Path("/root/projects/crypto/dex-sniper-engine-repair")
-if _repair_root.exists() and str(_repair_root) not in sys.path:
-    sys.path.append(str(_repair_root))
-for mod_name in ("backtest", "backtest.data", "backtest.data.rpc_client"):
-    if mod_name not in sys.modules:
-        sys.modules[mod_name] = MagicMock()
 
 import pytest
 
@@ -684,7 +673,31 @@ class TestJsonDictRoundtripPrecision:
 class TestDomainModulePurity:
     """Verify zero external dependency, circular import immunity, and zero side effects."""
 
-    def test_pure_standard_library_ast_audit(self):
+    @staticmethod
+    def _is_module_path_allowed(module_path: str) -> bool:
+        """Check if an imported module or submodule path is strictly permitted."""
+        allowed_exact = {"collections.abc"}
+        allowed_top_level = {"dataclasses", "decimal", "enum", "typing", "types"}
+        if module_path in allowed_exact:
+            return True
+        top = module_path.split(".")[0]
+        if top in allowed_top_level:
+            return True
+        return False
+
+    @classmethod
+    def _extract_imported_modules(cls, tree: ast.AST) -> set[str]:
+        imported_modules: set[str] = set()
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                for alias in node.names:
+                    imported_modules.add(alias.name)
+            elif isinstance(node, ast.ImportFrom):
+                if node.module:
+                    imported_modules.add(node.module)
+        return imported_modules
+
+    def test_pure_standard_library_ast_audit(self) -> None:
         """Perform strict AST audit to verify arbitrage/domain only imports standard library."""
         domain_types_path = (
             Path(__file__).resolve().parent.parent / "research" / "market_data" / "types.py"
@@ -693,21 +706,68 @@ class TestDomainModulePurity:
 
         tree = ast.parse(domain_types_path.read_text(encoding="utf-8"))
 
-        allowed_modules = {"dataclasses", "decimal", "enum", "typing"}
-        imported_modules: set[str] = set()
+        allowed_modules = {
+            "dataclasses",
+            "decimal",
+            "enum",
+            "typing",
+            "types",
+            "collections.abc",
+        }
+        imported_modules = self._extract_imported_modules(tree)
 
-        for node in ast.walk(tree):
-            if isinstance(node, ast.Import):
-                for alias in node.names:
-                    imported_modules.add(alias.name.split(".")[0])
-            elif isinstance(node, ast.ImportFrom):
-                if node.module:
-                    imported_modules.add(node.module.split(".")[0])
-
-        forbidden = imported_modules - allowed_modules
+        forbidden = {m for m in imported_modules if not self._is_module_path_allowed(m)}
         assert not forbidden, (
             f"research/market_data/types.py imports forbidden non-stdlib modules: {forbidden}"
         )
+
+    def test_pure_standard_library_ast_audit_negative_controls(self) -> None:
+        """Negative control: verify checking predicate rejects requests, socket, subprocess, and unpermitted collections paths."""
+        rejected_snippets = [
+            "import requests",
+            "import socket",
+            "import subprocess",
+            "import collections",
+            "from collections import defaultdict",
+            "from collections import deque",
+            "from collections import Counter",
+            "import collections.defaultdict",
+            "from collections.abc import Mapping\nimport requests",
+        ]
+        for snippet in rejected_snippets:
+            tree = ast.parse(snippet)
+            imported = self._extract_imported_modules(tree)
+            forbidden = {m for m in imported if not self._is_module_path_allowed(m)}
+            assert forbidden, (
+                f"Negative control failed: snippet '{snippet}' must be rejected by purity predicate"
+            )
+
+        disallowed_targets = [
+            "requests",
+            "socket",
+            "subprocess",
+            "collections",
+            "collections.defaultdict",
+            "collections.deque",
+            "collections.OrderedDict",
+        ]
+        for mod in disallowed_targets:
+            assert not self._is_module_path_allowed(mod), (
+                f"Purity predicate must reject forbidden module '{mod}'"
+            )
+
+        permitted_targets = [
+            "dataclasses",
+            "decimal",
+            "enum",
+            "typing",
+            "types",
+            "collections.abc",
+        ]
+        for mod in permitted_targets:
+            assert self._is_module_path_allowed(mod), (
+                f"Purity predicate must permit allowed module '{mod}'"
+            )
 
     def test_no_circular_imports_on_reload(self):
         """Verify module reloads cleanly without circular import deadlock."""

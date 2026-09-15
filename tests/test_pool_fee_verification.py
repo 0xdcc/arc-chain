@@ -172,13 +172,19 @@ class TestV3FeeOnChainVerification:
         self,
         caplog: pytest.LogCaptureFixture,
     ) -> None:
-        """验证任务书中实测已定位的真实池子 (giga-v3 100bps, up-v3 53bps)."""
+        """显式合成适配器的费率覆盖名称；不证明真实分叉的单位。"""
+        from research.market_data.fee_verification import read_raw_v3_pool_fee
+
         caplog.set_level(logging.WARNING)
-        # giga-v3 实测: 名称标 0.01% (1.0 bps), 业务测试目标链上真实 fee() = 100.0 bps (10000 ppm)
-        # [M4C FIXTURE AUDIT NOTE]:
-        # 原测试夹具中写 mock_rpc(v3_fee_return=100), 但 100 ppm 对应 1.0 bps, 与池名一致导致无法触发
-        # 任何 mismatch 且断言 scanned[0].fee_bps == 100.0 无法通过。
-        # 确认为编写测试时的单位混淆 Bug (ppm vs bps), 修正为 10000 ppm (100.0 bps) 以忠实还原 100 bps 业务校验目标。
+
+        def simulated_ppm_reader(addr: str, rpc: Any, *, dex: str) -> float:
+            # ppm 是本测试显式假设，不加入生产适配器白名单。
+            if dex != "giga-v3":
+                raise ValueError("Unexpected simulated adapter fixture")
+            raw = read_raw_v3_pool_fee(addr, rpc=rpc)
+            if raw is None:
+                raise ValueError("Missing simulated fee response")
+            return raw / 100.0
         giga_pool = {
             "dex": "giga-v3",
             "name": "WETH / USDG 0.01%",
@@ -186,7 +192,10 @@ class TestV3FeeOnChainVerification:
             "tvl": 200_000.0,
         }
         mock_rpc = _make_mock_rpc(v3_fee_return=10000)
-        scanned = scan_pools(min_tvl=50_000.0, raw_pools=[giga_pool], rpc=mock_rpc)
+        scanned = scan_pools(
+            min_tvl=50_000.0, raw_pools=[giga_pool], rpc=mock_rpc,
+            v3_reader=simulated_ppm_reader,
+        )
 
         assert len(scanned) == 1
         assert scanned[0].fee_bps == pytest.approx(100.0)

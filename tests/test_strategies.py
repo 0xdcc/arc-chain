@@ -16,7 +16,9 @@ from decimal import Decimal
 from pathlib import Path
 
 import pytest
-from arbitrage.domain.types import (
+
+from research.market_data.catalog import get_verified_token
+from research.market_data.types import (
     CandidateRoute,
     MarketSnapshot,
     PoolIdentity,
@@ -24,10 +26,9 @@ from arbitrage.domain.types import (
     RouteHop,
     TokenIdentity,
 )
-from arbitrage.market_data.catalog import get_verified_token
-from arbitrage.strategies import find_spread_candidates, find_triangular_candidates
-from arbitrage.strategies.spread import find_spread_candidates as find_spread_direct
-from arbitrage.strategies.triangular import find_triangular_candidates as find_tri_direct
+from research.strategies import find_spread_candidates, find_triangular_candidates
+from research.strategies.spread import find_spread_candidates as find_spread_direct
+from research.strategies.triangular import find_triangular_candidates as find_tri_direct
 
 _Q96 = Decimal(2**96)
 
@@ -874,7 +875,7 @@ class TestASTStaticAudit:
 
     def test_audit_strategies_files(self) -> None:
         """Inspect all Python files in arbitrage/strategies/."""
-        strategies_dir = Path("/tmp/modular-m6-workspace/arbitrage/strategies")
+        strategies_dir = Path(__file__).resolve().parent.parent / "research" / "strategies"
         py_files = list(strategies_dir.glob("*.py"))
         assert len(py_files) >= 3, f"Expected at least 3 files, found {py_files}"
 
